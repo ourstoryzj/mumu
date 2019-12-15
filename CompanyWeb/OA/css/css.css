@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{
+	background-color:#f6f6f6;
+	margin:0px;
+	font-size:12px;
+}
+img
+{
+	border:0px;
+}
+*{
+	padding:0px;
+	margin:0px;
+}
+/*登陆页面*/
+.login_body
+{
+	background-image:url(../images/bg.jpg);
+	background-repeat:repeat-x;
+
+}
+.login_bg
+{
+	background-image:url(../images/bg2.jpg);
+	background-position:center;
+	background-repeat:no-repeat;
+	height:468px;
+}
+.login_login
+{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-125px 0px 0px -175px;
+	background-image:url(../images/login_img.png);
+	height:250px;
+	width:350px;
+}
+
+
+/*其他页面*/
+.top_logo{width:431px;height:51px; margin-top:0px; margin-left:20px; float:left;}
+.top_use{float:right;width:250px; margin-right:10px; margin-top:20px;}
+.top_use img
+{
+	margin-left:20px;
+}
+.left_menu
+{
+	width:234px;
+	height:auto;
+	overflow-x:hidden;
+}
+.left_menu div
+{
+	cursor:pointer;
+}
+.left_menu ul
+{
+	list-style:none;
+	margin:0px;
+}
+.left_menu .menu_list li
+{
+	height:30px;
+	line-height:30px;
+	vertical-align:middle;
+	background-color:#abdeff;
+	border-bottom:1px solid #FFF;
+}
+.left_menu .menu_list li a
+{text-decoration:none;
+margin-left:70px;
+text-align:center;
+color:Blue;
+}

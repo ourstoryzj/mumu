@@ -1,0 +1,299 @@
+
+优化
+==========================================================
+商品
+goods
+
+gid
+gname
+gtitle
+gurl
+gimg
+gstate1  1未传图 2已传图 
+gstate2  1未上架 2已上架
+gstate3  1未优化标题 2已优化标题
+gdate1
+gdate2
+gdate3
+gremark
+gremark2
+kid
+/////////////添加字段2015年4月3日10:56:34
+gurl_yuan	网供商品URL
+g_price_yuan	进货价格
+g_standby1	是否是重点商品 2是 1不是(需要修改数据库)
+g_standby2	备用字段2
+g_standby3	备用字段3
+ 
+
+噪词库
+yh_zaoci
+
+zid
+zname
+zdate
+zstate
+gtid
+gtname
+
+
+商品类型(基础表，内容包括双肩包，单肩包，斜挎包等)
+yh_goodstype
+
+gtid
+gtanme
+gtstate
+gtdate
+
+
+核心关键词（不重叠）
+yh_corekeys
+
+ckid
+gtid
+ckname
+ckstate
+ckdate
+
+
+
+商品-核心关键词(多对多关联表)
+yh_goods_corekeys
+
+gcid
+gid		商品ID
+cid		关键词ID
+gcdate
+gcremark
+
+
+关键词
+yh_keys
+
+kid			关键词ID
+kname			关键词名称
+krenshu			搜索人数
+kcishu			搜索次数
+ksousuozhanbi		搜索占比
+kdianjizhishu		点击指数
+kscdianjizhanbi		点击占比
+kdianjilv		点击率
+kgoodsnum		商品数量
+kzhuanhualv		转化率
+kzhitongche		直通车出价
+kdgbbsscs		单个宝贝搜索次数（搜索次数/商品数量）
+kqgbbcjcs		千个宝贝成交次数（点击指数*转化率/当前宝贝数*1000）
+kdate
+kstate
+kremark
+kremark2
+////////////////////新添加字段2015年4月3日11:00:18
+ckid		核心关键词ID
+k_standby1	备用字段1
+k_standby2	备用字段2
+k_standby3	备用字段3
+
+
+
+商品-黄金关键词(多对多关联表)
+yh_goods_keys
+
+gkid
+gid		商品ID
+kid		关键词ID
+gkdate
+gkremark
+
+
+
+
+
+
+
+
+
+
+=================================================================================================================================
+2015年4月26日14:44:55  修改添加
+
+
+刷单账号-蘑菇街
+shuadan_account
+
+sdaid		编号
+sdaccount	账号
+sdapwd		密码
+sdastate	账号状态
+sdastate_phone	手机号状态(是否使用过) 1使用 0未使用(默认)
+sdadate		录入时间
+sdastandby	备用字段
+
+
+省市县
+city
+
+cid			编号
+cparentid	父级ID(省级直辖市为0)
+cname		省市县名称
+cremark		备注
+cstate		状态 1为启用 0为禁用
+
+
+
+================================================
+地址数据库(因为数据库太大,单独存储一个数据库)
+address
+
+aid			编号
+aPostNumber	邮政编码
+aProvince	省
+aCity		市
+aDistrict	区/县
+aAddress	街道地址
+astate		状态 1为未使用   2已使用
+aremark		备注,预留字段
+================================================
+
+姓名
+shuadan_names
+
+nid			编号
+nname		姓名
+ncount		使用次数
+
+
+
+
+
+
+sdid			编号
+dpidfrom		预留字段
+dpidto			预留字段
+sdordercode		订单编号
+sdkdcode		快递单号
+sdaddress		街道地址
+sdsendstate		发货状态
+sdpingjiastate	评价状态
+sddate			录入时间
+sdsenddate		发货时间
+sdpingjiadate	评价时间
+sdstate			状态	
+sdaid			账号编号
+sdaccount		账号
+sdapwd			密码
+sdremark		备注
+sdstandby		备用字段	
+sdinfofrom		刷单信息来源,1生成,2淘宝,3蘑菇街,	
+sdname			用户姓名
+sdphone			手机号码
+sdpostname		邮编
+sdprovince		省
+scity			市
+sdistrict		区/县
+****************************************
+2015年4月28日16:49:24添加
+gid			商品ID
+gname			商品名称
+sdkdname		快递名称
+sdnumber		刷单批号,动态生成,以确定同一批刷单
+sdstandby1		备用字段
+sdstandby2		备用字段
+sdstandby3		备用字段
+
+
+
+==========================================================================================================================================
+2015年5月2日11:51:01添加
+
+
+刷单记录表(记录所有生成文本)
+shuadan_record
+
+srid			编号
+srname			文件名称
+srpath			文件路径
+srdate			文件日期
+srcount			下载次数
+srstate			状态1:正常 2:失效
+srtype			类型:1账号,2导入地址,3生成地址,4评价,5转换成空包网格式
+srnum			文件包含数据数量
+srremark		备注
+
+
+
+刷单评价表
+shuadan_pingjia
+
+spid			编号
+spname			评价内容
+spdate			时间
+spstate			评语类型:1正常2禁用
+spremark		备注
+spstandby1		备用字段
+sptype			评语类型:1质量评语2快递评语3喜欢评语4价格评语5其他语句6结束评语
+
+
+
+===========================================================================================================================
+
+2015年5月4日
+
+页面类型
+pages_type
+
+ptid			编号
+ptname			类型名称
+ptsort			排序
+ptstate			状态 1启用2禁用
+ptremark		备注
+ptdate			录入时间
+
+
+单页表
+
+pages
+
+pid			页面编号
+ptid			页面类型编号
+pname			页面标题
+pcontext		页面内容
+psort			页面排序
+pdate			更新时间
+pstate			状态 1:启用2禁用
+
+
+
+
+
+==================================================================
+2015年6月30日17添加
+return_goods
+
+rgid			退货编号
+cid			快递编号
+cname			快递名称
+rgcode			快递单号
+rgdate			登记时间
+rgremark		备注
+
+
+
+
+快递表
+Courier
+
+cid			快递编号
+cname			快递公司名称
+csort			快递排序
+cremark			备注
+
+
+
+
+
+
+
+
+
+
+

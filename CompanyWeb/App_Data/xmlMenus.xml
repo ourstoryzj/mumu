@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menus>
+  <Menu ParentID="0">
+    <id>1</id>
+    <title>用户管理</title>
+    <url></url>
+  </Menu>
+  <Menu ParentID="1">
+    <id>2</id>
+    <title>用户列表</title>
+    <url>admin/users.aspx</url>
+  </Menu>
+  <Menu ParentID="1">
+    <id>3</id>
+    <title>角色列表</title>
+    <url>admin/roles.aspx</url>
+  </Menu>
+  <Menu ParentID="0">
+    <id>4</id>
+    <title>文章管理</title>
+    <url>admin/articles.aspx</url>
+  </Menu>
+  <Menu ParentID="4">
+    <id>4</id>
+    <title>文章分类</title>
+    <url>admin/articles.aspx</url>
+  </Menu>
+</Menus>

@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="left_menu">
+        <ul>
+            <li>
+                <div>
+                    <a href="index.aspx" target="mainFrame">
+                        <img src="images/left_meanu_shouye.jpg" /></a>
+                        <!--首页-->
+                </div>
+                <ul class="menu_list">
+                </ul>
+            </li>
+            <li>
+                <div>
+                    <img src="images/left_meanu_budanhehuodong.jpg" />
+                </div>
+                <ul class="menu_list">
+                   <!-- <li><a href="index.aspx" target="mainFrame">>> 首页</a> </li>-->
+                    <li><a href="basic_order_record_list.aspx" target="mainFrame">>> 补单列表</a> </li>
+                    <li><a href="basic_goods_list.aspx" target="mainFrame">>> 商品列表</a> </li>
+                    <li><a href="basic_goods_add.aspx" target="mainFrame">>> 添加商品</a> </li>
+                    <li><a href="sd_pingjia_list.aspx" target="mainFrame">>> 评语列表</a> </li>
+                    <li><a href="sd_pingjia_add.aspx" target="mainFrame">>> 添加评语</a> </li>
+                    <li><a href="basic_order_plan_list.aspx" target="mainFrame">>> 补单方案列表</a> </li>
+                    <li><a href="basic_order_plan_add.aspx" target="mainFrame">>> 添加补单方案</a> </li>
+                    <li><a href="basic_huodong_list.aspx" target="mainFrame">>> 活动方案列表</a> </li>
+                    <li><a href="basic_huodong_add.aspx" target="mainFrame">>> 添加活动方案</a> </li>
+                    <li><a href="sd_pingjia_list.aspx" target="mainFrame">>> 评语列表</a> </li>
+                    <li><a href="sd_pingjia_add.aspx" target="mainFrame">>> 添加评语</a> </li>
+                </ul>
+            </li>
+            <li>
+                <div>
+                    <img src="images/left_menu_shouhou.jpg" />
+                </div>
+                <ul class="menu_list close">
+                    <li><a href="sh_problem_list.aspx?state=1" target="mainFrame">>> 待处理售后</a> </li>
+                    <li><a href="sh_problem_list.aspx" target="mainFrame">>> 全部售后列表</a> </li>
+                    <li><a href="sh_problem_add.aspx" target="mainFrame">>> 添加售后</a> </li>
+                    <li><a href="basic_task_list.aspx" target="mainFrame">>> 任务列表</a> </li>
+                    <li><a href="basic_task_add.aspx" target="mainFrame">>> 添加任务</a> </li>
+                    <li><a href="return_goods_list.aspx" target="mainFrame">>> 退货列表</a> </li>
+                    <li><a href="return_goods_add.aspx" target="mainFrame">>> 添加退货</a> </li>
+                </ul>
+            </li>
+            <li>
+                <div>
+                    <img src="images/left_menu_fanxian.jpg" />
+                </div>
+                <ul class="menu_list close">
+                    <li><a href="fanxian_list.aspx?state=1" target="mainFrame">>> 待处理返现</a> </li>
+                    <li><a href="fanxian_list.aspx" target="mainFrame">>> 全部返现列表</a> </li>
+                    <li><a href="fanxian_add.aspx" target="mainFrame">>> 添加返现</a> </li>
+                    <li><a href="fanxian_add_batch.aspx" target="mainFrame">>> 批量添加返现</a> </li>
+                </ul>
+            </li>
+            <li>
+                <div id="div_menu1">
+                    <img src="images/left_menu_goodsyouhua.jpg" />
+                </div>
+                <ul id="ul_menu1" class="menu_list close">
+                    <!--<li><a href="goods_list.aspx?state_up=1" target="mainFrame">>> 待上架商品</a> </li>
+                    <li><a href="goods_list.aspx?state_img=1" target="mainFrame">>> 待上图商品</a> </li>
+                    <li><a href="goods_list.aspx?state_title=1" target="mainFrame">>> 待优化商品</a> </li>-->
+                    <li><a href="goods_add.aspx" target="mainFrame">>> 添加商品</a> </li>
+                    <li><a href="goods_list.aspx" target="mainFrame">>> 商品列表</a> </li>
+                    <li><a href="yh_corekeys_list.aspx" target="mainFrame">>> 核心关键词列表</a> </li>
+                    <li><a href="yh_corekeys_add.aspx" target="mainFrame">>> 添加核心关键词</a> </li>
+                    <li><a href="yh_keys_add.aspx" target="mainFrame">>> 添加关键词</a> </li>
+                </ul>
+            </li>
+            <li>
+                <div id="div_menu2">
+                    <img src="images/left_menu_basis.jpg" />
+                </div>
+                <ul id="ul_menu2" class="menu_list close">
+                    <li><a href="goodstype.aspx" target="mainFrame">>> 商品类型管理</a> </li>
+                    <li><a href="dianpu_list.aspx" target="mainFrame">>> 店铺列表</a> </li>
+                    <li><a href="dianpu_add.aspx" target="mainFrame">>> 添加店铺</a> </li>
+                    <li><a href="yh_zaoci_list.aspx" target="mainFrame">>> 噪词列表</a> </li>
+                    <li><a href="yh_zaoci_add.aspx" target="mainFrame">>> 添加噪词</a> </li>
+                    <li><a href="courier_list.aspx" target="mainFrame">>> 快递列表</a> </li>
+                    <li><a href="courier_add.aspx" target="mainFrame">>> 添加快递</a> </li>
+                    <li><a href="admin_list.aspx" target="mainFrame">>> 账号列表</a> </li>
+                    <li><a href="admin_add.aspx" target="mainFrame">>> 添加账号</a> </li>
+                </ul>
+            </li>
+            <li>
+                <div id="div_menu3">
+                    <img src="images/left_menu_budan.jpg" />
+                </div>
+                <ul class="menu_list close">
+                    <li><a href="sd_add_import.aspx" target="mainFrame">>> 淘宝==>蘑菇街</a> </li>
+                    <li><a href="sd_add_dynamic.aspx" target="mainFrame">>> 系统==>蘑菇街</a> </li>
+                    <li><a href="sd_add_convert.aspx" target="mainFrame">>> 蘑菇街==>空包网</a> </li>
+                    <li><a href="sd_add_convert2.aspx" target="mainFrame">>> 转换自定义格式</a> </li>
+                    <li><a href="sd_account_list.aspx" target="mainFrame">>> 刷单账号列表</a> </li>
+                    <li><a href="sd_account_add.aspx" target="mainFrame">>> 添加刷单账号</a> </li>
+                    <li><a href="sd_pingjia_list.aspx" target="mainFrame">>> 评语列表</a> </li>
+                    <li><a href="sd_pingjia_add.aspx" target="mainFrame">>> 添加评语</a> </li>
+                    <li><a href="sd_name_list.aspx" target="mainFrame">>> 姓名列表</a> </li>
+                    <li><a href="sd_name_add.aspx" target="mainFrame">>> 添加姓名</a> </li>
+                    <li><a href="sd_address_list.aspx" target="mainFrame">>> 地址库列表</a> </li>
+                    <li><a href="sd_record_list.aspx" target="mainFrame">>> 下载记录</a> </li>
+                </ul>
+            </li>
+            <li>
+                <div id="div1">
+                    <img src="images/left_menu_info.jpg" />
+                </div>
+                <ul class="menu_list close">
+                    <li><a href="pages_list.aspx" target="mainFrame">>> 资料列表</a> </li>
+                    <li><a href="pages_add.aspx" target="mainFrame">>> 添加资料</a> </li>
+                    <li><a href="pages_type_list.aspx" target="mainFrame">>> 资料类型列表</a> </li>
+                    <li><a href="pages_type_add.aspx" target="mainFrame">>> 添加资料类型</a> </li>
+                </ul>
+            </li>
+            <li>
+                <div id="div2">
+                    <img src="images/left_menu_kefu.jpg" />
+                </div>
+                <ul class="menu_list close">
+                    <li><a href="huashu_list.aspx" target="mainFrame">>> 话术列表</a> </li>
+                    <li><a href="huashu_add.aspx" target="mainFrame">>> 添加话术</a> </li>
+                    <li><a href="huashu_type_list.aspx" target="mainFrame">>> 话术类型列表</a> </li>
+                    <li><a href="huashu_type_add.aspx" target="mainFrame">>> 添加话术类型</a> </li>
+                </ul>
+            </li>
+            <!--<li>
+                <div>
+                    <img src="images/left_menu_account.jpg" />
+                </div>
+                <ul class="menu_list">
+                    <li><a href="pwd.aspx" target="mainFrame">>> 修改密码</a> </li>
+                    <li><a href="#" target="mainFrame" onclick="to_out();return false;">>> 注销</a> </li>
+                </ul>
+            </li>-->
+        </ul>
+    </div>
+    <script>
+        function close_all() {
+            $(".menu_list").hide()
+        }
+        $(document).ready(function () {
+            //close_all();
+            $(".close").hide()
+        });
+        $("li div").click(function () {
+            close_all();
+            ($("li").has($(this))).find("ul").toggle("fast");
+        });
+        function to_out() {
+            $.ajax({
+                type: "post",
+                url: "handler/top.ashx",
+                dataType: "html",
+                success: function (msg) {
+                    window.parent.location.href = window.parent.location.href;
+                },
+                error: function () {
+                    alert("出错");
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

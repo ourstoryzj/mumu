@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CategoryTree>
+    <Category parentid="0">
+        <id>1</id>
+        <title>ASP.NET</title>
+        <url></url>
+        <addtime>2008-7-6</addtime>
+    </Category>
+    <Category parentid="1">
+        <id>2</id>
+        <title>GridView</title>
+        <url>http://www.asp.net</url>
+        <addtime>2008-7-6</addtime>
+    </Category>
+    <Category parentid="1">
+        <id>3</id>
+        <title>DataList</title>
+        <url>http://www.cnblogs.com</url>
+        <addtime>2008-7-6</addtime>
+    </Category>
+    <Category parentid="1">
+        <id>4</id>
+        <title>ListView</title>
+        <url>http://www.codeproject.com</url>
+        <addtime>2008-7-6</addtime>
+    </Category>
+    <Category parentid="1">
+        <id>5</id>
+        <title>Reapter</title>
+        <url>http://baidu.com</url>
+        <addtime>2008-7-6</addtime>
+    </Category>
+    <Category parentid="0">
+        <id>6</id>
+        <title>Create Code</title>
+        <url></url>
+        <addtime>2008-7-6</addtime>
+    </Category>
+    <Category parentid="6">
+        <id>7</id>
+        <title>生成细线表格</title>
+        <url>http://www.google.cn</url>
+        <addtime>2008-7-6</addtime>
+    </Category>
+    <Category parentid="6">
+        <id>8</id>
+        <title>生成GridView</title>
+        <url>http://www.sohu.cn</url>
+        <addtime>2008-7-6</addtime>
+    </Category>
+</CategoryTree>
