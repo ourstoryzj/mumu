@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "..\Models\Entity.csproj", "{CC2CA4D0-7ABC-4BC3-9DFB-FF8240D36576}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALFactory", "..\DALFactory\DALFactory.csproj", "{5BF98AB0-7FD4-4F1C-871B-A6F84EFA0804}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDAL", "..\IDAL\IDAL.csproj", "{A67A81C9-91EC-4355-A982-B4D897015D46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{CC2CA4D0-7ABC-4BC3-9DFB-FF8240D36576}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC2CA4D0-7ABC-4BC3-9DFB-FF8240D36576}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC2CA4D0-7ABC-4BC3-9DFB-FF8240D36576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BF98AB0-7FD4-4F1C-871B-A6F84EFA0804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF98AB0-7FD4-4F1C-871B-A6F84EFA0804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF98AB0-7FD4-4F1C-871B-A6F84EFA0804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF98AB0-7FD4-4F1C-871B-A6F84EFA0804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A67A81C9-91EC-4355-A982-B4D897015D46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A67A81C9-91EC-4355-A982-B4D897015D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A67A81C9-91EC-4355-A982-B4D897015D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A67A81C9-91EC-4355-A982-B4D897015D46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
