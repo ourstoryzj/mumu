@@ -37,7 +37,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CompanyWeb", "..\CompanyWeb
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "62845"
+		SlnRelativePath = "..\CompanyWeb\"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoUpdateClient", "..\AutoUpdateClient\AutoUpdateClient.csproj", "{4C9797A1-FD75-4409-8B85-7478AA8E8B62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +84,10 @@ Global
 		{E0AFB302-9F88-4840-9410-6D7264F068D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0AFB302-9F88-4840-9410-6D7264F068D9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{E0AFB302-9F88-4840-9410-6D7264F068D9}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4C9797A1-FD75-4409-8B85-7478AA8E8B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C9797A1-FD75-4409-8B85-7478AA8E8B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C9797A1-FD75-4409-8B85-7478AA8E8B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C9797A1-FD75-4409-8B85-7478AA8E8B62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

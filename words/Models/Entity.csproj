@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC2CA4D0-7ABC-4BC3-9DFB-FF8240D36576}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="shuadan_records.cs" />
+    <Compile Include="address.cs" />
+    <Compile Include="Admin.cs" />
+    <Compile Include="Basic.cs" />
+    <Compile Include="basic_goods.cs" />
+    <Compile Include="basic_task.cs" />
+    <Compile Include="dianpu.cs" />
+    <Compile Include="fanxian.cs" />
+    <Compile Include="Images.cs" />
+    <Compile Include="Email.cs" />
+    <Compile Include="shouhou.cs" />
+    <Compile Include="shuadan.cs" />
+    <Compile Include="shuadan_account.cs" />
+    <Compile Include="shuadan_names.cs" />
+    <Compile Include="shuadan_phone.cs" />
+    <Compile Include="Signs.cs" />
+    <Compile Include="subway_goods.cs" />
+    <Compile Include="test.cs" />
+    <Compile Include="Users.cs" />
+    <Compile Include="goods.cs" />
+    <Compile Include="yh_corekeys.cs" />
+    <Compile Include="yh_goods_corekeys.cs" />
+    <Compile Include="yh_goods_keys.cs" />
+    <Compile Include="yh_goodstype.cs" />
+    <Compile Include="yh_keys.cs" />
+    <Compile Include="data_hotkeys.cs" />
+    <Compile Include="aotunew_title.cs" />
+    <Compile Include="wanggong_goods.cs" />
+    <Compile Include="wanggong_dianpu.cs" />
+    <Compile Include="keys_lexicon.cs" />
+    <Compile Include="keys.cs" />
+    <Compile Include="keys_tiaojian.cs" />
+    <Compile Include="subway_key.cs" />
+    <Compile Include="yh_zaoci.cs" />
+    <Compile Include="shuadan_record.cs" />
+    <Compile Include="shuadan_pingjia.cs" />
+    <Compile Include="pages.cs" />
+    <Compile Include="pages_type.cs" />
+    <Compile Include="courier.cs" />
+    <Compile Include="return_goods.cs" />
+    <Compile Include="huashu.cs" />
+    <Compile Include="basic_goods_word.cs" />
+    <Compile Include="basic_huodong.cs" />
+    <Compile Include="basic_order_plan.cs" />
+    <Compile Include="basic_order_record.cs" />
+    <Compile Include="opponent_dianpu.cs" />
+    <Compile Include="opponent_dianpu_info.cs" />
+    <Compile Include="opponent_goods.cs" />
+    <Compile Include="autonew_model.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

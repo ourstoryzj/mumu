@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B42A2FE3-F934-4E87-8494-0FCA54527CA6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACCESS\AdminsService.cs" />
+    <Compile Include="ACCESS\BasicService.cs" />
+    <Compile Include="ACCESS\DBHelper.cs" />
+    <Compile Include="ACCESS\dianpuService.cs" />
+    <Compile Include="ACCESS\fanxianService.cs" />
+    <Compile Include="ACCESS\shouhouService.cs" />
+    <Compile Include="ACCESS\shuadanService.cs" />
+    <Compile Include="ACCESS\shuadan_accountService.cs" />
+    <Compile Include="ACCESS\shuadan_phoneService.cs" />
+    <Compile Include="ACCESS\SignsService.cs" />
+    <Compile Include="ACCESS\UsersService.cs" />
+    <Compile Include="ACCESS\goodsService.cs" />
+    <Compile Include="ACCESS\yh_corekeysService.cs" />
+    <Compile Include="ACCESS\yh_goods_corekeysService.cs" />
+    <Compile Include="ACCESS\yh_goods_keysService.cs" />
+    <Compile Include="ACCESS\yh_goodstypeService.cs" />
+    <Compile Include="ACCESS\yh_keysService.cs" />
+    <Compile Include="ACCESS\yh_zaociService.cs" />
+    <Compile Include="ACCESS\addressService.cs" />
+    <Compile Include="ACCESS\shuadan_namesService.cs" />
+    <Compile Include="ACCESS\shuadan_recordService.cs" />
+    <Compile Include="ACCESS\shuadan_pingjiaService.cs" />
+    <Compile Include="ACCESS\pagesService.cs" />
+    <Compile Include="ACCESS\pages_typeService.cs" />
+    <Compile Include="ACCESS\courierService.cs" />
+    <Compile Include="ACCESS\return_goodsService.cs" />
+    <Compile Include="SQL\shuadan_recordsService.cs" />
+    <Compile Include="SQL\basic_taskService.cs" />
+    <Compile Include="SQL\DBHelper.cs" />
+    <Compile Include="SQL\dianpuService.cs" />
+    <Compile Include="SQL\fanxianService.cs" />
+    <Compile Include="SQL\goodsService.cs" />
+    <Compile Include="SQL\shouhouService.cs" />
+    <Compile Include="SQL\shuadanService.cs" />
+    <Compile Include="SQL\shuadan_accountService.cs" />
+    <Compile Include="SQL\shuadan_phoneService.cs" />
+    <Compile Include="SQL\AdminsService.cs" />
+    <Compile Include="SQL\BasicService.cs" />
+    <Compile Include="SQL\SignsService.cs" />
+    <Compile Include="SQL\subway_goodsService.cs" />
+    <Compile Include="SQL\UsersService.cs" />
+    <Compile Include="SQL\yh_corekeysService.cs" />
+    <Compile Include="SQL\yh_goodstypeService.cs" />
+    <Compile Include="SQL\yh_goods_corekeysService.cs" />
+    <Compile Include="SQL\yh_goods_keysService.cs" />
+    <Compile Include="SQL\yh_keysService.cs" />
+    <Compile Include="SQL\data_hotkeysService.cs" />
+    <Compile Include="SQL\aotunew_titleService.cs" />
+    <Compile Include="SQL\wanggong_goodsService.cs" />
+    <Compile Include="SQL\wanggong_dianpuService.cs" />
+    <Compile Include="SQL\keys_lexiconService.cs" />
+    <Compile Include="SQL\keysService.cs" />
+    <Compile Include="SQL\keys_tiaojianService.cs" />
+    <Compile Include="SQL\subway_keyService.cs" />
+    <Compile Include="SQL\yh_zaociService.cs" />
+    <Compile Include="SQL\huashuService.cs" />
+    <Compile Include="SQL\basic_goodsService.cs" />
+    <Compile Include="SQL\basic_goods_wordService.cs" />
+    <Compile Include="SQL\basic_huodongService.cs" />
+    <Compile Include="SQL\basic_order_planService.cs" />
+    <Compile Include="SQL\basic_order_recordService.cs" />
+    <Compile Include="SQL\opponent_dianpuService.cs" />
+    <Compile Include="SQL\opponent_dianpu_infoService.cs" />
+    <Compile Include="SQL\opponent_goodsService.cs" />
+    <Compile Include="SQL\autonew_modelService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{3B7DC189-2CCD-47DF-82C4-12CA7CD6D841}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{A67A81C9-91EC-4355-A982-B4D897015D46}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Entity.csproj">
+      <Project>{CC2CA4D0-7ABC-4BC3-9DFB-FF8240D36576}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
