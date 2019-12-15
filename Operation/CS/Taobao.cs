@@ -96,6 +96,14 @@ namespace excel_operation.CS
             url = url.Replace("_50x50.jpg", sizes);
             url = url.Replace("_150x150.jpg", sizes);
             url = url.Replace("_30x30.jpg", sizes);
+            //天猫
+            url = url.Replace("_60x60q90.jpg", sizes);
+            url = url.Replace("_40x40q90.jpg", sizes);
+            url = url.Replace("_80x80q90.jpg", sizes);
+            url = url.Replace("_150x150q90.jpg", sizes);
+            url = url.Replace("_230x230q90.jpg", sizes);
+            url = url.Replace("_250x250q90.jpg", sizes);
+
             return url;
         }
 
@@ -1689,6 +1697,8 @@ namespace excel_operation.CS
                         for (int i = 0; i < skulength; i++)
                         {
                             string imgurl = Browser.JS_CEFBrowser("document.getElementsByClassName('J_TSaleProp')[0].getElementsByTagName('a')[" + i.ToString() + "].style.backgroundImage", webBrowser1);
+                            if (string.IsNullOrEmpty(imgurl))
+                                continue;
                             imgurl = imgurl.Replace("url(\"", "");
                             imgurl = imgurl.Replace("\")", "");
                             imgurl = CS.Taobao.PicUrlZuan(imgurl, "");

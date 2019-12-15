@@ -73,7 +73,7 @@ namespace excel_operation.CS
                 foreach (string fls in Directory.GetFiles(folderPath))
                 {
                     FileInfo flinfo = new FileInfo(fls);
-                    if (flinfo.Extension.ToLower() == ".jpg")
+                    if (flinfo.Extension.ToLower() == ".jpg" || flinfo.Extension.ToLower() == ".png")
                     {
                         res += ImageToWord(flinfo.FullName);
                     }
