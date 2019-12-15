@@ -324,198 +324,198 @@ namespace excel_operation.TaoBao
 
 
 
-            webBrowser1.Load("https://upload.taobao.com/auction/sell.jhtml?spm=a313o.201708ban.category.d48.10c322bTarY6y&mytmenu=wym");
-            webBrowser1.Focus();
-            //if (Browser.WaitWebPageLoad(" getElementsByDataSpm('d48')[0] ", webBrowser1))
+            //webBrowser1.Load("https://upload.taobao.com/auction/sell.jhtml?spm=a313o.201708ban.category.d48.10c322bTarY6y&mytmenu=wym");
+            //webBrowser1.Focus();
+            ////if (Browser.WaitWebPageLoad(" getElementsByDataSpm('d48')[0] ", webBrowser1))
+            ////{
+            ////    //点击发布新品
+            ////    Browser.MouseLeftByHtmlElement(" getElementsByDataSpm('d48')[0] ", webBrowser1);
+            //if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-tree-item')[3] ", webBrowser1))
             //{
-            //    //点击发布新品
-            //    Browser.MouseLeftByHtmlElement(" getElementsByDataSpm('d48')[0] ", webBrowser1);
-            if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-tree-item')[3] ", webBrowser1))
-            {
-                //Browser.Delay(100);
-                //点击“箱包皮具/热卖女包/男包”类目
-                Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-tree-item')[3].click() ", webBrowser1);
-                Browser.Delay(500);
-                if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-cbox-group')[4].getElementsByTagName('li')[1] ", webBrowser1))
-                {
-                    //点击“双肩背包”类目
-                    Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-cbox-group')[4].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //    //Browser.Delay(100);
+            //    //点击“箱包皮具/热卖女包/男包”类目
+            //    Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-tree-item')[3].click() ", webBrowser1);
+            //    Browser.Delay(500);
+            //    if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-cbox-group')[4].getElementsByTagName('li')[1] ", webBrowser1))
+            //    {
+            //        //点击“双肩背包”类目
+            //        Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-cbox-group')[4].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
 
-                    //Browser.MouseLeftByHtmlElement(" document.getElementsByClassName('cc-cbox-group')[4].getElementsByTagName('li')[1] ", webBrowser1);
-                    //等待刷新数据
-                    Browser.Delay(100);
-                    //点击发布
-                    if (Browser.WaitWebPageLoad(" document.getElementById('J_CatePubBtn') ", webBrowser1))
-                    {
-                        Browser.MouseLeftByHtmlElement(" document.getElementById('J_CatePubBtn') ", webBrowser1);
+            //        //Browser.MouseLeftByHtmlElement(" document.getElementsByClassName('cc-cbox-group')[4].getElementsByTagName('li')[1] ", webBrowser1);
+            //        //等待刷新数据
+            //        Browser.Delay(100);
+            //        //点击发布
+            //        if (Browser.WaitWebPageLoad(" document.getElementById('J_CatePubBtn') ", webBrowser1))
+            //        {
+            //            Browser.MouseLeftByHtmlElement(" document.getElementById('J_CatePubBtn') ", webBrowser1);
 
-                        //打开发布页面，设置默认选项
-                        if (Browser.WaitWebPageLoad(" document.getElementsByClassName('next-radio')[0] ", webBrowser1))
-                        {
-                            Browser.Delay(200);
+            //            //打开发布页面，设置默认选项
+            //            if (Browser.WaitWebPageLoad(" document.getElementsByClassName('next-radio')[0] ", webBrowser1))
+            //            {
+            //                Browser.Delay(200);
 
-                            #region 备用2018-11-29
+            //                #region 备用2018-11-29
 
 
 
-                            ////点击宝贝类型为全新
-                            ////Browser.MouseLeftByHtmlElement_Wait(" document.getElementsByName('radio0')[0] ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio0')[0].click(); ", webBrowser1);
+            //                ////点击宝贝类型为全新
+            //                ////Browser.MouseLeftByHtmlElement_Wait(" document.getElementsByName('radio0')[0] ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio0')[0].click(); ", webBrowser1);
 
 
 
-                            ////宝贝卖点
-                            //string maidian = XMLHelper.GetValue("TaoBao_MaiDian");
-                            //Auto.Clipboard_In(maidian);
-                            //Browser.MouseLeftByHtmlElement(" document.getElementById('subTitle').getElementsByTagName('textarea')[0]", webBrowser1);
-                            //Auto.Ctrl_V();
-                            ////Browser.JS_CEFBrowser_NoReturn(" document.getElementById('subTitle').getElementsByTagName('textarea')[0].value='" + maidian + "' ", webBrowser1);
+            //                ////宝贝卖点
+            //                //string maidian = XMLHelper.GetValue("TaoBao_MaiDian");
+            //                //Auto.Clipboard_In(maidian);
+            //                //Browser.MouseLeftByHtmlElement(" document.getElementById('subTitle').getElementsByTagName('textarea')[0]", webBrowser1);
+            //                //Auto.Ctrl_V();
+            //                ////Browser.JS_CEFBrowser_NoReturn(" document.getElementById('subTitle').getElementsByTagName('textarea')[0].value='" + maidian + "' ", webBrowser1);
 
 
-                            ////货号
-                            //string huohao = "ZZD" + DateTime.Now.ToString("MMdd");//+ Manager.RandomNumber(1, 9).ToString();
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('inputbox')[2].getElementsByTagName('input')[0].value='" + huohao + "' ", webBrowser1);
+            //                ////货号
+            //                //string huohao = "ZZD" + DateTime.Now.ToString("MMdd");//+ Manager.RandomNumber(1, 9).ToString();
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('inputbox')[2].getElementsByTagName('input')[0].value='" + huohao + "' ", webBrowser1);
 
 
-                            ////大小：小
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[1].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[1].getElementsByTagName('li')[3].click(); ", webBrowser1);
+            //                ////大小：小
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[1].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[1].getElementsByTagName('li')[3].click(); ", webBrowser1);
 
-                            ////容纳电脑尺寸：8寸
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[2].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[2].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////容纳电脑尺寸：8寸
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[2].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[2].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////是否有背部缓冲棉：否
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[3].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[3].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////是否有背部缓冲棉：否
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[3].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[3].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////适用对象：青年
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[4].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[4].getElementsByTagName('li')[6].click(); ", webBrowser1);
+            //                ////适用对象：青年
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[4].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[4].getElementsByTagName('li')[6].click(); ", webBrowser1);
 
-                            ////防水程度：防泼水
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[5].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[5].getElementsByTagName('li')[3].click(); ", webBrowser1);
+            //                ////防水程度：防泼水
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[5].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[5].getElementsByTagName('li')[3].click(); ", webBrowser1);
 
-                            ////性别：女
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[6].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[6].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////性别：女
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[6].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[6].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////质地：帆布
-                            ////Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[7].click(); ", webBrowser1);
-                            ////Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[7].getElementsByTagName('li')[11].click(); ", webBrowser1);
+            //                ////质地：帆布
+            //                ////Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[7].click(); ", webBrowser1);
+            //                ////Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[7].getElementsByTagName('li')[11].click(); ", webBrowser1);
 
-                            ////质地：PU
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[7].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[7].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////质地：PU
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[7].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[7].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            //Browser.Delay(1500);
+            //                //Browser.Delay(1500);
 
-                            ////材质工艺：软面
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[8].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[8].getElementsByTagName('li')[5].click(); ", webBrowser1);
+            //                ////材质工艺：软面
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[8].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[8].getElementsByTagName('li')[5].click(); ", webBrowser1);
 
 
 
 
-                            ////提拎部件类型：软把
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[9].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[9].getElementsByTagName('li')[3].click(); ", webBrowser1);
+            //                ////提拎部件类型：软把
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[9].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[9].getElementsByTagName('li')[3].click(); ", webBrowser1);
 
-                            ////闭合方式：拉链
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[10].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[10].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////闭合方式：拉链
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[10].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[10].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////箱包外袋种类：内贴袋
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[11].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[11].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////箱包外袋种类：内贴袋
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[11].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[11].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////流行元素：绣花
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[12].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[12].getElementsByTagName('li')[13].click(); ", webBrowser1);
+            //                ////流行元素：绣花
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[12].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[12].getElementsByTagName('li')[13].click(); ", webBrowser1);
 
-                            ////图案：纯色
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[13].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[13].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////图案：纯色
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[13].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[13].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////夹层：无
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[14].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[14].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////夹层：无
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[14].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[14].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////箱包软硬：软
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[15].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[15].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////箱包软硬：软
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[15].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[15].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////是否可折叠：否
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[16].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[16].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////是否可折叠：否
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[16].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[16].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////成色：全新
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[17].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[17].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////成色：全新
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[17].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[17].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////适用场景：校园
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[18].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[18].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////适用场景：校园
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[18].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[18].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////风格：日韩
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[19].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[19].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////风格：日韩
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[19].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[19].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////形状：
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[20].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[20].getElementsByTagName('li')[14].click(); ", webBrowser1);
+            //                ////形状：
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[20].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[20].getElementsByTagName('li')[14].click(); ", webBrowser1);
 
-                            ////肩带样式：双根
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[21].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[21].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////肩带样式：双根
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[21].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[21].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////里料素材：软把
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[22].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[22].getElementsByTagName('li')[8].click(); ", webBrowser1);
-
-
-                            ////************************************************
+            //                ////里料素材：软把
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[22].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[22].getElementsByTagName('li')[8].click(); ", webBrowser1);
 
 
-                            ////采购地：国内
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio3')[0].click(); ", webBrowser1);
-
-                            ////手机端描述：使用神笔模板编辑
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio11')[1].click(); ", webBrowser1);
-
-                            ////电脑端描述
-                            //string miaoshu = XMLHelper.GetValue("TaoBao_MiaoShu");
-                            //Browser.MouseLeftByHtmlElement(" document.getElementsByClassName('ks-editor')[0].innerHTML=" + miaoshu, webBrowser1);
+            //                ////************************************************
 
 
-                            ////********************************************
-                            ////品牌选择其他***
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[0].click(); ", webBrowser1);
-                            ////点选品牌查询框
-                            ////Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0].focus(); ", webBrowser1);
-                            //Browser.MouseLeftByHtmlElement_Wait(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0] ", webBrowser1);
-                            //Browser.Delay(500);
-                            ////系统粘贴
-                            //Auto.Clipboard_In("其他");
-                            //Auto.Clipboard_Out();
-                            //Browser.Delay(800);
-                            ////选择“other/其他”选项
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[0].getElementsByTagName('li')[0].click(); ", webBrowser1);
-                            ////********************************************
+            //                ////采购地：国内
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio3')[0].click(); ", webBrowser1);
 
-                            #endregion
+            //                ////手机端描述：使用神笔模板编辑
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio11')[1].click(); ", webBrowser1);
 
-                            Taobao.SetShuangJian(webBrowser1);
-
-                            MessageBox.Show("可以开始上架新品了！");
+            //                ////电脑端描述
+            //                //string miaoshu = XMLHelper.GetValue("TaoBao_MiaoShu");
+            //                //Browser.MouseLeftByHtmlElement(" document.getElementsByClassName('ks-editor')[0].innerHTML=" + miaoshu, webBrowser1);
 
 
-                        }
-                    }
-                }
-            }
+            //                ////********************************************
+            //                ////品牌选择其他***
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[0].click(); ", webBrowser1);
+            //                ////点选品牌查询框
+            //                ////Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0].focus(); ", webBrowser1);
+            //                //Browser.MouseLeftByHtmlElement_Wait(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0] ", webBrowser1);
+            //                //Browser.Delay(500);
+            //                ////系统粘贴
+            //                //Auto.Clipboard_In("其他");
+            //                //Auto.Clipboard_Out();
+            //                //Browser.Delay(800);
+            //                ////选择“other/其他”选项
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[0].getElementsByTagName('li')[0].click(); ", webBrowser1);
+            //                ////********************************************
+
+            //                #endregion
+
+            //                Taobao.SetShuangJian(webBrowser1);
+
+            //                MessageBox.Show("可以开始上架新品了！");
+
+
+            //            }
+            //        }
+            //    }
+            //}
             //}
         }
         #endregion
@@ -539,170 +539,170 @@ namespace excel_operation.TaoBao
 
             return;
 
-            webBrowser1.Load("https://upload.taobao.com/auction/sell.jhtml?spm=a313o.201708ban.category.d48.10c322bTarY6y&mytmenu=wym");
-            webBrowser1.Focus();
-            //if (Browser.WaitWebPageLoad(" getElementsByDataSpm('d48')[0] ", webBrowser1))
+            //webBrowser1.Load("https://upload.taobao.com/auction/sell.jhtml?spm=a313o.201708ban.category.d48.10c322bTarY6y&mytmenu=wym");
+            //webBrowser1.Focus();
+            ////if (Browser.WaitWebPageLoad(" getElementsByDataSpm('d48')[0] ", webBrowser1))
+            ////{
+            ////    //点击发布新品
+            ////    Browser.MouseLeftByHtmlElement(" getElementsByDataSpm('d48')[0] ", webBrowser1);
+            //if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-tree-item')[3] ", webBrowser1))
             //{
-            //    //点击发布新品
-            //    Browser.MouseLeftByHtmlElement(" getElementsByDataSpm('d48')[0] ", webBrowser1);
-            if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-tree-item')[3] ", webBrowser1))
-            {
-                //Browser.Delay(100);
-                //点击“箱包皮具/热卖女包/男包”类目
-                Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-tree-item')[3].click() ", webBrowser1);
-                Browser.Delay(500);
-                if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-cbox-group')[4].getElementsByTagName('li')[1] ", webBrowser1))
-                {
-                    //点击“女式包袋”类目
-                    Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-cbox-group')[2].getElementsByTagName('li')[0].click(); ", webBrowser1);
-                    //等待刷新数据
-                    Browser.Delay(100);
-                    //点击发布
-                    if (Browser.WaitWebPageLoad(" document.getElementById('J_CatePubBtn') ", webBrowser1))
-                    {
-                        Browser.MouseLeftByHtmlElement(" document.getElementById('J_CatePubBtn') ", webBrowser1);
+            //    //Browser.Delay(100);
+            //    //点击“箱包皮具/热卖女包/男包”类目
+            //    Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-tree-item')[3].click() ", webBrowser1);
+            //    Browser.Delay(500);
+            //    if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-cbox-group')[4].getElementsByTagName('li')[1] ", webBrowser1))
+            //    {
+            //        //点击“女式包袋”类目
+            //        Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-cbox-group')[2].getElementsByTagName('li')[0].click(); ", webBrowser1);
+            //        //等待刷新数据
+            //        Browser.Delay(100);
+            //        //点击发布
+            //        if (Browser.WaitWebPageLoad(" document.getElementById('J_CatePubBtn') ", webBrowser1))
+            //        {
+            //            Browser.MouseLeftByHtmlElement(" document.getElementById('J_CatePubBtn') ", webBrowser1);
 
-                        //打开发布页面，设置默认选项
-                        if (Browser.WaitWebPageLoad("document.getElementsByClassName('next-radio')[0] ", webBrowser1))
-                        {
-                            Taobao.SetNvBao(webBrowser1);
+            //            //打开发布页面，设置默认选项
+            //            if (Browser.WaitWebPageLoad("document.getElementsByClassName('next-radio')[0] ", webBrowser1))
+            //            {
+            //                Taobao.SetNvBao(webBrowser1);
 
-                            #region 备份2018-11-29
+            //                #region 备份2018-11-29
 
 
 
-                            //Browser.Delay(200);
-                            ////点击宝贝类型为全新
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio0')[0].click(); ", webBrowser1);
+            //                //Browser.Delay(200);
+            //                ////点击宝贝类型为全新
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio0')[0].click(); ", webBrowser1);
 
 
-                            ////货号
-                            //string huohao = DateTime.Now.ToString("yyMMdd") + Manager.RandomNumber(1000, 9999).ToString();
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('inputbox')[2].getElementsByTagName('input')[0].value='" + huohao + "' ", webBrowser1);
+            //                ////货号
+            //                //string huohao = DateTime.Now.ToString("yyMMdd") + Manager.RandomNumber(1000, 9999).ToString();
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('inputbox')[2].getElementsByTagName('input')[0].value='" + huohao + "' ", webBrowser1);
 
 
-                            ////大小：小
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[1].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[1].getElementsByTagName('li')[3].click(); ", webBrowser1);
+            //                ////大小：小
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[1].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[1].getElementsByTagName('li')[3].click(); ", webBrowser1);
 
-                            ////流行款式：小方包
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[2].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[2].getElementsByTagName('li')[7].click(); ", webBrowser1);
+            //                ////流行款式：小方包
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[2].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[2].getElementsByTagName('li')[7].click(); ", webBrowser1);
 
-                            ////适用对象：青年
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[3].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[3].getElementsByTagName('li')[6].click(); ", webBrowser1);
+            //                ////适用对象：青年
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[3].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[3].getElementsByTagName('li')[6].click(); ", webBrowser1);
 
-                            ////款式：单肩包
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[4].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[4].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////款式：单肩包
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[4].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[4].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            //Browser.Delay(1200);
+            //                //Browser.Delay(1200);
 
-                            ////背包方式：单肩斜跨
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[5].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[5].getElementsByTagName('li')[5].click(); ", webBrowser1);
+            //                ////背包方式：单肩斜跨
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[5].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[5].getElementsByTagName('li')[5].click(); ", webBrowser1);
 
-                            ////质地：PU
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[6].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[6].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////质地：PU
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[6].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[6].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            //Browser.Delay(1200);
+            //                //Browser.Delay(1200);
 
-                            ////材质工艺：软面
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[7].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[7].getElementsByTagName('li')[4].click(); ", webBrowser1);
+            //                ////材质工艺：软面
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[7].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[7].getElementsByTagName('li')[4].click(); ", webBrowser1);
 
-                            ////提拎部件类型：装卸式提把
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[8].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[8].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////提拎部件类型：装卸式提把
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[8].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[8].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////闭合方式：拉链
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[9].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[9].getElementsByTagName('li')[3].click(); ", webBrowser1);
+            //                ////闭合方式：拉链
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[9].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[9].getElementsByTagName('li')[3].click(); ", webBrowser1);
 
-                            ////箱包外袋种类：内贴袋
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[10].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[10].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////箱包外袋种类：内贴袋
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[10].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[10].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////流行元素：字母
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[11].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[11].getElementsByTagName('li')[19].click(); ", webBrowser1);
+            //                ////流行元素：字母
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[11].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[11].getElementsByTagName('li')[19].click(); ", webBrowser1);
 
-                            ////图案：纯色
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[12].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[12].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////图案：纯色
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[12].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[12].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////夹层：无
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[13].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[13].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////夹层：无
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[13].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[13].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////箱包软硬：软
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[14].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[14].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////箱包软硬：软
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[14].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[14].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////是否可折叠：否
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[15].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[15].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////是否可折叠：否
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[15].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[15].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////成色：全新
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[16].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[16].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////成色：全新
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[16].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[16].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////适用场景：休闲
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[17].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[17].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////适用场景：休闲
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[17].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[17].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////风格：日韩
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[18].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[18].getElementsByTagName('li')[2].click(); ", webBrowser1);
+            //                ////风格：日韩
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[18].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[18].getElementsByTagName('li')[2].click(); ", webBrowser1);
 
-                            ////形状：横款方形
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[19].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[19].getElementsByTagName('li')[13].click(); ", webBrowser1);
+            //                ////形状：横款方形
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[19].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[19].getElementsByTagName('li')[13].click(); ", webBrowser1);
 
-                            ////肩带样式：双根
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[20].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[20].getElementsByTagName('li')[1].click(); ", webBrowser1);
+            //                ////肩带样式：双根
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[20].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[20].getElementsByTagName('li')[1].click(); ", webBrowser1);
 
-                            ////里料素材：涤棉
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[21].click(); ", webBrowser1);
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[21].getElementsByTagName('li')[11].click(); ", webBrowser1);
-
-
-                            ////************************************************
+            //                ////里料素材：涤棉
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[21].click(); ", webBrowser1);
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[21].getElementsByTagName('li')[11].click(); ", webBrowser1);
 
 
-                            ////采购地：国内
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio3')[0].click(); ", webBrowser1);
-
-                            ////手机端描述：使用神笔模板编辑
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio11')[1].click(); ", webBrowser1);
-
-                            ////********************************************
-                            ////品牌选择其他***
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[0].click(); ", webBrowser1);
-                            ////点选品牌查询框
-                            ////Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0].focus(); ", webBrowser1);
-                            //Browser.MouseLeftByHtmlElement_Wait(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0] ", webBrowser1);
-                            //Browser.Delay(200);
-                            ////系统粘贴
-                            //Auto.Clipboard_In("其他");
-                            //Auto.Clipboard_Out();
-                            //Browser.Delay(200);
-                            ////选择“other/其他”选项
-                            //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[0].getElementsByTagName('li')[0].click(); ", webBrowser1);
-                            ////********************************************
-
-                            #endregion
-
-                            MessageBox.Show("可以开始上架新品了！");
+            //                ////************************************************
 
 
-                        }
-                    }
-                }
-            }
+            //                ////采购地：国内
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio3')[0].click(); ", webBrowser1);
+
+            //                ////手机端描述：使用神笔模板编辑
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByName('radio11')[1].click(); ", webBrowser1);
+
+            //                ////********************************************
+            //                ////品牌选择其他***
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[0].click(); ", webBrowser1);
+            //                ////点选品牌查询框
+            //                ////Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0].focus(); ", webBrowser1);
+            //                //Browser.MouseLeftByHtmlElement_Wait(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0] ", webBrowser1);
+            //                //Browser.Delay(200);
+            //                ////系统粘贴
+            //                //Auto.Clipboard_In("其他");
+            //                //Auto.Clipboard_Out();
+            //                //Browser.Delay(200);
+            //                ////选择“other/其他”选项
+            //                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[0].getElementsByTagName('li')[0].click(); ", webBrowser1);
+            //                ////********************************************
+
+            //                #endregion
+
+            //                MessageBox.Show("可以开始上架新品了！");
+
+
+            //            }
+            //        }
+            //    }
+            //}
             //}
         }
 
@@ -1644,55 +1644,55 @@ namespace excel_operation.TaoBao
 
             return;
 
-            webBrowser1.Load("https://upload.taobao.com/auction/sell.jhtml?spm=a313o.201708ban.category.d48.10c322bTarY6y&mytmenu=wym");
-            webBrowser1.Focus();
-            //if (Browser.WaitWebPageLoad(" getElementsByDataSpm('d48')[0] ", webBrowser1))
+            //webBrowser1.Load("https://upload.taobao.com/auction/sell.jhtml?spm=a313o.201708ban.category.d48.10c322bTarY6y&mytmenu=wym");
+            //webBrowser1.Focus();
+            ////if (Browser.WaitWebPageLoad(" getElementsByDataSpm('d48')[0] ", webBrowser1))
+            ////{
+            ////    //点击发布新品
+            ////    Browser.MouseLeftByHtmlElement(" getElementsByDataSpm('d48')[0] ", webBrowser1);
+            //if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-tree-item')[39] ", webBrowser1))
             //{
-            //    //点击发布新品
-            //    Browser.MouseLeftByHtmlElement(" getElementsByDataSpm('d48')[0] ", webBrowser1);
-            if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-tree-item')[39] ", webBrowser1))
-            {
-                //Browser.Delay(100);
-                //点击“玩具/童车/益智/积木/模型”类目
-                Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-tree-item')[39].click() ", webBrowser1);
-                Browser.Delay(500);
-                if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-cbox-group')[3].getElementsByTagName('li')[0] ", webBrowser1))
-                {
-                    //点击“儿童包/背包/箱包”类目
-                    Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-cbox-group')[3].getElementsByTagName('li')[0].click(); ", webBrowser1);
-                    Browser.Delay(500);
-                    if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-cbox-group')[3].getElementsByTagName('li')[0] ", webBrowser1))
-                    {
-                        //点击“书包”类目
-                        Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-list-item')[2].getElementsByClassName('cc-cbox-gcont')[1].getElementsByTagName('li')[0].click(); ", webBrowser1);
+            //    //Browser.Delay(100);
+            //    //点击“玩具/童车/益智/积木/模型”类目
+            //    Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-tree-item')[39].click() ", webBrowser1);
+            //    Browser.Delay(500);
+            //    if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-cbox-group')[3].getElementsByTagName('li')[0] ", webBrowser1))
+            //    {
+            //        //点击“儿童包/背包/箱包”类目
+            //        Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-cbox-group')[3].getElementsByTagName('li')[0].click(); ", webBrowser1);
+            //        Browser.Delay(500);
+            //        if (Browser.WaitWebPageLoad(" document.getElementsByClassName('cc-cbox-group')[3].getElementsByTagName('li')[0] ", webBrowser1))
+            //        {
+            //            //点击“书包”类目
+            //            Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('cc-list-item')[2].getElementsByClassName('cc-cbox-gcont')[1].getElementsByTagName('li')[0].click(); ", webBrowser1);
 
-                        //等待刷新数据
-                        Browser.Delay(500);
-                        //点击发布
-                        if (Browser.WaitWebPageLoad(" document.getElementById('J_CatePubBtn') ", webBrowser1))
-                        {
-                            Browser.MouseLeftByHtmlElement(" document.getElementById('J_CatePubBtn') ", webBrowser1);
+            //            //等待刷新数据
+            //            Browser.Delay(500);
+            //            //点击发布
+            //            if (Browser.WaitWebPageLoad(" document.getElementById('J_CatePubBtn') ", webBrowser1))
+            //            {
+            //                Browser.MouseLeftByHtmlElement(" document.getElementById('J_CatePubBtn') ", webBrowser1);
 
-                            //打开发布页面，设置默认选项
-                            if (Browser.WaitWebPageLoad(" document.getElementsByClassName('next-radio')[0] ", webBrowser1))
-                            {
-                                Taobao.SetErTongBao(webBrowser1);
+            //                //打开发布页面，设置默认选项
+            //                if (Browser.WaitWebPageLoad(" document.getElementsByClassName('next-radio')[0] ", webBrowser1))
+            //                {
+            //                    Taobao.SetErTongBao(webBrowser1);
 
-                                #region bak 20181129
+            //                    #region bak 20181129
 
 
-                                //Browser.Delay(200);
+            //                    //Browser.Delay(200);
 
 
-                                ////宝贝卖点
-                                //string maidian = XMLHelper.GetValue("TaoBao_MaiDian");
-                                //Auto.Clipboard_In(maidian);
-                                //Browser.MouseLeftByHtmlElement(" document.getElementById('subTitle').getElementsByTagName('textarea')[0]", webBrowser1);
-                                //Auto.Ctrl_V();
+            //                    ////宝贝卖点
+            //                    //string maidian = XMLHelper.GetValue("TaoBao_MaiDian");
+            //                    //Auto.Clipboard_In(maidian);
+            //                    //Browser.MouseLeftByHtmlElement(" document.getElementById('subTitle').getElementsByTagName('textarea')[0]", webBrowser1);
+            //                    //Auto.Ctrl_V();
 
 
-                                ////设置货号
-                                //Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('inputbox')[0].getElementsByTagName('input')[0].value='" + DateTime.Now.ToString("MMdd") + "'", webBrowser1);
+            //                    ////设置货号
+            //                    //Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('inputbox')[0].getElementsByTagName('input')[0].value='" + DateTime.Now.ToString("MMdd") + "'", webBrowser1);
 
 
 
@@ -1701,72 +1701,72 @@ namespace excel_operation.TaoBao
 
 
 
-                                ////设置适用年龄*******************************
-                                ////点击选择
-                                //Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('select-button')[0].click()", webBrowser1);
-                                //Browser.Delay(1000);
-                                //int agecount = 0;
-                                //string agecount_temp = Browser.JS_CEFBrowser("document.getElementsByClassName('J_popSelectBox')[0].getElementsByTagName('input').length", webBrowser1);
-                                //if (int.TryParse(agecount_temp, out agecount))
-                                //{
-                                //    for (int i = 0; i < agecount; i++)
-                                //    {
-                                //        Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('J_popSelectBox')[0].getElementsByTagName('input')[" + i.ToString() + "].click()", webBrowser1);
-                                //    }
-                                //    Browser.Delay(1000);
-                                //    Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('confirm-button ')[0].click()", webBrowser1);
-                                //}
-                                //Browser.Delay(1000);
+            //                    ////设置适用年龄*******************************
+            //                    ////点击选择
+            //                    //Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('select-button')[0].click()", webBrowser1);
+            //                    //Browser.Delay(1000);
+            //                    //int agecount = 0;
+            //                    //string agecount_temp = Browser.JS_CEFBrowser("document.getElementsByClassName('J_popSelectBox')[0].getElementsByTagName('input').length", webBrowser1);
+            //                    //if (int.TryParse(agecount_temp, out agecount))
+            //                    //{
+            //                    //    for (int i = 0; i < agecount; i++)
+            //                    //    {
+            //                    //        Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('J_popSelectBox')[0].getElementsByTagName('input')[" + i.ToString() + "].click()", webBrowser1);
+            //                    //    }
+            //                    //    Browser.Delay(1000);
+            //                    //    Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('confirm-button ')[0].click()", webBrowser1);
+            //                    //}
+            //                    //Browser.Delay(1000);
 
 
 
 
-                                ////********************************************
-                                ////品牌选择其他***
-                                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[0].click(); ", webBrowser1);
-                                ////点选品牌查询框
-                                ////Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0].focus(); ", webBrowser1);
-                                //Browser.MouseLeftByHtmlElement_Wait(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0] ", webBrowser1);
-                                //Browser.Delay(500);
-                                ////系统粘贴
-                                //Auto.Clipboard_In("其他");
-                                //Auto.Clipboard_Out();
-                                //Browser.Delay(800);
-                                ////选择“other/其他”选项
-                                //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[0].getElementsByTagName('li')[0].click(); ", webBrowser1);
-                                ////********************************************
-                                ////设置型号
-                                ////Browser.MouseLeftByHtmlElement("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-inputbox')[1]", webBrowser1);
-                                ////Auto.Ctrl_V(DateTime.Now.ToString("MMdd"));
-                                ////********************************************
+            //                    ////********************************************
+            //                    ////品牌选择其他***
+            //                    //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-inputbox')[0].click(); ", webBrowser1);
+            //                    ////点选品牌查询框
+            //                    ////Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0].focus(); ", webBrowser1);
+            //                    //Browser.MouseLeftByHtmlElement_Wait(" document.getElementsByClassName('combobox-search')[0].getElementsByTagName('input')[0] ", webBrowser1);
+            //                    //Browser.Delay(500);
+            //                    ////系统粘贴
+            //                    //Auto.Clipboard_In("其他");
+            //                    //Auto.Clipboard_Out();
+            //                    //Browser.Delay(800);
+            //                    ////选择“other/其他”选项
+            //                    //Browser.JS_CEFBrowser_NoReturn(" document.getElementsByClassName('combobox-opts')[0].getElementsByTagName('li')[0].click(); ", webBrowser1);
+            //                    ////********************************************
+            //                    ////设置型号
+            //                    ////Browser.MouseLeftByHtmlElement("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-inputbox')[1]", webBrowser1);
+            //                    ////Auto.Ctrl_V(DateTime.Now.ToString("MMdd"));
+            //                    ////********************************************
 
-                                ////设置图案
-                                //Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-list')[2].getElementsByTagName('li')[19].click()", webBrowser1);
+            //                    ////设置图案
+            //                    //Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-list')[2].getElementsByTagName('li')[19].click()", webBrowser1);
 
-                                ////Browser.MouseLeftByHtmlElement("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-inputbox')[2]", webBrowser1);
-                                ////Browser.Delay(200);
-                                ////Browser.MouseLeftByHtmlElement("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-list')[2].getElementsByTagName('li')[19]", webBrowser1);
-                                ////Browser.Delay(500);
-
-
+            //                    ////Browser.MouseLeftByHtmlElement("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-inputbox')[2]", webBrowser1);
+            //                    ////Browser.Delay(200);
+            //                    ////Browser.MouseLeftByHtmlElement("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-list')[2].getElementsByTagName('li')[19]", webBrowser1);
+            //                    ////Browser.Delay(500);
 
 
 
 
-                                ////设置是否有导购视频
-                                ////Browser.MouseLeftByHtmlElement("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-inputbox')[3]", webBrowser1);
-                                ////Browser.Delay(200);
-                                //Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-list')[3].getElementsByTagName('li')[2].click();", webBrowser1);
-                                ////Browser.Delay(500);
-                                #endregion
 
-                                MessageBox.Show("可以开始上架新品了！");
 
-                            }
-                        }
-                    }
-                }
-            }
+            //                    ////设置是否有导购视频
+            //                    ////Browser.MouseLeftByHtmlElement("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-inputbox')[3]", webBrowser1);
+            //                    ////Browser.Delay(200);
+            //                    //Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('props clearfix')[0].getElementsByClassName('combobox-list')[3].getElementsByTagName('li')[2].click();", webBrowser1);
+            //                    ////Browser.Delay(500);
+            //                    #endregion
+
+            //                    MessageBox.Show("可以开始上架新品了！");
+
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
         }
         #endregion
 

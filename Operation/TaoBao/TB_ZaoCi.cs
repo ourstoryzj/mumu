@@ -50,7 +50,7 @@ namespace excel_operation.TaoBao
             }
             catch (Exception e)
             {
-                //MessageBox.Show("绑定数据失败" + e.ToString());
+                MessageBox.Show("绑定数据失败" + e.ToString());
             }
         }
 

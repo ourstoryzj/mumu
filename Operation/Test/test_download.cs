@@ -426,9 +426,9 @@ namespace excel_operation
                 HtmlElement current = hec[0];
                 image = GetImage(wb, current);
             }
-            catch (Exception ex)
+            catch 
             {
-
+                
             }
             return image;
         }

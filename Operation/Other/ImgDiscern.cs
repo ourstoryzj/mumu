@@ -26,7 +26,7 @@ namespace excel_operation
         public void AdvancedGeneralDemo(string filepath)
         {
             // 设置APPID/AK/SK
-            var APP_ID = "17767489";
+            //var APP_ID = "17767489";
             var API_KEY = "uq1WqDv14GMpouhgDRKblm6L";
             var SECRET_KEY = "xhGGclgNBKWMKVU0Uf8KZLo7N7RTwRwQ";
 

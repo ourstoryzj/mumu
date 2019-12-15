@@ -33,7 +33,7 @@ namespace BLL
                 MailMessage mm = new MailMessage();
                 mm.Priority = MailPriority.High;
                 mm.From = new MailAddress(from, title, Encoding.GetEncoding(936));
-                mm.ReplyTo = new MailAddress(from, title, Encoding.GetEncoding(936));
+                //mm.ReplyTo = new MailAddress(from, title, Encoding.GetEncoding(936));
                 foreach (Email e in lists)
                 {
                     mm.To.Add(new MailAddress(e.Account, e.Name, Encoding.GetEncoding(936)));
@@ -98,7 +98,7 @@ namespace BLL
             //第三个参数是 第二个参数所使用的编码，如果指定不正确，则对方收到后显示乱码
             //936是简体中文的codepage值
 
-            mm.ReplyTo = new MailAddress("ourstoryzj@163.com", "我的接收邮箱", Encoding.GetEncoding(936));
+            //mm.ReplyTo = new MailAddress("ourstoryzj@163.com", "我的接收邮箱", Encoding.GetEncoding(936));
             //ReplyTo 表示对方回复邮件时默认的接收地址，即：你用一个邮箱发信，但却用另一个来收信
             //上面后两个参数的意义， 同 From 的意义
             //mm.CC.Add("ourstoryzj@vip.qq.com,b@163.com,c@163.com");
@@ -164,7 +164,7 @@ namespace BLL
             //第三个参数是 第二个参数所使用的编码，如果指定不正确，则对方收到后显示乱码
             //936是简体中文的codepage值
 
-            mm.ReplyTo = new MailAddress("ourstoryzj@163.com", "我的接收邮箱", Encoding.GetEncoding(936));
+            //mm.ReplyTo = new MailAddress("ourstoryzj@163.com", "我的接收邮箱", Encoding.GetEncoding(936));
             
             mm.To.Add(new MailAddress(email, "接收者g", Encoding.GetEncoding(936)));
             mm.Subject = title; //邮件标题

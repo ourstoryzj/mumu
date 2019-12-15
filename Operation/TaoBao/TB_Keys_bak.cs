@@ -937,7 +937,7 @@ namespace excel_operation.TaoBao
                             DataGridViewCheckBoxCell cbx = (DataGridViewCheckBoxCell)row.Cells[0];
                             if ((bool)cbx.FormattedValue)
                             {
-                                int ssss = 1;
+                                //int ssss = 1;
                                 //row.Cells[]
                                 zc = (Entity.keys)row.DataBoundItem;
                                 if (zc != null)
@@ -1287,7 +1287,7 @@ namespace excel_operation.TaoBao
                     //}
                 }
             }
-            catch (Exception ex)
+            catch  
             {
                 //Debug.WriteLine("======================================================================");
                 //Debug.WriteLine(DateTime.Now.ToString());

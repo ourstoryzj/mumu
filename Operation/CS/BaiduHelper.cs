@@ -28,7 +28,7 @@ namespace excel_operation.CS
                 if (!File.Exists(imagePath))
                     return res;
                 // 设置APPID/AK/SK
-                var APP_ID = "17767489";
+                //var APP_ID = "17767489";
                 var API_KEY = "uq1WqDv14GMpouhgDRKblm6L";
                 var SECRET_KEY = "xhGGclgNBKWMKVU0Uf8KZLo7N7RTwRwQ";
 

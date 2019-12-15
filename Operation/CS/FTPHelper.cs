@@ -76,7 +76,7 @@ namespace excel_operation.CS
                         }
 
                     }
-                    catch (Exception ex) { }
+                    catch (Exception ex) { ex.ToString(); }
                     finally
                     {
                         fs.Close();

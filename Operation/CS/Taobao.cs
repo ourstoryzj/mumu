@@ -644,7 +644,7 @@ namespace excel_operation.CS
                 try
                 {
                     //备用字段
-                    string temp = "";
+                    //string temp = "";
                     //采集关键词名
                     name = _DoStr(Browser.JS_CEFBrowser("document.getElementsByClassName('ant-table-row')[" + j + "].getElementsByTagName('td')[0].getElementsByTagName('span')[1].title", webBrowser1));
                 }
@@ -789,7 +789,7 @@ namespace excel_operation.CS
                     //第一个有数据的关键词,作为标准
                     no1 = listdate[i];
                     //判断值,如果大于标准no1则+1,如果小于标准no1则-1
-                    int val = 0;
+                    //int val = 0;
                     //循环后面的数组
                     for (int j = i; j < listdate.Count; j++)
                     {

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using excel_operation.CS;
 using CefSharp.WinForms;
 using System.Diagnostics;
+using Common;
 
 namespace excel_operation.TaoBao
 {
@@ -73,7 +74,7 @@ namespace excel_operation.TaoBao
             webBrowser1.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
             tabPage2.Controls.Add(webBrowser1);
 
-            txt_save.Text = XMLHelper.GetValue("Pic_Save");
+            txt_save.Text = Common.XMLHelper.GetValue("Pic_Save");
             Control.CheckForIllegalCrossThreadCalls = false;
             bind_hangye();
             bind_sku();
@@ -217,7 +218,7 @@ namespace excel_operation.TaoBao
                 string _zhiliang = txt_zhiliang.Text.Trim();
 
                 //是否修改了文件名
-                bool isname = false;
+                //bool isname = false;
                 //新图尺寸
                 int sizenew = 0;
                 //新图质量
@@ -268,12 +269,12 @@ namespace excel_operation.TaoBao
                     if (!string.IsNullOrEmpty(frist))
                     {
                         f = frist + "_" + f;
-                        isname = true;
+                        //isname = true;
                     }
                     if (!string.IsNullOrEmpty(last))
                     {
                         f = f + "_" + last;
-                        isname = true;
+                        //isname = true;
                     }
                     //新文件名称地址
                     string lastname = file.DirectoryName + "\\" + (f + file.Extension);
@@ -411,7 +412,7 @@ namespace excel_operation.TaoBao
             }
 
             //把保存地址存储到xml文件中
-            XMLHelper.SetValue("Pic_Save", temp_save);
+            Common.XMLHelper.SetValue("Pic_Save", temp_save);
 
             webBrowser1.Load(weburl);
 
@@ -419,7 +420,7 @@ namespace excel_operation.TaoBao
             Bitmap bm = null;
             if (Browser.WaitWebPageLoad(webBrowser1))
             {
-                bm = ImageClass.GetScreen(webBrowser1);
+                bm = Common.ImageClass.GetScreen(webBrowser1);
             }
 
             //图片返回保存地址
@@ -453,7 +454,7 @@ namespace excel_operation.TaoBao
             //保存截图
             if (!string.IsNullOrEmpty(path_temp))
             {
-                ImageClass.GetScreen(bm, 50, path_temp, "屏幕截图.jpg");
+                Common.ImageClass.GetScreen(bm, 50, path_temp, "屏幕截图.jpg");
             }
 
 
@@ -487,7 +488,7 @@ namespace excel_operation.TaoBao
             }
         }
         //图片名称
-        int indexx = 1;
+        //int indexx = 1;
         private void tabPage1_DragDrop(object sender, DragEventArgs e)
         {
             //清空缓存
@@ -585,7 +586,7 @@ namespace excel_operation.TaoBao
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            indexx = 1;
+            //indexx = 1;
         }
 
         #endregion
@@ -1057,7 +1058,7 @@ namespace excel_operation.TaoBao
                 res = str.GetTBTitleFontNum();
                 lbl_titlefontnum.Text = "共" + (30 - res) + "个字";
                 //开始关联关键词
-                int num = XMLHelper.GetValue("TaoBaoDataTitleSearchNum").ToInt();
+                int num = Common.XMLHelper.GetValue("TaoBaoDataTitleSearchNum").ToInt();
                 string laststr = str.Substring(str.Length - 1 - num + 1);
 
                 if (!string.IsNullOrEmpty(laststr))
@@ -1073,7 +1074,7 @@ namespace excel_operation.TaoBao
             }
             catch (Exception ex)
             {
-
+                ex.ToString().ToLog();
             }
         }
 
@@ -1224,9 +1225,9 @@ namespace excel_operation.TaoBao
             string _zhiliang = txt_zhiliang.Text.Trim();
 
             //是否修改了文件名
-            bool isname = false;
+            //bool isname = false;
             //新图尺寸
-            int sizenew = 0;
+            //int sizenew = 0;
             //新图质量
             int zhiliang = 99;
             int.TryParse(_zhiliang, out zhiliang);
@@ -1234,7 +1235,7 @@ namespace excel_operation.TaoBao
             bool chicun = rb_chicun2.Checked;
             if (chicun)
             {
-                sizenew = 750;
+                //sizenew = 750;
             }
             //边框
             bool biankuang = rb_biankuang2.Checked;
@@ -1274,7 +1275,7 @@ namespace excel_operation.TaoBao
                     
                     lastname = filepath + "mian" + mainindex + ".jpg";
                     makeImage(img_Main, lastname, 0, 800, zhiliang, shuiyin, biankuang, waterpath, fanzhuan, null, null);
-                    string temp_main = ImageClass.GetMD5Hash(lastname);
+                    string temp_main = Common.ImageClass.GetMD5Hash(lastname);
                     if (!File.Exists(filepath + temp_main + ".tbi"))
                         File.Move(lastname, filepath + temp_main + ".tbi");
                     List_mian_make.Add(temp_main);
@@ -1301,7 +1302,7 @@ namespace excel_operation.TaoBao
                 {
                     lastname = filepath + "sku" + skuindex + ".jpg";
                     makeImage(img_SKU, lastname, 0, 800, zhiliang, shuiyin, biankuang, waterpath, fanzhuan, null, null);
-                    string sku_temp = ImageClass.GetMD5Hash(lastname);
+                    string sku_temp = Common.ImageClass.GetMD5Hash(lastname);
                     if (!File.Exists(filepath + sku_temp + ".tbi"))
                         File.Move(lastname, filepath + sku_temp + ".tbi");
                     List_sku_make.Add(sku_temp);
@@ -1386,7 +1387,7 @@ namespace excel_operation.TaoBao
 
             //开始处理csv文件
 
-            DataTable dt = CSVFileHelper.OpenCSV(Application.StartupPath + "\\model.csv");
+            DataTable dt = Common.CSVFileHelper.OpenCSV(Application.StartupPath + "\\model.csv");
             if (dt == null)
             {
                 MessageBox.Show("读取模板失败");
@@ -1483,7 +1484,7 @@ namespace excel_operation.TaoBao
             dt.Rows.Add(dr);
             //string filepath = XMLHelper_TaoBaodDataPackage.GetValue("TaoBaoDataDirectory") + "\\" + DateTime.Now.ToString("yyyyMMdd") + "\\" + dataPackageName + "\\" + title + "\\";
             string p = XMLHelper_TaoBaodDataPackage.GetValue("TaoBaoDataDirectory") + "\\" + DateTime.Now.ToString("yyyyMMdd") + "\\" + dataPackageName;
-            CSVFileHelper.SaveCSV(dt, p + "\\" + title + ".csv");
+            Common.CSVFileHelper.SaveCSV(dt, p + "\\" + title + ".csv");
 
             MessageBox.Show("数据包处理完成");
             Manager.OpenProgram_Directory(p);
@@ -2002,7 +2003,7 @@ namespace excel_operation.TaoBao
                 string _zhiliang = txt_zhiliang.Text.Trim();
 
                 //是否修改了文件名
-                bool isname = false;
+                //bool isname = false;
                 //新图尺寸
                 int sizenew = 0;
                 //新图质量
@@ -2053,12 +2054,12 @@ namespace excel_operation.TaoBao
                     if (!string.IsNullOrEmpty(frist))
                     {
                         f = frist + "_" + f;
-                        isname = true;
+                        //isname = true;
                     }
                     if (!string.IsNullOrEmpty(last))
                     {
                         f = f + "_" + last;
-                        isname = true;
+                        //isname = true;
                     }
                     //新文件名称地址
                     string lastname = file.DirectoryName + "\\" + (f + file.Extension);

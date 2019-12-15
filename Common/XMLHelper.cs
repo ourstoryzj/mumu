@@ -23,14 +23,13 @@ namespace Common
         }
 
 
-
         #region FileIsHas
         /// <summary>
         /// 判断文件是否存在
         /// </summary>
         /// <param name="url">文件地址，例如：Application.StartupPath + "\\Image</param>
         /// <returns></returns>
-        public bool FileIsHas(string url)
+        public static bool FileIsHas(string url)
         {
             if (!System.IO.File.Exists(url))
             {
@@ -44,12 +43,19 @@ namespace Common
         /// <summary>
         /// 创建DB.xml
         /// </summary>
-        public void CreateDBXml()
+        public static void CreateDBXml()
         {
-            XmlDocument xmldoc = new XmlDocument();
-            XmlElement xe = xmldoc.CreateElement("Data");
-            xmldoc.AppendChild(xe);
-            xmldoc.Save(xmlurl);
+            try
+            {
+                XmlDocument xmldoc = new XmlDocument();
+                XmlElement xe = xmldoc.CreateElement("Data");
+                xmldoc.AppendChild(xe);
+                xmldoc.Save(xmlurl);
+            }
+            catch (Exception ex)
+            {
+                ex.ToString().ToLog();
+            }
         }
         #endregion
 
@@ -59,7 +65,7 @@ namespace Common
         /// </summary>
         /// <param name="name">属性值</param>
         /// <returns></returns>
-        public XmlElement GetNode(string name)
+        public static XmlElement GetNode(string name)
         {
             XmlElement xe = GetNode("name", name);
             return xe;
@@ -147,6 +153,7 @@ namespace Common
                 XmlDocument xmldoc = new XmlDocument();
                 xmldoc.Load(xmlurl);
                 XmlNodeList xmllist = xmldoc.SelectNodes("//*[@" + name1 + "='" + value1 + "']");
+
                 foreach (XmlElement xe in xmllist)
                 {
                     xe_res = xe;
@@ -168,7 +175,7 @@ namespace Common
         /// <param name="value1">查找节点名</param>
         /// <param name="name2">要设置的属性名称</param>
         /// <param name="value2">要设置的属性值</param>
-        public void SetValue(string name1, string value1, string name2, string value2)
+        public static void SetValue(string name1, string value1, string name2, string value2)
         {
             //判断是否有文件， 没有就创建
             if (!FileIsHas(xmlurl))
@@ -202,7 +209,7 @@ namespace Common
         /// </summary>
         /// <param name="value1">找到节点中name属性为value1的Node</param>
         /// <param name="value2">设置节点中value属性</param>
-        public void SetValue(string value1, string value2)
+        public static void SetValue(string value1, string value2)
         {
             SetValue("name", value1, "value", value2);
         }
@@ -343,6 +350,8 @@ namespace Common
             catch { }*/
         }
         #endregion
+
+
 
 
 

@@ -1654,7 +1654,7 @@ namespace excel_operation
 
                 }
             }
-            catch (Exception e)
+            catch  
             {
                 //Debug.WriteLine(e.ToString());
             }
@@ -1882,7 +1882,7 @@ namespace excel_operation
                     }
                 }
             }
-            catch (Exception e)
+            catch 
             {
                 //Debug.WriteLine(e.ToString());
             }

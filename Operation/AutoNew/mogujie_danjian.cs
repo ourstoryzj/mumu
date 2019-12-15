@@ -1872,7 +1872,7 @@ namespace excel_operation
         {
             string res = txt_dianpuxinxi.Text.Trim();
             Browser.JS_CEFBrowser_NoReturn(res, webBrowser1);
-            return;
+            //return;
 
             Manager.Reset_Control(tabPage_mogujie_danjian.Controls);
             Manager.Reset_Control(groupBox1.Controls);
@@ -1944,15 +1944,15 @@ namespace excel_operation
                 string bianma = txt_bianma.Text.Trim();
                 Browser.JS_CEFBrowser_NoReturn(" getElementsByDataReactid('.4.2.1.$0.1.0.2:$2.1.0.0')[0].value='" + bianma + "'; ", webBrowser1);
                 lbl_state.Text = "编码属性处理完成";
-                string color = "";
-                string size = "";
-                string jiaceng = "";
-                string yingdu = "";
+                //string color = "";
+                //string size = "";
+                //string jiaceng = "";
+                //string yingdu = "";
 
 
-                string daxiao = "";
-                string tilin = "";
-                string waidai = "";
+                //string daxiao = "";
+                //string tilin = "";
+                //string waidai = "";
 
 
 
@@ -1967,9 +1967,9 @@ namespace excel_operation
 
 
 
-                string zhucaizhi = "";
-                string waixing = "";
-                string liuxing = "";
+                //string zhucaizhi = "";
+                //string waixing = "";
+                //string liuxing = "";
 
                 //颜色
                 lbl_state.Text = "正在处理颜色属性";
@@ -3269,7 +3269,7 @@ namespace excel_operation
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("点击后添加到内存中失败");
+                     ("点击后添加到内存中失败"+ex.ToString()).ToLog();
                 }
             }
         }

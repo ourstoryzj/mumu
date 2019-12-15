@@ -190,7 +190,7 @@ namespace excel_operation.TaoBao
             }
             catch (Exception e)
             {
-                //MessageBox.Show("绑定数据失败" + e.ToString());
+                ("绑定数据失败" + e.ToString()).ToLog();
             }
         }
 
@@ -1917,13 +1917,13 @@ namespace excel_operation.TaoBao
                 List<lh_rankinglist> list_test = new List<lh_rankinglist>();
 
                 //为零则不删除，为1则删除
-                int state = 0;
+                //int state = 0;
 
                 foreach (lh_rankinglist k in list_dgv)
                 {
 
                     //设置关键词状态为正常0
-                    state = 0;
+                    //state = 0;
                     foreach (yh_zaoci zc in list)
                     {
                         try
@@ -2044,7 +2044,7 @@ namespace excel_operation.TaoBao
                     }
                 }
             }
-            catch (Exception ex)
+            catch 
             {
             }
         }

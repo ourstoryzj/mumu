@@ -3223,7 +3223,7 @@ namespace excel_operation
                 HtmlElement current = hec[0];
                 image = wb.GetImage(current);
             }
-            catch (Exception ex)
+            catch 
             {
 
             }
