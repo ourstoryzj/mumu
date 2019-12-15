@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>demo主页面</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            alert(document.getElementsByTagName('iframe')[0]);
+            var test = document.getElementsByTagName('iframe')[0].contentWindow.document.getElementById("objId");
+            alert(test);
+            var _iframe = document.getElementById('iframeId').contentWindow;
+
+            var _div = _iframe.document.getElementById('objId');
+            _div.style.backgroundColor = '#ccc';
+            _div.innerText = '1211212';
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div id='parDiv'>父页面</div>
+    <iframe src="demo-iframe.htm" id="iframeId" height="150" width="150"></iframe>
+</body>
+</html>

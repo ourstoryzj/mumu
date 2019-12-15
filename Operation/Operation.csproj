@@ -1,0 +1,885 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.WinForms.55.0.0\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.55.0.0\build\CefSharp.WinForms.props')" />
+  <Import Project="..\packages\CefSharp.Common.55.0.0\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.55.0.0\build\CefSharp.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B661EFD-EE0D-4323-9540-F7ABC0AA017E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Operation</RootNamespace>
+    <AssemblyName>Operation</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>false</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AipSdk">
+      <HintPath>..\DLL\AipSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\DLL\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="HttpHelper">
+      <HintPath>..\DLL\HttpHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\DLL\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="IrisSkin4">
+      <HintPath>..\DLL\IrisSkin4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\DLL\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\DLL\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoNew\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoNew\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoNew\mogujie_danjian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoNew\mogujie_danjian.Designer.cs">
+      <DependentUpon>mogujie_danjian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoNew\test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoNew\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\BaiduHelper.cs" />
+    <Compile Include="CS\RARHelper.cs" />
+    <Compile Include="Other\ImgDiscern.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\ImgDiscern.Designer.cs">
+      <DependentUpon>ImgDiscern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\ImageDownload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\ImageDownload.Designer.cs">
+      <DependentUpon>ImageDownload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\MeiTuXiuXiu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\MeiTuXiuXiu.Designer.cs">
+      <DependentUpon>MeiTuXiuXiu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\Common.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\Common.Designer.cs">
+      <DependentUpon>Common.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\FaHuoFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\FaHuoFrom.Designer.cs">
+      <DependentUpon>FaHuoFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\CaiJi.cs" />
+    <Compile Include="CS\CaiJi_MoGuJie.cs" />
+    <Compile Include="CS\ErrorLog.cs" />
+    <Compile Include="CS\FTPHelper.cs" />
+    <Compile Include="CS\HTMLHelper.cs" />
+    <Compile Include="CS\TaoJiJiHelper.cs" />
+    <Compile Include="CS\WiFiHelper.cs" />
+    <Compile Include="TaoBao\PicMake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\PicMake.Designer.cs">
+      <DependentUpon>PicMake.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\HuaShu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\HuaShu.Designer.cs">
+      <DependentUpon>HuaShu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\TaskWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\TaskWork.Designer.cs">
+      <DependentUpon>TaskWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\BaoNiuNiu.cs" />
+    <Compile Include="CS\BindingCollection1.cs" />
+    <Compile Include="CS\CSVFileHelper.cs" />
+    <Compile Include="CS\DataGridViewHelper.cs" />
+    <Compile Include="CS\DataTableExtensions.cs" />
+    <Compile Include="CS\ExcelHelper.cs" />
+    <Compile Include="CS\FileHelper.cs" />
+    <Compile Include="CS\ImageClass.cs" />
+    <Compile Include="CS\MessageAPI.cs" />
+    <Compile Include="CS\Music.cs" />
+    <Compile Include="CS\public class IPHelper.cs" />
+    <Compile Include="CS\ShortcutCreator.cs" />
+    <Compile Include="CS\SystemHotkey.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CS\PinDuoDuo.cs" />
+    <Compile Include="CS\TaoBaoHelper.cs" />
+    <Compile Include="CS\test.cs" />
+    <Compile Include="CS\WebService.cs" />
+    <Compile Include="CS\XMLHelpers.cs" />
+    <Compile Include="CS\XMLHelper_PDD.cs" />
+    <Compile Include="CS\XMLHelper_SKU.cs" />
+    <Compile Include="CS\XMLHelper_FaHuo.cs" />
+    <Compile Include="CS\XMLHelper.cs" />
+    <Compile Include="CS\XMLHelper_TaoBaodDataPackage.cs" />
+    <Compile Include="CS\XMLHelper_TaoBao.cs" />
+    <Compile Include="PDD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PDD.Designer.cs">
+      <DependentUpon>PDD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PinDuoDuo\PDD_KeFu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PinDuoDuo\PDD_KeFu.Designer.cs">
+      <DependentUpon>PDD_KeFu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PinDuoDuo\PDD_Often.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PinDuoDuo\PDD_Often.Designer.cs">
+      <DependentUpon>PDD_Often.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenDemo\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenDemo\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenDemo\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenDemo\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenDemo\HexPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScreenDemo\HexPictureBox.Designer.cs">
+      <DependentUpon>HexPictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenDemo\HObject.cs" />
+    <Compile Include="ScreenDemo\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenDemo\MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenDemo\ScreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenDemo\ScreenForm.Designer.cs">
+      <DependentUpon>ScreenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShuaDan\MessageTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShuaDan\MessageTest.Designer.cs">
+      <DependentUpon>MessageTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShuaDan\ShuaDan_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShuaDan\ShuaDan_Add.Designer.cs">
+      <DependentUpon>ShuaDan_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShuaDan\ShuaDan_List3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShuaDan\ShuaDan_List3.Designer.cs">
+      <DependentUpon>ShuaDan_List3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShuaDan\ShuaDan_List2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShuaDan\ShuaDan_List2.Designer.cs">
+      <DependentUpon>ShuaDan_List2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShuaDan\ShuaDan_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShuaDan\ShuaDan_List.Designer.cs">
+      <DependentUpon>ShuaDan_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_KeysAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_KeysAnalysis.Designer.cs">
+      <DependentUpon>TB_KeysAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_Keys2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_Keys2.Designer.cs">
+      <DependentUpon>TB_Keys2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_ScreenDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_ScreenDemo.Designer.cs">
+      <DependentUpon>TB_ScreenDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_ScreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_ScreenForm.Designer.cs">
+      <DependentUpon>TB_ScreenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Template.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Template.Designer.cs">
+      <DependentUpon>Template.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_FaHuo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_FaHuo.Designer.cs">
+      <DependentUpon>TB_FaHuo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_ImgDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_ImgDelete.Designer.cs">
+      <DependentUpon>TB_ImgDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_Keys_bak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_Keys_bak.Designer.cs">
+      <DependentUpon>TB_Keys_bak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\BaoNiuNiu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\BaoNiuNiu.Designer.cs">
+      <DependentUpon>BaoNiuNiu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_Often2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_Often2.Designer.cs">
+      <DependentUpon>TB_Often2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_Often.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_Often.Designer.cs">
+      <DependentUpon>TB_Often.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\Auto.cs" />
+    <Compile Include="CS\BindingCollection.cs" />
+    <Compile Include="CS\Mogujie.cs" />
+    <Compile Include="CS\ObjectPropertyCompare.cs" />
+    <Compile Include="CS\Taobao.cs" />
+    <Compile Include="CS\Browser.cs" />
+    <Compile Include="DataAnalysis\CanMou_Keys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\CanMou_Keys.Designer.cs">
+      <DependentUpon>CanMou_Keys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAnalysis\CanMou_KeysHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\CanMou_KeysHelper.Designer.cs">
+      <DependentUpon>CanMou_KeysHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAnalysis\Login_TaoBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\Login_TaoBao.Designer.cs">
+      <DependentUpon>Login_TaoBao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_ZhiTongChe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_ZhiTongChe.Designer.cs">
+      <DependentUpon>TB_ZhiTongChe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\TB_ZaoCi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\TB_ZaoCi.Designer.cs">
+      <DependentUpon>TB_ZaoCi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoBao\ZhuTu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\ZhuTu.designer.cs">
+      <DependentUpon>ZhuTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\test_async.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_async.Designer.cs">
+      <DependentUpon>test_async.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\test_caiji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_caiji.Designer.cs">
+      <DependentUpon>test_caiji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\test_download.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_download.Designer.cs">
+      <DependentUpon>test_download.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\HttpWeb.cs" />
+    <Compile Include="DataAnalysis\DA_Opponent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\DA_Opponent.Designer.cs">
+      <DependentUpon>DA_Opponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\fanxianFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\fanxianFrom.Designer.cs">
+      <DependentUpon>fanxianFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\Manager.cs" />
+    <Compile Include="Other\shouhouFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\shouhouFrom.Designer.cs">
+      <DependentUpon>shouhouFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Other\dianpuFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\dianpuFrom.Designer.cs">
+      <DependentUpon>dianpuFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\Excel_Use.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\Excel_Use.Designer.cs">
+      <DependentUpon>Excel_Use.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\imageFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\imageFrom.Designer.cs">
+      <DependentUpon>imageFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\test2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test2.Designer.cs">
+      <DependentUpon>test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\test_guge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_guge.Designer.cs">
+      <DependentUpon>test_guge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\test_iframe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_iframe.Designer.cs">
+      <DependentUpon>test_iframe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\test_ip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_ip.Designer.cs">
+      <DependentUpon>test_ip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\aaaaaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\aaaaaa.Designer.cs">
+      <DependentUpon>aaaaaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\test_meau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_meau.Designer.cs">
+      <DependentUpon>test_meau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WangGong\WG_Goods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WangGong\WG_Goods.Designer.cs">
+      <DependentUpon>WG_Goods.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AutoNew\mogujie_danjian.resx">
+      <DependentUpon>mogujie_danjian.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AutoNew\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\ImgDiscern.resx">
+      <DependentUpon>ImgDiscern.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\ImageDownload.resx">
+      <DependentUpon>ImageDownload.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\MeiTuXiuXiu.resx">
+      <DependentUpon>MeiTuXiuXiu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\Common.resx">
+      <DependentUpon>Common.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\FaHuoFrom.resx">
+      <DependentUpon>FaHuoFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\PicMake.resx">
+      <DependentUpon>PicMake.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\HuaShu.resx">
+      <DependentUpon>HuaShu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\TaskWork.resx">
+      <DependentUpon>TaskWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDD.resx">
+      <DependentUpon>PDD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PinDuoDuo\PDD_KeFu.resx">
+      <DependentUpon>PDD_KeFu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PinDuoDuo\PDD_Often.resx">
+      <DependentUpon>PDD_Often.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenDemo\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenDemo\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenDemo\ScreenForm.resx">
+      <DependentUpon>ScreenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShuaDan\MessageTest.resx">
+      <DependentUpon>MessageTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShuaDan\ShuaDan_Add.resx">
+      <DependentUpon>ShuaDan_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShuaDan\ShuaDan_List3.resx">
+      <DependentUpon>ShuaDan_List3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShuaDan\ShuaDan_List2.resx">
+      <DependentUpon>ShuaDan_List2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShuaDan\ShuaDan_List.resx">
+      <DependentUpon>ShuaDan_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\TB_KeysAnalysis.resx">
+      <DependentUpon>TB_KeysAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\TB_Keys2.resx">
+      <DependentUpon>TB_Keys2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\TB_ScreenDemo.resx">
+      <DependentUpon>TB_ScreenDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\TB_ScreenForm.resx">
+      <DependentUpon>TB_ScreenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template.resx">
+      <DependentUpon>Template.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\TB_FaHuo.resx">
+      <DependentUpon>TB_FaHuo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\TB_ImgDelete.resx">
+      <DependentUpon>TB_ImgDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\TB_Keys_bak.resx">
+      <DependentUpon>TB_Keys_bak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\BaoNiuNiu.resx">
+      <DependentUpon>BaoNiuNiu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\TB_Often2.resx">
+      <DependentUpon>TB_Often2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\TB_Often.resx">
+      <DependentUpon>TB_Often.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysis\CanMou_Keys.resx">
+      <DependentUpon>CanMou_Keys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysis\CanMou_KeysHelper.resx">
+      <DependentUpon>CanMou_KeysHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysis\DA_Opponent.resx">
+      <DependentUpon>DA_Opponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\fanxianFrom.resx">
+      <DependentUpon>fanxianFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysis\Login_TaoBao.resx">
+      <DependentUpon>Login_TaoBao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\shouhouFrom.resx">
+      <DependentUpon>shouhouFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\dianpuFrom.resx">
+      <DependentUpon>dianpuFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\TB_ZhiTongChe.resx">
+      <DependentUpon>TB_ZhiTongChe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\Excel_Use.resx">
+      <DependentUpon>Excel_Use.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\imageFrom.resx">
+      <DependentUpon>imageFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TaoBao\TB_ZaoCi.resx">
+      <DependentUpon>TB_ZaoCi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\ZhuTu.resx">
+      <DependentUpon>ZhuTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test2.resx">
+      <DependentUpon>test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_async.resx">
+      <DependentUpon>test_async.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_caiji.resx">
+      <DependentUpon>test_caiji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_download.resx">
+      <DependentUpon>test_download.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_guge.resx">
+      <DependentUpon>test_guge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_iframe.resx">
+      <DependentUpon>test_iframe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_ip.resx">
+      <DependentUpon>test_ip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\aaaaaa.resx">
+      <DependentUpon>aaaaaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_meau.resx">
+      <DependentUpon>test_meau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WangGong\WG_Goods.resx">
+      <DependentUpon>WG_Goods.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\BLL.shouhouManager.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\x64\Debug\TaoBaoDataPackage.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\x64\Debug\FaHuo.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\x64\Debug\DB.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\x64\Debug\demo-iframe.htm" />
+    <Content Include="bin\x64\Debug\JScript.js" />
+    <Content Include="bin\x64\Debug\shuiyin.png" />
+    <Content Include="bin\x64\Debug\PDD.xml" />
+    <Content Include="bin\x64\Debug\TaoBao.xml" />
+    <Content Include="bin\x64\Debug\TaoBao_SKU.xml" />
+    <Content Include="bin\x64\Debug\test.htm" />
+    <Content Include="HTMLPage1.html" />
+    <Content Include="icon.ico" />
+    <None Include="Resources\Icon1.ico" />
+    <None Include="Resources\copy.gif" />
+    <None Include="Resources\easer1.gif" />
+    <None Include="Resources\lightpen.gif" />
+    <None Include="Resources\mail.gif" />
+    <None Include="Resources\mouse.gif" />
+    <None Include="Resources\new.gif" />
+    <None Include="Resources\option.gif" />
+    <None Include="Resources\pen.gif" />
+    <None Include="Resources\rectangle.gif" />
+    <None Include="Resources\save.gif" />
+    <None Include="Resources\undo.gif" />
+    <Content Include="Test\demo-iframe.htm" />
+    <Content Include="Test\test.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\tool\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL2\BLL2.csproj">
+      <Project>{8675394e-04b0-470f-97dd-e28190beab6c}</Project>
+      <Name>BLL2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{9ee85ea2-307f-40b6-bab2-acbee7432ce2}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{3b7dc189-2ccd-47df-82c4-12ca7cd6d841}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DALFactory\DALFactory.csproj">
+      <Project>{5bf98ab0-7fd4-4f1c-871b-a6f84efa0804}</Project>
+      <Name>DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{b42a2fe3-f934-4e87-8494-0fca54527ca6}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{a67a81c9-91ec-4355-a982-b4d897015d46}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Entity.csproj">
+      <Project>{cc2ca4d0-7abc-4bc3-9dfb-ff8240d36576}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\cef.redist.x64.3.2883.1552\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2883.1552\build\cef.redist.x64.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x64.3.2883.1552\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.2883.1552\build\cef.redist.x64.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.3.2883.1552\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.2883.1552\build\cef.redist.x86.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.55.0.0\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.55.0.0\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.55.0.0\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.55.0.0\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.55.0.0\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.55.0.0\build\CefSharp.WinForms.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.55.0.0\build\CefSharp.WinForms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.55.0.0\build\CefSharp.WinForms.targets'))" />
+  </Target>
+  <Import Project="..\packages\cef.redist.x86.3.2883.1552\build\cef.redist.x86.targets" Condition="Exists('..\packages\cef.redist.x86.3.2883.1552\build\cef.redist.x86.targets')" />
+  <Import Project="..\packages\CefSharp.Common.55.0.0\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.55.0.0\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\CefSharp.WinForms.55.0.0\build\CefSharp.WinForms.targets" Condition="Exists('..\packages\CefSharp.WinForms.55.0.0\build\CefSharp.WinForms.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

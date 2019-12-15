@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Data>
+  <!-- 字符& 需用&amp;转义字符表示 -->
+  <!-- 是否排队回复,0则无回复,1则正在回复 -->
+  <Add name="answering" value="0" />
+  <!--   页面处理   -->
+  <!-- 客户列表中有焦点的元素 -->
+  <Add name="client_focused" value="document.getElementsByClassName('chat-item-box transition active')[0]" />
+  <!-- 获取所有客户集合，使用方法后面加[index]例如[0] -->
+  <Add name="client_lists" value="document.getElementsByClassName('chat-item-box transition')" />
+  <!-- 获取需要回复的用户元素第一个 -->
+  <Add name="client_five" value="document.getElementsByClassName('five-minute')[0].getElementsByClassName('chat-item-box transition')[0]" />
+  <!-- 获取需要回复的用户元素，使用方法后面加[index]例如[0] -->
+  <Add name="client_fives" value="document.getElementsByClassName('five-minute')[0].getElementsByClassName('chat-item-box transition')" />
+  <!-- 需要回复的客户留言内容 -->
+  <Add name="client_five_message" value="document.getElementsByClassName('five-minute')[0].getElementsByClassName('chat-item-box transition')[0].getElementsByClassName('chat-message-content')[0].innerText" />
+  <!-- 需要回复的客户留言内容 -->
+  <Add name="client_message_last" value="document.getElementsByClassName('buyer-item')[document.getElementsByClassName('buyer-item').length-1].getElementsByClassName('msg-content-box')[0].innerText" />
+  <!-- 获取显示中的任意一条回复信息，使用方法替换 parameter -->
+  <Add name="client_messages_content" value="document.getElementsByClassName('clearfix')[parameter].getElementsByTagName('p')[1].innerText" />
+  <!-- 获取输入回复内容的文本框 -->
+  <Add name="client_replyText" value="document.getElementById('replyTextarea')" />
+  <!-- 统一回复内容 -->
+  <Add name="client_answerInfo" value="您好，顾客暂时比较多，客服MM正在逐一回复，请稍等一下哦" />
+  <!-- 店铺ID的元素 -->
+  <Add name="client_shopid" value="document.getElementsByClassName('nickname')[0]" />
+  <!--  -->
+  <Add name=" " value=" " />
+</Data>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Data>
+  <!-- 字符& 需用&amp;转义字符表示 -->
+  <!--生意参谋采集-->
+  <add name="Key_KeyLength1" value="1" />
+  <add name="Key_KeyLength2" value="15" />
+  <add name="Key_RenQi1" value="200" />
+  <add name="Key_RenQi2" value="" />
+  <add name="Key_DianJiShu1" value="" />
+  <add name="Key_DianJiShu2" value="" />
+  <add name="Key_DianJiLv1" value="1" />
+  <add name="Key_DianJiLv2" value="" />
+  <add name="Key_SangCheng1" value="" />
+  <add name="Key_SangCheng2" value="80" />
+  <add name="Key_GoodsNum1" value="10" />
+  <add name="Key_GoodsNum2" value="" />
+  <add name="Key_ZTCPrice1" value="" />
+  <add name="Key_ZTCPrice2" value="" />
+  <add name="Key_ZhuanHuaLv1" value="0.1" />
+  <add name="Key_ZhuanHuaLv2" value="" />
+  <add name="Key_JingZheng1" value="1000" />
+  <add name="Key_JingZheng2" value="" />
+  <add name="TaoBao_KeyHelper_Key" value="牛津布双肩包" />
+  <add name="DataSpm_CanMou" value="d108" />
+  <add name="DataSpm_ShiChang" value="d1057" />
+  <add name="DataSpm_SouSuoCi" value="d1078" />
+  <add name="OpenFolderDialog_SelectedPath" value="C:\Users\Administrator\Desktop\test\欣冉网单批发_6189#桃心配色五件套_125.00\详情图" />
+  <add name="CaijiKeyTime" value="3000" />
+  <!--市场行情采集关键词时每页采集时间-->
+  <!--淘宝数据包文件夹-->
+  <add name="TaoBaoDataDirectory" value="D:\TaoBaoDataDirectory" />
+  <add name="TaoBaoDataSKU" value="白色-98|黑色-98|黄色-98|绿色-98|红色-98|白1色-98|黑1色-48|黄1色-98|绿1色-98|绿1色-98" />
+  <add name="TaoBaoDataTitleSearchNum" value="1" />
+  <!--Email-->
+  <add name="Email_Account" value="ourstoryzj@163.com" />
+  <add name="Email_Pwd" value="zhangjian123" />
+  <!--蘑菇街-->
+  <add name="CaiJi_Title_Url1" value="http://list.mogujie.com/s?page=1&amp;q=单肩包" />
+  <add name="CaiJi_Title_Url2" value="http://list.mogujie.com/s?page=1&amp;q=单肩包" />
+  <add name="CaiJi_Title_Url3" value="http://list.mogujie.com/s?page=3&amp;q=%E5%8D%95%E8%82%A9%E5%8C%85" />
+  <!--<add name="MoGuJie_Access" value="shop14p00_10" />
+  <add name="MoGuJie_Pwd" value="kefu123" />-->
+  <add name="MoGuJie_Access" value="青涩年华潮包" />
+  <add name="MoGuJie_Pwd" value="zhangjiazhe123" />
+  <add name="MoGuJie_ShopID" value="14p00" />
+  <add name="MoGuJie_GouWuCheWait" value="18000" />
+  <add name="MoGuJie_KuaiDiID" value="38" />
+  <add name="MoGuJie_PingJia1" value="感谢亲的支持，本店商品7天无理由免费退换货哦，请菇良们放心选购哦，您的每一个好评都是对我们坚持的鼓励，您的每一个建议都为 我们的前进指明了方向，请您放心，我们将通过不懈的努力将宝贝做得更好，将服务做得更好；一切只为亲的满意！祝您和您的家人生活愉 快，工作顺利！欢迎亲再次光临...更多活动关注我们青涩年华旗舰店的vx：Zhezidai_Family 更有好评返现活动欢迎亲的参加哦 每天上新 O (∩_∩)O~" />
+  <add name="MoGuJie_PingJia2" value="亲爱滴，谢谢您对我们的认可，我们缘起于包包，彼此由陌生，熟悉，到亲切，多么奇妙而有趣的过程。因着您的支持与信任，我们会继续坚持用最好的做工，最好的面料，最好的设计，给予亲最适合您的包包，朵唯琪包包备货充足，所有订单72小时内发出，如有疑问欢迎咨询在线客服，青涩年华旗舰店竭诚为您服务，也期待您一如既往的支持！更多活动关注我们青涩年华旗舰店的vx：Zhezidai_Family 更有好评返现活动欢迎亲的参加哦 每天上新 O(∩_∩)O" />
+  <add name="MoGuJie_PingJia3" value="非常感谢您对青涩年华旗舰店的支持！您的选择非常明智！包包在造型中的重要性举足轻重，当季明星同款，潮流尖货，个性潮包青涩年华旗舰店应有尽有。选择了青涩年华，就是选择了与美同在。我们竭诚期待您的再次光临，客官不要忘记我们的------每天上新Vxin号：Zhezidai_Family 更多美包与你同在" />
+  <!--淘宝-->
+  <add name="TaoBao_MaiDian" value="先收藏，先发货！即日起收藏店铺并购买送礼品一份，数量有限，送完为止。十年潮包，10年专注女包。全心全意为您提供多快好省，可以免费提供贺卡，需要请联系客服MM！【新款上新，品质保证】【支持七天无理由退换货】" />
+  <add name="TaoBao_MiaoShu" value="先收藏，先发货！即日起收藏店铺并购买送礼品一份，数量有限，送完为止。十年潮包，10年专注女包。全心全意为您提供多快好省，可以免费提供贺卡，需要请联系客服MM！【新款上新，品质保证】【支持七天无理由退换货】" />
+  <add name="TaoBao_Copy_ChengFa" value="100" />
+  <add name="TaoBao_Copy_JiaFa" value="0" />
+  <!--图片处理-->
+  <add name="Pic_Save" value="C:\Users\Administrator\Desktop\test" />
+  <!--直通车-->
+  <!--直通车最高出价-->
+  <add name="ZhiTongChe_ZuiGaoPrice" value="2.5" />
+  <add name="ZhiTongChe_PaiMing" value="3" />
+  <add name="ZhiTongChe_ZuiDiPrice" value="0.10" />
+  <add name="ZhiTongChe_MeiCiPrice" value="0.05" />
+  <add name="ZhiTongChe_ZuiDiZhanXian" value="500" />
+  <!--选择排名 1:首条  2:前三名  3:4-6名  4:7-10  5:10-15  6:16-20-->
+  <add name="ZhiTongChe_PaiMing" value="1" />
+  <!--手机号平台-->
+  <add name="PhoneCode_Access" value="ourstoryzj" />
+  <add name="PhoneCode_Pwd" value="zhangjian" />
+  <!--登录借口，返回token-->
+  <add name="API_Login" value="http://api.xinghe008.com:8000/Api/userLogin?uName=ourstoryzj&amp;pWord=zhangjiazhe&amp;Developer=Ihq80okciYJWMIFpVdoEuQ%3d%3d" />
+  <add name="API_Exit" value="http://api.yzm9.com/Api/userExit?token=" />
+  <add name="API_ItemID" value="15158" />
+  <add name="API_ItemID_mogujie" value="750" />
+  <!--空包网平台-->
+  <add name="KongBao_Access" value="ourstoryzj" />
+  <add name="KongBao_Pwd" value="zhangjian" />
+  <!--<add name="KuaiDiValue_MoGuJie" value="29" title="天天快递" />-->
+  <add name="KuaiDiValue_MoGuJie" value="72" title="安能快递" />
+  <add name="KuaiDiValue_TaoBao" value="67" />
+  <!--包牛牛发货-->
+  <add name="BaoNiuNiu_Access" value="ourstoryzj" />
+  <add name="BaoNiuNiu_Pwd" value="zhangjian" />
+  <!--打单发货-->
+  <add name="FaHuo_Config_BenDi" value="0218,0111,0119,0220,0230,0231,0232,0233,0219" />
+  <add name="FaHuo_Config_BaiGou" value="2097,1070,0295,8161,2095,1072,2081,2082,1073,2097,赵晓亮,3365,9036" />
+  <add name="FaHuo_Config_DiQu" value="新疆,西藏,北京,内蒙古,海南,廊坊" />
+  <add name="FaHuo_Config_Email" value="181193051@qq.com,405773378@qq.com,671691675@qq.com,ourstoryzj@163.com" />
+  <add name="FaHuo_BuDan_GetAddress_num" value="10" />
+  <!--每次获取补单地址的数量-->
+  <add name="FaHuo_BuDan_GetAddress_index" value="10" />
+  <!--从第几个开始获取-->
+  <!--拼多多-->
+  <add name="PinDuoDuoAccountNum" value="3" />
+  <add name="PinDuoDuo_Account1" value="pdd1692467210" title="青涩年华" />
+  <add name="PinDuoDuo_Pwd1" value="qw013368zj@" />
+  <add name="PinDuoDuo_Account2" value="pdd56555906319" title="金色年华" />
+  <add name="PinDuoDuo_Pwd2" value="zj013368qw@" />
+  <add name="PinDuoDuo_Account3" value="13932273018" title="韩范儿" />
+  <add name="PinDuoDuo_Pwd3" value="qw013368zj@" />
+  <add name="PinDuoDuo_Price" value="239.99" />
+  <add name="PinDuoDuo_ZhongLiang" value="0.9" />
+  <add name="PinDuoDuo_Price_BuPinTuan" value="6" />
+  <add name="PinDuoDuo_GoodsNum" value="1000" />
+  <!--自动回复时间1000 等于1秒-->
+  <add name="PinDuoDuo_AutoAnswerTime" value="15000" />
+  <add name="PinDuoDuo_JieShao" value="送小包 送配套小包 好的包包要看细节不只是漂亮，更重要是做工跟材质！包包采用全pu面料！不剥皮不掉皮全防水！肩带复合织带加固受力点双层车线，保证了肩带的牢固性，不会断裂。背部有暗拉链，可以放置钱包或者手机等贵重物品！包包可容纳，水杯、雨伞、女士用品、平板电脑、杂志、书籍等！包包适用于，旅行、休闲逛街、上班、上学、宝妈！" />
+  <!--淘集集-->
+  <add name="TaoJiJi_ShopID1" value="taojj_23552" title="青涩年华" />
+  <add name="TaoJiJi_Account1" value="boss" title="青涩年华" />
+  <add name="TaoJiJi_Pwd1" value="HOE03UEB" />
+</Data>

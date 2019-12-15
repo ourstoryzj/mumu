@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Data>
+  <!-- 字符& 需用&amp;转义字符表示 -->
+  
+  <!-- 超级店长 -->
+  <!-- 超级店长-打单发货 -->
+  
+  <!-- 更新订单document.getElementsByClassName('update_data')[0] -->
+  <add name="cjdz_gengxindingdan" value="document.getElementById('updateData')" />
+  
+
+
+ <!--以上是之前的，下面是粘贴过来的，超级店长-->
+  <!--打单发货的网址-->
+  <Add name="url_dadanfahuo" value="document.getElementsByClassName('site-nav-item')[6].getElementsByTagName('a')[0].href" />
+  <!--确定是否有这个元素，确定是否打开页面-->
+  <Add name="ishas" value="document.getElementById('updateData')" />
+  <!--重置搜索条件-->
+  <Add name="reset" value="document.getElementsByClassName('next-btn-secondary')[0].click()" />
+  <!--获取收件信息地址 -->
+  <!--<Add name="GetAddress" value="document.getElementsByClassName('next-row')[parameter].getElementsByClassName('next-col')[0].getElementsByTagName('div')[1].innerText " /> -->
+  <Add name="GetAddress" value=" getElementsByInnerText('联系方式：')[parameter].parentElement.innerText " />
+  <!--获取订单编号 --> 
+  <Add name="GetOrderCode" value="document.getElementsByClassName('next-row')[parameter].getElementsByClassName('next-col')[0].getElementsByTagName('div')[2].innerText" />
+  <!--获取商品名称 -->
+  <Add name="GetGoodsName" value="document.getElementsByClassName('o-title')[parameter].innerText" />
+  <!--获取商品网址 -->
+  <Add name="GetGoodsUrl" value="document.getElementsByClassName('o-title')[parameter].href " />
+  <!--点击高级查询 -->
+  <Add name="ClickSearchHeightShow" value="document.getElementsByClassName('pull-right')[0].click() " />
+  <!--设置搜索-昵称 -->
+  <Add name="SetBuyer" value="document.getElementsByName('buyerNick')[0].value='parameter' " />
+  <!--设置搜索-昵称2 -->
+  <Add name="SetBuyer2" value="document.getElementsByName('buyerNick')[0] " />
+  <!--点击查询 -->
+  <Add name="ClickSearch" value="document.getElementsByClassName('search-show')[0].getElementsByTagName('button')[0].click()" />
+  <!-- 点击高级查询2-->
+  <Add name="ClickSearch2" value="document.getElementsByClassName('search-item ')[5].getElementsByTagName('button')[0].click()" />
+  <!--获取订单数量 -->
+  <Add name="GetGoodsCount" value="document.getElementsByClassName('next-table-expanded-row').length " />
+  <!--获取显示结果 -->
+  <Add name="GetSearchRes" value="document.getElementsByClassName('next-table-empty')[0].innerText" />
+  <!--获取昵称-->
+  <Add name="GetBuyer" value="document.getElementsByClassName('nickcell')[parameter].innerText " />
+  <!--获取发货状态  "韵达快递3833002768712[单号回收]；[单号回收]"" -->
+  <Add name="GetSendState" value="document.getElementsByClassName('elecStatus')[parameter].getElementsByClassName('batch-tip')[0].innerText  " />
+  <!--点击编辑按钮 -->
+  <Add name="ClickEdit" value="document.getElementsByClassName('next-row')[parameter].getElementsByClassName(' edit-font ')[0].click() " />
+  <!--获取卖家备注 -->
+  <Add name="GetEditRemark" value="document.getElementsByName('sellerMemo')[0].value" />
+  <!--设置卖家备注 -->
+  <Add name="SetEditRemark" value="document.getElementsByName('sellerMemo')[0] " />
+  <!--点击编辑框的确定按钮 -->
+  <Add name="ClickEditOk" value="document.getElementsByClassName('next-dialog-footer')[0].getElementsByTagName('button')[0].click()" />
+  <!--获取宝贝信息，用于比对是否是白沟商品 -->
+  <Add name="GetGoodsInfo" value="document.getElementsByClassName('order-list-table')[parameter].innerText" />
+  <!--获取商品颜色分类名称 -->
+  <Add name="GetGoodsSKU" value="document.getElementsByClassName('order-list-table')[parameter].getElementsByClassName('next-table-cell')[2].innerText " />
+  <!--获取商品数量 -->
+  <Add name="GetGoodsNum" value=" document.getElementsByClassName('order-list-table')[parameter].getElementsByClassName('next-table-cell')[4].innerText " />
+  <!--获取备注信息 -->
+  <!--<Add name="GetRemark" value="document.getElementsByClassName('next-row')[parameter].getElementsByClassName('next-col')[0].getElementsByTagName('div')[0].innerText " />-->
+  <Add name="GetRemark" value="document.getElementsByClassName('next-row')[parameter].getElementsByClassName('next-col')[0].getElementsByTagName('div')[0].innerText " />
+  <!--点击关闭备注窗口  -->
+  <Add name="ClickCloseRemark" value="document.getElementsByClassName( 'next-icon-close')[0].click() " />
+  <!--选中订单  -->
+  <Add name="SelectedOrder" value="document.getElementsByClassName('openDetail')[parameter].getElementsByTagName('input')[0].checked=true; " />
+  <!--是否选中了订单  -->
+  <Add name="IsSelectedOrder" value="document.getElementsByClassName('openDetail')[parameter].getElementsByTagName('input')[0].checked; " />
+  <!-- 快递单打印状态-元素 -->
+  <Add name="SelectKuaiDiState" value="document.getElementsByClassName('next-select-inner')[2]" />
+  <!--设置订单状态-元素  -->
+  <Add name="SelectOrderState" value="document.getElementsByClassName('next-select-inner')[6] " />
+  <!--设置备注信息为  -->
+  <Add name="SelectRemarkState" value="document.getElementsByClassName('next-select-inner')[5] " />
+  <!-- 设置有卖家备注，备注内容为 -->
+  <Add name="SetSearchRemark" value="document.getElementsByClassName('next-input')[9].getElementsByTagName('input')[0].value='parameter'" />
+  <!-- 进入自定义打单页面 -->
+  <Add name="GoZiDingYi" value="document.getElementsByClassName('site-nav-item')[6].getElementsByTagName('a')[5].href " />
+  <!--选中 过滤退款单  -->
+  <Add name="SelectTuiKuan" value="document.getElementsByClassName('filter-btn')[2].click() " />
+  <!-- 获取搜索订单总数 -->
+  <Add name="GetOrderCount " value="document.getElementsByClassName('fc_orange')[1].innerText " />
+  <!-- 商品发布==》获取搜索类目的输入框 -->
+  <Add name="GetPublishSearchTXT" value="document.getElementById('struct-search').getElementsByTagName('input')[0]" />
+  <!-- 商品发布==》获取搜索类目的搜索按钮 -->
+  <Add name="GetPublishSearchBtn" value="document.getElementById('struct-search').getElementsByTagName('button')[0]" />
+  <!-- 商品发布==》获取发布商品按钮 -->
+  <Add name="GetPublishGoodsBtn" value="document.getElementsByClassName('ol-next-button')[0]" />
+  <!-- 商品发布==》基础信息==》商品类型 -->
+  <Add name="GetPublish_GoodsType" value="document.getElementsByClassName('next-radio')[0]" />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--111111111111111111111111111111111111111111111111111111111111111111111111111空包网-->
+  <!--  -->
+  <Add name="KB_ClickOK" value="document.getElementsByClassName('ant-btn-lg')[0].click() " />
+  <!-- 获取空包网的一个元素，判断是否显示 -->
+  <Add name="KB_GetBool" value="document.getElementsByClassName('ant-input-lg')[0]" />
+  <!-- 设置空包网登录账号 -->
+  <Add name="KB_GetAccount" value="document.getElementsByClassName('ant-input-lg')[0] " />
+  <!-- 设置空包网登录账号 -->
+  <Add name="KB_GetPwd" value="document.getElementsByClassName('ant-input-lg')[1] " />
+  <!--点击快递类型  -->
+  <Add name="KB_ClickKuaiDiType" value="document.getElementsByClassName('ant-select-selection ')[0].click()" />
+  <!--点击圆通快递  -->
+  <Add name="KB_ClickYuanTong" value="document.getElementsByClassName('ant-select-dropdown-menu-item')[0].click()" />
+  <!--订单来源  -->
+  <Add name="KB_ClickOrderLaiYuan" value="document.getElementsByClassName('ant-select-selection ')[1].click() " />
+  <!--选择淘宝  -->
+  <Add name="KB_ClickTaoBao" value="document.getElementsByClassName('ant-select-dropdown-menu-item')[2].click() " />
+  <!--点击地址  -->
+  <Add name="KB_ClickDiZhi" value="document.getElementsByClassName('ant-select-selection ')[2].click() " />
+  <!--选择地址  -->
+  <Add name="KB_ClickDiZhi2" value="document.getElementsByClassName('ant-select-dropdown-menu-item')[6].click() " />
+  <!-- 元素-重量1 -->
+  <Add name="KB_ZhongLiang1" value="document.getElementById('minWeight') " />
+  <!-- 元素-重量2 -->
+  <Add name="KB_ZhongLiang2" value=" document.getElementById('maxWeight')" />
+  <!-- 重量1 -->
+  <Add name="KB_ZhongLiang3" value="0.6 " />
+  <!-- 重量2 -->
+  <Add name="KB_ZhongLiang4" value="0.9" />
+  <!-- 元素-收件信息 -->
+  <Add name="KB_OrderInfo" value="document.getElementById('orderInfo')" />
+  <!--111111111111111111111111111111111111111111111111111111111111111111111111111拼多多-->
+  <!--查看手机元素  -->
+  <Add name="PDDElementPhone" value="document.getElementsByClassName('o-d-b-i-c-people')[0].getElementsByTagName('a')[0]" />
+  <!--点击查看手机  -->
+  <Add name="PDDClickPhone" value="document.getElementsByClassName('o-d-b-i-c-people')[0].getElementsByTagName('a')[0].click()" />
+  <!--订单发货状态  -->
+  <Add name="PDDElementSendState" value="document.getElementsByClassName('o-d-i-c-span')[2]" />
+  <!-- 获取发货状态 -->
+  <Add name="PDDGetSendState" value="document.getElementsByClassName('o-d-i-c-span')[2].innerText " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  
+</Data>
