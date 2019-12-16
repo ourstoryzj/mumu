@@ -39,37 +39,9 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CefSharp">
-      <HintPath>..\packages\CefSharp.Common.55.0.0\CefSharp\x64\CefSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="CefSharp.BrowserSubprocess.Core">
-      <HintPath>..\packages\CefSharp.Common.55.0.0\CefSharp\x64\CefSharp.BrowserSubprocess.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="CefSharp.Core">
-      <HintPath>..\packages\CefSharp.Common.55.0.0\CefSharp\x64\CefSharp.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="CefSharp.WinForms">
-      <HintPath>..\packages\CefSharp.WinForms.55.0.0\CefSharp\x64\CefSharp.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\excel operation\dll\HtmlAgilityPack.dll</HintPath>
-    </Reference>
-    <Reference Include="Ionic.Zip">
-      <HintPath>..\excel operation\dll\Ionic.Zip.dll</HintPath>
-    </Reference>
-    <Reference Include="IrisSkin4">
-      <HintPath>..\excel operation\dll\IrisSkin4.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel">
-      <HintPath>..\DLL\Microsoft.Office.Interop.Excel.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="NPOI">
-      <HintPath>..\excel operation\dll\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -99,7 +71,6 @@
     <Compile Include="JScript.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="MessageAPI.cs" />
-    <Compile Include="Mogujie.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="ObjectPropertyCompare.cs" />
     <Compile Include="RarHelper.cs" />
@@ -114,12 +85,6 @@
     <Compile Include="Win32.cs" />
     <Compile Include="XMLHelper.cs" />
     <Compile Include="XMLHelpers.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Models\Entity.csproj">
-      <Project>{CC2CA4D0-7ABC-4BC3-9DFB-FF8240D36576}</Project>
-      <Name>Entity</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

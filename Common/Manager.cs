@@ -10,13 +10,13 @@ using System.IO.Compression;
 using System.Net;
 using System.Drawing;
 using System.Diagnostics;
-using Entity;
+//using Entity;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 using System.Security.Principal;
 using System.Security.AccessControl;
-using CefSharp;
-using CefSharp.WinForms;
+//using CefSharp;
+//using CefSharp.WinForms;
 
 using System.Collections;
 using System.Data;
@@ -80,7 +80,6 @@ namespace Common
         }
  
 
-        private static IList<wanggong_dianpu> list_dianpu;
 
 
 
@@ -94,7 +93,7 @@ namespace Common
         /// 淘宝登录小窗口网址
         /// </summary>
         public static string url_login = "https://login.taobao.com/member/login.jhtml?f=top&redirectURL=https%3A%2F%2Fwww.taobao.com%2F&style=mini";
-         
+
 
 
         #endregion
@@ -103,7 +102,21 @@ namespace Common
         #region WinFrom方法
 
 
-
+        #region Delay
+        /// <summary>
+        /// 延迟系统时间，但系统又能同时能执行其它任务； 
+        /// </summary>
+        /// <param name="Millisecond">毫秒数</param>
+        public static void Delay(int Millisecond) //延迟系统时间，但系统又能同时能执行其它任务；  
+        {
+            DateTime current = DateTime.Now;
+            while (current.AddMilliseconds(Millisecond) > DateTime.Now)
+            {
+                Application.DoEvents();//转让控制权              
+            }
+            return;
+        }
+        #endregion
 
 
 
@@ -2866,243 +2879,243 @@ namespace Common
 
         #region ChromiumWebBrowser
 
-        /// <summary>
-        /// 在 ChromiumWebBrowser 中操作JS代码
-        /// </summary>
-        /// <param name="wb"></param>
-        /// <param name="js"></param>
-        /// <returns></returns>
-        public static string ToJs(this ChromiumWebBrowser wb, string js)
-        {
-            return Browser.JS_CEFBrowser(js, wb);
-        }
+        ///// <summary>
+        ///// 在 ChromiumWebBrowser 中操作JS代码
+        ///// </summary>
+        ///// <param name="wb"></param>
+        ///// <param name="js"></param>
+        ///// <returns></returns>
+        //public static string ToJs(this ChromiumWebBrowser wb, string js)
+        //{
+        //    return Browser.JS_CEFBrowser(js, wb);
+        //}
 
-        /// <summary>
-        /// 在 ChromiumWebBrowser 中鼠标点击元素
-        /// </summary>
-        /// <param name="wb"></param>
-        /// <param name="js"></param>
-        /// <returns></returns>
-        public static void ToMouseClick(this ChromiumWebBrowser wb, string element)
-        {
-            Browser.MouseLeftByHtmlElement(element, wb);
-        }
+        ///// <summary>
+        ///// 在 ChromiumWebBrowser 中鼠标点击元素
+        ///// </summary>
+        ///// <param name="wb"></param>
+        ///// <param name="js"></param>
+        ///// <returns></returns>
+        //public static void ToMouseClick(this ChromiumWebBrowser wb, string element)
+        //{
+        //    Browser.MouseLeftByHtmlElement(element, wb);
+        //}
 
-        /// <summary>
-        /// 在 ChromiumWebBrowser 中操作JS代码,返回Int
-        /// </summary>
-        /// <param name="wb"></param>
-        /// <param name="js"></param>
-        /// <returns></returns>
-        public static int ToJsInt(this ChromiumWebBrowser wb, string js)
-        {
-            return Browser.JS_CEFBrowserToInt(js, wb);
-        }
+        ///// <summary>
+        ///// 在 ChromiumWebBrowser 中操作JS代码,返回Int
+        ///// </summary>
+        ///// <param name="wb"></param>
+        ///// <param name="js"></param>
+        ///// <returns></returns>
+        //public static int ToJsInt(this ChromiumWebBrowser wb, string js)
+        //{
+        //    return Browser.JS_CEFBrowserToInt(js, wb);
+        //}
 
-        /// <summary>
-        /// 在 ChromiumWebBrowser 中 判断是否有该元素
-        /// </summary>
-        /// <param name="wb"></param>
-        /// <param name="js"></param>
-        /// <returns></returns>
-        public static bool ToJsHasElementToBool(this ChromiumWebBrowser wb, string js)
-        {
-            return Browser.JS_CEFBrowserHasElementToBool(js, wb);
-        }
+        ///// <summary>
+        ///// 在 ChromiumWebBrowser 中 判断是否有该元素
+        ///// </summary>
+        ///// <param name="wb"></param>
+        ///// <param name="js"></param>
+        ///// <returns></returns>
+        //public static bool ToJsHasElementToBool(this ChromiumWebBrowser wb, string js)
+        //{
+        //    return Browser.JS_CEFBrowserHasElementToBool(js, wb);
+        //}
 
-        /// <summary>
-        /// 初始化ChromiumWebBrowser
-        /// </summary>
-        /// <param name="wb"></param>
-        /// <param name="c"></param>
-        public static void ToInit(this ChromiumWebBrowser wb)
-        {
-            //wb = new CefSharp.WinForms.ChromiumWebBrowser("http://www.baidu.com");
-            //wb.FrameLoadStart += Browser.BrowserFrameLoadStart;
-            //wb.FrameLoadEnd += Browser.BrowserFrameLoadEnd;
-            //wb.Size = new Size(c.Size.Width - 20, c.Size.Height - 110); //new Size(1070, 500);
-            //wb.Location = new Point(10, 100);
-            //wb.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
-        }
+        ///// <summary>
+        ///// 初始化ChromiumWebBrowser
+        ///// </summary>
+        ///// <param name="wb"></param>
+        ///// <param name="c"></param>
+        //public static void ToInit(this ChromiumWebBrowser wb)
+        //{
+        //    //wb = new CefSharp.WinForms.ChromiumWebBrowser("http://www.baidu.com");
+        //    //wb.FrameLoadStart += Browser.BrowserFrameLoadStart;
+        //    //wb.FrameLoadEnd += Browser.BrowserFrameLoadEnd;
+        //    //wb.Size = new Size(c.Size.Width - 20, c.Size.Height - 110); //new Size(1070, 500);
+        //    //wb.Location = new Point(10, 100);
+        //    //wb.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+        //}
 
-        /// <summary>
-        /// 初始化ChromiumWebBrowser
-        /// </summary>
-        /// <param name="wb"></param>
-        /// <param name="c"></param>
-        public static void ToInit(this ChromiumWebBrowser wb, Control c)
-        {
-            //wb = new CefSharp.WinForms.ChromiumWebBrowser("http://www.baidu.com");
-            wb.FrameLoadStart += Browser.BrowserFrameLoadStart;
-            wb.FrameLoadEnd += Browser.BrowserFrameLoadEnd;
-            wb.Size = new Size(c.Size.Width - 20, c.Size.Height - 110); //new Size(1070, 500);
-            wb.Location = new Point(10, 100);
-            wb.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
-            c.Controls.Add(wb);
-        }
+        ///// <summary>
+        ///// 初始化ChromiumWebBrowser
+        ///// </summary>
+        ///// <param name="wb"></param>
+        ///// <param name="c"></param>
+        //public static void ToInit(this ChromiumWebBrowser wb, Control c)
+        //{
+        //    //wb = new CefSharp.WinForms.ChromiumWebBrowser("http://www.baidu.com");
+        //    wb.FrameLoadStart += Browser.BrowserFrameLoadStart;
+        //    wb.FrameLoadEnd += Browser.BrowserFrameLoadEnd;
+        //    wb.Size = new Size(c.Size.Width - 20, c.Size.Height - 110); //new Size(1070, 500);
+        //    wb.Location = new Point(10, 100);
+        //    wb.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+        //    c.Controls.Add(wb);
+        //}
 
-        /// <summary>
-        /// 选中元素
-        /// </summary>
-        /// <param name="ele"></param>
-        /// <param name="wb"></param>
-        public static void ToSelectElement(this ChromiumWebBrowser wb, string ele)
-        {
-            try
-            {
-                Browser.JS_CEFBrowser("setSelectRange(" + ele + ")", wb);
-                wb.Parent.Focus();
-                wb.Focus();
-            }
-            catch (Exception e)
-            {
-                Manager.WriteLog("谷歌浏览器执行不返回值的JS脚本出错：" + e.ToString());
-            }
-        }
+        ///// <summary>
+        ///// 选中元素
+        ///// </summary>
+        ///// <param name="ele"></param>
+        ///// <param name="wb"></param>
+        //public static void ToSelectElement(this ChromiumWebBrowser wb, string ele)
+        //{
+        //    try
+        //    {
+        //        Browser.JS_CEFBrowser("setSelectRange(" + ele + ")", wb);
+        //        wb.Parent.Focus();
+        //        wb.Focus();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Manager.WriteLog("谷歌浏览器执行不返回值的JS脚本出错：" + e.ToString());
+        //    }
+        //}
 
-        /// <summary>
-        /// 等在浏览器加载完毕
-        /// </summary>
-        /// <param name="wb"></param>
-        public static bool ToWait(this ChromiumWebBrowser wb)
-        {
-            return Browser.WaitWebPageLoad(wb);
-        }
+        ///// <summary>
+        ///// 等在浏览器加载完毕
+        ///// </summary>
+        ///// <param name="wb"></param>
+        //public static bool ToWait(this ChromiumWebBrowser wb)
+        //{
+        //    return Browser.WaitWebPageLoad(wb);
+        //}
 
-        /// <summary>
-        /// 等在浏览器加载完毕
-        /// </summary>
-        /// <param name="wb"></param>
-        public static bool ToWait(this ChromiumWebBrowser wb, string ele, int times = 5000)
-        {
-            return Browser.WaitWebPageLoad(ele, times, wb);
-        }
+        ///// <summary>
+        ///// 等在浏览器加载完毕
+        ///// </summary>
+        ///// <param name="wb"></param>
+        //public static bool ToWait(this ChromiumWebBrowser wb, string ele, int times = 5000)
+        //{
+        //    return Browser.WaitWebPageLoad(ele, times, wb);
+        //}
 
-        /// <summary>
-        /// 判断图片是否加载完成
-        /// </summary>
-        /// <param name="wb"></param>
-        public static bool ToImageComplete(this ChromiumWebBrowser wb, string ele)
-        {
-            bool res = false;
-            string ress = wb.ToJs(ele + ".complete");
-            if (!string.IsNullOrEmpty(ress))
-            {
-                if (ress.ToUpper() == "TRUE")
-                {
-                    res = true;
-                }
-            }
-            return res;
-        }
+        ///// <summary>
+        ///// 判断图片是否加载完成
+        ///// </summary>
+        ///// <param name="wb"></param>
+        //public static bool ToImageComplete(this ChromiumWebBrowser wb, string ele)
+        //{
+        //    bool res = false;
+        //    string ress = wb.ToJs(ele + ".complete");
+        //    if (!string.IsNullOrEmpty(ress))
+        //    {
+        //        if (ress.ToUpper() == "TRUE")
+        //        {
+        //            res = true;
+        //        }
+        //    }
+        //    return res;
+        //}
 
-        /// <summary>
-        /// 采用剪贴板复制的方法,获取浏览器中的图片
-        /// </summary>
-        /// <param name="wb"></param>
-        public static Image ToImage(this ChromiumWebBrowser wb, string ele)
-        {
-            Image img = null;
-            //wb.ToImageComplete(ele);
-            //等待图片加载完成
-            if (wb.ToImageWaitLoad(ele))
-            {
-                //选中图片复制
-                wb.ToSelectElement(ele);
-                //等待图片复制完成
-                ClipboardToWaitHasHtml();
-                //获取图片
-                img = ClipboardGetImgFromHTML();
-            }
-            return img;
-        }
+        ///// <summary>
+        ///// 采用剪贴板复制的方法,获取浏览器中的图片
+        ///// </summary>
+        ///// <param name="wb"></param>
+        //public static Image ToImage(this ChromiumWebBrowser wb, string ele)
+        //{
+        //    Image img = null;
+        //    //wb.ToImageComplete(ele);
+        //    //等待图片加载完成
+        //    if (wb.ToImageWaitLoad(ele))
+        //    {
+        //        //选中图片复制
+        //        wb.ToSelectElement(ele);
+        //        //等待图片复制完成
+        //        ClipboardToWaitHasHtml();
+        //        //获取图片
+        //        img = ClipboardGetImgFromHTML();
+        //    }
+        //    return img;
+        //}
 
-        /// <summary>
-        /// 等待图片加载
-        /// </summary>
-        /// <param name="wb"></param>
-        public static bool ToImageWaitLoad(this ChromiumWebBrowser wb, string ele, int times = 5000)
-        {
-            bool res = false;
-            DateTime dt = DateTime.Now;
-            try
-            {
-                while (true)
-                {
-                    Browser.Delay(200);
-                    if (wb.ToImageComplete(ele))
-                    {
-                        return true;
-                    }
-                    else if (dt.AddMilliseconds(times) < DateTime.Now)
-                    {
-                        "时间已到,但图片没有加载完,跳出".ToLog();
-                        return res;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ex.ToString().ToLog();
-            }
-            return res;
-        }
+        ///// <summary>
+        ///// 等待图片加载
+        ///// </summary>
+        ///// <param name="wb"></param>
+        //public static bool ToImageWaitLoad(this ChromiumWebBrowser wb, string ele, int times = 5000)
+        //{
+        //    bool res = false;
+        //    DateTime dt = DateTime.Now;
+        //    try
+        //    {
+        //        while (true)
+        //        {
+        //            Browser.Delay(200);
+        //            if (wb.ToImageComplete(ele))
+        //            {
+        //                return true;
+        //            }
+        //            else if (dt.AddMilliseconds(times) < DateTime.Now)
+        //            {
+        //                "时间已到,但图片没有加载完,跳出".ToLog();
+        //                return res;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ex.ToString().ToLog();
+        //    }
+        //    return res;
+        //}
 
-        /// <summary>
-        /// 移动鼠标到元素
-        /// </summary>
-        /// <param name="wb"></param>
-        /// <param name="ele"></param>
-        public static void ToMouseMoveByHtmlElement(this ChromiumWebBrowser wb, string ele)
-        {
-            Browser.MouseMoveByHtmlElement(ele, wb);
-        }
+        ///// <summary>
+        ///// 移动鼠标到元素
+        ///// </summary>
+        ///// <param name="wb"></param>
+        ///// <param name="ele"></param>
+        //public static void ToMouseMoveByHtmlElement(this ChromiumWebBrowser wb, string ele)
+        //{
+        //    Browser.MouseMoveByHtmlElement(ele, wb);
+        //}
 
-        /// <summary>
-        /// 移动滑动条到显示元素
-        /// </summary>
-        /// <param name="wb"></param>
-        /// <param name="ele"></param>
-        public static void ToShowElement(this ChromiumWebBrowser wb, string ele)
-        {
-            Browser.SetScrollByHtmlElement(ele, wb);
-        }
+        ///// <summary>
+        ///// 移动滑动条到显示元素
+        ///// </summary>
+        ///// <param name="wb"></param>
+        ///// <param name="ele"></param>
+        //public static void ToShowElement(this ChromiumWebBrowser wb, string ele)
+        //{
+        //    Browser.SetScrollByHtmlElement(ele, wb);
+        //}
 
-        /// <summary>
-        /// 移动滑动条到页面底部
-        /// </summary>
-        /// <param name="wb"></param>
-        public static void ToBottom(this ChromiumWebBrowser wb)
-        {
-            wb.ToJs(" window.scrollTo(0," + wb.ToJsInt("document.body.clientHeight") + ") ");
-        }
+        ///// <summary>
+        ///// 移动滑动条到页面底部
+        ///// </summary>
+        ///// <param name="wb"></param>
+        //public static void ToBottom(this ChromiumWebBrowser wb)
+        //{
+        //    wb.ToJs(" window.scrollTo(0," + wb.ToJsInt("document.body.clientHeight") + ") ");
+        //}
 
-        /// <summary>
-        /// 移动滑动条到页面底部
-        /// </summary>
-        /// <param name="wb"></param>
-        public static void ToBottom(this ChromiumWebBrowser wb, int times, int count)
-        {
-            Browser.ScrollToBottom(times, count, wb);
-        }
+        ///// <summary>
+        ///// 移动滑动条到页面底部
+        ///// </summary>
+        ///// <param name="wb"></param>
+        //public static void ToBottom(this ChromiumWebBrowser wb, int times, int count)
+        //{
+        //    Browser.ScrollToBottom(times, count, wb);
+        //}
 
-        /// <summary>
-        /// 移动滑动条到页面底部
-        /// </summary>
-        /// <param name="wb"></param>
-        /// <param name="times"></param>
-        /// <param name="count"></param>
-        /// <param name="height"></param>
-        public static void ToBottom(this ChromiumWebBrowser wb, int times, int count, int height)
-        {
-            int temp = 100;
-            for (int i = 0; i < count; i++)
-            {
-                temp = temp + height;
-                wb.ToJs(" window.scrollTo(0," + temp.ToString() + ") ");
-                Browser.Delay(times);
-            }
-        }
+        ///// <summary>
+        ///// 移动滑动条到页面底部
+        ///// </summary>
+        ///// <param name="wb"></param>
+        ///// <param name="times"></param>
+        ///// <param name="count"></param>
+        ///// <param name="height"></param>
+        //public static void ToBottom(this ChromiumWebBrowser wb, int times, int count, int height)
+        //{
+        //    int temp = 100;
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        temp = temp + height;
+        //        wb.ToJs(" window.scrollTo(0," + temp.ToString() + ") ");
+        //        Browser.Delay(times);
+        //    }
+        //}
 
 
 
@@ -3122,7 +3135,7 @@ namespace Common
             {
                 while (true)
                 {
-                    Browser.Delay(200);
+                    Delay(200);
                     if (Clipboard.ContainsData(DataFormats.Html))
                     {
                         res = Clipboard.GetData(DataFormats.Html).ToString();

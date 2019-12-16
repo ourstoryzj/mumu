@@ -9,13 +9,13 @@ using System.IO.Compression;
 using System.Net;
 using System.Drawing;
 using System.Diagnostics;
-using Entity;
+//using Entity;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 using System.Security.Principal;
 using System.Security.AccessControl;
-using CefSharp;
-using CefSharp.WinForms;
+//using CefSharp;
+//using CefSharp.WinForms;
 using System.Threading;
 using System.Threading.Tasks;
 using mshtml;
@@ -24,7 +24,7 @@ namespace Common
 {
     public class Browser
     {
-
+        
         #region 通用
 
 
@@ -53,24 +53,24 @@ namespace Common
         }
         #endregion
 
-        #region ScrollToBottom
-        /// <summary>
-        /// 自动浏览到页面底部
-        /// </summary>
-        /// <param name="times">每次下滑时间间隔</param>
-        /// <param name="webBrowser2"></param>
-        public static void ScrollToBottom(int times, ChromiumWebBrowser webBrowser2)
-        {
-            int clientHeight = 0;
-            int.TryParse(Browser.JS_CEFBrowser(" document.body.clientHeight ", webBrowser2), out clientHeight);
-            for (int i = 0; i < clientHeight; i++)
-            {
-                i = i + 200;
-                Browser.JS_CEFBrowser_NoReturn(" window.scrollTo(0," + i.ToString() + ") ", webBrowser2);
-                Browser.Delay(times);
-            }
-        }
-        #endregion
+        //#region ScrollToBottom
+        ///// <summary>
+        ///// 自动浏览到页面底部
+        ///// </summary>
+        ///// <param name="times">每次下滑时间间隔</param>
+        ///// <param name="webBrowser2"></param>
+        //public static void ScrollToBottom(int times, ChromiumWebBrowser webBrowser2)
+        //{
+        //    int clientHeight = 0;
+        //    int.TryParse(Browser.JS_CEFBrowser(" document.body.clientHeight ", webBrowser2), out clientHeight);
+        //    for (int i = 0; i < clientHeight; i++)
+        //    {
+        //        i = i + 200;
+        //        Browser.JS_CEFBrowser_NoReturn(" window.scrollTo(0," + i.ToString() + ") ", webBrowser2);
+        //        Browser.Delay(times);
+        //    }
+        //}
+        //#endregion
 
         #region ScrollToElement
         /// <summary>
@@ -79,11 +79,11 @@ namespace Common
         /// <param name="times">每次下滑时间间隔</param>
         /// <param name="count">一共下滑多少次</param>
         /// <param name="webBrowser2"></param>
-        public static void ScrollToElement(string element, ChromiumWebBrowser webBrowser2)
-        {
-            Point temp_p = GetPointBrowserByHtmlElement(element, webBrowser2);
-            JS_CEFBrowser_NoReturn("window.scrollTo(" + (temp_p.X).ToString() + ", " + (temp_p.Y).ToString() + ")", webBrowser2);
-        }
+        //public static void ScrollToElement(string element, ChromiumWebBrowser webBrowser2)
+        //{
+        //    Point temp_p = GetPointBrowserByHtmlElement(element, webBrowser2);
+        //    JS_CEFBrowser_NoReturn("window.scrollTo(" + (temp_p.X).ToString() + ", " + (temp_p.Y).ToString() + ")", webBrowser2);
+        //}
         #endregion
 
         #region ScrollToBottom
@@ -93,18 +93,18 @@ namespace Common
         /// <param name="times">每次下滑时间间隔</param>
         /// <param name="count">一共下滑多少次</param>
         /// <param name="webBrowser2"></param>
-        public static void ScrollToBottom(int times, int count, ChromiumWebBrowser webBrowser2)
-        {
-            //int clientHeight = 0;
-            //int.TryParse(Browser.JS_CEFBrowser(" document.body.clientHeight ", webBrowser2), out clientHeight);
-            int temp = 100;
-            for (int i = 0; i < count; i++)
-            {
-                temp = temp + 500;
-                Browser.JS_CEFBrowser_NoReturn(" window.scrollTo(0," + temp.ToString() + ") ", webBrowser2);
-                Browser.Delay(times);
-            }
-        }
+        //public static void ScrollToBottom(int times, int count, ChromiumWebBrowser webBrowser2)
+        //{
+        //    //int clientHeight = 0;
+        //    //int.TryParse(Browser.JS_CEFBrowser(" document.body.clientHeight ", webBrowser2), out clientHeight);
+        //    int temp = 100;
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        temp = temp + 500;
+        //        Browser.JS_CEFBrowser_NoReturn(" window.scrollTo(0," + temp.ToString() + ") ", webBrowser2);
+        //        Browser.Delay(times);
+        //    }
+        //}
         #endregion
 
         #region ScrollToBottom
@@ -112,13 +112,13 @@ namespace Common
         /// 自动浏览到页面底部
         /// </summary>
         /// <param name="webBrowser2"></param>
-        public static void ScrollToBottom(ChromiumWebBrowser webBrowser2)
-        {
-            int clientHeight = 0;
-            int.TryParse(Browser.JS_CEFBrowser(" document.body.clientHeight ", webBrowser2), out clientHeight);
-            Browser.JS_CEFBrowser_NoReturn(" window.scrollTo(0," + clientHeight.ToString() + ") ", webBrowser2);
+        //public static void ScrollToBottom(ChromiumWebBrowser webBrowser2)
+        //{
+        //    int clientHeight = 0;
+        //    int.TryParse(Browser.JS_CEFBrowser(" document.body.clientHeight ", webBrowser2), out clientHeight);
+        //    Browser.JS_CEFBrowser_NoReturn(" window.scrollTo(0," + clientHeight.ToString() + ") ", webBrowser2);
 
-        }
+        //}
         #endregion
 
         #region ScrollToTop
@@ -126,13 +126,13 @@ namespace Common
         /// 自动浏览到页面顶部
         /// </summary>
         /// <param name="webBrowser2"></param>
-        public static void ScrollToTop(ChromiumWebBrowser webBrowser2)
-        {
-            //int clientHeight = 0;
-            //int.TryParse(Browser.JS_CEFBrowser(" document.body.clientHeight ", webBrowser2), out clientHeight);
-            Browser.JS_CEFBrowser_NoReturn(" window.scrollTo(0,0) ", webBrowser2);
+        //public static void ScrollToTop(ChromiumWebBrowser webBrowser2)
+        //{
+        //    //int clientHeight = 0;
+        //    //int.TryParse(Browser.JS_CEFBrowser(" document.body.clientHeight ", webBrowser2), out clientHeight);
+        //    Browser.JS_CEFBrowser_NoReturn(" window.scrollTo(0,0) ", webBrowser2);
 
-        }
+        //}
         #endregion
 
         #region ScrollToTop
@@ -140,22 +140,22 @@ namespace Common
         /// 自动浏览到页面顶部
         /// </summary>
         /// <param name="webBrowser2"></param>
-        public static void ScrollToTop(int times, ChromiumWebBrowser webBrowser2)
-        {
-            ScrollToTop(webBrowser2);
-            return;
-            //int clientHeight = 0;
-            //int.TryParse(Browser.JS_CEFBrowser(" document.body.clientHeight ", webBrowser2), out clientHeight);
-            //for (int i = 0; i < clientHeight; i++)
-            //{
+        //public static void ScrollToTop(int times, ChromiumWebBrowser webBrowser2)
+        //{
+        //    ScrollToTop(webBrowser2);
+        //    return;
+        //    //int clientHeight = 0;
+        //    //int.TryParse(Browser.JS_CEFBrowser(" document.body.clientHeight ", webBrowser2), out clientHeight);
+        //    //for (int i = 0; i < clientHeight; i++)
+        //    //{
 
-            //    //出现错误，应该先计算滚动条位置
-            //    i = i - 200;
-            //    Browser.JS_CEFBrowser_NoReturn(" window.scrollTo(0," + i.ToString() + ") ", webBrowser2);
-            //    Browser.Delay(times);
-            //}
+        //    //    //出现错误，应该先计算滚动条位置
+        //    //    i = i - 200;
+        //    //    Browser.JS_CEFBrowser_NoReturn(" window.scrollTo(0," + i.ToString() + ") ", webBrowser2);
+        //    //    Browser.Delay(times);
+        //    //}
 
-        }
+        //}
         #endregion
 
         #endregion
@@ -185,11 +185,7 @@ namespace Common
 
             return pos;
         }
-        /* 使用方法
-        Point point = GetOffset(element);
-        var x = point.X;
-        var y = point.Y;
-        */
+        
         #endregion
 
 
@@ -903,36 +899,7 @@ namespace Common
         public static void ClearData()
         {
             ShellExecute(IntPtr.Zero, "open", "rundll32.exe", " InetCpl.cpl,ClearMyTracksByProcess 255", "", ShowCommands.SW_HIDE);
-            /*
-            其中ClearMyTracksByProcess 可进行选择设置 ：
-
-             * Temporary Internet Files  （Internet临时文件）
-
-             * RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 8
-
-             * Cookies
-             * 
-             * RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 2
-
-             * History (历史记录)
-
-             * RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 1
-
-                Form. Data （表单数据）
-
-                RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 16
-
-                Passwords (密码）
-
-                RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 32
-
-                Delete All  （全部删除）
-
-                RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255
-             * 
-             * 
-             * 
-             * */
+          
         }
         #endregion
 
@@ -1249,7 +1216,7 @@ namespace Common
 
 
         #region CEF谷歌浏览器
-
+        /*
         #region GetJSFile
 
         /// <summary>
@@ -2024,40 +1991,7 @@ namespace Common
                 p = GetPointScreenByHtmlElement(element, webBrowser1);
                 if (!p.IsEmpty)
                 {
-                    /*
-                    //在浏览器中的位置
-                    Point temp_p = GetPointBrowserByHtmlElement(element, webBrowser1);
-                    //获取浏览器高度
-                    int webheight = webBrowser1.Height;
-                    //获取滚动条被卷去的高度
-                    int temp_scroll_height = Convert.ToInt32(JS_CEFBrowser("document.body.scrollTop", webBrowser1));
-                    //获取元素高度
-                    //JS_CEFBrowser_NoReturn("alert(" + element + ".clientHeight" + ")", webBrowser1);
-                    string height = JS_CEFBrowser(element + ".clientHeight;", webBrowser1);
-                    int h = 0;
-                    if (int.TryParse(height, out h))
-                    {
-                        h = h / 2;
-                    }
-
-                    /*新增宽度居中
-                    //获取浏览器宽度
-                    int webwidth = webBrowser1.Width;
-                    //获取滚动条被卷去的高度
-                    int temp_scroll_width = Convert.ToInt32(JS_CEFBrowser("document.body.scrollLeft", webBrowser1));
-                    //获取元素高度
-                    //JS_CEFBrowser_NoReturn("alert(" + element + ".clientHeight" + ")", webBrowser1);
-                    string width = JS_CEFBrowser(element + ".clientWidth;", webBrowser1);
-                    int w = 0;
-                    if (int.TryParse(width, out w))
-                    {
-                        w = w / 2;
-                    }
-
-                    //设置浏览器滑动条的高度：位置居中
-                    //webBrowser1.Document.Window.ScrollTo(0, temp_scroll_height + temp_p.Y - webheight / 2);
-                    //JS_CEFBrowser_NoReturn("window.scrollTo(0, " + (temp_scroll_height + temp_p.Y - webheight / 2 + h).ToString() + ")", webBrowser1);
-                    JS_CEFBrowser_NoReturn("window.scrollTo(" + (temp_scroll_width + temp_p.X - webwidth / 2 + w).ToString() + ", " + (temp_scroll_height + temp_p.Y - webheight / 2 + h).ToString() + ")", webBrowser1);*/
+                  
                     SetScrollByHtmlElement(element, webBrowser1);
                     Browser.Delay(100);
                     //获取元素在屏幕中的坐标
@@ -2248,7 +2182,7 @@ namespace Common
                     h = h / 2;
                 }
 
-                /*新增宽度居中*/
+                //新增宽度居中
                 //获取浏览器宽度
                 int webwidth = webBrowser1.Width;
                 //获取滚动条被卷去的高度
@@ -2505,11 +2439,11 @@ namespace Common
             //    }
             //}
         }
-
+        */
         #endregion
 
 
-
+        
 
     }
 }

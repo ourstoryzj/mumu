@@ -10,7 +10,7 @@ using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Diagnostics;
 using System.Windows.Forms;
-using CefSharp.WinForms;
+//using CefSharp.WinForms;
 
 namespace Common
 {
@@ -2603,20 +2603,20 @@ namespace Common
         /// </summary>
         /// <param name="wb">浏览器</param>
         /// <returns></returns>
-        public static Bitmap GetBitmapByWebBrowser(ChromiumWebBrowser wb)
-        {
-            Point p = wb.PointToScreen(new Point());
-            Size s = wb.Size;
-            Bitmap bmp = new Bitmap(s.Width, s.Height);
+        //public static Bitmap GetBitmapByWebBrowser(ChromiumWebBrowser wb)
+        //{
+        //    Point p = wb.PointToScreen(new Point());
+        //    Size s = wb.Size;
+        //    Bitmap bmp = new Bitmap(s.Width, s.Height);
 
-            using (Graphics g = Graphics.FromImage(bmp))
-            {
-                g.CopyFromScreen(p.X, p.Y, 0, 0, s);
-            }
-            //压缩图片
+        //    using (Graphics g = Graphics.FromImage(bmp))
+        //    {
+        //        g.CopyFromScreen(p.X, p.Y, 0, 0, s);
+        //    }
+        //    //压缩图片
 
-            return bmp;
-        }
+        //    return bmp;
+        //}
         #endregion
 
         #region 屏幕截图
@@ -2627,12 +2627,12 @@ namespace Common
         /// <param name="flag">图片质量1-100</param>
         /// <param name="fileurl">保存位置</param>
         /// <returns></returns>
-        public static bool GetScreen(ChromiumWebBrowser wb, int flag, string fileurl)
-        {
-            Bitmap bmp = GetBitmapByWebBrowser(wb);
-            bmp.Save(fileurl, GetImgCodecInfo(), SetImgFlag(flag));
-            return true;
-        }
+        //public static bool GetScreen(ChromiumWebBrowser wb, int flag, string fileurl)
+        //{
+        //    Bitmap bmp = GetBitmapByWebBrowser(wb);
+        //    bmp.Save(fileurl, GetImgCodecInfo(), SetImgFlag(flag));
+        //    return true;
+        //}
         #endregion
 
         #region 屏幕截图
@@ -2641,20 +2641,20 @@ namespace Common
         /// </summary>
         /// <param name="wb">浏览器</param>
         /// <returns></returns>
-        public static Bitmap GetScreen(ChromiumWebBrowser wb)
-        {
-            Point p = wb.PointToScreen(new Point());
-            Size s = wb.Size;
-            Bitmap bmp = new Bitmap(s.Width, s.Height);
+        //public static Bitmap GetScreen(ChromiumWebBrowser wb)
+        //{
+        //    Point p = wb.PointToScreen(new Point());
+        //    Size s = wb.Size;
+        //    Bitmap bmp = new Bitmap(s.Width, s.Height);
 
-            using (Graphics g = Graphics.FromImage(bmp))
-            {
-                g.CopyFromScreen(p.X, p.Y, 0, 0, s);
-            }
-            //压缩图片
+        //    using (Graphics g = Graphics.FromImage(bmp))
+        //    {
+        //        g.CopyFromScreen(p.X, p.Y, 0, 0, s);
+        //    }
+        //    //压缩图片
 
-            return bmp;
-        }
+        //    return bmp;
+        //}
         #endregion
 
         #region 屏幕截图
@@ -2665,36 +2665,36 @@ namespace Common
         /// <param name="flag">图片质量1-100</param>
         /// <param name="fileurl">保存位置</param>
         /// <returns></returns>
-        public static bool GetScreen2(ChromiumWebBrowser wb, int flag, string fileurl)
-        {
+        //public static bool GetScreen2(ChromiumWebBrowser wb, int flag, string fileurl)
+        //{
 
-            Bitmap bmp = GetScreen(wb);
+        //    Bitmap bmp = GetScreen(wb);
 
-            //压缩图片
+        //    //压缩图片
 
-            //以下代码为保存图片时，设置压缩质量    
-            EncoderParameters ep = new EncoderParameters();
-            long[] qy = new long[1];
-            qy[0] = flag;//设置压缩的比例1-100    
-            EncoderParameter eParam = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, qy);
-            ep.Param[0] = eParam;
+        //    //以下代码为保存图片时，设置压缩质量    
+        //    EncoderParameters ep = new EncoderParameters();
+        //    long[] qy = new long[1];
+        //    qy[0] = flag;//设置压缩的比例1-100    
+        //    EncoderParameter eParam = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, qy);
+        //    ep.Param[0] = eParam;
 
 
-            ImageCodecInfo[] arrayICI = ImageCodecInfo.GetImageEncoders();
-            ImageCodecInfo jpegICIinfo = null;
-            for (int x = 0; x < arrayICI.Length; x++)
-            {
-                if (arrayICI[x].FormatDescription.Equals("JPEG"))
-                {
-                    jpegICIinfo = arrayICI[x];
-                    break;
-                }
-            }
-            bmp.Save(fileurl, jpegICIinfo, ep);
-            bmp.Dispose();
-            ep.Dispose();
-            return true;
-        }
+        //    ImageCodecInfo[] arrayICI = ImageCodecInfo.GetImageEncoders();
+        //    ImageCodecInfo jpegICIinfo = null;
+        //    for (int x = 0; x < arrayICI.Length; x++)
+        //    {
+        //        if (arrayICI[x].FormatDescription.Equals("JPEG"))
+        //        {
+        //            jpegICIinfo = arrayICI[x];
+        //            break;
+        //        }
+        //    }
+        //    bmp.Save(fileurl, jpegICIinfo, ep);
+        //    bmp.Dispose();
+        //    ep.Dispose();
+        //    return true;
+        //}
         #endregion
 
         #region 屏幕截图

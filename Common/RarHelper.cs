@@ -1,4 +1,4 @@
-﻿using Ionic.Zip;
+﻿//using Ionic.Zip;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,7 +11,7 @@ namespace Common
 {
     public class RarHelper
     {
-
+        /*
         #region 使用rar软件外部压缩解压文件 
 
 
@@ -210,7 +210,7 @@ namespace Common
         }
 
 
-
+    */
 
     }
 

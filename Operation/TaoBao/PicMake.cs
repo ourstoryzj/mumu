@@ -420,7 +420,7 @@ namespace excel_operation.TaoBao
             Bitmap bm = null;
             if (Browser.WaitWebPageLoad(webBrowser1))
             {
-                bm = Common.ImageClass.GetScreen(webBrowser1);
+                bm = CS.ImageClass.GetScreen(webBrowser1);
             }
 
             //图片返回保存地址

@@ -1,5 +1,5 @@
-﻿using NPOI.HSSF.UserModel;
-using NPOI.SS.UserModel;
+﻿//using NPOI.HSSF.UserModel;
+//using NPOI.SS.UserModel;
 using System;
 using System.Data;
 using System.Data.OleDb;
@@ -7,13 +7,13 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
+//using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Common
 {
     public class ExcelHelper
     {
-
+        /*
 
 
         #region 之前的代码
@@ -601,7 +601,7 @@ namespace Common
 
         #endregion
 
-
+    */
 
     }
 }
