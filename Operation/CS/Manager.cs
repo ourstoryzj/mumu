@@ -2935,6 +2935,17 @@ namespace excel_operation
         }
 
         /// <summary>
+        /// 在 ChromiumWebBrowser 中操作JS代码,返回datetime
+        /// </summary>
+        /// <param name="wb"></param>
+        /// <param name="js"></param>
+        /// <returns></returns>
+        public static DateTime ToJsDate(this ChromiumWebBrowser wb, string js)
+        {
+            return Browser.JS_CEFBrowserToDate(js, wb);
+        }
+
+        /// <summary>
         /// 在 ChromiumWebBrowser 中 判断是否有该元素
         /// </summary>
         /// <param name="wb"></param>

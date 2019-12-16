@@ -764,7 +764,8 @@ namespace excel_operation.TaoBao
         #region btn_chushouzhong_Click
         private void btn_chushouzhong_Click(object sender, EventArgs e)
         {
-            webBrowser1.Load("https://sell.taobao.com/auction/merchandise/auction_list.htm");
+            //webBrowser1.Load("https://sell.taobao.com/auction/merchandise/auction_list.htm");
+            webBrowser1.Load("https://item.publish.taobao.com/taobao/manager/render.htm?tab=on_sale");
         }
         #endregion
 
@@ -961,7 +962,103 @@ namespace excel_operation.TaoBao
 
         private void btn_fuzhi_Click(object sender, EventArgs e)
         {
-            Taobao.Go_MaiJiaShow(webBrowser1);
+            if (MessageBox.Show("确定要清理本店铺的滞销商品吗?", "请确认", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                //开始清理滞销商品
+                //进入出售中的商品
+                webBrowser1.Load("https://item.publish.taobao.com/taobao/manager/render.htm?tab=on_sale");
+                //等待加载完成
+                if (webBrowser1.ToWait("getElementsByClassName_Vague('indexseller-info-wrapper')[0]"))
+                {
+                    Common.Manager.Delay(2000);
+                    Browser.MouseMoveByHtmlElement("getElementsByClassName_Vague('indexseller-info-wrapper')[0]", webBrowser1);
+                    Browser.Delay(500);
+                    //获取店铺链接
+                    string myshop_url = webBrowser1.ToJs("getElementsByClassName_Vague('indexbtn')[1].origin");
+                    if (string.IsNullOrEmpty(myshop_url))
+                    {
+                        "没有找到店铺链接".ToShow();
+                        return;
+                    }
+
+                    //获取店铺所有商品页面
+                    myshop_url = myshop_url + "//search.htm?search=y&orderType=hotsell_desc";
+                    //进入店铺页面
+                    webBrowser1.Load(myshop_url);
+                    webBrowser1.ToWait("document.getElementsByClassName('sale-num')");
+                    Common.Manager.Delay(3000);
+                    List<string> idlist = new List<string>();//用于存放所有销量为0的商品id
+
+                    int temp_count = 0;
+                    do
+                    {
+                        //是否需要翻页
+                        if (temp_count != 0)
+                        {
+                            webBrowser1.Load(myshop_url + "&pageNo=" + (temp_count + 2));
+                            webBrowser1.ToWait("document.getElementsByClassName('sale-num')");
+                            Common.Manager.Delay(3000);
+                        }
+                        temp_count++;
+                        //采集所有销量为0的商品
+                        //获取商品数量
+                        int goods_count = webBrowser1.ToJsInt("document.getElementsByClassName('sale-num').length");
+                        for (int i = 0; i < goods_count; i++)
+                        {
+                            //如果销量为0
+                            if (webBrowser1.ToJs("document.getElementsByClassName('sale-num')[" + i + "].innerText") == "0")
+                            {
+                                //获取id
+                                string temp_url = webBrowser1.ToJs("document.getElementsByClassName('item-name')[" + i + "].href");
+                                idlist.Add(Manager.GetURLParam(temp_url, "id"));
+                            }
+                        }
+                    } while (webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('下一页')[1].getAttribute('class')").IndexOf("next")!=-1);
+
+
+                    //进入卖家中心
+                    webBrowser1.Load("https://item.publish.taobao.com/taobao/manager/render.htm?tab=on_sale");
+                    //等待加载完称
+                    webBrowser1.ToWait("document.getElementsByName('queryItemId')");
+                    Common.Manager.Delay(1000);
+                    //根据id查询每个商品
+                    foreach (string strid in idlist)
+                    {
+                        //下架滞销商品
+                        webBrowser1.ToMouseClick("document.getElementsByName('queryItemId')");
+                        //找到商品
+                        Auto.Ctrl_A();
+                        Auto.Ctrl_V(strid);
+                        webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('查询')[1].click()");
+                        Common.Manager.Delay(1000);
+                        string getid = webBrowser1.ToJs("document.getElementsByClassName('product-desc-span')[1].innerText");
+                        if (getid.IndexOf(strid) != -1)
+                        {
+                            //获取创建时间
+                            DateTime temp_dt = webBrowser1.ToJsDate("document.getElementsByClassName('list-table-cell-status')[0].getElementsByTagName('span')[0].innerText");
+                            if (temp_dt == null || temp_dt == new DateTime())
+                            {
+                                "获取商品创建时间失败".ToShow();
+                                return;
+                            }
+                            //如果创建时间超过了25天则下架商品
+                            if (temp_dt.AddDays(25) < DateTime.Now)
+                            {
+                                //下架
+                                webBrowser1.ToJs("document.getElementsByClassName('next-table-row')[0].getElementsByTagName('input')[0].click()");
+                                Common.Manager.Delay(500);
+                                webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('批量下架')[0].click();");
+                                Common.Manager.Delay(500);
+                                webBrowser1.ToMouseClick("getElementsByInnerText_Vague_NoChildren('批量下架')[2].parentElement.getElementsByTagName('button')");
+                                Common.Manager.Delay(2000);
+                            }
+                        }
+                    }
+                    //提示完成
+                }
+
+
+            }
         }
         #endregion
 
@@ -1770,6 +1867,10 @@ namespace excel_operation.TaoBao
         }
         #endregion
 
+        private void txt_url_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

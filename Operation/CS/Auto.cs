@@ -454,6 +454,23 @@ namespace excel_operation
         }
         #endregion
 
+        #region Ctrl_A
+        public static void Ctrl_A()
+        {
+            try
+            {
+                //复制Ctrl+c
+                keybd_event(17, 0, 0, 0);
+                keybd_event(65, 0, 0, 0);
+                keybd_event(17, 0, 2, 0);
+                keybd_event(65, 0, 2, 0);
+            }
+            catch
+            {
+            }
+        }
+        #endregion
+
         #region Clipboard_Out
         /// <summary>
         /// 提取粘贴板中的文本信息

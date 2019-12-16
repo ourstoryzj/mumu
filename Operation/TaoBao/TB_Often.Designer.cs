@@ -276,11 +276,12 @@
             // 
             // btn_fuzhi
             // 
+            this.btn_fuzhi.ForeColor = System.Drawing.Color.Red;
             this.btn_fuzhi.Location = new System.Drawing.Point(6, 354);
             this.btn_fuzhi.Name = "btn_fuzhi";
             this.btn_fuzhi.Size = new System.Drawing.Size(146, 23);
             this.btn_fuzhi.TabIndex = 1;
-            this.btn_fuzhi.Text = "宝贝复制";
+            this.btn_fuzhi.Text = "下架滞销商品";
             this.btn_fuzhi.UseVisualStyleBackColor = true;
             this.btn_fuzhi.Click += new System.EventHandler(this.btn_fuzhi_Click);
             // 
@@ -1441,6 +1442,7 @@
             this.txt_url.Size = new System.Drawing.Size(991, 728);
             this.txt_url.TabIndex = 1;
             this.txt_url.Text = "复制商品";
+            this.txt_url.Click += new System.EventHandler(this.txt_url_Click);
             // 
             // txt_jiafa
             // 

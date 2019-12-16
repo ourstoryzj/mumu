@@ -125,32 +125,25 @@ function jsSelectItemByValue(objSelect, objItemText) {
     }
 }
 
-/*提取现实内容的element*/
-function getElementByInnerText(abc) {
+
+
+//[模糊查询]InnerText,没有子元素的
+function getElementsByInnerText_Vague_NoChildren(abc) {
     var list = document.getElementsByTagName('*');
     var arr = [];
     for (var i = 0; i < list.length; i++) {
-        if (list[i].innerText == abc) {
-            //alert(list[i].innerText);
-            return list[i];
-            //arr.push(list[i]);
+        var intext = list[i].innerText;
+        if (intext != null) {
+            if (list[i].innerText.indexOf(abc) != -1) {
+                if (list[i].children.length == 0)
+                    arr.push(list[i]);
+            }
         }
     }
     return arr;
 }
 
-/*[模糊查询]提取现实内容的element*/
-function getElementsByInnerText2(abc) {
-    var list = document.getElementsByTagName('*');
-    var arr = [];
-    for (var i = 0; i < list.length; i++) {
-        if (list[i].innerText.indexOf(abc) != -1) {
-            //return list[i];
-            arr.push(list[i]);
-        }
-    }
-    return arr;
-}
+//获取InnerText值为abc的所有元素
 function getElementsByInnerText(abc) {
     var list = document.getElementsByTagName('*');
     var arr = [];
@@ -162,7 +155,37 @@ function getElementsByInnerText(abc) {
     }
     return arr;
 }
+//模糊查询-ClassName,没有子元素的
+function getElementsByClassName_Vague_NoChildren(abc) {
+    var list = document.getElementsByTagName('*');
+    var arr = [];
+    for (var i = 0; i < list.length; i++) {
+        var classname = list[i].getAttribute('class');
+        if (classname != null) {
+            if (classname.indexOf(abc) > -1) {
+                if (list[i].children.length == 0)
+                    arr.push(list[i]);
+            }
+        }
+    }
+    return arr;
+}
 
+
+//模糊查询-ClassName
+function getElementsByClassName_Vague(abc) {
+    var list = document.getElementsByTagName('*');
+    var arr = [];
+    for (var i = 0; i < list.length; i++) {
+        var classname = list[i].getAttribute('class');
+        if (classname != null) {
+            if (classname.indexOf(abc) > -1) {
+                    arr.push(list[i]);
+            }
+        }
+    }
+    return arr;
+}
 
 
 
