@@ -12,8 +12,10 @@ using System;
 using System.Collections;
 using System.Web;
 using System.IO;
+using Newtonsoft.Json;
 using System.Globalization;
-using LitJson;
+   
+
 
 public class Upload : IHttpHandler
 {
@@ -97,7 +99,8 @@ public class Upload : IHttpHandler
 		hash["error"] = 0;
 		hash["url"] = fileUrl;
 		context.Response.AddHeader("Content-Type", "text/html; charset=UTF-8");
-		context.Response.Write(JsonMapper.ToJson(hash));
+		//context.Response.Write(JsonMapper.ToJson(hash));
+        context.Response.Write(JsonConvert.SerializeObject(hash));
 		context.Response.End();
 	}
 
@@ -107,7 +110,8 @@ public class Upload : IHttpHandler
 		hash["error"] = 1;
 		hash["message"] = message;
 		context.Response.AddHeader("Content-Type", "text/html; charset=UTF-8");
-		context.Response.Write(JsonMapper.ToJson(hash));
+		//context.Response.Write(JsonMapper.ToJson(hash));
+            context.Response.Write(JsonConvert.SerializeObject(hash));
 		context.Response.End();
 	}
 
