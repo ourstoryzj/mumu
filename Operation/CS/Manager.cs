@@ -133,6 +133,27 @@ namespace excel_operation
         }
         #endregion
 
+        #region WaitTaobaoLogin
+        /// <summary>
+        /// 判断是否已经完全加载完成,同时添加JS方法【getClassName】
+        /// </summary>
+        /// <param name="webBrowser1">web浏览器控件</param>
+        /// <returns></returns>
+        public static bool WaitTaobaoLogin(Taobao_Login login)
+        {
+            while (true)
+            {
+                Browser.Delay(50);  //系统延迟50毫秒，够少了吧！ 
+                if (login.isok || login.IsDisposed)
+                {
+                    return true;
+                }
+            }
+        }
+
+
+        #endregion
+
 
         #region WaitDraw
         /// <summary>
@@ -3315,6 +3336,24 @@ namespace excel_operation
             GC.WaitForPendingFinalizers();
             GC.Collect();
         }
+
+        #endregion
+
+        #region Delay
+        /// <summary>
+        /// 延迟系统时间，但系统又能同时能执行其它任务； 
+        /// </summary>
+        /// <param name="Millisecond">毫秒数</param>
+        public static void Delay(int Millisecond) //延迟系统时间，但系统又能同时能执行其它任务；  
+        {
+            DateTime current = DateTime.Now;
+            while (current.AddMilliseconds(Millisecond) > DateTime.Now)
+            {
+                Application.DoEvents();//转让控制权              
+            }
+            return;
+        }
+
 
         #endregion
 

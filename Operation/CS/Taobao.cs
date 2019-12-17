@@ -1790,5 +1790,14 @@ namespace excel_operation.CS
         }
         #endregion
 
+        #region 卖家中心-删除广告
+        public static void MySeller_DeleteAD(ChromiumWebBrowser web)
+        {
+            //indexcourseContainer - 2QG6y
+            web.ToJs("removeElement(getElementsByClassName_Vague('indexcourseContainer')[0])");
+            web.ToJs("removeElement(getElementsByClassName_Vague('indexnotice-container')[0])");
+        }
+        #endregion
+
     }
 }

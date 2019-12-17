@@ -90,7 +90,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AipSdk">
-      <HintPath>H:\项目\内部系统2017年4月28日\内部系统2017年4月28日\excel operation\dll\百度api\AipSdk.dll</HintPath>
+      <HintPath>C:\DLL\AipSdk.dll</HintPath>
     </Reference>
     <Reference Include="CefSharp, Version=55.0.0.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -108,30 +108,31 @@
       <HintPath>H:\项目\内部系统2017年4月28日\内部系统2017年4月28日\packages\CefSharp.WinForms.55.0.0\CefSharp\x64\CefSharp.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack">
-      <HintPath>..\..\dll\HtmlAgilityPack.dll</HintPath>
+      <HintPath>C:\DLL\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="HttpHelper">
-      <HintPath>..\..\dll\HttpHelper.dll</HintPath>
+      <HintPath>C:\DLL\HttpHelper.dll</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip">
-      <HintPath>..\..\dll\Ionic.Zip.dll</HintPath>
+      <HintPath>C:\DLL\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="IrisSkin4">
-      <HintPath>..\..\dll\IrisSkin4.dll</HintPath>
+      <HintPath>C:\DLL\IrisSkin4.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\..\dll\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <HintPath>C:\DLL\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>H:\项目\内部系统2017年4月28日\内部系统2017年4月28日\excel operation\dll\百度api\Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:\DLL\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NPOI">
-      <HintPath>..\..\dll\NPOI.dll</HintPath>
+      <HintPath>C:\DLL\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll</HintPath>
@@ -170,7 +171,12 @@
     <Compile Include="AutoNew\test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
-    <Compile Include="CS\Autotest.cs" />
+    <Compile Include="TaoBao\Taobao_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoBao\Taobao_Login.Designer.cs">
+      <DependentUpon>Taobao_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="test1.cs" />
     <Compile Include="CS\BaiduHelper.cs" />
     <Compile Include="CS\RARHelper.cs" />
@@ -589,6 +595,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Other\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoBao\Taobao_Login.resx">
+      <DependentUpon>Taobao_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaoBao\PicMake.resx">
       <DependentUpon>PicMake.cs</DependentUpon>

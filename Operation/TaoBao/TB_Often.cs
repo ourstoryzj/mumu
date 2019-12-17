@@ -27,9 +27,10 @@ namespace excel_operation.TaoBao
 
         public TB_Often()
         {
-            Login tb = new Login();
+            
+            Taobao_Login tb = new Taobao_Login();
             tb.Show();
-            if (Manager.WaitLogin(tb))
+            if (Manager.WaitTaobaoLogin(tb))
             {
                 tb.Hide();
                 InitializeComponent();
@@ -1017,11 +1018,11 @@ namespace excel_operation.TaoBao
                     } while (webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('下一页')[1].getAttribute('class')").IndexOf("next")!=-1);
 
 
-                    //进入卖家中心
+                    //进入出售中的商品
                     webBrowser1.Load("https://item.publish.taobao.com/taobao/manager/render.htm?tab=on_sale");
                     //等待加载完称
                     webBrowser1.ToWait("document.getElementsByName('queryItemId')[0]");
-                    Common.Manager.Delay(1000);
+                    Common.Manager.Delay(2000);
                     //根据id查询每个商品
                     foreach (string strid in idlist)
                     {
@@ -1030,8 +1031,9 @@ namespace excel_operation.TaoBao
                         //找到商品
                         Auto.Ctrl_A();
                         Auto.Ctrl_V(strid);
-                        webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('查询')[1].click()");
-                        Common.Manager.Delay(2000);
+                        webBrowser1.ToMouseClick("getElementsByInnerText_Vague_NoChildren('查询')[1]");
+                        //webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('查询')[1].click()");
+                        Common.Manager.Delay(3000);
                         string getid = webBrowser1.ToJs("document.getElementsByClassName('product-desc-span')[1].innerText");
                         if (getid.IndexOf(strid) != -1)
                         {
@@ -1049,12 +1051,12 @@ namespace excel_operation.TaoBao
                             {
                                 //下架
                                 webBrowser1.ToJs("document.getElementsByClassName('next-table-row')[0].getElementsByTagName('input')[0].click()");
-                                Common.Manager.Delay(1000);
-                                webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('批量下架')[0].click();");
-                                Common.Manager.Delay(1000);
-                                webBrowser1.ToMouseClick("getElementsByInnerText_Vague_NoChildren('批量下架')[2].parentElement.getElementsByTagName('button')");
-                                Debug.WriteLine(strid + "已经下架到仓库");
                                 Common.Manager.Delay(2000);
+                                webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('批量下架')[0].click();");
+                                Common.Manager.Delay(2000);
+                                webBrowser1.ToJs("document.getElementsByClassName('next-btn next-btn-primary next-btn-medium')[4].click()");
+                                Debug.WriteLine(strid + "已经下架到仓库");
+                                Common.Manager.Delay(3000);
                             }
                         }
                     }
