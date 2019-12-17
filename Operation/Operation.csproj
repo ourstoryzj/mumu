@@ -170,6 +170,7 @@
     <Compile Include="AutoNew\test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
+    <Compile Include="CS\Autotest.cs" />
     <Compile Include="test1.cs" />
     <Compile Include="CS\BaiduHelper.cs" />
     <Compile Include="CS\RARHelper.cs" />
