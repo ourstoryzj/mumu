@@ -241,3 +241,6 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /CompanyWeb/App_Data/db3.mdb
+/CompanyWeb/Web.config
+/Operation/app.config
+/words/app.config
