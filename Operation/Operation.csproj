@@ -90,7 +90,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AipSdk">
-      <HintPath>..\..\dll\百度图片识别\aip-csharp-sdk-3.6.13\net45\AipSdk.dll</HintPath>
+      <HintPath>H:\项目\内部系统2017年4月28日\内部系统2017年4月28日\excel operation\dll\百度api\AipSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp, Version=55.0.0.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\项目\内部系统2017年4月28日\内部系统2017年4月28日\packages\CefSharp.Common.55.0.0\CefSharp\x64\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.BrowserSubprocess.Core">
+      <HintPath>H:\项目\内部系统2017年4月28日\内部系统2017年4月28日\packages\CefSharp.Common.55.0.0\CefSharp\x64\CefSharp.BrowserSubprocess.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core, Version=55.0.0.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\项目\内部系统2017年4月28日\内部系统2017年4月28日\packages\CefSharp.Common.55.0.0\CefSharp\x64\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms, Version=55.0.0.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\项目\内部系统2017年4月28日\内部系统2017年4月28日\packages\CefSharp.WinForms.55.0.0\CefSharp\x64\CefSharp.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\..\dll\HtmlAgilityPack.dll</HintPath>
@@ -113,7 +128,7 @@
       <HintPath>..\..\dll\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\dll\百度图片识别\aip-csharp-sdk-3.6.13\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>H:\项目\内部系统2017年4月28日\内部系统2017年4月28日\excel operation\dll\百度api\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NPOI">
       <HintPath>..\..\dll\NPOI.dll</HintPath>
