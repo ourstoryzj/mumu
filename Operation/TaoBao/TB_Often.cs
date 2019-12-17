@@ -995,9 +995,10 @@ namespace excel_operation.TaoBao
                         //是否需要翻页
                         if (temp_count != 0)
                         {
-                            webBrowser1.Load(myshop_url + "&pageNo=" + (temp_count + 2));
+                            //webBrowser1.Load(myshop_url + "&pageNo=" + (temp_count + 2));
+                            webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('下一页')[1].click()");
                             webBrowser1.ToWait("document.getElementsByClassName('sale-num')");
-                            Common.Manager.Delay(3000);
+                            Common.Manager.Delay(5000);
                         }
                         temp_count++;
                         //采集所有销量为0的商品
@@ -1019,21 +1020,22 @@ namespace excel_operation.TaoBao
                     //进入卖家中心
                     webBrowser1.Load("https://item.publish.taobao.com/taobao/manager/render.htm?tab=on_sale");
                     //等待加载完称
-                    webBrowser1.ToWait("document.getElementsByName('queryItemId')");
+                    webBrowser1.ToWait("document.getElementsByName('queryItemId')[0]");
                     Common.Manager.Delay(1000);
                     //根据id查询每个商品
                     foreach (string strid in idlist)
                     {
                         //下架滞销商品
-                        webBrowser1.ToMouseClick("document.getElementsByName('queryItemId')");
+                        webBrowser1.ToMouseClick("document.getElementsByName('queryItemId')[0]");
                         //找到商品
                         Auto.Ctrl_A();
                         Auto.Ctrl_V(strid);
                         webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('查询')[1].click()");
-                        Common.Manager.Delay(1000);
+                        Common.Manager.Delay(2000);
                         string getid = webBrowser1.ToJs("document.getElementsByClassName('product-desc-span')[1].innerText");
                         if (getid.IndexOf(strid) != -1)
                         {
+                            Debug.WriteLine(strid+"商品已经找到");
                             //获取创建时间
                             DateTime temp_dt = webBrowser1.ToJsDate("document.getElementsByClassName('list-table-cell-status')[0].getElementsByTagName('span')[0].innerText");
                             if (temp_dt == null || temp_dt == new DateTime())
@@ -1041,15 +1043,17 @@ namespace excel_operation.TaoBao
                                 "获取商品创建时间失败".ToShow();
                                 return;
                             }
+                            Debug.WriteLine("商品为滞销品");
                             //如果创建时间超过了25天则下架商品
                             if (temp_dt.AddDays(25) < DateTime.Now)
                             {
                                 //下架
                                 webBrowser1.ToJs("document.getElementsByClassName('next-table-row')[0].getElementsByTagName('input')[0].click()");
-                                Common.Manager.Delay(500);
+                                Common.Manager.Delay(1000);
                                 webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('批量下架')[0].click();");
-                                Common.Manager.Delay(500);
+                                Common.Manager.Delay(1000);
                                 webBrowser1.ToMouseClick("getElementsByInnerText_Vague_NoChildren('批量下架')[2].parentElement.getElementsByTagName('button')");
+                                Debug.WriteLine(strid + "已经下架到仓库");
                                 Common.Manager.Delay(2000);
                             }
                         }
