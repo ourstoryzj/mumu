@@ -159,23 +159,21 @@
             this.txt_skuname1 = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txt_url = new System.Windows.Forms.TabPage();
-            this.txt_jiafa = new System.Windows.Forms.TextBox();
-            this.txt_chengfa = new System.Windows.Forms.TextBox();
-            this.btn_fuzhi2 = new System.Windows.Forms.Button();
-            this.txt_goodslist = new System.Windows.Forms.TextBox();
-            this.btn_caijigoodsreset = new System.Windows.Forms.Button();
-            this.btn_searchgoods = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tp_shoucang = new System.Windows.Forms.TabPage();
+            this.txt_collect_num = new System.Windows.Forms.TextBox();
+            this.btn_collect_beginadd = new System.Windows.Forms.Button();
+            this.btn_collect_open = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_goodsurl = new System.Windows.Forms.TextBox();
+            this.txt_collect_url = new System.Windows.Forms.TextBox();
             this.btn_savehtml = new System.Windows.Forms.Button();
+            this.btn_collect_login = new System.Windows.Forms.Button();
+            this.txt_collect_list = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_collect_openweb = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.txt_url.SuspendLayout();
+            this.tp_shoucang.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -208,7 +206,7 @@
             this.groupBox1.Controls.Add(this.btn_dp_huan);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(158, 724);
+            this.groupBox1.Size = new System.Drawing.Size(158, 698);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "操作";
@@ -236,7 +234,7 @@
             // btn_addjs
             // 
             this.btn_addjs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_addjs.Location = new System.Drawing.Point(6, 695);
+            this.btn_addjs.Location = new System.Drawing.Point(6, 669);
             this.btn_addjs.Name = "btn_addjs";
             this.btn_addjs.Size = new System.Drawing.Size(146, 23);
             this.btn_addjs.TabIndex = 4;
@@ -458,7 +456,7 @@
             // txt_js
             // 
             this.txt_js.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txt_js.Location = new System.Drawing.Point(12, 743);
+            this.txt_js.Location = new System.Drawing.Point(12, 717);
             this.txt_js.Name = "txt_js";
             this.txt_js.Size = new System.Drawing.Size(57, 21);
             this.txt_js.TabIndex = 7;
@@ -466,7 +464,7 @@
             // btn_test
             // 
             this.btn_test.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_test.Location = new System.Drawing.Point(75, 743);
+            this.btn_test.Location = new System.Drawing.Point(75, 717);
             this.btn_test.Name = "btn_test";
             this.btn_test.Size = new System.Drawing.Size(52, 23);
             this.btn_test.TabIndex = 8;
@@ -481,11 +479,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.txt_url);
+            this.tabControl1.Controls.Add(this.tp_shoucang);
             this.tabControl1.Location = new System.Drawing.Point(176, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(999, 754);
+            this.tabControl1.Size = new System.Drawing.Size(999, 728);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -493,7 +491,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(991, 728);
+            this.tabPage1.Size = new System.Drawing.Size(991, 702);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "买家中心";
             // 
@@ -1423,108 +1421,52 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "01.SKU名称";
             // 
-            // txt_url
+            // tp_shoucang
             // 
-            this.txt_url.Controls.Add(this.txt_jiafa);
-            this.txt_url.Controls.Add(this.txt_chengfa);
-            this.txt_url.Controls.Add(this.btn_fuzhi2);
-            this.txt_url.Controls.Add(this.txt_goodslist);
-            this.txt_url.Controls.Add(this.btn_caijigoodsreset);
-            this.txt_url.Controls.Add(this.btn_searchgoods);
-            this.txt_url.Controls.Add(this.label4);
-            this.txt_url.Controls.Add(this.label3);
-            this.txt_url.Controls.Add(this.label2);
-            this.txt_url.Controls.Add(this.label1);
-            this.txt_url.Controls.Add(this.txt_goodsurl);
-            this.txt_url.Location = new System.Drawing.Point(4, 22);
-            this.txt_url.Name = "txt_url";
-            this.txt_url.Padding = new System.Windows.Forms.Padding(3);
-            this.txt_url.Size = new System.Drawing.Size(991, 728);
-            this.txt_url.TabIndex = 1;
-            this.txt_url.Text = "复制商品";
-            this.txt_url.Click += new System.EventHandler(this.txt_url_Click);
+            this.tp_shoucang.Controls.Add(this.txt_collect_num);
+            this.tp_shoucang.Controls.Add(this.btn_collect_beginadd);
+            this.tp_shoucang.Controls.Add(this.txt_collect_list);
+            this.tp_shoucang.Controls.Add(this.btn_collect_openweb);
+            this.tp_shoucang.Controls.Add(this.btn_collect_login);
+            this.tp_shoucang.Controls.Add(this.btn_collect_open);
+            this.tp_shoucang.Controls.Add(this.label2);
+            this.tp_shoucang.Controls.Add(this.label1);
+            this.tp_shoucang.Controls.Add(this.txt_collect_url);
+            this.tp_shoucang.Location = new System.Drawing.Point(4, 22);
+            this.tp_shoucang.Name = "tp_shoucang";
+            this.tp_shoucang.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_shoucang.Size = new System.Drawing.Size(991, 702);
+            this.tp_shoucang.TabIndex = 1;
+            this.tp_shoucang.Text = "添加收藏打标";
             // 
-            // txt_jiafa
+            // txt_collect_num
             // 
-            this.txt_jiafa.Location = new System.Drawing.Point(356, 315);
-            this.txt_jiafa.Name = "txt_jiafa";
-            this.txt_jiafa.Size = new System.Drawing.Size(100, 21);
-            this.txt_jiafa.TabIndex = 5;
-            this.txt_jiafa.Text = "-2";
+            this.txt_collect_num.Location = new System.Drawing.Point(901, 44);
+            this.txt_collect_num.Name = "txt_collect_num";
+            this.txt_collect_num.Size = new System.Drawing.Size(84, 21);
+            this.txt_collect_num.TabIndex = 5;
+            this.txt_collect_num.Text = "2";
             // 
-            // txt_chengfa
+            // btn_collect_beginadd
             // 
-            this.txt_chengfa.Location = new System.Drawing.Point(221, 315);
-            this.txt_chengfa.Name = "txt_chengfa";
-            this.txt_chengfa.Size = new System.Drawing.Size(100, 21);
-            this.txt_chengfa.TabIndex = 5;
-            this.txt_chengfa.Text = "100";
+            this.btn_collect_beginadd.Location = new System.Drawing.Point(842, 71);
+            this.btn_collect_beginadd.Name = "btn_collect_beginadd";
+            this.btn_collect_beginadd.Size = new System.Drawing.Size(143, 91);
+            this.btn_collect_beginadd.TabIndex = 4;
+            this.btn_collect_beginadd.Text = "开始处理";
+            this.btn_collect_beginadd.UseVisualStyleBackColor = true;
+            this.btn_collect_beginadd.Click += new System.EventHandler(this.btn_fuzhi2_Click);
             // 
-            // btn_fuzhi2
+            // btn_collect_open
             // 
-            this.btn_fuzhi2.Location = new System.Drawing.Point(526, 314);
-            this.btn_fuzhi2.Name = "btn_fuzhi2";
-            this.btn_fuzhi2.Size = new System.Drawing.Size(310, 23);
-            this.btn_fuzhi2.TabIndex = 4;
-            this.btn_fuzhi2.Text = "开始复制";
-            this.btn_fuzhi2.UseVisualStyleBackColor = true;
-            this.btn_fuzhi2.Click += new System.EventHandler(this.btn_fuzhi2_Click);
-            // 
-            // txt_goodslist
-            // 
-            this.txt_goodslist.Location = new System.Drawing.Point(92, 33);
-            this.txt_goodslist.Multiline = true;
-            this.txt_goodslist.Name = "txt_goodslist";
-            this.txt_goodslist.Size = new System.Drawing.Size(744, 274);
-            this.txt_goodslist.TabIndex = 3;
-            // 
-            // btn_caijigoodsreset
-            // 
-            this.btn_caijigoodsreset.Location = new System.Drawing.Point(842, 33);
-            this.btn_caijigoodsreset.Name = "btn_caijigoodsreset";
-            this.btn_caijigoodsreset.Size = new System.Drawing.Size(75, 23);
-            this.btn_caijigoodsreset.TabIndex = 2;
-            this.btn_caijigoodsreset.Text = "重置采集";
-            this.btn_caijigoodsreset.UseVisualStyleBackColor = true;
-            this.btn_caijigoodsreset.Click += new System.EventHandler(this.btn_caijigoodsreset_Click);
-            // 
-            // btn_searchgoods
-            // 
-            this.btn_searchgoods.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_searchgoods.Location = new System.Drawing.Point(842, 4);
-            this.btn_searchgoods.Name = "btn_searchgoods";
-            this.btn_searchgoods.Size = new System.Drawing.Size(143, 23);
-            this.btn_searchgoods.TabIndex = 2;
-            this.btn_searchgoods.Text = "采集店铺所有商品链接";
-            this.btn_searchgoods.UseVisualStyleBackColor = false;
-            this.btn_searchgoods.Click += new System.EventHandler(this.btn_searchgoods_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(462, 319);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 12);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "元";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(327, 319);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 12);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "% +";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(90, 319);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "价格设置：宝贝原价 *";
+            this.btn_collect_open.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_collect_open.Location = new System.Drawing.Point(842, 4);
+            this.btn_collect_open.Name = "btn_collect_open";
+            this.btn_collect_open.Size = new System.Drawing.Size(143, 23);
+            this.btn_collect_open.TabIndex = 2;
+            this.btn_collect_open.Text = "打开网页";
+            this.btn_collect_open.UseVisualStyleBackColor = false;
+            this.btn_collect_open.Click += new System.EventHandler(this.btn_searchgoods_Click);
             // 
             // label1
             // 
@@ -1535,17 +1477,17 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "搜索页网址";
             // 
-            // txt_goodsurl
+            // txt_collect_url
             // 
-            this.txt_goodsurl.Location = new System.Drawing.Point(92, 6);
-            this.txt_goodsurl.Name = "txt_goodsurl";
-            this.txt_goodsurl.Size = new System.Drawing.Size(744, 21);
-            this.txt_goodsurl.TabIndex = 0;
+            this.txt_collect_url.Location = new System.Drawing.Point(92, 6);
+            this.txt_collect_url.Name = "txt_collect_url";
+            this.txt_collect_url.Size = new System.Drawing.Size(744, 21);
+            this.txt_collect_url.TabIndex = 0;
             // 
             // btn_savehtml
             // 
             this.btn_savehtml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_savehtml.Location = new System.Drawing.Point(133, 743);
+            this.btn_savehtml.Location = new System.Drawing.Point(133, 717);
             this.btn_savehtml.Name = "btn_savehtml";
             this.btn_savehtml.Size = new System.Drawing.Size(37, 23);
             this.btn_savehtml.TabIndex = 8;
@@ -1553,11 +1495,48 @@
             this.btn_savehtml.UseVisualStyleBackColor = true;
             this.btn_savehtml.Click += new System.EventHandler(this.btn_savehtml_Click);
             // 
+            // btn_collect_login
+            // 
+            this.btn_collect_login.Location = new System.Drawing.Point(92, 216);
+            this.btn_collect_login.Name = "btn_collect_login";
+            this.btn_collect_login.Size = new System.Drawing.Size(75, 23);
+            this.btn_collect_login.TabIndex = 2;
+            this.btn_collect_login.Text = "登录网站";
+            this.btn_collect_login.UseVisualStyleBackColor = true;
+            this.btn_collect_login.Click += new System.EventHandler(this.btn_collect_login_Click);
+            // 
+            // txt_collect_list
+            // 
+            this.txt_collect_list.Location = new System.Drawing.Point(92, 33);
+            this.txt_collect_list.Multiline = true;
+            this.txt_collect_list.Name = "txt_collect_list";
+            this.txt_collect_list.Size = new System.Drawing.Size(744, 177);
+            this.txt_collect_list.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(842, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "收藏数量";
+            // 
+            // btn_collect_openweb
+            // 
+            this.btn_collect_openweb.Location = new System.Drawing.Point(173, 216);
+            this.btn_collect_openweb.Name = "btn_collect_openweb";
+            this.btn_collect_openweb.Size = new System.Drawing.Size(75, 23);
+            this.btn_collect_openweb.TabIndex = 2;
+            this.btn_collect_openweb.Text = "打开页面";
+            this.btn_collect_openweb.UseVisualStyleBackColor = true;
+            this.btn_collect_openweb.Click += new System.EventHandler(this.btn_collect_openweb_Click);
+            // 
             // TB_Often
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1187, 776);
+            this.ClientSize = new System.Drawing.Size(1187, 750);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btn_savehtml);
             this.Controls.Add(this.btn_test);
@@ -1569,8 +1548,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.txt_url.ResumeLayout(false);
-            this.txt_url.PerformLayout();
+            this.tp_shoucang.ResumeLayout(false);
+            this.tp_shoucang.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1598,20 +1577,14 @@
         private System.Windows.Forms.Button btn_dingdan;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage txt_url;
+        private System.Windows.Forms.TabPage tp_shoucang;
         private System.Windows.Forms.Button btn_savehtml;
-        private System.Windows.Forms.Button btn_searchgoods;
+        private System.Windows.Forms.Button btn_collect_open;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_goodsurl;
-        private System.Windows.Forms.TextBox txt_goodslist;
-        private System.Windows.Forms.Button btn_caijigoodsreset;
+        private System.Windows.Forms.TextBox txt_collect_url;
         private System.Windows.Forms.Button btn_fuzhi;
-        private System.Windows.Forms.Button btn_fuzhi2;
-        private System.Windows.Forms.TextBox txt_chengfa;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_jiafa;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_collect_beginadd;
+        private System.Windows.Forms.TextBox txt_collect_num;
         private System.Windows.Forms.Button btn_shangtu;
         private System.Windows.Forms.Button btn_fayouhuiquan;
         private System.Windows.Forms.Button btn_shenbi;
@@ -1721,5 +1694,9 @@
         private System.Windows.Forms.Button btn_sku_save;
         private System.Windows.Forms.ComboBox cb_sku_type;
         private System.Windows.Forms.Button btn_sku_doset;
+        private System.Windows.Forms.TextBox txt_collect_list;
+        private System.Windows.Forms.Button btn_collect_login;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_collect_openweb;
     }
 }

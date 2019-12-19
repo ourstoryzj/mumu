@@ -181,9 +181,9 @@ namespace excel_operation
         /// <param name="web"></param>
         public static void dianpu_huan(ChromiumWebBrowser web)
         {
-            Login tb = new Login();
+            Taobao_Login tb = new Taobao_Login();
             tb.Show();
-            if (Manager.WaitLogin(tb))
+            if (Manager.WaitTaobaoLogin(tb))
             {
                 tb.Hide();
                 web.RequestContext = tb.webBrowser1.RequestContext;

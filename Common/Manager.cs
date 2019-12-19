@@ -1780,6 +1780,7 @@ namespace Common
             }
             catch (Exception ex)
             {
+                ex.ToLog();
             }
         }
 
@@ -1926,6 +1927,20 @@ namespace Common
 
 
         #region String
+
+
+            /// <summary>
+            /// 判断字符串是否为空
+            /// </summary>
+            /// <param name="str"></param>
+            /// <returns></returns>
+        public static bool ToIsEmpty(this string str)
+        {
+            if (string.IsNullOrEmpty(str))
+                return true;
+            else
+                return false;
+        }
 
         /// <summary>
         /// 写日志
@@ -3203,7 +3218,7 @@ namespace Common
             }
             catch (Exception ex)
             {
-
+                ex.ToLog();
             }
             return image;
         }
