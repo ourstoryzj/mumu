@@ -50,6 +50,7 @@
             this.tp_kefus = new System.Windows.Forms.TabPage();
             this.tp_houtai = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btn_phone_open = new System.Windows.Forms.Button();
             this.btn_yanzhengma = new System.Windows.Forms.Button();
@@ -65,7 +66,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btn_savehtml = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button6 = new System.Windows.Forms.Button();
+            this.btn_unsalable = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -82,6 +83,7 @@
             this.groupBox1.Controls.Add(this.btn_budanfahuo);
             this.groupBox1.Controls.Add(this.btn_shouhou);
             this.groupBox1.Controls.Add(this.txt_js);
+            this.groupBox1.Controls.Add(this.btn_unsalable);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
@@ -314,6 +316,16 @@
             this.tabPage2.TabIndex = 2;
             this.tabPage2.Text = "淘集集客服";
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(6, 6);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(146, 23);
+            this.button6.TabIndex = 0;
+            this.button6.Text = "登录淘集集客服";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.btn_phone_open);
@@ -467,15 +479,17 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button6
+            // btn_unsalable
             // 
-            this.button6.Location = new System.Drawing.Point(6, 6);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(146, 23);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "登录淘集集客服";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btn_unsalable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_unsalable.ForeColor = System.Drawing.Color.Red;
+            this.btn_unsalable.Location = new System.Drawing.Point(6, 368);
+            this.btn_unsalable.Name = "btn_unsalable";
+            this.btn_unsalable.Size = new System.Drawing.Size(146, 23);
+            this.btn_unsalable.TabIndex = 0;
+            this.btn_unsalable.Text = "清理滞销商品（15天）";
+            this.btn_unsalable.UseVisualStyleBackColor = true;
+            this.btn_unsalable.Click += new System.EventHandler(this.btn_unsalable_Click);
             // 
             // PDD
             // 
@@ -536,5 +550,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btn_unsalable;
     }
 }

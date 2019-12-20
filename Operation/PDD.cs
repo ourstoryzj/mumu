@@ -15,7 +15,7 @@ namespace excel_operation
     {
         CefSharp.WinForms.ChromiumWebBrowser webBrowser1;
         CefSharp.WinForms.ChromiumWebBrowser webBrowser2;
-        CefSharp.WinForms.ChromiumWebBrowser webBrowser3;
+        //CefSharp.WinForms.ChromiumWebBrowser webBrowser3;
         //CefSharp.WinForms.ChromiumWebBrowser webBrowser4;
         string token="";
         string phone;
@@ -52,13 +52,13 @@ namespace excel_operation
             webBrowser2.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
             tp_houtai.Controls.Add(webBrowser2);
 
-            webBrowser3 = new ChromiumWebBrowser("https://baidu.com");
-            webBrowser3.FrameLoadStart += Browser.BrowserFrameLoadStart;
-            webBrowser3.FrameLoadEnd += Browser.BrowserFrameLoadEnd;
-            webBrowser3.Size = new Size(990, 725);
-            //webBrowser2.Location = new Point(0, 60);
-            webBrowser3.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
-            tabPage2.Controls.Add(webBrowser3);
+            //webBrowser3 = new ChromiumWebBrowser("https://baidu.com");
+            //webBrowser3.FrameLoadStart += Browser.BrowserFrameLoadStart;
+            //webBrowser3.FrameLoadEnd += Browser.BrowserFrameLoadEnd;
+            //webBrowser3.Size = new Size(990, 725);
+            ////webBrowser2.Location = new Point(0, 60);
+            //webBrowser3.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+            //tabPage2.Controls.Add(webBrowser3);
 
             //timer1.Interval = XMLHelper.GetValue("PinDuoDuo_AutoAnswerTime").ToInt();
             bind_Account();
@@ -655,12 +655,23 @@ namespace excel_operation
         //登录淘集集客服
         private void button6_Click(object sender, EventArgs e)
         {
-            string shopid = CS.XMLHelper.GetValue("TaoJiJi_ShopID1");
-            string account = CS.XMLHelper.GetValue("TaoJiJi_Account1");
-            string pwd = CS.XMLHelper.GetValue("TaoJiJi_Pwd1");
-            TaoJiJiHelper.LoginKeFu(shopid, account, pwd, webBrowser3);
+            //string shopid = CS.XMLHelper.GetValue("TaoJiJi_ShopID1");
+            //string account = CS.XMLHelper.GetValue("TaoJiJi_Account1");
+            //string pwd = CS.XMLHelper.GetValue("TaoJiJi_Pwd1");
+            //TaoJiJiHelper.LoginKeFu(shopid, account, pwd, webBrowser3);
         }
         #endregion
+
+
+        #region btn_unsalable_Click
+        private void btn_unsalable_Click(object sender, EventArgs e)
+        {
+            webBrowser2.Load("https://mms.pinduoduo.com/goods/goods_list");
+            webBrowser2.ToWait("");
+
+        }
+        #endregion
+
     }
 
 

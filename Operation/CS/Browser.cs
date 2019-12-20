@@ -1539,7 +1539,32 @@ namespace excel_operation
         }
         #endregion
 
-       
+        #region JS_CEFBrowserHasElementToBool
+
+        /// <summary>
+        /// 返回值转换成bool
+        /// </summary>
+        /// <param name="js"></param>
+        /// <param name="wb"></param>
+        public static bool JS_CEFBrowserToBool(string js, ChromiumWebBrowser wb)
+        {
+
+            bool res = false;
+
+            try
+            {
+                string temp = JS_CEFBrowser(js, wb);
+                bool.TryParse(temp, out res);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("谷歌浏览器执行不返回值的JS脚本出错：" + e.ToString());
+            }
+            return res;
+        }
+        #endregion
+
+
 
         #region BrowserFrameLoadStart
         /// <summary>

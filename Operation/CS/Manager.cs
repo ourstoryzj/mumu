@@ -2978,6 +2978,17 @@ namespace excel_operation
         }
 
         /// <summary>
+        /// 在 ChromiumWebBrowser 中 判断是js 是否返回Bool
+        /// </summary>
+        /// <param name="wb"></param>
+        /// <param name="js"></param>
+        /// <returns></returns>
+        public static bool ToBool(this ChromiumWebBrowser wb, string js)
+        {
+            return Browser.JS_CEFBrowserToBool(js, wb);
+        }
+
+        /// <summary>
         /// 初始化ChromiumWebBrowser
         /// </summary>
         /// <param name="wb"></param>
@@ -3043,6 +3054,27 @@ namespace excel_operation
         public static bool ToWait(this ChromiumWebBrowser wb, string ele, int times = 5000)
         {
             return Browser.WaitWebPageLoad(ele, times, wb);
+        }
+
+        /// <summary>
+        /// 等在浏览器加载完毕
+        /// </summary>
+        /// <param name="wb"></param>
+        public static bool ToWait(this ChromiumWebBrowser wb, string ele,string judge, int times = 5000)
+        {
+            if (Browser.WaitWebPageLoad(ele, times, wb))
+            {
+                DateTime dt =  DateTime.Now.AddSeconds(times / 1000);
+                while (!wb.ToBool(judge))
+                {
+                    if (dt < DateTime.Now)
+                    {
+                        return false;
+                    }
+                    Delay(500);
+                }
+            }
+            return true;
         }
 
         /// <summary>
