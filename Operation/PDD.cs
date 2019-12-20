@@ -428,7 +428,9 @@ namespace excel_operation
                     webBrowser1.Load("https://mms.pinduoduo.com/assets/chat-merchant/dist/index.html?r=0.5309851365977418");
                     if (Browser.WaitWebPageLoad(webBrowser1))
                     {
+                        timer1.Stop();
                         Browser.Delay(10000);
+                        timer1.Start();
                         //Browser.JS_CEFBrowser_NoReturn("alert('开始关闭广告')", webBrowser1);
                         //取消对话框提示框
                         CS.PinDuoDuo.ClearAP(webBrowser1);

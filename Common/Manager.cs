@@ -2714,7 +2714,7 @@ namespace Common
         /// <param name="email"></param>
         /// <param name="title"></param>
         /// <param name="content"></param>
-        public static void EmailSend(string email, string title, string content,string account="ourstoryzj@163.com",string pwd="zhangjian123")
+        public static void EmailSend(string email, string title, string content,string account="ourstoryzj@163.com",string pwd="zj013368qw")
         {
             try
             {
