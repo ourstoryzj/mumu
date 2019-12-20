@@ -381,7 +381,7 @@ namespace excel_operation
             //}
             //Other.ImageDownload fm = new Other.ImageDownload();
             //Test.test_meau fm = new Test.test_meau();
-            ImgDiscern fm = new ImgDiscern();
+            Test.test_webrequest fm = new Test.test_webrequest();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = FormWindowState.Maximized;

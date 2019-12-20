@@ -162,14 +162,14 @@
             this.tp_shoucang = new System.Windows.Forms.TabPage();
             this.txt_collect_num = new System.Windows.Forms.TextBox();
             this.btn_collect_beginadd = new System.Windows.Forms.Button();
+            this.txt_collect_list = new System.Windows.Forms.TextBox();
+            this.btn_collect_openweb = new System.Windows.Forms.Button();
+            this.btn_collect_login = new System.Windows.Forms.Button();
             this.btn_collect_open = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_collect_url = new System.Windows.Forms.TextBox();
             this.btn_savehtml = new System.Windows.Forms.Button();
-            this.btn_collect_login = new System.Windows.Forms.Button();
-            this.txt_collect_list = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btn_collect_openweb = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -601,7 +601,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(991, 728);
+            this.tabPage2.Size = new System.Drawing.Size(991, 702);
             this.tabPage2.TabIndex = 2;
             this.tabPage2.Text = "SKU设置";
             // 
@@ -1445,7 +1445,7 @@
             this.txt_collect_num.Name = "txt_collect_num";
             this.txt_collect_num.Size = new System.Drawing.Size(84, 21);
             this.txt_collect_num.TabIndex = 5;
-            this.txt_collect_num.Text = "2";
+            this.txt_collect_num.Text = "1";
             // 
             // btn_collect_beginadd
             // 
@@ -1457,6 +1457,34 @@
             this.btn_collect_beginadd.UseVisualStyleBackColor = true;
             this.btn_collect_beginadd.Click += new System.EventHandler(this.btn_fuzhi2_Click);
             // 
+            // txt_collect_list
+            // 
+            this.txt_collect_list.Location = new System.Drawing.Point(92, 33);
+            this.txt_collect_list.Multiline = true;
+            this.txt_collect_list.Name = "txt_collect_list";
+            this.txt_collect_list.Size = new System.Drawing.Size(744, 177);
+            this.txt_collect_list.TabIndex = 3;
+            // 
+            // btn_collect_openweb
+            // 
+            this.btn_collect_openweb.Location = new System.Drawing.Point(173, 216);
+            this.btn_collect_openweb.Name = "btn_collect_openweb";
+            this.btn_collect_openweb.Size = new System.Drawing.Size(75, 23);
+            this.btn_collect_openweb.TabIndex = 2;
+            this.btn_collect_openweb.Text = "打开页面";
+            this.btn_collect_openweb.UseVisualStyleBackColor = true;
+            this.btn_collect_openweb.Click += new System.EventHandler(this.btn_collect_openweb_Click);
+            // 
+            // btn_collect_login
+            // 
+            this.btn_collect_login.Location = new System.Drawing.Point(92, 216);
+            this.btn_collect_login.Name = "btn_collect_login";
+            this.btn_collect_login.Size = new System.Drawing.Size(75, 23);
+            this.btn_collect_login.TabIndex = 2;
+            this.btn_collect_login.Text = "登录网站";
+            this.btn_collect_login.UseVisualStyleBackColor = true;
+            this.btn_collect_login.Click += new System.EventHandler(this.btn_collect_login_Click);
+            // 
             // btn_collect_open
             // 
             this.btn_collect_open.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1467,6 +1495,15 @@
             this.btn_collect_open.Text = "打开网页";
             this.btn_collect_open.UseVisualStyleBackColor = false;
             this.btn_collect_open.Click += new System.EventHandler(this.btn_searchgoods_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(842, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "收藏数量";
             // 
             // label1
             // 
@@ -1494,43 +1531,6 @@
             this.btn_savehtml.Text = "HTML";
             this.btn_savehtml.UseVisualStyleBackColor = true;
             this.btn_savehtml.Click += new System.EventHandler(this.btn_savehtml_Click);
-            // 
-            // btn_collect_login
-            // 
-            this.btn_collect_login.Location = new System.Drawing.Point(92, 216);
-            this.btn_collect_login.Name = "btn_collect_login";
-            this.btn_collect_login.Size = new System.Drawing.Size(75, 23);
-            this.btn_collect_login.TabIndex = 2;
-            this.btn_collect_login.Text = "登录网站";
-            this.btn_collect_login.UseVisualStyleBackColor = true;
-            this.btn_collect_login.Click += new System.EventHandler(this.btn_collect_login_Click);
-            // 
-            // txt_collect_list
-            // 
-            this.txt_collect_list.Location = new System.Drawing.Point(92, 33);
-            this.txt_collect_list.Multiline = true;
-            this.txt_collect_list.Name = "txt_collect_list";
-            this.txt_collect_list.Size = new System.Drawing.Size(744, 177);
-            this.txt_collect_list.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(842, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "收藏数量";
-            // 
-            // btn_collect_openweb
-            // 
-            this.btn_collect_openweb.Location = new System.Drawing.Point(173, 216);
-            this.btn_collect_openweb.Name = "btn_collect_openweb";
-            this.btn_collect_openweb.Size = new System.Drawing.Size(75, 23);
-            this.btn_collect_openweb.TabIndex = 2;
-            this.btn_collect_openweb.Text = "打开页面";
-            this.btn_collect_openweb.UseVisualStyleBackColor = true;
-            this.btn_collect_openweb.Click += new System.EventHandler(this.btn_collect_openweb_Click);
             // 
             // TB_Often
             // 

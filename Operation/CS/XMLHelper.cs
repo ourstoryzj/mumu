@@ -106,11 +106,15 @@ namespace excel_operation.CS
             //}
             //return res;
             string res = "";
-            XmlElement xe = GetNode(name1, value1);
-            if (xe != null)
+            try
             {
-                res = xe.GetAttribute(name2);
+                XmlElement xe = GetNode(name1, value1);
+                if (xe != null)
+                {
+                    res = xe.GetAttribute(name2);
+                }
             }
+            catch { }
             return res;
         }
         #endregion

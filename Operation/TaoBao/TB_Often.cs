@@ -61,6 +61,7 @@ namespace excel_operation.TaoBao
 
                 //txt_chengfa.Text = XMLHelper.GetValue("TaoBao_Copy_ChengFa");
                 //txt_collect_num.Text = XMLHelper.GetValue("TaoBao_Copy_JiaFa");
+                txt_collect_num.Text = Common.XMLHelper.GetValue("TaoBao_Collect_Num");
             }
 
             bind_sku();
@@ -1108,6 +1109,9 @@ namespace excel_operation.TaoBao
         #region btn_fuzhi2_Click
         private void btn_fuzhi2_Click(object sender, EventArgs e)
         {
+            //保存收藏数量
+            Common.XMLHelper.SetValue("TaoBao_Collect_Num",txt_collect_num.Text);
+
             //获取数据框内的商品链接
             string goods_str = txt_collect_list.Text.Trim();
 
