@@ -11,9 +11,9 @@ namespace excel_operation.DataAnalysis
         CefSharp.WinForms.ChromiumWebBrowser webBrowser1;
         public CanMou_Keys()
         {
-            Login tb = new Login();
+            Taobao_Login tb = new Taobao_Login();
             tb.Show();
-            if (Manager.WaitLogin(tb))
+            if (Manager.WaitTaobaoLogin(tb))
             {
                 tb.Hide();
                 InitializeComponent();

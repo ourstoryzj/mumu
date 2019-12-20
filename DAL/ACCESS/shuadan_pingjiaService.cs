@@ -146,7 +146,7 @@ namespace DAL.Access
             string sql4 = string.IsNullOrEmpty(_type) ? "" : " and sptype= '" + _type + "' ";
             string sql5 = date1 == new DateTime() ? "" : " and datediff('d','" + date1.ToString() + "',spdate)>=0 ";
             string sql6 = date2 == new DateTime() ? "" : " and datediff('d','" + date2.ToString() + "',spdate)<=0 ";
-            string sql7 = " order by spdate asc,spid desc ";//排序两个字段,否则数据容易错误
+            //string sql7 = " order by spdate asc,spid desc ";//排序两个字段,否则数据容易错误
             string sql1 = "select top " + e.ToString() + " * from " + (string.IsNullOrEmpty(top) ? " shuadan_pingjia where " : " ( select top " + top + " * from shuadan_pingjia where " + sql2 + sql3 + sql4 + sql5 + sql6 + " order by spdate desc,spid asc   ) ") + (string.IsNullOrEmpty(top) ? (sql2 + sql3 + sql4 + sql5 + sql6) : "");
             //DBHelper.sqlstr = "select * from(select top " + (e - s + 1).ToString() + " * from  ( " + sql1 + sql2 + sql3 + sql4 + sql5 + sql6 + " order by spdate desc,spid asc ) " + sql7 + ") order by  spdate desc,spid asc ";
             DBHelper.sqlstr = "select top " + (e - s + 1).ToString() + " * from " + "( " + sql1 + " order by spdate desc,spid asc )  order by spdate asc,spid desc ";

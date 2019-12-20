@@ -8,6 +8,7 @@ using excel_operation.Other;
 using excel_operation.CS;
 using System.IO;
 using System.Diagnostics;
+using Common;
 
 namespace excel_operation.TaoBao
 {
@@ -27,7 +28,7 @@ namespace excel_operation.TaoBao
 
         public TB_Often()
         {
-            
+
             Taobao_Login tb = new Taobao_Login();
             tb.Show();
             if (Manager.WaitTaobaoLogin(tb))
@@ -55,11 +56,11 @@ namespace excel_operation.TaoBao
                 webBrowser2.Location = new Point(0, 325);
                 webBrowser2.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
                 webBrowser2.RequestContext = webBrowser1.RequestContext;
-                txt_url.Controls.Add(webBrowser2);
+                tp_shoucang.Controls.Add(webBrowser2);
 
 
-                txt_chengfa.Text = XMLHelper.GetValue("TaoBao_Copy_ChengFa");
-                txt_jiafa.Text = XMLHelper.GetValue("TaoBao_Copy_JiaFa");
+                //txt_chengfa.Text = XMLHelper.GetValue("TaoBao_Copy_ChengFa");
+                //txt_collect_num.Text = XMLHelper.GetValue("TaoBao_Copy_JiaFa");
             }
 
             bind_sku();
@@ -851,113 +852,149 @@ namespace excel_operation.TaoBao
             //sw.WriteLine("bob hu"); // 写入Hello World
             //sw.Close(); //关闭文件
             string path = "d:\\html" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".txt";
-            FileHelper.Write(path, html);
+            CS.FileHelper.Write(path, html);
             System.Diagnostics.Process.Start(path);
         }
         #endregion
 
 
-        #region
+        #region 收藏&打标（原复制宝贝）
+
+
+
+
+        #region 打开网页
         private void btn_searchgoods_Click(object sender, EventArgs e)
         {
-            GoodsList.Clear();
-
-
-            string url = txt_goodsurl.Text.Trim();
-            if (string.IsNullOrEmpty(url))
+            string temp_url = txt_collect_url.Text;
+            if (temp_url.ToIsEmpty())
             {
-                MessageBox.Show("请输入网址");
-                txt_goodsurl.Focus();
+                "请输入正确的网址".ToShow();
                 return;
             }
-
-            webBrowser2.Load(url);
-            if (Browser.WaitWebPageLoad(webBrowser2))
+            else if (temp_url.IndexOf("taobao.com") == -1)
             {
-                string shopid = CaiJi.GetShopIDByMate(webBrowser2);
-                //string shopid = "";
-                //string shopid_data = Browser.JS_CEFBrowser("document.getElementsByName('microscope-data')[0].content", webBrowser2);
-
-
-
-                //string url_shop = CaiJi.GetShopUrlByWangWang(str, webBrowser1);
-
-                //默认查询20页
-                for (int i = 0; i < 20; i++)
+                "请输入正确的淘宝网址".ToShow();
+                return;
+            }
+            webBrowser2.Load(temp_url);
+            if (webBrowser2.ToWait())
+            {
+                txt_collect_list.Text = "";
+                webBrowser2.ToWait("document.getElementsByClassName('item-name J_TGoldData')[0]");
+                int goodsnum = webBrowser2.ToJsInt("document.getElementsByClassName('item-name J_TGoldData').length");
+                for (int i = 0; i < goodsnum; i++)
                 {
-
-
-                    string url_goodslist = CaiJi.GetShopGoodsListURL_NewOn(shopid, i + 1);
-                    webBrowser2.Load(url_goodslist);
-                    //判断所有宝贝链接是否存在
-                    if (Browser.WaitWebPageLoad2("document.getElementById('J_HesperCats')", webBrowser2))
-                    {
-                        Browser.urlstr = url_goodslist;
-
-                        //判断是否还有商品
-                        Browser.jsstr = "  getClassName('no-result-new').length;  ";
-                        if (Browser.JS_CEFBrowser(Browser.jsstr, webBrowser2) == "1")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            //开始采集商品
-
-                            string res = Browser.JS_CEFBrowser(" getClassName('photo').length; ", webBrowser2);
-                            Debug.WriteLine("本页面商品数量为：" + res);//输出
-                            int list_count1 = 0;
-                            //如果没有商品，则返回空
-                            if (!int.TryParse(res, out list_count1))
-                            {
-                                Debug.WriteLine("没有获取到商品");//输出
-                                break;
-                            }
-                            else
-                            {
-                                //开始采集商品
-                                //遍历每个商品
-                                for (int j = 0; j < list_count1; j++)
-                                {
-                                    string temp = CaiJi.SearchPage_GetGoodsUrl(j, webBrowser2);
-                                    GoodsList.Add(temp);
-                                }
-                            }
-                            if (list_count1 < 24)
-                            {
-                                //采集完成跳出
-                                break;
-                            }
-                        }
-                    }
-                    //模拟真实翻页
-                    Browser.Delay(1500);
-                    //string page1 = Browser.JS_CEFBrowser("document.getElementsByClassName('page-cur')[0].innerText", webBrowser2);
-                    //string page2 = Browser.JS_CEFBrowser("document.getElementsByName('pageNo')[0].value", webBrowser2);
-
-                    //if (page1 == page2)
-                    //{
-                    //    break;
-                    //}
-
+                    string goodstitle = webBrowser2.ToJs("document.getElementsByClassName('item-name J_TGoldData')[" + i.ToString() + "].innerText");
+                    string goodsurl = webBrowser2.ToJs("document.getElementsByClassName('item-name J_TGoldData')[" + i.ToString() + "].href");
+                    txt_collect_list.Text = goodsurl + "---" + goodstitle + "\r\n" + txt_collect_list.Text;
                 }
 
-                if (GoodsList.Count > 0)
-                {
-                    string res = "";
-                    foreach (string s in GoodsList)
-                    {
-                        res = res + s + "\r\n";
-                    }
-                    txt_goodslist.Text = res;
-                }
 
             }
 
+
+
+            #region bak-2019年12月19日23:00:31
+
+
+            //GoodsList.Clear();
+
+
+            //string url = txt_goodsurl.Text.Trim();
+            //if (string.IsNullOrEmpty(url))
+            //{
+            //    MessageBox.Show("请输入网址");
+            //    txt_goodsurl.Focus();
+            //    return;
+            //}
+
+            //webBrowser2.Load(url);
+            //if (Browser.WaitWebPageLoad(webBrowser2))
+            //{
+            //    string shopid = CaiJi.GetShopIDByMate(webBrowser2);
+            //    //string shopid = "";
+            //    //string shopid_data = Browser.JS_CEFBrowser("document.getElementsByName('microscope-data')[0].content", webBrowser2);
+
+
+
+            //    //string url_shop = CaiJi.GetShopUrlByWangWang(str, webBrowser1);
+
+            //    //默认查询20页
+            //    for (int i = 0; i < 20; i++)
+            //    {
+
+
+            //        string url_goodslist = CaiJi.GetShopGoodsListURL_NewOn(shopid, i + 1);
+            //        webBrowser2.Load(url_goodslist);
+            //        //判断所有宝贝链接是否存在
+            //        if (Browser.WaitWebPageLoad2("document.getElementById('J_HesperCats')", webBrowser2))
+            //        {
+            //            Browser.urlstr = url_goodslist;
+
+            //            //判断是否还有商品
+            //            Browser.jsstr = "  getClassName('no-result-new').length;  ";
+            //            if (Browser.JS_CEFBrowser(Browser.jsstr, webBrowser2) == "1")
+            //            {
+            //                break;
+            //            }
+            //            else
+            //            {
+            //                //开始采集商品
+
+            //                string res = Browser.JS_CEFBrowser(" getClassName('photo').length; ", webBrowser2);
+            //                Debug.WriteLine("本页面商品数量为：" + res);//输出
+            //                int list_count1 = 0;
+            //                //如果没有商品，则返回空
+            //                if (!int.TryParse(res, out list_count1))
+            //                {
+            //                    Debug.WriteLine("没有获取到商品");//输出
+            //                    break;
+            //                }
+            //                else
+            //                {
+            //                    //开始采集商品
+            //                    //遍历每个商品
+            //                    for (int j = 0; j < list_count1; j++)
+            //                    {
+            //                        string temp = CaiJi.SearchPage_GetGoodsUrl(j, webBrowser2);
+            //                        GoodsList.Add(temp);
+            //                    }
+            //                }
+            //                if (list_count1 < 24)
+            //                {
+            //                    //采集完成跳出
+            //                    break;
+            //                }
+            //            }
+            //        }
+            //        //模拟真实翻页
+            //        Browser.Delay(1500);
+            //        //string page1 = Browser.JS_CEFBrowser("document.getElementsByClassName('page-cur')[0].innerText", webBrowser2);
+            //        //string page2 = Browser.JS_CEFBrowser("document.getElementsByName('pageNo')[0].value", webBrowser2);
+
+            //        //if (page1 == page2)
+            //        //{
+            //        //    break;
+            //        //}
+
+            //    }
+
+            //    if (GoodsList.Count > 0)
+            //    {
+            //        string res = "";
+            //        foreach (string s in GoodsList)
+            //        {
+            //            res = res + s + "\r\n";
+            //        }
+            //        txt_goodslist.Text = res;
+            //    }
+
+            //}
+            #endregion
 
         }
         #endregion
-
 
         #region btn_fuzhi_Click
 
@@ -1015,7 +1052,7 @@ namespace excel_operation.TaoBao
                                 idlist.Add(Manager.GetURLParam(temp_url, "id"));
                             }
                         }
-                    } while (webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('下一页')[1].getAttribute('class')").IndexOf("next")!=-1);
+                    } while (webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('下一页')[1].getAttribute('class')").IndexOf("next") != -1);
 
 
                     //进入出售中的商品
@@ -1037,7 +1074,7 @@ namespace excel_operation.TaoBao
                         string getid = webBrowser1.ToJs("document.getElementsByClassName('product-desc-span')[1].innerText");
                         if (getid.IndexOf(strid) != -1)
                         {
-                            Debug.WriteLine(strid+"商品已经找到");
+                            Debug.WriteLine(strid + "商品已经找到");
                             //获取创建时间
                             DateTime temp_dt = webBrowser1.ToJsDate("document.getElementsByClassName('list-table-cell-status')[0].getElementsByTagName('span')[0].innerText");
                             if (temp_dt == null || temp_dt == new DateTime())
@@ -1068,170 +1105,200 @@ namespace excel_operation.TaoBao
         }
         #endregion
 
-
-        #region btn_caijigoodsreset_Click
-        private void btn_caijigoodsreset_Click(object sender, EventArgs e)
-        {
-            if (GoodsList.Count > 0)
-            {
-                string res = "";
-                foreach (string s in GoodsList)
-                {
-                    res = res + s + "\r\n";
-                }
-                txt_goodslist.Text = res;
-            }
-        }
-        #endregion
-
         #region btn_fuzhi2_Click
         private void btn_fuzhi2_Click(object sender, EventArgs e)
         {
-
-            XMLHelper.SetValue("TaoBao_Copy_ChengFa", txt_chengfa.Text);
-            XMLHelper.SetValue("TaoBao_Copy_JiaFa", txt_jiafa.Text);
-
-            tabControl1.SelectedTab = tabPage1;
-
             //获取数据框内的商品链接
-            string goods_str = txt_goodslist.Text.Trim();
+            string goods_str = txt_collect_list.Text.Trim();
 
             string[] goods_zu = Manager.Str_Split(goods_str, "\r\n");
-            //foreach (string s in goods_zu)
-            //{
-            //    GoodsList2.Add(s);
-            //}
+
             if (goods_zu.Length == 0)
             {
                 MessageBox.Show("没有商品链接");
                 return;
             }
 
-
-
-
-            //进入复制宝贝
-            if (GoBaoBeiFuZhi())
+            foreach (string str in goods_zu)
             {
-
-
-
-                //操作数据每次10个
-                //List<string> list_res = new List<string>();
-                //string temp_i = "";
-                //int j = 0;
-
-                //for (int i = 0; i < goods_zu.Length; i++)
-                //{
-                //    j++;
-                //    temp_i = temp_i + goods_zu[i];
-                //    if (j < 10)
-                //    {
-                //        temp_i = temp_i + "\r\n";
-                //    }
-                //    else
-                //    {
-                //        list_res.Add(temp_i);
-                //        j = 0;
-                //        temp_i = "";
-                //    }
-                //    if ((i + 1) == goods_zu.Length)
-                //    {
-                //        list_res.Add(temp_i);
-                //    }
-                //}
-
-
-
-
-                //设置价格
-                //string chengfa = txt_chengfa.Text.Trim();
-                //string jiafa = txt_jiafa.Text.Trim();
-                //Browser.JS_CEFBrowser_NoReturn("document.getElementsByName('priceMultiply')[0].value='" + chengfa + "'", webBrowser1);
-                //Browser.JS_CEFBrowser_NoReturn("document.getElementsByName('pricePlus')[0].value='" + jiafa + "'", webBrowser1);
-                ////其他设置
-                ////点击过滤已复制宝贝
-                //Browser.JS_CEFBrowser("document.getElementsByClassName('iCheck-helper')[9].click()", webBrowser1);
-                ////设置邮费模板
-                //Browser.JS_CEFBrowser("document.getElementsByClassName('ui-select-group')[1].getElementsByTagName('dd')[1].click()", webBrowser1);
-                //Browser.Delay(1000);
-
-                foreach (string str in goods_zu)
+                string title = "";
+                string url = "";
+                if (!str.ToIsEmpty())
                 {
-                    if (Browser.WaitWebPageLoad(webBrowser1))
+                    string[] temps = str.ToSplit("---");
+                    
+                    if (temps.Length ==1)
                     {
+                        //通过淘大象获取商品名称
+                        webBrowser2.Load("https://taodaxiang.com/shelf/index/init/");
+                        if (webBrowser2.ToWait())
+                        {
+                            webBrowser2.ToJs("document.getElementsByClassName('uc-band uc-input')[1].value='" + str + "'");
+                            webBrowser2.ToJs("document.getElementsByClassName('uc-button')[0].click()");
 
-                        //设置宝贝链接
-                        Browser.JS_CEFBrowser_NoReturn("document.getElementsByName('keywords')[0].value ='" + str + "'", webBrowser1);
-                        Browser.Delay(1000);
-                        //点击直接复制宝贝
-                        Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('J-copyItem')[0].click() ", webBrowser1);
-                        Browser.Delay(2000);
+                            Common.Manager.Delay(2000);
 
+                            title = webBrowser2.ToJs("document.getElementsByClassName('list')[0].getElementsByClassName('title')[0].innerText");
+                            url = str;
+                        }
+                    }
+                    else
+                    {
+                        url = temps[0];
+                        title = temps[1];
                     }
                 }
 
-                MessageBox.Show("复制全部完成");
+                btn_collect_openweb.PerformClick();
 
+
+                webBrowser2.Focus();
+                webBrowser2.ToMouseClick("document.getElementsByClassName('inputStyle')[0]");
+                Auto.Ctrl_V(url);
+                webBrowser2.ToMouseClick("document.getElementsByClassName('inputStyle')[1]");
+                Auto.Ctrl_V(title);
+                webBrowser2.ToMouseClick("document.getElementsByClassName('inputStyle')[2]");
+                Auto.Ctrl_V(title);
+                webBrowser2.ToMouseClick("document.getElementsByClassName('inputStyle')[3]");
+                Auto.Ctrl_A();
+                Auto.Ctrl_V(txt_collect_num.Text);
+                
+                webBrowser2.ToMouseClick("document.getElementsByClassName('confrim-button')[0]");
+
+                Common.Manager.Delay(2000);
             }
+
+            "操作成功".ToShow();
+
+
+            #region bak-2019年12月19日23:24:14
+
+
+
+            ////XMLHelper.SetValue("TaoBao_Copy_ChengFa", txt_chengfa.Text);
+            ////XMLHelper.SetValue("TaoBao_Copy_JiaFa", txt_collect_num.Text);
+
+            //tabControl1.SelectedTab = tabPage1;
+
+            ////获取数据框内的商品链接
+            //string goods_str = txt_collect_list.Text.Trim();
+
+            //string[] goods_zu = Manager.Str_Split(goods_str, "\r\n");
+            ////foreach (string s in goods_zu)
+            ////{
+            ////    GoodsList2.Add(s);
+            ////}
+            //if (goods_zu.Length == 0)
+            //{
+            //    MessageBox.Show("没有商品链接");
+            //    return;
+            //}
+
+
+
+
+            ////进入复制宝贝
+            //if (GoBaoBeiFuZhi())
+            //{
+
+
+
+            //    //操作数据每次10个
+            //    //List<string> list_res = new List<string>();
+            //    //string temp_i = "";
+            //    //int j = 0;
+
+            //    //for (int i = 0; i < goods_zu.Length; i++)
+            //    //{
+            //    //    j++;
+            //    //    temp_i = temp_i + goods_zu[i];
+            //    //    if (j < 10)
+            //    //    {
+            //    //        temp_i = temp_i + "\r\n";
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        list_res.Add(temp_i);
+            //    //        j = 0;
+            //    //        temp_i = "";
+            //    //    }
+            //    //    if ((i + 1) == goods_zu.Length)
+            //    //    {
+            //    //        list_res.Add(temp_i);
+            //    //    }
+            //    //}
+
+
+
+
+            //    //设置价格
+            //    //string chengfa = txt_chengfa.Text.Trim();
+            //    //string jiafa = txt_jiafa.Text.Trim();
+            //    //Browser.JS_CEFBrowser_NoReturn("document.getElementsByName('priceMultiply')[0].value='" + chengfa + "'", webBrowser1);
+            //    //Browser.JS_CEFBrowser_NoReturn("document.getElementsByName('pricePlus')[0].value='" + jiafa + "'", webBrowser1);
+            //    ////其他设置
+            //    ////点击过滤已复制宝贝
+            //    //Browser.JS_CEFBrowser("document.getElementsByClassName('iCheck-helper')[9].click()", webBrowser1);
+            //    ////设置邮费模板
+            //    //Browser.JS_CEFBrowser("document.getElementsByClassName('ui-select-group')[1].getElementsByTagName('dd')[1].click()", webBrowser1);
+            //    //Browser.Delay(1000);
+
+            //    foreach (string str in goods_zu)
+            //    {
+            //        if (Browser.WaitWebPageLoad(webBrowser1))
+            //        {
+
+            //            //设置宝贝链接
+            //            Browser.JS_CEFBrowser_NoReturn("document.getElementsByName('keywords')[0].value ='" + str + "'", webBrowser1);
+            //            Browser.Delay(1000);
+            //            //点击直接复制宝贝
+            //            Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('J-copyItem')[0].click() ", webBrowser1);
+            //            Browser.Delay(2000);
+
+            //        }
+            //    }
+
+            //    MessageBox.Show("复制全部完成");
+
+            //}
+
+            #endregion
         }
         #endregion
 
-         
 
+        #region btn_collect_login_Click
 
-
-
-
-        #region 进入宝贝复制
-        /// <summary>
-        /// 进入超级店长
-        /// </summary>
-        /// <returns></returns>
-        bool GoBaoBeiFuZhi()
+        private void btn_collect_login_Click(object sender, EventArgs e)
         {
-            bool res = false;
-            tabControl1.SelectedTab = tabPage1;
-            if (Browser.JS_CEFBrowser("document.getElementsByClassName('iCheck-helper')[9]!=null", webBrowser1) == "True")
+            webBrowser2.Focus();
+            webBrowser2.Load("http://www.nuoren365.com/member/#/login");
+            if (webBrowser2.ToWait())
             {
-                return true;
+                webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[0]");
+                Auto.Ctrl_V("15128266903");
+                webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[1]");
+                Auto.Ctrl_V("zhangjiazhe123");
+                webBrowser2.ToJs("document.getElementsByClassName('login-submit')[0].click()");
             }
-            //进入超级店长
-            if (Taobao.GoChaoJiDianZhang(webBrowser1))
-            {
-
-                if (Browser.WaitWebPageLoad2(" document.getElementsByClassName('site-nav-item')[0] ", webBrowser1))
-                {
-                    //Browser.Delay(2000);
-                    //直接链接不行
-                    //document.getElementsByClassName("site-nav-item")[3]
-                    //document.getElementsByClassName("site-nav-item")[3].getElementsByTagName('a')[10]
-                    //Browser.MouseMoveByHtmlElement("document.getElementsByClassName('site-nav-item')[3]", webBrowser1);
-                    //Browser.Delay(2000);
-                    //Browser.MouseLeftByHtmlElement("document.getElementsByClassName('site-nav-item')[3].getElementsByTagName('a')[10]", webBrowser1);
-                    webBrowser1.Load("http://jump.superboss.cc/jump.jsp?gotourl=http%3A%2F%2Ff.superboss.cc%2FProductUsingServlet%3Fkind%3D1001%26ftrace%3D3&amp;tj_cookie=1&amp;trace_tag=dz_iner_gg&amp;app_type=dianzhang&amp;ad_id=341&amp;ad_slot=66");
-                    Browser.Delay(2000);
-                    if (Browser.WaitWebPageLoad2(" document.getElementsByName('priceMultiply')[0] ", webBrowser1))
-                    {
-                        string chengfa = txt_chengfa.Text.Trim();
-                        string jiafa = txt_jiafa.Text.Trim();
-                        Browser.JS_CEFBrowser_NoReturn("document.getElementsByName('priceMultiply')[0].value='" + chengfa + "'", webBrowser1);
-                        Browser.JS_CEFBrowser_NoReturn("document.getElementsByName('pricePlus')[0].value='" + jiafa + "'", webBrowser1);
-                        //点击过滤已复制宝贝
-                        Browser.JS_CEFBrowser("document.getElementsByClassName('iCheck-helper')[9].click()", webBrowser1);
-
-                        //设置邮费模板
-                        Browser.JS_CEFBrowser("document.getElementsByClassName('ui-select-group')[1].getElementsByTagName('dd')[1].click()", webBrowser1);
-                        res = true;
-
-                    }
-                }
-            }
-
-            return res;
         }
+        #endregion
+
+        #region btn_collect_openweb_Click
+
+        private void btn_collect_openweb_Click(object sender, EventArgs e)
+        {
+            webBrowser2.Load("http://www.nuoren365.com/member/#/public/taobao/shou-cang-task/search-collection");
+            webBrowser2.ToWait();
+        }
+        #endregion
 
         #endregion
+
+
+
+
+
 
 
         #region 上传SKU图片
@@ -1871,12 +1938,10 @@ namespace excel_operation.TaoBao
             //    }
             //}
         }
+
         #endregion
 
-        private void txt_url_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 
 

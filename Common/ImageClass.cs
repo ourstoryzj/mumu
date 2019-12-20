@@ -1368,7 +1368,7 @@ namespace Common
             //边框颜色
             Color RectColor = Color.White;
             //边框类型
-            DashStyle ds = System.Drawing.Drawing2D.DashStyle.Solid;
+            //DashStyle ds = System.Drawing.Drawing2D.DashStyle.Solid;
             //int bordwidth = LineWidth;//四面边框
             //int bordheight = LineWidth;//四面边框
             int bordwidth = 0;//是否缩放边框尺寸
@@ -1609,7 +1609,7 @@ namespace Common
                 //边框颜色
                 Color RectColor = Color.White;
                 //边框类型
-                DashStyle ds = System.Drawing.Drawing2D.DashStyle.Solid;
+                //DashStyle ds = System.Drawing.Drawing2D.DashStyle.Solid;
                 //int bordwidth = LineWidth;//四面边框
                 //int bordheight = LineWidth;//四面边框
                 int bordwidth = 0;//是否缩放边框尺寸
@@ -1848,7 +1848,7 @@ namespace Common
                 //边框颜色
                 Color RectColor = Color.White;
                 //边框类型
-                DashStyle ds = System.Drawing.Drawing2D.DashStyle.Solid;
+                //DashStyle ds = System.Drawing.Drawing2D.DashStyle.Solid;
                 //int bordwidth = LineWidth;//四面边框
                 //int bordheight = LineWidth;//四面边框
                 int bordwidth = 0;//是否缩放边框尺寸
@@ -2009,7 +2009,7 @@ namespace Common
             //边框颜色
             Color RectColor = Color.White;
             //边框类型
-            DashStyle ds = System.Drawing.Drawing2D.DashStyle.Solid;
+            //DashStyle ds = System.Drawing.Drawing2D.DashStyle.Solid;
             //int bordwidth = LineWidth;//四面边框
             //int bordheight = LineWidth;//四面边框
             int bordwidth = 0;//是否缩放边框尺寸
@@ -2255,7 +2255,7 @@ namespace Common
             //边框颜色
             Color RectColor = Color.White;
             //边框类型
-            DashStyle ds = System.Drawing.Drawing2D.DashStyle.Solid;
+            //DashStyle ds = System.Drawing.Drawing2D.DashStyle.Solid;
             //int bordwidth = LineWidth;//四面边框
             //int bordheight = LineWidth;//四面边框
             int bordwidth = 0;//是否缩放边框尺寸

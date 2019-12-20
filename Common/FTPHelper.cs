@@ -138,7 +138,7 @@ namespace Common
                     }
 
                 }
-                catch (Exception ex) { }
+                catch (Exception ex) { ex.ToLog(); }
                 finally
                 {
                     fs.Close();
@@ -246,7 +246,7 @@ namespace Common
                     }
 
                 }
-                catch (Exception ex) { }
+                catch (Exception ex) { ex.ToLog(); }
                 finally
                 {
                     fs.Close();

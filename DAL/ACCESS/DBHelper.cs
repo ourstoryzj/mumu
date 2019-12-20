@@ -137,6 +137,7 @@ namespace DAL.Access
             }
             catch (Exception e)
             {
+                Common.ErrorLog.WriteEntry(e);
                 return null;
             }
         }
@@ -180,6 +181,7 @@ namespace DAL.Access
             }
             catch (Exception e)
             {
+                Common.ErrorLog.WriteEntry(e);
                 return null;
             }
         }

@@ -93,7 +93,7 @@ namespace Common
         #region GetIP
         public static string GetIP()
         {
-            string res = "";
+            //string res = "";
             //string hostName = Dns.GetHostName();//本机名  
                                                 //System.Net.IPAddress[] addressList = Dns.GetHostByName(hostName).AddressList;//会警告GetHostByName()已过期，我运行时且只返回了一个IPv4的地址  
             
