@@ -454,6 +454,7 @@
     <Compile Include="TaoBao\ZhuTu.designer.cs">
       <DependentUpon>ZhuTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\FilterManager.cs" />
     <Compile Include="Test\MyRequestHandler.cs" />
     <Compile Include="Test\CefKeyboardHandler.cs" />
     <Compile Include="Test\RequestHandler_new.cs" />

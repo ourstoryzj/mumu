@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
 using CefSharp;
+using System.Collections.Generic;
+using Operation.Test;
 
 namespace excel_operation.Test
 {
@@ -8,8 +10,7 @@ namespace excel_operation.Test
     {
 
 
-        public static readonly string VersionNumberString = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}",
-          Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion);
+        //public static readonly string VersionNumberString = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}",   Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion);
 
         public bool GetAuthCredentials(IWebBrowser browserControl, IBrowser browser, IFrame frame, bool isProxy, string host, int port, string realm, string scheme, IAuthCallback callback)
         {
@@ -23,8 +24,29 @@ namespace excel_operation.Test
         public IResponseFilter GetResourceResponseFilter(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IResponse response)
         {
             //throw new NotImplementedException();
+            //return null;
+            var url = new Uri(request.Url);
+            if (url.AbsoluteUri.Contains("http://test.test.com/somehead?"))
+            {
+                this.filter = new FilterManager();
+                filter.NotifyData += filter_NotifyData;
+
+                return filter;
+            }
+
             return null;
         }
+        void filter_NotifyData(byte[] data)
+        {
+            if (NotifyData != null)
+            {
+                NotifyData(data);
+            }
+        }
+
+
+
+
 
         public bool OnBeforeBrowse(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, bool isRedirect)
         {
@@ -98,9 +120,22 @@ namespace excel_operation.Test
             
         }
 
+
+        private FilterManager filter = null;
+        public event Action<byte[]> NotifyData;
         public bool OnResourceResponse(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IResponse response)
         {
-            return true;
+            try
+            {
+                var content_length = int.Parse(response.ResponseHeaders["Content-Length"]);
+                if (this.filter != null)
+                {
+                    this.filter.SetContentLength(content_length);
+                }
+            }
+            catch { }
+            return false;
+            //return true;
         }
 
         public bool OnSelectClientCertificate(IWebBrowser browserControl, IBrowser browser, bool isProxy, string host, int port, X509Certificate2Collection certificates, ISelectClientCertificateCallback callback)

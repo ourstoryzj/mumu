@@ -24,15 +24,15 @@ namespace excel_operation.Test
 
             webBrowser1 = new ChromiumWebBrowser("https://mobile.yangkeduo.com/personal.html?refer_page_name=index&refer_page_id=10002_1574496288865_ZKZKA8HgWJ&refer_page_sn=10002&page_id=10001_1577246196934_4h0wdL6yBD&is_back=1");
 
-            try
-            {
-                webBrowser1.RequestHandler = new MyRequestHandler();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString().ToShow();
-            }
-           // webBrowser1.KeyboardHandler = new CefKeyboardHandler();
+            //try
+            //{
+            //    webBrowser1.RequestHandler = new MyRequestHandler();
+            //}
+            //catch (Exception ex)
+            //{
+            //    ex.ToString().ToShow();
+            //}
+            // webBrowser1.KeyboardHandler = new CefKeyboardHandler();
             //var setting = new CefSharp.CefSettings();
             //setting.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36";
             ////setting
@@ -71,17 +71,27 @@ namespace excel_operation.Test
             setcookies("rec_list_personal", "rec_list_personal_tg7m2p");
 
 
-            
+            Cef.EnableHighDPISupport();
             webBrowser1.FrameLoadStart += Browser.BrowserFrameLoadStart;
-            webBrowser1.FrameLoadEnd += Browser.BrowserFrameLoadEnd;
+            webBrowser1.FrameLoadEnd += webbrowser_FrameLoadEnd;
             webBrowser1.Size = new Size(990, 725);
             webBrowser1.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
-            webBrowser1.Dock = DockStyle.Fill;
+            webBrowser1.Dock = DockStyle.Fill;  
+            //webBrowser1.SetZoomLevel(1.25);
             
-            //tabPage1.Controls.Add(webBrowser1);
+            panel1.Controls.Add(webBrowser1);
 
             
             //Cef.
+        }
+
+        void webbrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+        {
+
+            ChromiumWebBrowser browser = (ChromiumWebBrowser)sender;
+
+            browser.SetZoomLevel(3);
+
         }
 
 
