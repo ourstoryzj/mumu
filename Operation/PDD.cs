@@ -8,6 +8,7 @@ using System;
 using System.IO;
 using System.Diagnostics;
 using excel_operation.CS;
+using Common;
 
 namespace excel_operation
 {
@@ -226,7 +227,7 @@ namespace excel_operation
             //sw.WriteLine("bob hu"); // 写入Hello World
             //sw.Close(); //关闭文件
             string path = "d:\\html" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".txt";
-            FileHelper.Write(path, html);
+            Common.FileHelper.Write(path, html);
             System.Diagnostics.Process.Start(path);
         }
 
@@ -285,10 +286,10 @@ namespace excel_operation
 
             if (string.IsNullOrEmpty(phone))
             {
-                MessageAPI.AddBlack(token, phone);
-                MessageAPI.ClearPhone(token, phone);
+                Common.MessageAPI.AddBlack(token, phone);
+                Common.MessageAPI.ClearPhone(token, phone);
             }
-            string res = MessageAPI.GetPhone(token);
+            string res = Common.MessageAPI.GetPhone(token);
             txt_phone.Text = res;
             phone = res;
             Auto.Ctrl_C(phone);
@@ -298,7 +299,7 @@ namespace excel_operation
         private void btn_phone_open_Click(object sender, EventArgs e)
         {
             string p = txt_phone.Text.Trim();
-            string res = MessageAPI.GetPhone(token, p);
+            string res = Common.MessageAPI.GetPhone(token, p);
             txt_phone.Text = res;
             phone = res;
             MessageBox.Show(res);
@@ -314,7 +315,7 @@ namespace excel_operation
             {
 
                 txt_yanzhengma.Text = "正在获取验证码，请稍后。。。 " + Manager.RandomNumber(1000, 99999).ToString();
-                res = MessageAPI.GetMessage(token);
+                res = Common.MessageAPI.GetMessage(token);
                 if (res.IndexOf("验证码") == -1)
                 {
                     //Thread.Sleep(3000);
@@ -666,8 +667,43 @@ namespace excel_operation
         #region btn_unsalable_Click
         private void btn_unsalable_Click(object sender, EventArgs e)
         {
+            //进入商品列表
             webBrowser2.Load("https://mms.pinduoduo.com/goods/goods_list");
-            webBrowser2.ToWait("");
+            //判断商品数量大于0
+            if (webBrowser2.ToWait("document.getElementsByClassName('table-content')[0]", "document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr').length>0"))
+            {
+                //设置每页显示100条信息
+                webBrowser2.ToJs("getElementsByClassName_Vague('BeastCoreCssSelect___head-input')[2].click()");//点击条数
+                webBrowser2.ToJs("getElementsByClassName_Vague('eastCoreCssSelect___dropdown-panel')[0].getElementsByTagName('li')[3].click();");//点击每页显示100条
+                //获取商品数量
+                int count = webBrowser2.ToJsInt("document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr').length");
+                
+                for (int i = 0; i < count; i ++)
+                {
+                    //获取每条商品创建时间
+                    string temp = webBrowser2.ToJs("document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr')["+i+"].getElementsByTagName('td')[8].innerText");
+                    string [] temps = Manager.Str_Split(temp, "销售中");
+                    if (temps.Length > 0)
+                    {
+                        temp = temps[0].Replace("<br>","");
+                        DateTime dt_start = temps[0].ToDateTime();
+                        if (dt_start != new DateTime())
+                        {
+                            if (dt_start.AddDays(25) < DateTime.Now)
+                            {
+                                //如果是滞销品,勾选
+                                webBrowser2.ToJs("document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr')[" + i + "].getElementsByTagName('td')[0].getElementsByTagName('input')[0].click()");
+
+                            }
+                        }
+                    }
+                }
+                //对比时间，如果超过25日没有销量则下架
+
+                //翻页
+
+            }
+
 
         }
         #endregion

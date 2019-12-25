@@ -2121,6 +2121,18 @@ namespace Common
             return strs;
         }
 
+        /// <summary>
+        /// 转换成时间格式
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static DateTime ToDateTime(this string str)
+        {
+            DateTime dt = new DateTime();
+            DateTime.TryParse(str, out dt);
+            return dt;
+        }
+
         #endregion
 
         #region ListView

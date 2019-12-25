@@ -454,6 +454,15 @@
     <Compile Include="TaoBao\ZhuTu.designer.cs">
       <DependentUpon>ZhuTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\MyRequestHandler.cs" />
+    <Compile Include="Test\CefKeyboardHandler.cs" />
+    <Compile Include="Test\RequestHandler_new.cs" />
+    <Compile Include="Test\test_pinduoduo_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_pinduoduo_login.Designer.cs">
+      <DependentUpon>test_pinduoduo_login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_webrequest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -705,6 +714,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TaoBao\TB_ZhiTongChe.resx">
       <DependentUpon>TB_ZhiTongChe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_pinduoduo_login.resx">
+      <DependentUpon>test_pinduoduo_login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_webrequest.resx">
       <DependentUpon>test_webrequest.cs</DependentUpon>

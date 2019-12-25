@@ -3060,11 +3060,11 @@ namespace excel_operation
         /// 等在浏览器加载完毕
         /// </summary>
         /// <param name="wb"></param>
-        public static bool ToWait(this ChromiumWebBrowser wb, string ele,string judge, int times = 5000)
+        public static bool ToWait(this ChromiumWebBrowser wb, string ele, string judge, int times = 5000)
         {
             if (Browser.WaitWebPageLoad(ele, times, wb))
             {
-                DateTime dt =  DateTime.Now.AddSeconds(times / 1000);
+                DateTime dt = DateTime.Now.AddSeconds(times / 1000);
                 while (!wb.ToBool(judge))
                 {
                     if (dt < DateTime.Now)
@@ -3073,6 +3073,24 @@ namespace excel_operation
                     }
                     Delay(500);
                 }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 等在浏览器加载完毕
+        /// </summary>
+        /// <param name="wb"></param>
+        public static bool ToWaitBool(this ChromiumWebBrowser wb, string judge, int times = 5000)
+        {
+            DateTime dt = DateTime.Now.AddSeconds(times / 1000);
+            while (!wb.ToBool(judge))
+            {
+                if (dt < DateTime.Now)
+                {
+                    return false;
+                }
+                Delay(500);
             }
             return true;
         }
@@ -3287,7 +3305,7 @@ namespace excel_operation
                 HtmlElement current = hec[0];
                 image = wb.GetImage(current);
             }
-            catch 
+            catch
             {
 
             }

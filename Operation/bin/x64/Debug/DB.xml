@@ -35,19 +35,7 @@
   <add name="Email_Account" value="ourstoryzj@163.com" />
   <add name="Email_Pwd" value="zhangjian123" />
   <!--蘑菇街-->
-  <add name="CaiJi_Title_Url1" value="http://list.mogujie.com/s?page=1&amp;q=单肩包" />
-  <add name="CaiJi_Title_Url2" value="http://list.mogujie.com/s?page=1&amp;q=单肩包" />
-  <add name="CaiJi_Title_Url3" value="http://list.mogujie.com/s?page=3&amp;q=%E5%8D%95%E8%82%A9%E5%8C%85" />
-  <!--<add name="MoGuJie_Access" value="shop14p00_10" />
-  <add name="MoGuJie_Pwd" value="kefu123" />-->
-  <add name="MoGuJie_Access" value="青涩年华潮包" />
-  <add name="MoGuJie_Pwd" value="zhangjiazhe123" />
-  <add name="MoGuJie_ShopID" value="14p00" />
-  <add name="MoGuJie_GouWuCheWait" value="18000" />
-  <add name="MoGuJie_KuaiDiID" value="38" />
-  <add name="MoGuJie_PingJia1" value="感谢亲的支持，本店商品7天无理由免费退换货哦，请菇良们放心选购哦，您的每一个好评都是对我们坚持的鼓励，您的每一个建议都为 我们的前进指明了方向，请您放心，我们将通过不懈的努力将宝贝做得更好，将服务做得更好；一切只为亲的满意！祝您和您的家人生活愉 快，工作顺利！欢迎亲再次光临...更多活动关注我们青涩年华旗舰店的vx：Zhezidai_Family 更有好评返现活动欢迎亲的参加哦 每天上新 O (∩_∩)O~" />
-  <add name="MoGuJie_PingJia2" value="亲爱滴，谢谢您对我们的认可，我们缘起于包包，彼此由陌生，熟悉，到亲切，多么奇妙而有趣的过程。因着您的支持与信任，我们会继续坚持用最好的做工，最好的面料，最好的设计，给予亲最适合您的包包，朵唯琪包包备货充足，所有订单72小时内发出，如有疑问欢迎咨询在线客服，青涩年华旗舰店竭诚为您服务，也期待您一如既往的支持！更多活动关注我们青涩年华旗舰店的vx：Zhezidai_Family 更有好评返现活动欢迎亲的参加哦 每天上新 O(∩_∩)O" />
-  <add name="MoGuJie_PingJia3" value="非常感谢您对青涩年华旗舰店的支持！您的选择非常明智！包包在造型中的重要性举足轻重，当季明星同款，潮流尖货，个性潮包青涩年华旗舰店应有尽有。选择了青涩年华，就是选择了与美同在。我们竭诚期待您的再次光临，客官不要忘记我们的------每天上新Vxin号：Zhezidai_Family 更多美包与你同在" />
+
   <!--淘宝-->
   <add name="TaoBao_MaiDian" value="先收藏，先发货！即日起收藏店铺并购买送礼品一份，数量有限，送完为止。十年潮包，10年专注女包。全心全意为您提供多快好省，可以免费提供贺卡，需要请联系客服MM！【新款上新，品质保证】【支持七天无理由退换货】" />
   <add name="TaoBao_MiaoShu" value="先收藏，先发货！即日起收藏店铺并购买送礼品一份，数量有限，送完为止。十年潮包，10年专注女包。全心全意为您提供多快好省，可以免费提供贺卡，需要请联系客服MM！【新款上新，品质保证】【支持七天无理由退换货】" />
