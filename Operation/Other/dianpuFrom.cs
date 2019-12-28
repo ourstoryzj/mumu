@@ -10,7 +10,7 @@ using Entity;
 using BLL2;
 using System.Diagnostics;
 
-namespace excel_operation
+namespace Operation
 {
     public partial class dianpuFrom : Form
     {

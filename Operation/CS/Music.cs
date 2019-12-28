@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace excel_operation.CS
+namespace Operation.CS
 {
     public class Music
     {

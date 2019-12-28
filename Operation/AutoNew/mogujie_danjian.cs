@@ -9,9 +9,9 @@ using System.Windows.Forms;
 using Entity;
 using System.Diagnostics;
 using CefSharp.WinForms;
-using excel_operation.CS;
+using Operation.CS;
 
-namespace excel_operation
+namespace Operation
 {
     public partial class mogujie_danjian : Form
     {

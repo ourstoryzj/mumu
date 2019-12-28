@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace excel_operation.ShuaDan
+namespace Operation.ShuaDan
 {
     public partial class ShuaDan_Add : Form
     {

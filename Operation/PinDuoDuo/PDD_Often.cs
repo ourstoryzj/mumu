@@ -5,11 +5,11 @@ using CefSharp.WinForms;
 using System.Drawing;
 using System;
 
-using excel_operation.CS;
+using Operation.CS;
 using System.IO;
 using System.Diagnostics;
 
-namespace excel_operation.PinDuoDuo
+namespace Operation.PinDuoDuo
 {
     public partial class PDD_Often : Form
     {

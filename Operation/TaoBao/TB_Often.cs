@@ -4,13 +4,13 @@ using Entity;
 using CefSharp.WinForms;
 using System.Drawing;
 using System;
-using excel_operation.Other;
-using excel_operation.CS;
+using Operation.Other;
+using Operation.CS;
 using System.IO;
 using System.Diagnostics;
 using Common;
 
-namespace excel_operation.TaoBao
+namespace Operation.TaoBao
 {
     public partial class TB_Often : Form
     {

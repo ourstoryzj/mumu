@@ -7,7 +7,7 @@ using Common.Win32;
 using Common;
 
 
-namespace excel_operation
+namespace Operation
 {
     /// <summary>
     /// Handles a System Hotkey

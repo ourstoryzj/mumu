@@ -25,9 +25,9 @@ using System.Reflection;
 using System.Net.Mail;
 using mshtml;
 using Common;
-using excel_operation.Other;
+using Operation.Other;
 
-namespace excel_operation
+namespace Operation
 {
     public static class Manager
     {

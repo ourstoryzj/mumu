@@ -4,17 +4,17 @@ using Entity;
 using CefSharp.WinForms;
 using System.Drawing;
 using System;
-using excel_operation.Other;
+using Operation.Other;
 using System.Diagnostics;
 using System.ComponentModel;
-using excel_operation.CS;
+using Operation.CS;
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text;
 
-namespace excel_operation.TaoBao
+namespace Operation.TaoBao
 {
     public partial class TB_Keys2 : Form
     {

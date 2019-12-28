@@ -1,4 +1,4 @@
-﻿namespace excel_operation.AutoNew
+﻿namespace Operation.AutoNew
 {
     partial class Form1
     {

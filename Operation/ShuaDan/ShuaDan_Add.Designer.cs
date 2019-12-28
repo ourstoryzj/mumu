@@ -1,4 +1,4 @@
-﻿namespace excel_operation.ShuaDan
+﻿namespace Operation.ShuaDan
 {
     partial class ShuaDan_Add
     {

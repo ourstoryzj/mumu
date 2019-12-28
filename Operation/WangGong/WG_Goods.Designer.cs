@@ -1,4 +1,4 @@
-﻿namespace excel_operation.WangGong
+﻿namespace Operation.WangGong
 {
     partial class WG_Goods
     {

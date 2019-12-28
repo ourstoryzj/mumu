@@ -1,5 +1,5 @@
 ﻿using CefSharp.WinForms;
-using excel_operation.CS;
+using Operation.CS;
 using mshtml;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace excel_operation.Other
+namespace Operation.Other
 {
     public partial class ImageDownload : Form
     {

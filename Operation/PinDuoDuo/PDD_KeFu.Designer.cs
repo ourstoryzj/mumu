@@ -1,4 +1,4 @@
-﻿namespace excel_operation.PinDuoDuo
+﻿namespace Operation.PinDuoDuo
 {
     partial class PDD_KeFu
     {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace excel_operation.CS
+namespace Operation.CS
 {
     /// <summary>
     /// Web采集类

@@ -1,4 +1,4 @@
-﻿namespace excel_operation.Test
+﻿namespace Operation.Test
 {
     partial class test_pinduoduo_login
     {
@@ -36,16 +36,16 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.Location = new System.Drawing.Point(423, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(451, 656);
             this.panel1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 12);
+            this.button1.Location = new System.Drawing.Point(478, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(337, 38);
+            this.button1.Size = new System.Drawing.Size(146, 38);
             this.button1.TabIndex = 3;
             this.button1.Text = "模拟cookie登录拼多多";
             this.button1.UseVisualStyleBackColor = true;
@@ -56,8 +56,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 680);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel1);
             this.Name = "test_pinduoduo_login";
             this.Text = "test_meau";
             this.ResumeLayout(false);

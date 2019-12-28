@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Common;
 using System.IO;
 
-namespace excel_operation
+namespace Operation
 {
     public partial class ImgDiscern : Form
     {

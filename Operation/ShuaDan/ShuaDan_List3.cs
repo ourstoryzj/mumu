@@ -1,5 +1,5 @@
 ﻿using CefSharp.WinForms;
-using excel_operation.CS;
+using Operation.CS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entity;
 
-namespace excel_operation.ShuaDan
+namespace Operation.ShuaDan
 {
     public partial class ShuaDan_List3 : Form
     {

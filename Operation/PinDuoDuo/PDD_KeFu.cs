@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace excel_operation.PinDuoDuo
+namespace Operation.PinDuoDuo
 {
     public partial class PDD_KeFu : Form
     {

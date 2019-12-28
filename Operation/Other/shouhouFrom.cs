@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Entity;
 
-namespace excel_operation
+namespace Operation
 {
     public partial class shouhouFrom : Form
     {

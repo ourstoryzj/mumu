@@ -1,4 +1,4 @@
-﻿using excel_operation.CS;
+﻿using Operation.CS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace excel_operation.ShuaDan
+namespace Operation.ShuaDan
 {
     public partial class MessageTest : Form
     {

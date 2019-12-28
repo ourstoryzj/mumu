@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace excel_operation.Other
+namespace Operation.Other
 {
     public partial class Login : Form
     {

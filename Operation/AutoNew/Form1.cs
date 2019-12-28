@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace excel_operation.AutoNew
+namespace Operation.AutoNew
 {
     public partial class Form1 : Form
     {

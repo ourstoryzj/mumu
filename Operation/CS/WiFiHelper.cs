@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics;
 
-namespace excel_operation.CS
+namespace Operation.CS
 {
     public class WiFiHelper
     {

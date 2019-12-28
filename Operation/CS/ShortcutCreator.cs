@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace excel_operation.CS
+namespace Operation.CS
 {
     /// <summary>
      /// 创建快捷方式的类

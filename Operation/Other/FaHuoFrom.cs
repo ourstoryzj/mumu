@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace excel_operation.Other
+namespace Operation.Other
 {
     public partial class FaHuoFrom : Form
     {

@@ -13,7 +13,7 @@ using System.IO;
 using CefSharp.WinForms;
 using CefSharp;
 
-namespace excel_operation.Test
+namespace Operation.Test
 {
     public partial class test_pinduoduo_login : Form
     {
@@ -24,14 +24,14 @@ namespace excel_operation.Test
 
             webBrowser1 = new ChromiumWebBrowser("https://mobile.yangkeduo.com/personal.html?refer_page_name=index&refer_page_id=10002_1574496288865_ZKZKA8HgWJ&refer_page_sn=10002&page_id=10001_1577246196934_4h0wdL6yBD&is_back=1");
 
-            try
-            {
-                webBrowser1.RequestHandler = new MyRequestHandler();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString().ToShow();
-            }
+            //try
+            //{
+            //    webBrowser1.RequestHandler = new MyRequestHandler();
+            //}
+            //catch (Exception ex)
+            //{
+            //    ex.ToString().ToShow();
+            //}
             // webBrowser1.KeyboardHandler = new CefKeyboardHandler();
             //var setting = new CefSharp.CefSettings();
             //setting.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36";
@@ -59,17 +59,7 @@ namespace excel_operation.Test
             //    Expires = DateTime.MinValue
             //});
 
-            setcookies("api_uid", "rBQEGVyEcqajxSXXHdgWAg==");
-            setcookies("_nano_fp", "XpdyX5gJXqU8X0Txl9_39owETlida0mp3wjs8IF4");
-            setcookies("ua", "Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F74.0.3729.169%20Safari%2F537.36");
-            setcookies("webp", "1");
-            setcookies("pdd_user_id", "5472535098");
-            setcookies("pdd_user_uin", "S2BYMXSYU3H7XKJEZP64VHHA6A_GEXDA");
-            setcookies("PDDAccessToken", "DWOFZIRJVOWHSLARZFIP3OV5KT4QBYKQXT2NCO2L2AWDMQBES7BA1123a4a");
-            setcookies("rec_list_orders", "rec_list_orders_ydAAn6");
-            setcookies("msec", "1800000");
-            setcookies("rec_list_personal", "rec_list_personal_tg7m2p");
-
+            bind();
 
             Cef.EnableHighDPISupport();
             webBrowser1.FrameLoadStart += Browser.BrowserFrameLoadStart;
@@ -83,6 +73,36 @@ namespace excel_operation.Test
 
             
             //Cef.
+        }
+
+        void bind()
+        {
+            //setcookies("api_uid", "rBQEGVyEcqajxSXXHdgWAg==");
+            //setcookies("Hm_lvt_96d9d92b8a4aac83bc206b6c9fb2844a", "1557407896,1557408269,1557499888,1557544239");
+            //setcookies("UM_distinctid", "16c90459b2227-0151cd9b7dd60e-43450521-1fa400-16c90459b24c7");
+            //setcookies("ua", "Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F69.0.3497.100%20Safari%2F537.36");
+            //setcookies("webp", "1");
+            //setcookies("CNZZDATA1256793290", "1526114749-1566392675-https%253A%252F%252Fmobile.yangkeduo.com%252F%7C1574561620");
+            //setcookies("msec", "1800000");
+            //setcookies("rec_list_mall_bottom", "rec_list_mall_bottom_hjpSJh");//测试是否需要
+            //setcookies("rec_list_orders", "rec_list_orders_Lm90jL");//测试是否需要
+            //setcookies("group_rec_list", "group_rec_list_EJkdal");//测试是否需要
+            //setcookies("group_rec_list", "group_rec_list_EJkdal");//测试是否需要
+
+
+
+
+
+
+
+            //setcookies("JSESSIONID", "B115F172C0F9B3C67121C14B91022390");//测试是否需要
+
+            //需要改变的
+            //setcookies("_nano_fp", "XpdYXp9JXpmbXqdynC_wnc3izkRTuCCIwjlXTMPM");
+            //setcookies("pdd_user_uin", "S2BYMXSYU3H7XKJEZP64VHHA6A_GEXDA");
+            setcookies("pdd_user_id", "5472535098");
+            setcookies("PDDAccessToken", "2MESFI6BWGU5ML7VBPXYO6VWY2U4IO5SS7QDLQKGCDUMHXWFZXAA1123a4a");
+
         }
 
         void webbrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
@@ -138,7 +158,9 @@ namespace excel_operation.Test
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            bind();
+            webBrowser1.Load("https://mobile.yangkeduo.com/personal.html?refer_page_name=index&refer_page_id=10002_1574496288865_ZKZKA8HgWJ&refer_page_sn=10002&page_id=10001_1577246196934_4h0wdL6yBD&is_back=1");
+            
         }
     }
 }

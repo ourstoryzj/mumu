@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace excel_operation.ScreenDemo
+namespace Operation.ScreenDemo
 {
     partial class MainForm
     {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
-namespace excel_operation.ScreenDemo
+namespace Operation.ScreenDemo
 {
     /// <summary>
     /// 重写图片控件
@@ -281,7 +281,7 @@ namespace excel_operation.ScreenDemo
             this.CurLine.LineWidth = 2;
             this.CurLine.LineColor = c;
             //通过图片的句柄获取指针
-            //this.Cursor = new Cursor(global::excel_operation.Properties.Resources.pen.GetHicon());
+            //this.Cursor = new Cursor(global::Operation.Properties.Resources.pen.GetHicon());
             this.StartDraw = true;
         }
 
@@ -290,7 +290,7 @@ namespace excel_operation.ScreenDemo
             this.StartDraw = true;
             this.CurLine.LineWidth = 6;
             this.DrawTypes = DrawType.Line;
-            //this.Cursor = new Cursor(global::excel_operation.Properties.Resources.lightpen.GetHicon());
+            //this.Cursor = new Cursor(global::Operation.Properties.Resources.lightpen.GetHicon());
             this.CurLine.LineColor = Color.FromArgb(100, Color.Yellow);
         }
 
@@ -304,7 +304,7 @@ namespace excel_operation.ScreenDemo
 
         public void SetEarser() {
             this.DrawTypes = DrawType.Earser;//橡皮檫
-            //this.Cursor = new Cursor(global::excel_operation.Properties.Resources.easer1.GetHicon());
+            //this.Cursor = new Cursor(global::Operation.Properties.Resources.easer1.GetHicon());
         }
 
         public void SetDefault() {

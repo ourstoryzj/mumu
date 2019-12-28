@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 
-namespace excel_operation.CS
+namespace Operation.CS
 {
     public class PinDuoDuo
     {

@@ -1,4 +1,4 @@
-﻿using excel_operation.ScreenDemo;
+﻿using Operation.ScreenDemo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace excel_operation.TaoBao
+namespace Operation.TaoBao
 {
     public partial class TB_ScreenForm : Form
     {

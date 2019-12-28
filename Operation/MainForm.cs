@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Common;
 
-namespace excel_operation
+namespace Operation
 {
     public partial class MainForm : Form
     {
@@ -257,7 +257,7 @@ namespace excel_operation
 
         private void 生意参谋助理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //excel_operation.DataAnalysis.CanMou_KeysHelper fm = new DataAnalysis.CanMou_KeysHelper();
+            //Operation.DataAnalysis.CanMou_KeysHelper fm = new DataAnalysis.CanMou_KeysHelper();
             DataAnalysis.CanMou_Keys fm = new DataAnalysis.CanMou_Keys();
             fm.MdiParent = this;
             fm.Show();
@@ -381,11 +381,13 @@ namespace excel_operation
             //}
             //Other.ImageDownload fm = new Other.ImageDownload();
             //Test.test_meau fm = new Test.test_meau();
-            //Test.test_webrequest fm = new Test.test_webrequest();
-            Test.test_pinduoduo_login fm = new Test.test_pinduoduo_login();
+            Test.test_webrequest fm = new Test.test_webrequest();
+            //Test.test_pinduoduo_login fm = new Test.test_pinduoduo_login();
+            //Test.test_chrome fm = new Test.test_chrome();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = FormWindowState.Maximized;
+            
         }
 
 
@@ -783,6 +785,14 @@ namespace excel_operation
         private void 蘑菇街ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Other.ImageDownload fm = new Other.ImageDownload();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = FormWindowState.Maximized;
+        }
+
+        private void 拼多多代发ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_pinduoduo_login fm = new Test.test_pinduoduo_login();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = FormWindowState.Maximized;

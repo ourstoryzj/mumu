@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Entity;
 using System.Diagnostics;
 
-namespace excel_operation.TaoBao
+namespace Operation.TaoBao
 {
     public partial class TB_ZaoCi : Form
     {

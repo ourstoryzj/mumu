@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace excel_operation.CS1
+namespace Operation.CS1
 {
     /// <summary>
     /// 提供支持数据绑定的泛型集合

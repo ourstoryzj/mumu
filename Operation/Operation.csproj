@@ -171,6 +171,25 @@
     <Compile Include="AutoNew\test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
+    <Compile Include="CefsharpHelper\CefSharpSchemeHandler.cs" />
+    <Compile Include="CefsharpHelper\CefSharpSchemeHandlerFactory.cs" />
+    <Compile Include="CefsharpHelper\ChromeHelper.cs" />
+    <Compile Include="CefsharpHelper\DefaultResourceHandlerFactory.cs" />
+    <Compile Include="CefsharpHelper\DownloadHandler.cs" />
+    <Compile Include="CefsharpHelper\DownLoadManager.cs" />
+    <Compile Include="CefsharpHelper\ExtendMethods.cs" />
+    <Compile Include="CefsharpHelper\FilterManager.cs" />
+    <Compile Include="CefsharpHelper\LifeSpanHandler.cs" />
+    <Compile Include="CefsharpHelper\LoadHelper.cs" />
+    <Compile Include="CefsharpHelper\Logs.cs" />
+    <Compile Include="CefsharpHelper\ProgressListview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CefsharpHelper\RequestHandler.cs" />
+    <Compile Include="CefsharpHelper\TMWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CefsharpHelper\Win32Api.cs" />
     <Compile Include="TaoBao\Taobao_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -458,6 +477,12 @@
     <Compile Include="Test\MyRequestHandler.cs" />
     <Compile Include="Test\CefKeyboardHandler.cs" />
     <Compile Include="Test\RequestHandler_new.cs" />
+    <Compile Include="Test\test_chrome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_chrome.Designer.cs">
+      <DependentUpon>test_chrome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_pinduoduo_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -715,6 +740,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TaoBao\TB_ZhiTongChe.resx">
       <DependentUpon>TB_ZhiTongChe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_chrome.resx">
+      <DependentUpon>test_chrome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_pinduoduo_login.resx">
       <DependentUpon>test_pinduoduo_login.cs</DependentUpon>

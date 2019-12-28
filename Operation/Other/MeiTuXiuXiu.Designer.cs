@@ -1,4 +1,4 @@
-﻿namespace excel_operation.Other
+﻿namespace Operation.Other
 {
     partial class MeiTuXiuXiu
     {

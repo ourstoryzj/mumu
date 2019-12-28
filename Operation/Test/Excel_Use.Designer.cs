@@ -1,4 +1,4 @@
-﻿namespace excel_operation
+﻿namespace Operation
 {
     partial class form_main
     {

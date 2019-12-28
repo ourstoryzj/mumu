@@ -9,11 +9,11 @@ using System.Windows.Forms;
 using Entity;
 using BLL2;
 using System.Diagnostics;
-using excel_operation.CS;
-//using excel_operation.CS;
+using Operation.CS;
+//using Operation.CS;
 using Common;
 
-namespace excel_operation.DataAnalysis
+namespace Operation.DataAnalysis
 {
     public partial class DA_Opponent : Form
     {

@@ -5,9 +5,9 @@ using System.Text;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using excel_operation.CS;
+using Operation.CS;
 
-namespace excel_operation
+namespace Operation
 {
     public class Auto
     {

@@ -1,4 +1,4 @@
-﻿namespace excel_operation.ScreenDemo
+﻿namespace Operation.ScreenDemo
 {
     partial class AboutBox
     {

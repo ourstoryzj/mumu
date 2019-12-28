@@ -1,4 +1,4 @@
-﻿namespace excel_operation.DataAnalysis
+﻿namespace Operation.DataAnalysis
 {
     partial class CanMou_KeysHelper
     {

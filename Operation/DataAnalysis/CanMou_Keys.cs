@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using excel_operation.CS;
-using excel_operation.Other;
+using Operation.CS;
+using Operation.Other;
 using CefSharp.WinForms;
 
-namespace excel_operation.DataAnalysis
+namespace Operation.DataAnalysis
 {
     public partial class CanMou_Keys : Form
     {

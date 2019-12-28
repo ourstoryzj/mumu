@@ -1,11 +1,11 @@
 ﻿using CefSharp.WinForms;
-using excel_operation.CS;
+using Operation.CS;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace excel_operation.AutoNew
+namespace Operation.AutoNew
 {
     public partial class test : Form
     {

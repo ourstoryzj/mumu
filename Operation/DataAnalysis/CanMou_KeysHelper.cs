@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using excel_operation.CS;
+using Operation.CS;
 
-namespace excel_operation.DataAnalysis
+namespace Operation.DataAnalysis
 {
     public partial class CanMou_KeysHelper : Form
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace excel_operation.CS
+namespace Operation.CS
 {
     public class ErrorLog
     {

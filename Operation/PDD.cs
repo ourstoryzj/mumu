@@ -7,10 +7,10 @@ using System;
 
 using System.IO;
 using System.Diagnostics;
-using excel_operation.CS;
+using Operation.CS;
 using Common;
 
-namespace excel_operation
+namespace Operation
 {
     public partial class PDD : Form
     {

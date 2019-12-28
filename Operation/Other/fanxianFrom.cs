@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Entity;
 
-namespace excel_operation
+namespace Operation
 {
     public partial class fanxianFrom : Form
     {

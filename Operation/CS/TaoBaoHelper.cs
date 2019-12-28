@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using CsharpHttpHelper;
 
-namespace excel_operation.CS
+namespace Operation.CS
 {
     public   class TaoBaoHelper
     {

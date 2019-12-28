@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace excel_operation.TaoBao
+namespace Operation.TaoBao
 {
     public partial class ZhuTu : Form
     {

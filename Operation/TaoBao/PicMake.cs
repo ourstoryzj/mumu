@@ -8,12 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using excel_operation.CS;
+using Operation.CS;
 using CefSharp.WinForms;
 using System.Diagnostics;
 using Common;
 
-namespace excel_operation.TaoBao
+namespace Operation.TaoBao
 {
     public partial class PicMake : Form
     {

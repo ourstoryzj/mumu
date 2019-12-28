@@ -1,4 +1,4 @@
-﻿namespace excel_operation.TaoBao
+﻿namespace Operation.TaoBao
 {
     partial class ZhuTu
     {

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net;
 
-namespace excel_operation
+namespace Operation
 {
     //通过webBrowser实现C#和javascript互调
     [System.Runtime.InteropServices.ComVisibleAttribute(true)]

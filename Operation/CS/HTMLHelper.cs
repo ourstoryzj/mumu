@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace excel_operation.CS
+namespace Operation.CS
 {
     /// <summary> 
     ///  Http操作类 

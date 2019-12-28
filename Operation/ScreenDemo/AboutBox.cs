@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace excel_operation.ScreenDemo
+namespace Operation.ScreenDemo
 {
     partial class AboutBox : Form
     {
