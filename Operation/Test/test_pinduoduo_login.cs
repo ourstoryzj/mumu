@@ -100,8 +100,11 @@ namespace Operation.Test
             //需要改变的
             //setcookies("_nano_fp", "XpdYXp9JXpmbXqdynC_wnc3izkRTuCCIwjlXTMPM");
             //setcookies("pdd_user_uin", "S2BYMXSYU3H7XKJEZP64VHHA6A_GEXDA");
-            setcookies("pdd_user_id", "5472535098");
-            setcookies("PDDAccessToken", "2MESFI6BWGU5ML7VBPXYO6VWY2U4IO5SS7QDLQKGCDUMHXWFZXAA1123a4a");
+            //setcookies("pdd_user_id", "5472535098");
+            //setcookies("PDDAccessToken", "2MESFI6BWGU5ML7VBPXYO6VWY2U4IO5SS7QDLQKGCDUMHXWFZXAA1123a4a");
+
+            setcookies("pdd_user_id", "6217302188028");
+            setcookies("PDDAccessToken", "SW26IAYOQRYSRYUHI72VGGKCYDH7ULUCHDTGYJVUGJFEPBH3FQVQ103fcbe");
 
         }
 
