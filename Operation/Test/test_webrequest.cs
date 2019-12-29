@@ -107,7 +107,7 @@ namespace Operation.Test
             ///若成功取得网页的内容，则以System.IO.Stream形式返回，若失败则产生ProtoclViolationException错 误。在此正确的做法应将以下的代码放到一个try块中处理。这里简单处理 
             Stream respStream = httpResp.GetResponseStream();
             ///返回的内容是Stream形式的，所以可以利用StreamReader类获取GetResponseStream的内容，并以StreamReader类的Read方法依次读取网页源程序代码每一行的内容，直至行尾（读取的编码格式：UTF8） 
-            StreamReader respStreamReader = new StreamReader(respStream, Encoding.UTF8);
+            StreamReader respStreamReader = new StreamReader(respStream, Encoding.Default);
             //byteRead = respStreamReader.Read(cbuffer, 0, 256);
 
             //while (byteRead != 0)
@@ -119,6 +119,9 @@ namespace Operation.Test
             txt_html.Text = respStreamReader.ReadToEnd();
             respStream.Close();
             //txt_html.Text = strBuff;
+
+            //HtmlDocument htmodoc = 
+
             "成功".ToShow();
         }
 
