@@ -9,6 +9,8 @@ using Operation.CS;
 using System.IO;
 using System.Diagnostics;
 using Common;
+using System.Net;
+
 
 namespace Operation.TaoBao
 {
@@ -867,6 +869,10 @@ namespace Operation.TaoBao
         #region 打开网页
         private void btn_searchgoods_Click(object sender, EventArgs e)
         {
+            
+
+
+            #region 模拟真实
             string temp_url = txt_collect_url.Text;
             if (temp_url.ToIsEmpty())
             {
@@ -893,7 +899,20 @@ namespace Operation.TaoBao
 
 
             }
+            #endregion
 
+
+            #region 使用爬虫失败  2019年12月30日 注释
+            //string temp_url = txt_collect_url.Text;
+            //Uri httpURL = new Uri(temp_url);
+            //HttpWebRequest httpReq = (HttpWebRequest)WebRequest.Create(httpURL);
+            //HttpWebResponse httpResp = (HttpWebResponse)httpReq.GetResponse();
+            //Stream respStream = httpResp.GetResponseStream();
+            //StreamReader sr = new StreamReader(respStream, System.Text.Encoding.Default);
+            //txt_collect_list.Text = sr.ReadToEnd();
+            //respStream.Close();
+            //"采集成功".ToString(); 
+            #endregion
 
 
             #region bak-2019年12月19日23:00:31
@@ -1275,16 +1294,27 @@ namespace Operation.TaoBao
 
         private void btn_collect_login_Click(object sender, EventArgs e)
         {
-            webBrowser2.Focus();
-            webBrowser2.Load("http://www.nuoren365.com/member/#/login");
-            if (webBrowser2.ToWait())
-            {
-                webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[0]");
-                Auto.Ctrl_V("15128266903");
-                webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[1]");
-                Auto.Ctrl_V("zhangjiazhe123");
-                webBrowser2.ToJs("document.getElementsByClassName('login-submit')[0].click()");
-            }
+
+            Uri uri = new Uri("http://www.nuoren365.com");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+            WebHeaderCollection webheaders = new WebHeaderCollection();
+            webheaders.Add(HttpRequestHeader.Host, "www.nuoren365.com");
+            webheaders.Add("", "");
+            webheaders.Add("", "");
+            request.Headers = webheaders;
+
+            #region 真实登录代码
+            //webBrowser2.Focus();
+            //webBrowser2.Load("http://www.nuoren365.com/member/#/login");
+            //if (webBrowser2.ToWait())
+            //{
+            //    webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[0]");
+            //    Auto.Ctrl_V("15128266903");
+            //    webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[1]");
+            //    Auto.Ctrl_V("zhangjiazhe123");
+            //    webBrowser2.ToJs("document.getElementsByClassName('login-submit')[0].click()");
+            //} 
+            #endregion
         }
         #endregion
 
