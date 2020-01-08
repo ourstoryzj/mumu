@@ -889,6 +889,7 @@
     <None Include="Resources\rectangle.gif" />
     <None Include="Resources\save.gif" />
     <None Include="Resources\undo.gif" />
+    <Content Include="TaoBao\TB_Often.txt" />
     <Content Include="Test\demo-iframe.htm" />
     <Content Include="Test\test.htm" />
   </ItemGroup>

@@ -1,0 +1,66 @@
+诺人电商抓包分析
+
+POST http://www.nuoren365.com/api/member/user/auth/login HTTP/1.1
+Host: www.nuoren365.com
+Connection: keep-alive
+Content-Length: 62
+Accept: application/json, text/plain, */*
+Origin: http://www.nuoren365.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://www.nuoren365.com/member/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+
+username=15176238323&password=123456&secret=www.nuoren365.com&
+
+
+返回结果是
+
+HTTP/1.1 510
+Server: nginx/1.16.1
+Date: Mon, 30 Dec 2019 10:26:02 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Application-Context: api-zuul:prod:8073
+Content-Language: zh-CN
+
+34
+{"code":203010,"message":"用户名或密码错误"}
+0
+
+====================================================================
+
+
+
+成功
+
+POST http://www.nuoren365.com/api/member/user/auth/login HTTP/1.1
+Host: www.nuoren365.com
+Connection: keep-alive
+Content-Length: 65
+Accept: application/json, text/plain, */*
+Origin: http://www.nuoren365.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://www.nuoren365.com/member/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+
+username=15176238323&password=zhangjian&secret=www.nuoren365.com&
+
+返回结果
+
+HTTP/1.1 200
+Server: nginx/1.16.1
+Date: Mon, 30 Dec 2019 10:29:37 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Vary: Accept-Encoding
+X-Application-Context: api-zuul:prod:8073
+Set-Cookie: login=589fab107efe4bd59c74d16f7a428d75;Max-Age=601200;path=/
+**********************************************************************login: 589fab107efe4bd59c74d16f7a428d75
+Content-Length: 86
+
+{"clientId":"1065592642736578560","id":"1075219844839071744","username":"15176238323"}
