@@ -490,11 +490,11 @@
     <Compile Include="Test\test_nuoren.Designer.cs">
       <DependentUpon>test_nuoren.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test\test_pinduoduo_login.cs">
+    <Compile Include="PinDuoDuo\PDD_DaiFa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test\test_pinduoduo_login.Designer.cs">
-      <DependentUpon>test_pinduoduo_login.cs</DependentUpon>
+    <Compile Include="PinDuoDuo\PDD_DaiFa.Designer.cs">
+      <DependentUpon>PDD_DaiFa.cs</DependentUpon>
     </Compile>
     <Compile Include="Test\test_webrequest.cs">
       <SubType>Form</SubType>
@@ -754,8 +754,8 @@
     <EmbeddedResource Include="Test\test_nuoren.resx">
       <DependentUpon>test_nuoren.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test\test_pinduoduo_login.resx">
-      <DependentUpon>test_pinduoduo_login.cs</DependentUpon>
+    <EmbeddedResource Include="PinDuoDuo\PDD_DaiFa.resx">
+      <DependentUpon>PDD_DaiFa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_webrequest.resx">
       <DependentUpon>test_webrequest.cs</DependentUpon>

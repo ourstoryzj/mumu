@@ -13,12 +13,14 @@ using System.IO;
 using CefSharp.WinForms;
 using CefSharp;
 
-namespace Operation.Test
+namespace Operation.PinDuoDuo
 {
-    public partial class test_pinduoduo_login : Form
+    public partial class PDD_DaiFa : Form
     {
         ChromiumWebBrowser webBrowser1;
-        public test_pinduoduo_login()
+
+        #region PDD_DaiFa
+        public PDD_DaiFa()
         {
             InitializeComponent();
 
@@ -66,15 +68,23 @@ namespace Operation.Test
             webBrowser1.FrameLoadEnd += webbrowser_FrameLoadEnd;
             webBrowser1.Size = new Size(990, 725);
             webBrowser1.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
-            webBrowser1.Dock = DockStyle.Fill;  
+            webBrowser1.Dock = DockStyle.Fill;
             //webBrowser1.SetZoomLevel(1.25);
-            
+
             panel1.Controls.Add(webBrowser1);
 
-            
+
             //Cef.
+            txt_address.GotFocus += Txt_address_GotFocus;
         }
 
+        private void Txt_address_GotFocus(object sender, EventArgs e)
+        {
+            txt_address.SelectAll();
+        }
+        #endregion
+
+        #region bind
         void bind()
         {
             //setcookies("api_uid", "rBQEGVyEcqajxSXXHdgWAg==");
@@ -103,13 +113,15 @@ namespace Operation.Test
             setcookies("pdd_user_id", "5472535098");
             setcookies("PDDAccessToken", "2MESFI6BWGU5ML7VBPXYO6VWY2U4IO5SS7QDLQKGCDUMHXWFZXAA1123a4a");
 
-            setcookies("pdd_user_id", "6217302188028");
-            setcookies("PDDAccessToken", "SW26IAYOQRYSRYUHI72VGGKCYDH7ULUCHDTGYJVUGJFEPBH3FQVQ103fcbe");
+            //setcookies("pdd_user_id", "6217302188028");
+            //setcookies("PDDAccessToken", "SW26IAYOQRYSRYUHI72VGGKCYDH7ULUCHDTGYJVUGJFEPBH3FQVQ103fcbe");
 
 
 
         }
+        #endregion
 
+        #region webbrowser_FrameLoadEnd
         void webbrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
 
@@ -118,8 +130,10 @@ namespace Operation.Test
             browser.SetZoomLevel(3);
 
         }
+        #endregion
 
 
+        #region setcookies
         void setcookies(string name, string value)
         {
             var domain = "mobile.yangkeduo.com";
@@ -133,7 +147,7 @@ namespace Operation.Test
             });
         }
 
-        
+
         public static void SetCefCookies(string url, CookieCollection cookies)
         {
             Cef.GetGlobalCookieManager().SetStoragePath(Environment.CurrentDirectory, true);
@@ -155,17 +169,151 @@ namespace Operation.Test
                 bool b = task.Result;
             }
         }
- 
+        #endregion
+
+
+        #region txt_url_TextChanged
         private void txt_url_TextChanged(object sender, EventArgs e)
         {
 
-        }
+        } 
+        #endregion
+
+
+        #region button1_Click_1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             bind();
             webBrowser1.Load("https://mobile.yangkeduo.com/personal.html?refer_page_name=index&refer_page_id=10002_1574496288865_ZKZKA8HgWJ&refer_page_sn=10002&page_id=10001_1577246196934_4h0wdL6yBD&is_back=1");
+
+        } 
+        #endregion
+
+        #region button2_Click
+        private void button2_Click(object sender, EventArgs e)
+        {
+        
+
+            if (webBrowser1.Address.IndexOf("mobile.yangkeduo.com/addresses.html") == -1)
+            {
+                "请打开地址页面".ToShow();
+                return;
+            }
+
+            string sheng = txt_sheng.Text;
+            string shi = txt_shi.Text;
+            string xian = txt_xian.Text;
+            string name = txt_name.Text;
+            string phonecode = txt_phone.Text;
+            string address = txt_dizhi.Text;
+
+            //点击编辑
+            webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('编辑')[0].click();");
+            Manager.Delay(1000);
+            //设置姓名
+            webBrowser1.ToMouseClick("document.getElementsByClassName('m-addr-name ')[0];");
+            Auto.Ctrl_A();
+            Auto.Ctrl_V(name);
+            Manager.Delay(1000);
+            ////设置电话
+            //webBrowser1.ToMouseClick("document.getElementsByClassName('m-addr-mobile')[0]");
+            //Auto.Ctrl_A();
+            //Auto.Ctrl_V(phonecode);
+            //Manager.Delay(1000);
+            ////设置地址
+            //webBrowser1.ToMouseClick("document.getElementById('address')");
+            //Auto.Ctrl_A();
+            //Auto.Ctrl_V(address);
+
+          
+
+           
+            //点击地址，打开选择地区
+            webBrowser1.ToJs("document.getElementsByClassName('m-addr-region')[0].click();");
+            //点击省
+            webBrowser1.ToJs("document.getElementsByClassName('mars-ph-province')[0].click();");
+
+            string[] ssx = { sheng, shi, xian };
+            foreach (string temp in ssx)
+            {
+                Manager.Delay(1500);
+                //循环遍历选择省
+                int length = webBrowser1.ToJsInt("document.getElementsByClassName('mars-regions')[0].getElementsByTagName('li').length");
+                for (int i = 0; i < length; i++)
+                {
+                    string name_temp = webBrowser1.ToJs("document.getElementsByClassName('mars-regions')[0].getElementsByTagName('li')[" + i + "].innerText");
+                    if (name_temp.IndexOf(temp) > -1)
+                    {
+                        webBrowser1.ToJs("document.getElementsByClassName('mars-regions')[0].getElementsByTagName('li')[" + i + "].click()");
+                        break;
+                    }
+                }
+            } 
             
+
+
+            
+           
         }
+        #endregion
+
+        #region btn_jiexi_Click
+
+        private void btn_jiexi_Click(object sender, EventArgs e)
+        {
+            string address_temp = txt_address.Text.Trim().Replace("，",",").Replace("86-", "");
+           
+            //解析地址 孙凌美,13756089797,吉林省长春市其它区吉林省长春市汽车厂47街区31栋102室彩票站
+            string[] address_temps = address_temp.Split(new char[] { ',' });
+            foreach (string temp in address_temps)
+            {
+                if (temp.Trim().Length == 6)
+                {
+                    //如果是邮编
+                }
+                else if (temp.Trim().Length == 11)
+                {
+                    //如果是手机号码
+                    txt_phone.Text = temp;
+                }
+                else if (temp.Trim().Length > 8)
+                {
+                    //如果是地址
+                    if(temp.IndexOf("省")>-1)
+                        txt_sheng.Text = temp.ToSubString("", "省");
+                    else if (temp.IndexOf("自治区") > -1)
+                        txt_sheng.Text = temp.ToSubString("", "自治区");
+                    if (temp.IndexOf("市") > -1 && temp.IndexOf("省") > -1)
+                        txt_shi.Text = temp.ToSubString("省", "市");
+                    if (temp.IndexOf("市") > -1 && temp.IndexOf("区") > -1)
+                        txt_xian.Text = temp.ToSubString("市", "区");
+                    else if (temp.IndexOf("市") > -1 && temp.IndexOf("县") > -1)
+                        txt_xian.Text = temp.ToSubString("市", "县");
+                    else if (temp.IndexOf("市") > -1 && temp.IndexOf("镇") > -1)
+                        txt_xian.Text = temp.ToSubString("市", "镇");
+                    
+                    txt_dizhi.Text = temp;
+                }
+                else
+                {
+                    txt_name.Text = temp;
+                }
+            }
+        } 
+        #endregion
+
+        #region txt_address_Click
+        private void txt_address_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_address_Click(object sender, EventArgs e)
+        {
+            //txt_address.SelectAll();
+            
+        } 
+        #endregion
     }
 }

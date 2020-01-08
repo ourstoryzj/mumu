@@ -754,7 +754,7 @@ namespace Operation
 
         private void 拼多多代发ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Test.test_pinduoduo_login fm = new Test.test_pinduoduo_login();
+            PinDuoDuo.PDD_DaiFa fm = new PinDuoDuo.PDD_DaiFa();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = FormWindowState.Maximized;
