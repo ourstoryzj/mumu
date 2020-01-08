@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Operation.CefsharpHelper
+namespace Operation.CefsharpHelpers
 {
     public class FilterManager
     {

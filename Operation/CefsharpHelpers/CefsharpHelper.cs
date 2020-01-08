@@ -11,9 +11,9 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Operation.CefsharpHelper
+namespace Operation.CefsharpHelpers
 {
-    public class ChromeHelper
+    public class CefsharpHelper
     {
         private string url = string.Empty;
         private Random random = new Random((int)DateTime.Now.ToFileTimeUtc());
@@ -40,7 +40,7 @@ namespace Operation.CefsharpHelper
         /// 操作构造函数
         /// </summary>
         /// <param name="url"></param>
-        public ChromeHelper(string url)
+        public CefsharpHelper(string url)
         {
             this.url = url;
         }
@@ -188,11 +188,11 @@ namespace Operation.CefsharpHelper
         /// <summary>
         /// 设置cookie
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        public void setcookies(string name, string value)
+        /// <param name="domain">主机，例如：mobile.yangkeduo.com</param>
+        /// <param name="name">cookie名称</param>
+        /// <param name="value">值</param>
+        public void SetCookies(string domain,string name, string value)
         {
-            var domain = "mobile.yangkeduo.com";
             var cookieManager = CefSharp.Cef.GetGlobalCookieManager();
             cookieManager.SetCookieAsync("http://" + domain, new CefSharp.Cookie()
             {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Operation.CefsharpHelper
+namespace Operation.CefsharpHelpers
 {
     public class TMWebClient : WebClient
     {

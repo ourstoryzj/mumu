@@ -36,6 +36,7 @@
             this.btn_budanfahuo = new System.Windows.Forms.Button();
             this.btn_shouhou = new System.Windows.Forms.Button();
             this.txt_js = new System.Windows.Forms.TextBox();
+            this.btn_unsalable = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -66,7 +67,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btn_savehtml = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_unsalable = new System.Windows.Forms.Button();
+            this.btn_closead = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -78,6 +79,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.cb_account);
+            this.groupBox1.Controls.Add(this.btn_closead);
             this.groupBox1.Controls.Add(this.btn_addjs);
             this.groupBox1.Controls.Add(this.btn_message);
             this.groupBox1.Controls.Add(this.btn_budanfahuo);
@@ -111,11 +113,11 @@
             // btn_addjs
             // 
             this.btn_addjs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_addjs.Location = new System.Drawing.Point(6, 685);
+            this.btn_addjs.Location = new System.Drawing.Point(76, 620);
             this.btn_addjs.Name = "btn_addjs";
-            this.btn_addjs.Size = new System.Drawing.Size(146, 23);
+            this.btn_addjs.Size = new System.Drawing.Size(76, 23);
             this.btn_addjs.TabIndex = 4;
-            this.btn_addjs.Text = "禁止弹框";
+            this.btn_addjs.Text = "列表铺平";
             this.btn_addjs.UseVisualStyleBackColor = true;
             this.btn_addjs.Click += new System.EventHandler(this.btn_addjs_Click);
             // 
@@ -156,11 +158,23 @@
             // txt_js
             // 
             this.txt_js.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txt_js.Location = new System.Drawing.Point(6, 508);
+            this.txt_js.Location = new System.Drawing.Point(6, 649);
             this.txt_js.Multiline = true;
             this.txt_js.Name = "txt_js";
-            this.txt_js.Size = new System.Drawing.Size(146, 171);
+            this.txt_js.Size = new System.Drawing.Size(146, 59);
             this.txt_js.TabIndex = 7;
+            // 
+            // btn_unsalable
+            // 
+            this.btn_unsalable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_unsalable.ForeColor = System.Drawing.Color.Red;
+            this.btn_unsalable.Location = new System.Drawing.Point(6, 368);
+            this.btn_unsalable.Name = "btn_unsalable";
+            this.btn_unsalable.Size = new System.Drawing.Size(146, 23);
+            this.btn_unsalable.TabIndex = 0;
+            this.btn_unsalable.Text = "清理滞销商品（15天）";
+            this.btn_unsalable.UseVisualStyleBackColor = true;
+            this.btn_unsalable.Click += new System.EventHandler(this.btn_unsalable_Click);
             // 
             // button5
             // 
@@ -479,17 +493,16 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btn_unsalable
+            // btn_closead
             // 
-            this.btn_unsalable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_unsalable.ForeColor = System.Drawing.Color.Red;
-            this.btn_unsalable.Location = new System.Drawing.Point(6, 368);
-            this.btn_unsalable.Name = "btn_unsalable";
-            this.btn_unsalable.Size = new System.Drawing.Size(146, 23);
-            this.btn_unsalable.TabIndex = 0;
-            this.btn_unsalable.Text = "清理滞销商品（15天）";
-            this.btn_unsalable.UseVisualStyleBackColor = true;
-            this.btn_unsalable.Click += new System.EventHandler(this.btn_unsalable_Click);
+            this.btn_closead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_closead.Location = new System.Drawing.Point(6, 620);
+            this.btn_closead.Name = "btn_closead";
+            this.btn_closead.Size = new System.Drawing.Size(64, 23);
+            this.btn_closead.TabIndex = 4;
+            this.btn_closead.Text = "关闭广告";
+            this.btn_closead.UseVisualStyleBackColor = true;
+            this.btn_closead.Click += new System.EventHandler(this.btn_closead_Click);
             // 
             // PDD
             // 
@@ -551,5 +564,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btn_unsalable;
+        private System.Windows.Forms.Button btn_closead;
     }
 }

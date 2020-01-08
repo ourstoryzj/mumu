@@ -47,6 +47,7 @@
             this.图片处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.蘑菇街ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.打单发货ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.拼多多代发ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据分析ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.行业数据分析ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.噪词管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +58,6 @@
             this.关键词处理旧ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.直通车助手ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.拼多多ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.货源ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.网供商品ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.返现ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷单ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.刷单列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,14 +65,18 @@
             this.短信平台ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.蘑菇街模拟刷单ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.诺人电商模拟ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.httpWebRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.包牛牛代发ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.拼多多代发ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.货源ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.网供商品ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
+            this.cEFSharp测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -232,6 +235,13 @@
             this.打单发货ToolStripMenuItem1.Text = "打单发货";
             this.打单发货ToolStripMenuItem1.Click += new System.EventHandler(this.打单发货ToolStripMenuItem1_Click);
             // 
+            // 拼多多代发ToolStripMenuItem
+            // 
+            this.拼多多代发ToolStripMenuItem.Name = "拼多多代发ToolStripMenuItem";
+            this.拼多多代发ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
+            this.拼多多代发ToolStripMenuItem.Text = "拼多多代发";
+            this.拼多多代发ToolStripMenuItem.Click += new System.EventHandler(this.拼多多代发ToolStripMenuItem_Click);
+            // 
             // 数据分析ToolStripMenuItem
             // 
             this.数据分析ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -312,22 +322,6 @@
             this.拼多多ToolStripMenuItem.Text = "拼多多";
             this.拼多多ToolStripMenuItem.Click += new System.EventHandler(this.拼多多ToolStripMenuItem_Click);
             // 
-            // 货源ToolStripMenuItem
-            // 
-            this.货源ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.网供商品ToolStripMenuItem});
-            this.货源ToolStripMenuItem.Name = "货源ToolStripMenuItem";
-            this.货源ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.货源ToolStripMenuItem.Text = "货源";
-            this.货源ToolStripMenuItem.Visible = false;
-            // 
-            // 网供商品ToolStripMenuItem
-            // 
-            this.网供商品ToolStripMenuItem.Name = "网供商品ToolStripMenuItem";
-            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.网供商品ToolStripMenuItem.Text = "网供商品";
-            this.网供商品ToolStripMenuItem.Click += new System.EventHandler(this.网供商品ToolStripMenuItem_Click);
-            // 
             // 返现ToolStripMenuItem
             // 
             this.返现ToolStripMenuItem.Name = "返现ToolStripMenuItem";
@@ -377,10 +371,28 @@
             // 
             // 测试ToolStripMenuItem
             // 
+            this.测试ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.诺人电商模拟ToolStripMenuItem,
+            this.httpWebRequestToolStripMenuItem,
+            this.cEFSharp测试ToolStripMenuItem});
             this.测试ToolStripMenuItem.Name = "测试ToolStripMenuItem";
             this.测试ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.测试ToolStripMenuItem.Text = "测试";
             this.测试ToolStripMenuItem.Click += new System.EventHandler(this.测试ToolStripMenuItem_Click);
+            // 
+            // 诺人电商模拟ToolStripMenuItem
+            // 
+            this.诺人电商模拟ToolStripMenuItem.Name = "诺人电商模拟ToolStripMenuItem";
+            this.诺人电商模拟ToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.诺人电商模拟ToolStripMenuItem.Text = "诺人电商模拟";
+            this.诺人电商模拟ToolStripMenuItem.Click += new System.EventHandler(this.诺人电商模拟ToolStripMenuItem_Click);
+            // 
+            // httpWebRequestToolStripMenuItem
+            // 
+            this.httpWebRequestToolStripMenuItem.Name = "httpWebRequestToolStripMenuItem";
+            this.httpWebRequestToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.httpWebRequestToolStripMenuItem.Text = "HttpWebRequest";
+            this.httpWebRequestToolStripMenuItem.Click += new System.EventHandler(this.httpWebRequestToolStripMenuItem_Click);
             // 
             // 包牛牛代发ToolStripMenuItem
             // 
@@ -396,12 +408,21 @@
             this.任务管理ToolStripMenuItem.Text = "任务管理";
             this.任务管理ToolStripMenuItem.Click += new System.EventHandler(this.任务管理ToolStripMenuItem_Click);
             // 
-            // 拼多多代发ToolStripMenuItem
+            // 货源ToolStripMenuItem
             // 
-            this.拼多多代发ToolStripMenuItem.Name = "拼多多代发ToolStripMenuItem";
-            this.拼多多代发ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
-            this.拼多多代发ToolStripMenuItem.Text = "拼多多代发";
-            this.拼多多代发ToolStripMenuItem.Click += new System.EventHandler(this.拼多多代发ToolStripMenuItem_Click);
+            this.货源ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.网供商品ToolStripMenuItem});
+            this.货源ToolStripMenuItem.Name = "货源ToolStripMenuItem";
+            this.货源ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.货源ToolStripMenuItem.Text = "货源";
+            this.货源ToolStripMenuItem.Visible = false;
+            // 
+            // 网供商品ToolStripMenuItem
+            // 
+            this.网供商品ToolStripMenuItem.Name = "网供商品ToolStripMenuItem";
+            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.网供商品ToolStripMenuItem.Text = "网供商品";
+            this.网供商品ToolStripMenuItem.Click += new System.EventHandler(this.网供商品ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -444,6 +465,13 @@
             this.skinEngine1.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
+            // 
+            // cEFSharp测试ToolStripMenuItem
+            // 
+            this.cEFSharp测试ToolStripMenuItem.Name = "cEFSharp测试ToolStripMenuItem";
+            this.cEFSharp测试ToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.cEFSharp测试ToolStripMenuItem.Text = "CEFSharp测试";
+            this.cEFSharp测试ToolStripMenuItem.Click += new System.EventHandler(this.cEFSharp测试ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -516,5 +544,8 @@
         private System.Windows.Forms.ToolStripMenuItem 蓝海词管理ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 行业数据分析ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 拼多多代发ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 诺人电商模拟ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem httpWebRequestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cEFSharp测试ToolStripMenuItem;
     }
 }

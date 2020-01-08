@@ -26,4 +26,6 @@
   <Add name="client_shopid" value="document.getElementsByClassName('nickname')[0]" />
   <!--  -->
   <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
 </Data>

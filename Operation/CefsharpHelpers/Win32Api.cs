@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Operation.CefsharpHelper
+namespace Operation.CefsharpHelpers
 {
     public class Win32Api
     {

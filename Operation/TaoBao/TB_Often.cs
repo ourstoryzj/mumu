@@ -9,6 +9,8 @@ using Operation.CS;
 using System.IO;
 using System.Diagnostics;
 using Common;
+using System.Net;
+using CefSharp;
 
 namespace Operation.TaoBao
 {
@@ -1110,7 +1112,7 @@ namespace Operation.TaoBao
         private void btn_fuzhi2_Click(object sender, EventArgs e)
         {
             //保存收藏数量
-            Common.XMLHelper.SetValue("TaoBao_Collect_Num",txt_collect_num.Text);
+            Common.XMLHelper.SetValue("TaoBao_Collect_Num", txt_collect_num.Text);
 
             //获取数据框内的商品链接
             string goods_str = txt_collect_list.Text.Trim();
@@ -1130,27 +1132,34 @@ namespace Operation.TaoBao
                 if (!str.ToIsEmpty())
                 {
                     string[] temps = str.ToSplit("---");
-                    
-                    if (temps.Length ==1)
+
+                    if (temps.Length == 1)
                     {
                         //通过淘大象获取商品名称
-                        webBrowser2.Load("https://taodaxiang.com/shelf/index/init/");
-                        if (webBrowser2.ToWait())
-                        {
-                            webBrowser2.ToJs("document.getElementsByClassName('uc-band uc-input')[1].value='" + str + "'");
-                            webBrowser2.ToJs("document.getElementsByClassName('uc-button')[0].click()");
+                        //webBrowser2.Load("https://taodaxiang.com/shelf/index/init/");
+                        //if (webBrowser2.ToWait())
+                        //{
+                        //    webBrowser2.ToJs("document.getElementsByClassName('uc-band uc-input')[1].value='" + str + "'");
+                        //    webBrowser2.ToJs("document.getElementsByClassName('uc-button')[0].click()");
 
-                            Common.Manager.Delay(2000);
+                        //    Common.Manager.Delay(2000);
 
-                            title = webBrowser2.ToJs("document.getElementsByClassName('list')[0].getElementsByClassName('title')[0].innerText");
-                            url = str;
-                        }
+                        //    title = webBrowser2.ToJs("document.getElementsByClassName('list')[0].getElementsByClassName('title')[0].innerText");
+                        //    url = str;
+                        //}
+                        title = GetGoodsTitle(str);
+                        url = str;
                     }
                     else
                     {
                         url = temps[0];
                         title = temps[1];
                     }
+                }
+                if (url.IndexOf("http") == -1)
+                {
+                    "数据错误".ToShow();
+                    return;
                 }
 
                 btn_collect_openweb.PerformClick();
@@ -1166,7 +1175,7 @@ namespace Operation.TaoBao
                 webBrowser2.ToMouseClick("document.getElementsByClassName('inputStyle')[3]");
                 Auto.Ctrl_A();
                 Auto.Ctrl_V(txt_collect_num.Text);
-                
+
                 webBrowser2.ToMouseClick("document.getElementsByClassName('confrim-button')[0]");
 
                 Common.Manager.Delay(2000);
@@ -1268,6 +1277,32 @@ namespace Operation.TaoBao
 
             #endregion
         }
+
+        /// <summary>
+        /// 根据网址获取商品名称
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        string GetGoodsTitle(string url)
+        {
+            string title = "";
+            try
+            {
+                HttpWebRequest hwr = (HttpWebRequest)WebRequest.Create(new Uri(url));
+                HttpWebResponse hwp = (HttpWebResponse)hwr.GetResponse();
+                using (Stream resStream = hwp.GetResponseStream())
+                {
+                    using (StreamReader sr = new StreamReader(resStream, System.Text.Encoding.GetEncoding("gb2312")))
+                    {
+                        title = sr.ReadToEnd().ToSubString("<title>", "</title>").Replace("-淘宝网", "");
+                    }
+                }
+            }
+            catch { }
+            return title;
+        }
+
+
         #endregion
 
 
@@ -1292,6 +1327,8 @@ namespace Operation.TaoBao
 
         private void btn_collect_openweb_Click(object sender, EventArgs e)
         {
+            Browser.SetCookies("http://www.nuoren365.com","login", "cc696ba2246b461298b37c12bf557abb");
+            Cef.EnableHighDPISupport();
             webBrowser2.Load("http://www.nuoren365.com/member/#/public/taobao/shou-cang-task/search-collection");
             webBrowser2.ToWait();
         }

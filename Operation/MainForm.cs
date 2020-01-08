@@ -50,6 +50,7 @@ namespace Operation
             //}
         }
 
+        #region 显示任务
         #region TaskShow
         /// <summary>
         /// 显示任务信息
@@ -154,20 +155,6 @@ namespace Operation
 
         #endregion
 
-
-
-
-
-
-
-
-
-
-        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Environment.Exit(0);
-        }
-
         //DateTime dt = DateTime.Now.AddSeconds(5);
         //void test()
         //{
@@ -176,7 +163,6 @@ namespace Operation
         //        Manager.SetShowAndTop();
         //    }
         //}
-
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -195,6 +181,19 @@ namespace Operation
             //}
 
         }
+        #endregion
+
+        #region 退出软件
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CefSharp.Cef.Shutdown();
+            System.Environment.Exit(0);
+        } 
+        #endregion
+
+        #region OldBtnEvent
+
+
 
         private void 关键词处理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -353,43 +352,6 @@ namespace Operation
         {
             Browser.ClearData();
         }
-
-        private void 测试ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Test.test_caiji zt = new Test.test_caiji();
-            ////Common.BaoNiuNiu zt = new Common.BaoNiuNiu();
-            ////Common.FaHuoFrom zt = new Common.FaHuoFrom();
-            ////Test.test_meau zt = new Test.test_meau();
-            ////Test.test_caiji zt = new Test.test_caiji();
-            //zt.MdiParent = this;
-            //zt.Show();
-            //zt.WindowState = FormWindowState.Maximized;
-
-            ////dt= DateTime.Now.AddSeconds(5);
-
-            //test_download td = new test_download();
-            //td.MdiParent = this;
-            //td.Show();
-            //td.WindowState = FormWindowState.Maximized;
-            //try
-            //{
-
-            //}
-            //catch (Exception ex)
-            //{
-
-            //}
-            //Other.ImageDownload fm = new Other.ImageDownload();
-            //Test.test_meau fm = new Test.test_meau();
-            Test.test_webrequest fm = new Test.test_webrequest();
-            //Test.test_pinduoduo_login fm = new Test.test_pinduoduo_login();
-            //Test.test_chrome fm = new Test.test_chrome();
-            fm.MdiParent = this;
-            fm.Show();
-            fm.WindowState = FormWindowState.Maximized;
-            
-        }
-
 
 
 
@@ -797,5 +759,80 @@ namespace Operation
             fm.Show();
             fm.WindowState = FormWindowState.Maximized;
         }
+
+        #endregion
+
+        #region 测试
+
+
+
+        private void 测试ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            #region MyRegion
+            //Test.test_caiji zt = new Test.test_caiji();
+            ////Common.BaoNiuNiu zt = new Common.BaoNiuNiu();
+            ////Common.FaHuoFrom zt = new Common.FaHuoFrom();
+            ////Test.test_meau zt = new Test.test_meau();
+            ////Test.test_caiji zt = new Test.test_caiji();
+            //zt.MdiParent = this;
+            //zt.Show();
+            //zt.WindowState = FormWindowState.Maximized;
+
+            ////dt= DateTime.Now.AddSeconds(5);
+
+            //test_download td = new test_download();
+            //td.MdiParent = this;
+            //td.Show();
+            //td.WindowState = FormWindowState.Maximized;
+            //try
+            //{
+
+            //}
+            //catch (Exception ex)
+            //{
+
+            //}
+            //Other.ImageDownload fm = new Other.ImageDownload();
+            //Test.test_meau fm = new Test.test_meau();
+            //Test.test_webrequest fm = new Test.test_webrequest();
+            ////Test.test_pinduoduo_login fm = new Test.test_pinduoduo_login();
+            ////Test.test_chrome fm = new Test.test_chrome();
+            //fm.MdiParent = this;
+            //fm.Show();
+            //fm.WindowState = FormWindowState.Maximized; 
+            #endregion
+
+        }
+
+
+        private void 诺人电商模拟ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_nuoren fm = new Test.test_nuoren();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = FormWindowState.Maximized;
+        }
+
+        private void httpWebRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_webrequest fm = new Test.test_webrequest();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = FormWindowState.Maximized;
+        }
+
+
+        private void cEFSharp测试ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_chrome fm = new Test.test_chrome();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = FormWindowState.Maximized;
+        }
+
+
+        #endregion
+
+
     }
 }

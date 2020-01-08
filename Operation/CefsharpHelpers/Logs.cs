@@ -6,7 +6,7 @@ using System.Threading;
 using System.IO;
 using System.Configuration;
 
-namespace Operation.CefsharpHelper
+namespace Operation.CefsharpHelpers
 {
     public class Logs
     {

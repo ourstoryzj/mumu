@@ -7,7 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Operation.CefsharpHelper
+namespace Operation.CefsharpHelpers
 {
     internal class CefSharpSchemeHandler : IResourceHandler
     {

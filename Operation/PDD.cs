@@ -18,7 +18,7 @@ namespace Operation
         CefSharp.WinForms.ChromiumWebBrowser webBrowser2;
         //CefSharp.WinForms.ChromiumWebBrowser webBrowser3;
         //CefSharp.WinForms.ChromiumWebBrowser webBrowser4;
-        string token="";
+        string token = "";
         string phone;
 
         /// <summary>
@@ -422,20 +422,22 @@ namespace Operation
                 //账户在别处登录 ： 异地登录或者断网后登录失败提示
                 //正在尝试第n次登录 ：断网后自动重新登录的提示窗口显示内容
                 string url = webBrowser1.Address;
-                if (url.IndexOf("chat") == -1 || webBrowser1.ToJsHasElementToBool("getElementsByInnerText2('账户在别处登录')[0]") || webBrowser1.ToJsHasElementToBool("getElementsByInnerText2('正在尝试第')[0]") || webBrowser1.ToJsHasElementToBool("getElementsByInnerText2('登录过期')[0]") || string.IsNullOrEmpty(webBrowser1.ToJs("document.getElementsByTagName('body')[0].innerText")) )
+                if (url.IndexOf("chat") == -1 || webBrowser1.ToJsHasElementToBool("getElementsByInnerText2('账户在别处登录')[0]") || webBrowser1.ToJsHasElementToBool("getElementsByInnerText2('正在尝试第')[0]") || webBrowser1.ToJsHasElementToBool("getElementsByInnerText2('登录过期')[0]") || string.IsNullOrEmpty(webBrowser1.ToJs("document.getElementsByTagName('body')[0].innerText")))
                 {
-                    Common.Manager.EmailSend("ourstoryzj@163.com","拼多多客服断开提示", "拼多多客服断开提示");
+                    timer1.Stop();
+                    Common.Manager.EmailSend("ourstoryzj@163.com", "拼多多客服断开提示", "拼多多客服断开提示");
                     //登陆客服
                     webBrowser1.Load("https://mms.pinduoduo.com/assets/chat-merchant/dist/index.html?r=0.5309851365977418");
                     if (Browser.WaitWebPageLoad(webBrowser1))
                     {
-                        timer1.Stop();
-                        Browser.Delay(10000);
-                        timer1.Start();
+
+                        Browser.Delay(20000);
+
                         //Browser.JS_CEFBrowser_NoReturn("alert('开始关闭广告')", webBrowser1);
                         //取消对话框提示框
                         CS.PinDuoDuo.ClearAP(webBrowser1);
                     }
+                    timer1.Start();
                 }
                 else
                 {
@@ -668,28 +670,29 @@ namespace Operation
         private void btn_unsalable_Click(object sender, EventArgs e)
         {
             //进入商品列表
-            webBrowser2.Load("https://mms.pinduoduo.com/goods/goods_list");
-            //判断商品数量大于0
-            if (webBrowser2.ToWait("document.getElementsByClassName('table-content')[0]", "document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr').length>0"))
-            {
+            //webBrowser2.Load("https://mms.pinduoduo.com/goods/goods_list");
+            ////判断商品数量大于0
+            //if (webBrowser2.ToWait("document.getElementsByClassName('table-content')[0]", "document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr').length>0"))
+            //{
                 //设置每页显示100条信息
                 webBrowser2.ToJs("getElementsByClassName_Vague('BeastCoreCssSelect___head-input')[2].click()");//点击条数
                 webBrowser2.ToJs("getElementsByClassName_Vague('eastCoreCssSelect___dropdown-panel')[0].getElementsByTagName('li')[3].click();");//点击每页显示100条
                 //获取商品数量
                 int count = webBrowser2.ToJsInt("document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr').length");
-                
-                for (int i = 0; i < count; i ++)
+
+                for (int i = 0; i < count; i++)
                 {
                     //获取每条商品创建时间
-                    string temp = webBrowser2.ToJs("document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr')["+i+"].getElementsByTagName('td')[8].innerText");
-                    string [] temps = Manager.Str_Split(temp, "销售中");
+                    string temp = webBrowser2.ToJs("document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr')[" + i + "].getElementsByTagName('td')[8].innerText");
+                    string[] temps = Manager.Str_Split(temp, "销售中");
                     if (temps.Length > 0)
                     {
-                        temp = temps[0].Replace("<br>","");
+                        temp = temps[0].Replace("<br>", "");
                         DateTime dt_start = temps[0].ToDateTime();
                         if (dt_start != new DateTime())
                         {
-                            if (dt_start.AddDays(25) < DateTime.Now)
+                        //对比时间，如果超过25日没有销量则勾选
+                        if (dt_start.AddDays(25) < DateTime.Now)
                             {
                                 //如果是滞销品,勾选
                                 webBrowser2.ToJs("document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr')[" + i + "].getElementsByTagName('td')[0].getElementsByTagName('input')[0].click()");
@@ -697,8 +700,8 @@ namespace Operation
                             }
                         }
                     }
-                }
-                //对比时间，如果超过25日没有销量则下架
+                //}
+               
 
                 //翻页
 
@@ -708,6 +711,13 @@ namespace Operation
         }
         #endregion
 
+        #region btn_closead_Click
+
+        private void btn_closead_Click(object sender, EventArgs e)
+        {
+            CS.PinDuoDuo.ClearAP(webBrowser1);
+        }
+        #endregion
     }
 
 

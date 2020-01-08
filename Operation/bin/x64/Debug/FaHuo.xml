@@ -75,7 +75,6 @@
   <Add name="少女双肩包女韩版时尚简约中小学生学院风小清新书包PU皮质背包" value="http://www.bao66.cn/p/eiaiimp.html" />
   <Add name="女生书包儿童背包学生双肩包女包韩版潮小孩可爱女孩中大童小清新" value="http://www.bao66.cn/p/eibafou.html" />
   <Add name="女士双肩包2017新款韩版潮迷你小背包呢子格子休闲百搭森系小" value="http://www.bao66.cn/p/eibdbbu.html" />
-  <Add name="5物流动态2018-02-23 10:31:08您的订单开始" value="http://www.bao66.cn/p/eibafoo.html" />
   <Add name="儿童背包13岁小孩双肩包旅游迷你卡通可爱女孩时尚包中大童66" value="http://www.bao66.cn/p/eibpbpo.html" />
   <Add name="少女双肩包可爱女童背包大童公主时尚旅行潮学院风初中生学生书包" value="http://www.bao66.cn/p/eiediem.html" />
   <Add name="双肩包女童背包小公主可爱流苏2017韩版新款旅行时尚大童女孩" value="http://www.bao66.cn/p/eieppbu.html" />
@@ -229,7 +228,8 @@
 
   <!-- 查询等待时间 -->
   <Add name="KB_SearchResDelay" value="6000" />
-
+  <!-- 拼多多快捷发货 -->
+  <Add name="PDDDaiFa" value="goods0218-http://www.baidu.com" />
 
 
 

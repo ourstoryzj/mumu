@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace Operation.CefsharpHelper
+namespace Operation.CefsharpHelpers
 {
     public class LoadHelper
     {

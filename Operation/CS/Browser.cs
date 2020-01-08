@@ -2472,7 +2472,7 @@ namespace Operation
         }
         #endregion
 
-
+        #region GetImage2
         /// <summary>
         /// 获取图像内容
         /// </summary>
@@ -2530,6 +2530,28 @@ namespace Operation
             //    }
             //}
         }
+        #endregion
+
+        #region SetCookies
+        /// <summary>
+        /// 为浏览器设置cookie
+        /// </summary>
+        /// <param name="domain">域名 例如: http://www.baidu.com</param>
+        /// <param name="name">cookie 名称</param>
+        /// <param name="value">cookie 值</param>
+        public static void SetCookies(string domain, string name, string value)
+        {
+            var cookieManager = Cef.GetGlobalCookieManager();
+            cookieManager.SetCookieAsync(domain, new CefSharp.Cookie()
+            {
+                Domain = domain,
+                Name = name,
+                Value = value,
+                Expires = DateTime.MinValue
+            });
+        }
+        #endregion
+
 
         #endregion
 

@@ -142,6 +142,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -171,25 +172,25 @@
     <Compile Include="AutoNew\test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
-    <Compile Include="CefsharpHelper\CefSharpSchemeHandler.cs" />
-    <Compile Include="CefsharpHelper\CefSharpSchemeHandlerFactory.cs" />
-    <Compile Include="CefsharpHelper\ChromeHelper.cs" />
-    <Compile Include="CefsharpHelper\DefaultResourceHandlerFactory.cs" />
-    <Compile Include="CefsharpHelper\DownloadHandler.cs" />
-    <Compile Include="CefsharpHelper\DownLoadManager.cs" />
-    <Compile Include="CefsharpHelper\ExtendMethods.cs" />
-    <Compile Include="CefsharpHelper\FilterManager.cs" />
-    <Compile Include="CefsharpHelper\LifeSpanHandler.cs" />
-    <Compile Include="CefsharpHelper\LoadHelper.cs" />
-    <Compile Include="CefsharpHelper\Logs.cs" />
-    <Compile Include="CefsharpHelper\ProgressListview.cs">
+    <Compile Include="CefsharpHelpers\CefSharpSchemeHandler.cs" />
+    <Compile Include="CefsharpHelpers\CefSharpSchemeHandlerFactory.cs" />
+    <Compile Include="CefsharpHelpers\CefsharpHelper.cs" />
+    <Compile Include="CefsharpHelpers\DefaultResourceHandlerFactory.cs" />
+    <Compile Include="CefsharpHelpers\DownloadHandler.cs" />
+    <Compile Include="CefsharpHelpers\DownLoadManager.cs" />
+    <Compile Include="CefsharpHelpers\ExtendMethods.cs" />
+    <Compile Include="CefsharpHelpers\FilterManager.cs" />
+    <Compile Include="CefsharpHelpers\LifeSpanHandler.cs" />
+    <Compile Include="CefsharpHelpers\LoadHelper.cs" />
+    <Compile Include="CefsharpHelpers\Logs.cs" />
+    <Compile Include="CefsharpHelpers\ProgressListview.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CefsharpHelper\RequestHandler.cs" />
-    <Compile Include="CefsharpHelper\TMWebClient.cs">
+    <Compile Include="CefsharpHelpers\RequestHandler.cs" />
+    <Compile Include="CefsharpHelpers\TMWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CefsharpHelper\Win32Api.cs" />
+    <Compile Include="CefsharpHelpers\Win32Api.cs" />
     <Compile Include="TaoBao\Taobao_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -483,6 +484,12 @@
     <Compile Include="Test\test_chrome.Designer.cs">
       <DependentUpon>test_chrome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\test_nuoren.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_nuoren.Designer.cs">
+      <DependentUpon>test_nuoren.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_pinduoduo_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -743,6 +750,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_chrome.resx">
       <DependentUpon>test_chrome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_nuoren.resx">
+      <DependentUpon>test_nuoren.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_pinduoduo_login.resx">
       <DependentUpon>test_pinduoduo_login.cs</DependentUpon>
