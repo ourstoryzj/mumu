@@ -127,11 +127,25 @@ namespace Operation.PinDuoDuo
 
             ChromiumWebBrowser browser = (ChromiumWebBrowser)sender;
             //浏览器缩放比例
-            browser.SetZoomLevel(3);
+            //browser.SetZoomLevel(3);
+            //Browser.SetJSFile(browser);
+
+            try
+            {
+                //如果是支付宝页面自动生成二维码，如果不是则清空
+                if (browser.Address.IndexOf("mclient.alipay.com/home/exterfaceAssign.htm?") != -1)
+                    pan_tool.BackgroundImage = CS.AlipayHelper.CodeConversionTool(browser.Address);
+                else
+                    pan_tool.BackgroundImage = null;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString().ToShow();
+            }
+
 
         }
         #endregion
-
 
         #region setcookies
         void setcookies(string name, string value)
@@ -171,14 +185,12 @@ namespace Operation.PinDuoDuo
         }
         #endregion
 
-
         #region txt_url_TextChanged
         private void txt_url_TextChanged(object sender, EventArgs e)
         {
 
-        } 
+        }
         #endregion
-
 
         #region button1_Click_1
 
@@ -187,13 +199,13 @@ namespace Operation.PinDuoDuo
             bind();
             webBrowser1.Load("https://mobile.yangkeduo.com/personal.html?refer_page_name=index&refer_page_id=10002_1574496288865_ZKZKA8HgWJ&refer_page_sn=10002&page_id=10001_1577246196934_4h0wdL6yBD&is_back=1");
 
-        } 
+        }
         #endregion
 
         #region button2_Click
         private void button2_Click(object sender, EventArgs e)
         {
-        
+
 
             if (webBrowser1.Address.IndexOf("mobile.yangkeduo.com/addresses.html") == -1)
             {
@@ -201,34 +213,20 @@ namespace Operation.PinDuoDuo
                 return;
             }
 
-            string sheng = txt_sheng.Text;
-            string shi = txt_shi.Text;
-            string xian = txt_xian.Text;
+            string sheng = txt_sheng.Text.Trim();
+            string shi = txt_shi.Text.Trim();
+            string xian = txt_xian.Text.Trim();
             string name = txt_name.Text;
             string phonecode = txt_phone.Text;
             string address = txt_dizhi.Text;
 
+            webBrowser1.ToWait();
+
             //点击编辑
             webBrowser1.ToJs("getElementsByInnerText_Vague_NoChildren('编辑')[0].click();");
             Manager.Delay(1000);
-            //设置姓名
-            webBrowser1.ToMouseClick("document.getElementsByClassName('m-addr-name ')[0];");
-            Auto.Ctrl_A();
-            Auto.Ctrl_V(name);
-            Manager.Delay(1000);
-            ////设置电话
-            //webBrowser1.ToMouseClick("document.getElementsByClassName('m-addr-mobile')[0]");
-            //Auto.Ctrl_A();
-            //Auto.Ctrl_V(phonecode);
-            //Manager.Delay(1000);
-            ////设置地址
-            //webBrowser1.ToMouseClick("document.getElementById('address')");
-            //Auto.Ctrl_A();
-            //Auto.Ctrl_V(address);
 
-          
 
-           
             //点击地址，打开选择地区
             webBrowser1.ToJs("document.getElementsByClassName('m-addr-region')[0].click();");
             //点击省
@@ -249,12 +247,31 @@ namespace Operation.PinDuoDuo
                         break;
                     }
                 }
-            } 
-            
+            }
 
 
-            
-           
+            Manager.Delay(1000);
+            //设置姓名
+            //webBrowser1.ToMouseClick("document.getElementsByClassName('m-addr-name')[0]");
+            webBrowser1.Focus();
+            webBrowser1.ToJs("document.getElementsByClassName('m-addr-name')[0].focus()");
+            Auto.Ctrl_A();
+            Auto.Ctrl_V(name);
+            Manager.Delay(500);
+
+            //设置电话
+            //webBrowser1.ToMouseClick("document.getElementsByClassName('m-addr-mobile')[0]");
+            webBrowser1.ToJs("document.getElementsByClassName('m-addr-mobile')[0].focus()");
+            Auto.Ctrl_A();
+            Auto.Ctrl_V(phonecode);
+            Manager.Delay(500);
+            //设置地址
+            //webBrowser1.ToMouseClick("document.getElementById('address')");
+            webBrowser1.ToJs("document.getElementById('address').focus()");
+            Auto.Ctrl_A();
+            Auto.Ctrl_V(address);
+
+
         }
         #endregion
 
@@ -262,8 +279,8 @@ namespace Operation.PinDuoDuo
 
         private void btn_jiexi_Click(object sender, EventArgs e)
         {
-            string address_temp = txt_address.Text.Trim().Replace("，",",").Replace("86-", "");
-           
+            string address_temp = txt_address.Text.Trim().Replace("，", ",").Replace("86-", "");
+
             //解析地址 孙凌美,13756089797,吉林省长春市其它区吉林省长春市汽车厂47街区31栋102室彩票站
             string[] address_temps = address_temp.Split(new char[] { ',' });
             foreach (string temp in address_temps)
@@ -280,7 +297,7 @@ namespace Operation.PinDuoDuo
                 else if (temp.Trim().Length > 8)
                 {
                     //如果是地址
-                    if(temp.IndexOf("省")>-1)
+                    if (temp.IndexOf("省") > -1)
                         txt_sheng.Text = temp.ToSubString("", "省");
                     else if (temp.IndexOf("自治区") > -1)
                         txt_sheng.Text = temp.ToSubString("", "自治区");
@@ -292,7 +309,7 @@ namespace Operation.PinDuoDuo
                         txt_xian.Text = temp.ToSubString("市", "县");
                     else if (temp.IndexOf("市") > -1 && temp.IndexOf("镇") > -1)
                         txt_xian.Text = temp.ToSubString("市", "镇");
-                    
+
                     txt_dizhi.Text = temp;
                 }
                 else
@@ -300,7 +317,7 @@ namespace Operation.PinDuoDuo
                     txt_name.Text = temp;
                 }
             }
-        } 
+        }
         #endregion
 
         #region txt_address_Click
@@ -312,8 +329,44 @@ namespace Operation.PinDuoDuo
         private void txt_address_Click(object sender, EventArgs e)
         {
             //txt_address.SelectAll();
-            
+
+        }
+        #endregion
+
+        #region button3_Click
+        private void button3_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Load("https://mobile.yangkeduo.com/hub_monthly_card.html?_pdd_fs=1&_pdd_nc=ffffff&_pdd_tc=ffffff&cid=usercenter&refer_page_name=personal&refer_page_id=10001_1578666603060_doq93gubjb&refer_page_sn=10001");
+        }
+
+
+
+        #endregion
+
+        #region 生成二维码
+        private void btn_totool_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string url = webBrowser1.Address;
+                pan_tool.BackgroundImage = CS.AlipayHelper.CreateQRCode(url, 200);
+            }
+            catch
+            {
+                "二维码生成失败".ToShow();
+            }
+        }
+
+
+        #endregion
+
+        #region button4_Click
+        private void button4_Click(object sender, EventArgs e)
+        {
+            webBrowser1.ToJs(txt_js.Text);
         } 
         #endregion
+
+
     }
 }

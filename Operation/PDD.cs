@@ -133,6 +133,7 @@ namespace Operation
         #region btn_chushouzhong_Click
         private void btn_chushouzhong_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = tp_houtai;
             webBrowser2.Load("https://mms.pinduoduo.com/orders/list");
         }
         #endregion
@@ -140,6 +141,7 @@ namespace Operation
         #region btn_dingdan_Click
         private void btn_dingdan_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = tp_houtai;
             webBrowser2.Load("https://mms.pinduoduo.com/aftersales/aftersale_list");
             //if (Browser.WaitWebPageLoad(" document.getElementsByClassName('rc-select-selection__rendered')[0]", webBrowser1))
             //{
@@ -626,26 +628,31 @@ namespace Operation
 
         private void button1_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = tp_houtai;
             webBrowser2.Load("https://mms.pinduoduo.com/exp/tools/index");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = tp_houtai;
             webBrowser2.Load("https://mms.pinduoduo.com/exp/tools/dataAnalysis");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = tp_houtai;
             webBrowser2.Load("https://mms.pinduoduo.com/exp/search/index");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = tp_houtai;
             webBrowser2.Load("https://mms.pinduoduo.com/exp/pro/index");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = tp_houtai;
             webBrowser2.Load("https://mms.pinduoduo.com/sycm/goods_effect");
 
         }
@@ -669,13 +676,14 @@ namespace Operation
         #region btn_unsalable_Click
         private void btn_unsalable_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = tp_houtai;
             //进入商品列表
             //webBrowser2.Load("https://mms.pinduoduo.com/goods/goods_list");
             ////判断商品数量大于0
             //if (webBrowser2.ToWait("document.getElementsByClassName('table-content')[0]", "document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr').length>0"))
             //{
-                //设置每页显示100条信息
-                webBrowser2.ToJs("getElementsByClassName_Vague('BeastCoreCssSelect___head-input')[2].click()");//点击条数
+            //设置每页显示100条信息
+            webBrowser2.ToJs("getElementsByClassName_Vague('BeastCoreCssSelect___head-input')[2].click()");//点击条数
                 webBrowser2.ToJs("getElementsByClassName_Vague('eastCoreCssSelect___dropdown-panel')[0].getElementsByTagName('li')[3].click();");//点击每页显示100条
                 //获取商品数量
                 int count = webBrowser2.ToJsInt("document.getElementsByClassName('table-content')[0].getElementsByTagName('tbody')[0].getElementsByTagName('tr').length");

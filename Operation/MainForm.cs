@@ -831,7 +831,19 @@ namespace Operation
         }
 
 
+
         #endregion
+
+        #region 生成二维码ToolStripMenuItem_Click
+        private void 生成二维码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_erweima fm = new Test.test_erweima();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = FormWindowState.Maximized;
+        } 
+        #endregion
+
 
 
     }

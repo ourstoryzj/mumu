@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cb_account = new System.Windows.Forms.ComboBox();
+            this.btn_closead = new System.Windows.Forms.Button();
             this.btn_addjs = new System.Windows.Forms.Button();
             this.btn_message = new System.Windows.Forms.Button();
             this.btn_budanfahuo = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btn_savehtml = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_closead = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -109,6 +109,17 @@
             this.cb_account.Name = "cb_account";
             this.cb_account.Size = new System.Drawing.Size(146, 20);
             this.cb_account.TabIndex = 8;
+            // 
+            // btn_closead
+            // 
+            this.btn_closead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_closead.Location = new System.Drawing.Point(6, 620);
+            this.btn_closead.Name = "btn_closead";
+            this.btn_closead.Size = new System.Drawing.Size(64, 23);
+            this.btn_closead.TabIndex = 4;
+            this.btn_closead.Text = "关闭广告";
+            this.btn_closead.UseVisualStyleBackColor = true;
+            this.btn_closead.Click += new System.EventHandler(this.btn_closead_Click);
             // 
             // btn_addjs
             // 
@@ -492,17 +503,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btn_closead
-            // 
-            this.btn_closead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_closead.Location = new System.Drawing.Point(6, 620);
-            this.btn_closead.Name = "btn_closead";
-            this.btn_closead.Size = new System.Drawing.Size(64, 23);
-            this.btn_closead.TabIndex = 4;
-            this.btn_closead.Text = "关闭广告";
-            this.btn_closead.UseVisualStyleBackColor = true;
-            this.btn_closead.Click += new System.EventHandler(this.btn_closead_Click);
             // 
             // PDD
             // 
