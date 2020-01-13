@@ -88,8 +88,24 @@ namespace BLL
         }
         #endregion
 
+        #region Search
+        /// <summary>
+        /// 模糊搜索
+        /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state">状态</param>
+        /// <param name="id">int字段</param>
+        /// <param name="orderby">排序</param>
+        /// <returns>IList<Basic></returns>
+        public static IList<Basic> Search(int s, int e, string key, string state, int id, string orderby)
+        {
+            return Service.Search(s, e, key, state, id, orderby);
+        }
+        #endregion
+
+
     }
 
-   
+
 
 }

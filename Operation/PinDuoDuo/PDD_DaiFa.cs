@@ -12,6 +12,9 @@ using System.Net;
 using System.IO;
 using CefSharp.WinForms;
 using CefSharp;
+using Entity;
+using BLL;
+using Newtonsoft.Json;
 
 namespace Operation.PinDuoDuo
 {
@@ -25,43 +28,9 @@ namespace Operation.PinDuoDuo
             InitializeComponent();
 
             webBrowser1 = new ChromiumWebBrowser("https://mobile.yangkeduo.com/personal.html?refer_page_name=index&refer_page_id=10002_1574496288865_ZKZKA8HgWJ&refer_page_sn=10002&page_id=10001_1577246196934_4h0wdL6yBD&is_back=1");
-
-            //try
-            //{
-            //    webBrowser1.RequestHandler = new MyRequestHandler();
-            //}
-            //catch (Exception ex)
-            //{
-            //    ex.ToString().ToShow();
-            //}
-            // webBrowser1.KeyboardHandler = new CefKeyboardHandler();
-            //var setting = new CefSharp.CefSettings();
-            //setting.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36";
-            ////setting
-            //CefSharp.Cef.Initialize(setting);
-            // CookieCollection cc = new CookieCollection();
-            //cc.Add()
-            //Task<bool> SetCookieAsync("http://mobile.yangkeduo.com", cc);
-            //var cookieManager = CefSharp.Cef.GetGlobalCookieManager();
-            //var domain = "mobile.yangkeduo.com";
-
-            //cookieManager.SetCookieAsync("http://" + domain, new CefSharp.Cookie()
-            //{
-            //    Domain = domain,
-            //    Name = "api_uid",
-            //    Value = "rBQEGVyEcqajxSXXHdgWAg==",
-            //    Expires = DateTime.MinValue
-            //});
-
-            //cookieManager.SetCookieAsync("http://" + domain, new CefSharp.Cookie()
-            //{
-            //    Domain = domain,
-            //    Name = "_nano_fp",
-            //    Value = "XpdyX5gJXqU8X0Txl9_39owETlida0mp3wjs8IF4",
-            //    Expires = DateTime.MinValue
-            //});
-
+            
             bind();
+            bind_cb();
 
             Cef.EnableHighDPISupport();
             webBrowser1.FrameLoadStart += Browser.BrowserFrameLoadStart;
@@ -69,13 +38,13 @@ namespace Operation.PinDuoDuo
             webBrowser1.Size = new Size(990, 725);
             webBrowser1.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
             webBrowser1.Dock = DockStyle.Fill;
-            //webBrowser1.SetZoomLevel(1.25);
 
             panel1.Controls.Add(webBrowser1);
 
-
-            //Cef.
             txt_address.GotFocus += Txt_address_GotFocus;
+
+            System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
+
         }
 
         private void Txt_address_GotFocus(object sender, EventArgs e)
@@ -134,9 +103,11 @@ namespace Operation.PinDuoDuo
             {
                 //如果是支付宝页面自动生成二维码，如果不是则清空
                 if (browser.Address.IndexOf("mclient.alipay.com/home/exterfaceAssign.htm?") != -1)
-                    pan_tool.BackgroundImage = CS.AlipayHelper.CodeConversionTool(browser.Address);
+                    pan_tool.BackgroundImage = CS.AlipayHelper.CreateQRCode(browser.Address, 200);
                 else
                     pan_tool.BackgroundImage = null;
+                //showurl();
+                txt_goodsurl.Text = webBrowser1.Address;
             }
             catch (Exception ex)
             {
@@ -145,6 +116,21 @@ namespace Operation.PinDuoDuo
 
 
         }
+
+
+        //void showurl()
+        //{
+        //    ThreadFunDelegate tfd = new ThreadFunDelegate(ThreadFun);
+        //    tfd.Invoke();
+        //}
+
+        //delegate void ThreadFunDelegate();
+        //void ThreadFun()
+        //{
+        //    txt_goodsurl.Text = webBrowser1.Address;
+        //}
+
+
         #endregion
 
         #region setcookies
@@ -364,9 +350,175 @@ namespace Operation.PinDuoDuo
         private void button4_Click(object sender, EventArgs e)
         {
             webBrowser1.ToJs(txt_js.Text);
-        } 
+        }
+
         #endregion
 
 
+        #region 商品管理
+
+
+        #region btn_goodsadd_Click
+        private void btn_goodsadd_Click(object sender, EventArgs e)
+        {
+            string goodsname = txt_goodsname.Text;
+            string goodsurl = txt_goodsurl.Text;
+            if (string.IsNullOrEmpty(goodsname))
+            {
+                "请输入商品名称".ToShow();
+                return;
+            }
+            if (string.IsNullOrEmpty(goodsurl))
+            {
+                "请输入商品网址".ToShow();
+                return;
+            }
+
+            //IList<Entity.Basic> list = BLL.BasicManager.Search(1, 10, "pdd_daifa_goods", "", 0, "");
+            //if (list.Count > 0)
+            //{
+            //    Entity.Basic b = list[0];
+            //    //GoodsUrls gu = Newtonsoft.Json.JsonConvert.DeserializeObject<GoodsUrls>(b.Sign2);
+
+            //    List<GoodsUrls> list_goods = Newtonsoft.Json.JsonConvert.DeserializeObject<List<GoodsUrls>>(b.Sign2);
+            //}
+            List<GoodsUrls> list_goods = GetPDDGoods();
+            if (list_goods != null)
+            {
+                GoodsUrls g = new GoodsUrls();
+                g.goods = goodsname + "-" + goodsurl;
+                list_goods.Add(g);
+                string jn = Newtonsoft.Json.JsonConvert.SerializeObject(list_goods);
+
+                IList<Entity.Basic> list = BLL.BasicManager.Search(1, 10, "pdd_daifa_goods", "", 0, "");
+                if (list.Count > 0)
+                {
+                    Entity.Basic b = list[0];
+                    b.Sign2 = jn;
+                    BLL.BasicManager.Update(b);
+                    "保存成功".ToShow();
+                    bind_cb();
+                }
+            }
+
+
+        }
+        #endregion
+
+
+        #region bind_cb
+        void bind_cb()
+        {
+            try
+            {
+                List<GoodsInfo> list = GetPDDGoodsInfo();
+                GoodsInfo gi = new GoodsInfo();
+                gi.name = "请选择";
+                gi.url = "";
+                list.Insert(0, gi);
+
+                cb_goods.DataSource = list;
+                cb_goods.ValueMember = "url";
+                cb_goods.DisplayMember = "name";
+            }
+            catch (Exception ex)
+            {
+                ex.ToLog();
+            }
+        }
+
+        #endregion
+
+        #region GetPDDGoods
+        List<GoodsUrls> GetPDDGoods()
+        {
+            List<GoodsUrls> list_goods = new List<GoodsUrls>();
+            try
+            {
+                IList<Entity.Basic> list = BLL.BasicManager.Search(1, 10, "pdd_daifa_goods", "", 0, "");
+                if (list.Count > 0)
+                {
+                    Entity.Basic b = list[0];
+                    GoodsUrls g = new GoodsUrls();
+                    list_goods = Newtonsoft.Json.JsonConvert.DeserializeObject<List<GoodsUrls>>(b.Sign2);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToLog();
+            }
+            return list_goods;
+        }
+        #endregion
+
+        #region GetPDDGoodsInfo
+        List<GoodsInfo> GetPDDGoodsInfo()
+        {
+            List<GoodsUrls> list = GetPDDGoods();
+            List<GoodsInfo> res = new List<GoodsInfo>();
+            try
+            {
+                foreach (GoodsUrls gu in list)
+                {
+                    string[] temp = gu.goods.ToSplit("-");
+                    if (temp.Length > 1)
+                    {
+                        GoodsInfo g = new GoodsInfo();
+                        g.name = temp[0];
+                        g.url = temp[1];
+                        res.Add(g);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ex.ToLog();
+            }
+            return res;
+        }
+
+        #endregion
+
+        #region button5_Click
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string url = cb_goods.SelectedValue.ToString();
+                webBrowser1.Load(url);
+            }
+            catch (Exception ex)
+            {
+
+                ex.ToLog();
+            }
+        }
+        #endregion 
+        #endregion
+
     }
+
+
+
+
+
+
+
+    public class GoodsUrls
+    {
+        public string goods { get; set; }
+    }
+
+
+    public class GoodsInfo
+    {
+        public string name { get; set; }
+        public string url { get; set; }
+    }
+
+   
+
+
+
 }

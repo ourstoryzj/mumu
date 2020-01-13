@@ -211,6 +211,11 @@ namespace DAL.Access
             BasicExample.State = Reader["State"] == DBNull.Value ? null : Reader["State"].ToString();
             return BasicExample;
         }
+
+        public IList<Basic> Search(int s, int e, string key, string state, int id, string orderby)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
 

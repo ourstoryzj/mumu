@@ -841,10 +841,19 @@ namespace Operation
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = FormWindowState.Maximized;
-        } 
+        }
+
+
         #endregion
 
-
-
+        #region json测试ToolStripMenuItem_Click
+        private void json测试ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_json fm = new Test.test_json();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = FormWindowState.Maximized;
+        } 
+        #endregion
     }
 }

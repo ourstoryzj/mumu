@@ -119,10 +119,18 @@ namespace Common
             //}
             //return res;
             string res = "";
-            XmlElement xe = GetNode(name1, value1);
-            if (xe != null)
+            try
             {
-                res = xe.GetAttribute(name2);
+                XmlElement xe = GetNode(name1, value1);
+                if (xe != null)
+                {
+                    res = xe.GetAttribute(name2);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ex.ToString().ToLog();
             }
             return res;
         }
@@ -180,28 +188,37 @@ namespace Common
         /// <param name="value2">要设置的属性值</param>
         public  void SetValue(string name1, string value1, string name2, string value2)
         {
-            //判断是否有文件， 没有就创建
-            if (!FileIsHas(xmlurl))
+
+            try
             {
-                CreateDBXml();
+                //判断是否有文件， 没有就创建
+                if (!FileIsHas(xmlurl))
+                {
+                    CreateDBXml();
+                }
+                XmlElement xe = GetNode(name1, value1);
+                if (xe != null)
+                {
+                    //找到了该节点
+                    xe.SetAttribute(name2, value2);
+                    xe.OwnerDocument.Save(xmlurl);
+                }
+                else
+                {
+                    //没有找到该节点
+                    XmlDocument xmldoc = new XmlDocument();
+                    xmldoc.Load(xmlurl);
+                    XmlNodeList nodeList = xmldoc.SelectSingleNode("Data").ChildNodes;
+                    XmlElement xe1 = xmldoc.CreateElement("Add");
+                    xe1.SetAttribute(name2, value2);
+                    nodeList[0].AppendChild(xe1);
+                    xmldoc.Save(xmlurl);
+                }
             }
-            XmlElement xe = GetNode(name1, value1);
-            if (xe != null)
+            catch (Exception ex)
             {
-                //找到了该节点
-                xe.SetAttribute(name2, value2);
-                xe.OwnerDocument.Save(xmlurl);
-            }
-            else
-            {
-                //没有找到该节点
-                XmlDocument xmldoc = new XmlDocument();
-                xmldoc.Load(xmlurl);
-                XmlNodeList nodeList = xmldoc.SelectSingleNode("Data").ChildNodes;
-                XmlElement xe1 = xmldoc.CreateElement("Add");
-                xe1.SetAttribute(name2, value2);
-                nodeList[0].AppendChild(xe1);
-                xmldoc.Save(xmlurl);
+
+                ex.ToString().ToLog();
             }
         }
         #endregion

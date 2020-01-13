@@ -44,6 +44,11 @@
             this.btn_totool = new System.Windows.Forms.Button();
             this.txt_js = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.txt_goodsname = new System.Windows.Forms.TextBox();
+            this.txt_goodsurl = new System.Windows.Forms.TextBox();
+            this.btn_goodsadd = new System.Windows.Forms.Button();
+            this.cb_goods = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -52,7 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(451, 656);
+            this.panel1.Size = new System.Drawing.Size(451, 756);
             this.panel1.TabIndex = 0;
             // 
             // button1
@@ -67,7 +72,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(478, 309);
+            this.button2.Location = new System.Drawing.Point(478, 272);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(146, 38);
             this.button2.TabIndex = 3;
@@ -80,7 +85,7 @@
             this.txt_address.Location = new System.Drawing.Point(478, 81);
             this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(309, 60);
+            this.txt_address.Size = new System.Drawing.Size(318, 60);
             this.txt_address.TabIndex = 4;
             this.txt_address.Click += new System.EventHandler(this.txt_address_Click);
             this.txt_address.TextChanged += new System.EventHandler(this.txt_address_TextChanged);
@@ -97,42 +102,42 @@
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(478, 228);
+            this.txt_name.Location = new System.Drawing.Point(478, 191);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(73, 21);
+            this.txt_name.Size = new System.Drawing.Size(179, 21);
             this.txt_name.TabIndex = 4;
             // 
             // txt_phone
             // 
-            this.txt_phone.Location = new System.Drawing.Point(557, 228);
+            this.txt_phone.Location = new System.Drawing.Point(663, 191);
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(133, 21);
             this.txt_phone.TabIndex = 4;
             // 
             // txt_sheng
             // 
-            this.txt_sheng.Location = new System.Drawing.Point(478, 255);
+            this.txt_sheng.Location = new System.Drawing.Point(478, 218);
             this.txt_sheng.Name = "txt_sheng";
             this.txt_sheng.Size = new System.Drawing.Size(102, 21);
             this.txt_sheng.TabIndex = 4;
             // 
             // txt_shi
             // 
-            this.txt_shi.Location = new System.Drawing.Point(586, 255);
+            this.txt_shi.Location = new System.Drawing.Point(586, 218);
             this.txt_shi.Name = "txt_shi";
             this.txt_shi.Size = new System.Drawing.Size(102, 21);
             this.txt_shi.TabIndex = 4;
             // 
             // txt_xian
             // 
-            this.txt_xian.Location = new System.Drawing.Point(694, 255);
+            this.txt_xian.Location = new System.Drawing.Point(694, 218);
             this.txt_xian.Name = "txt_xian";
             this.txt_xian.Size = new System.Drawing.Size(102, 21);
             this.txt_xian.TabIndex = 4;
             // 
             // txt_dizhi
             // 
-            this.txt_dizhi.Location = new System.Drawing.Point(478, 282);
+            this.txt_dizhi.Location = new System.Drawing.Point(478, 245);
             this.txt_dizhi.Name = "txt_dizhi";
             this.txt_dizhi.Size = new System.Drawing.Size(318, 21);
             this.txt_dizhi.TabIndex = 4;
@@ -159,7 +164,7 @@
             // 
             this.btn_totool.Location = new System.Drawing.Point(704, 368);
             this.btn_totool.Name = "btn_totool";
-            this.btn_totool.Size = new System.Drawing.Size(146, 38);
+            this.btn_totool.Size = new System.Drawing.Size(92, 38);
             this.btn_totool.TabIndex = 3;
             this.btn_totool.Text = "生成二维码";
             this.btn_totool.UseVisualStyleBackColor = true;
@@ -167,38 +172,85 @@
             // 
             // txt_js
             // 
-            this.txt_js.Location = new System.Drawing.Point(478, 594);
+            this.txt_js.Location = new System.Drawing.Point(469, 747);
             this.txt_js.Multiline = true;
             this.txt_js.Name = "txt_js";
-            this.txt_js.Size = new System.Drawing.Size(372, 74);
+            this.txt_js.Size = new System.Drawing.Size(240, 21);
             this.txt_js.TabIndex = 4;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(704, 550);
+            this.button4.Location = new System.Drawing.Point(718, 746);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(146, 38);
+            this.button4.Size = new System.Drawing.Size(78, 21);
             this.button4.TabIndex = 3;
             this.button4.Text = "执行js代码";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // txt_goodsname
+            // 
+            this.txt_goodsname.Location = new System.Drawing.Point(469, 720);
+            this.txt_goodsname.Name = "txt_goodsname";
+            this.txt_goodsname.Size = new System.Drawing.Size(123, 21);
+            this.txt_goodsname.TabIndex = 4;
+            // 
+            // txt_goodsurl
+            // 
+            this.txt_goodsurl.Location = new System.Drawing.Point(598, 720);
+            this.txt_goodsurl.Name = "txt_goodsurl";
+            this.txt_goodsurl.Size = new System.Drawing.Size(111, 21);
+            this.txt_goodsurl.TabIndex = 4;
+            // 
+            // btn_goodsadd
+            // 
+            this.btn_goodsadd.Location = new System.Drawing.Point(718, 719);
+            this.btn_goodsadd.Name = "btn_goodsadd";
+            this.btn_goodsadd.Size = new System.Drawing.Size(78, 21);
+            this.btn_goodsadd.TabIndex = 3;
+            this.btn_goodsadd.Text = "添加商品";
+            this.btn_goodsadd.UseVisualStyleBackColor = true;
+            this.btn_goodsadd.Click += new System.EventHandler(this.btn_goodsadd_Click);
+            // 
+            // cb_goods
+            // 
+            this.cb_goods.FormattingEnabled = true;
+            this.cb_goods.Location = new System.Drawing.Point(469, 694);
+            this.cb_goods.Name = "cb_goods";
+            this.cb_goods.Size = new System.Drawing.Size(240, 20);
+            this.cb_goods.TabIndex = 6;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(718, 694);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(78, 21);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "打开商品";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // PDD_DaiFa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 680);
+            this.ClientSize = new System.Drawing.Size(811, 780);
+            this.Controls.Add(this.cb_goods);
             this.Controls.Add(this.pan_tool);
             this.Controls.Add(this.txt_dizhi);
             this.Controls.Add(this.txt_xian);
             this.Controls.Add(this.txt_shi);
             this.Controls.Add(this.txt_sheng);
+            this.Controls.Add(this.txt_goodsurl);
             this.Controls.Add(this.txt_phone);
+            this.Controls.Add(this.txt_goodsname);
             this.Controls.Add(this.txt_js);
             this.Controls.Add(this.txt_name);
             this.Controls.Add(this.txt_address);
             this.Controls.Add(this.btn_jiexi);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btn_goodsadd);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btn_totool);
             this.Controls.Add(this.button3);
@@ -228,5 +280,10 @@
         private System.Windows.Forms.Button btn_totool;
         private System.Windows.Forms.TextBox txt_js;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txt_goodsname;
+        private System.Windows.Forms.TextBox txt_goodsurl;
+        private System.Windows.Forms.Button btn_goodsadd;
+        private System.Windows.Forms.ComboBox cb_goods;
+        private System.Windows.Forms.Button button5;
     }
 }

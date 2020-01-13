@@ -21,6 +21,8 @@ namespace Operation
         string token = "";
         string phone;
 
+        Common.XMLHelpers xmlpdd = new Common.XMLHelpers("PDD");
+
         /// <summary>
         /// 全选开关
         /// </summary>
@@ -444,11 +446,11 @@ namespace Operation
                 else
                 {
                     //获取是否有正在回复的客户,如果有则跳出
-                    if (XMLHelper_PDD.GetValue("answering") == "1")
+                    if (xmlpdd.GetValue("answering") == "1")
                         return;
 
                     //判断是否有需要回复的内容
-                    if (Browser.JS_CEFBrowserHasElementToBool(XMLHelper_PDD.GetValue("client_five"), webBrowser1))
+                    if (Browser.JS_CEFBrowserHasElementToBool(xmlpdd.GetValue("client_five"), webBrowser1))
                     {
                         this.Focus();
                         webBrowser1.Focus();
@@ -458,7 +460,7 @@ namespace Operation
                         Browser.Delay(CS.XMLHelper.GetValue("PinDuoDuo_AutoAnswerTime").ToInt());
                         timer1.Start();
                         //如果没有需要回复的,代表已经人工回复,则退出
-                        if (!Browser.JS_CEFBrowserHasElementToBool(XMLHelper_PDD.GetValue("client_five"), webBrowser1))
+                        if (!Browser.JS_CEFBrowserHasElementToBool(xmlpdd.GetValue("client_five"), webBrowser1))
                         {
                             return;
                         }
@@ -467,12 +469,12 @@ namespace Operation
                         //打开客服页面
                         tabControl1.SelectedTab = tp_kefus;
                         //设置xml文件中，正在回复
-                        XMLHelper_PDD.SetValue("answering", "1");
+                        xmlpdd.SetValue("answering", "1");
                         //点击需要回复的内容
-                        Browser.JS_CEFBrowser_NoReturn("ElementClickPDD(" + XMLHelper_PDD.GetValue("client_five") + ");", webBrowser1);
+                        Browser.JS_CEFBrowser_NoReturn("ElementClickPDD(" + xmlpdd.GetValue("client_five") + ");", webBrowser1);
                         Browser.Delay(1000);
                         //获取需要回复的内容
-                        string ask = Browser.JS_CEFBrowser(XMLHelper_PDD.GetValue("client_message_last"), webBrowser1);
+                        string ask = Browser.JS_CEFBrowser(xmlpdd.GetValue("client_message_last"), webBrowser1);
                         //等待显示时间大概200ms
                         Browser.Delay(200);
 
@@ -480,7 +482,7 @@ namespace Operation
                         string answer = ToDo_AutoContent(ask);
                         if (string.IsNullOrEmpty(answer))
                         {
-                            answer = XMLHelper_PDD.GetValue("client_answerInfo");
+                            answer = xmlpdd.GetValue("client_answerInfo");
                         }
                         //显示窗口到第一屏
                         Manager.SetShowAndTop();
@@ -493,8 +495,8 @@ namespace Operation
                         //开始回复-复制粘贴
                         //点击输入窗口
                         webBrowser1.Focus();
-                        Browser.MouseLeftByHtmlElement(XMLHelper_PDD.GetValue("client_replyText"), webBrowser1);
-                        Browser.MouseLeftByHtmlElement(XMLHelper_PDD.GetValue("client_replyText"), webBrowser1);
+                        Browser.MouseLeftByHtmlElement(xmlpdd.GetValue("client_replyText"), webBrowser1);
+                        Browser.MouseLeftByHtmlElement(xmlpdd.GetValue("client_replyText"), webBrowser1);
                         //复制粘贴
                         Auto.Ctrl_V(answer);
                         //回车
@@ -503,7 +505,7 @@ namespace Operation
                         this.TopMost = false;
                         this.MdiParent.TopMost = false;
                         //设置xml文件中，关闭正在回复
-                        XMLHelper_PDD.SetValue("answering", "0");
+                        xmlpdd.SetValue("answering", "0");
 
                     }
 
@@ -593,8 +595,9 @@ namespace Operation
         bool chongzhiing = false;
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
             //判断是否有正在回复，如果有则跳出，如果没有则执行自动回复
-            if (XMLHelper_PDD.GetValue("answering") == "0")
+            if (xmlpdd.GetValue("answering") == "0")
             {
                 Auto_Answers();
             }
@@ -610,7 +613,7 @@ namespace Operation
                 {
                     if (DateTime.Now.ToString("HHmmss").ToInt() > chongzhi1.AddMinutes(1).ToString("HHmmss").ToInt())
                     {
-                        XMLHelper_PDD.SetValue("answering", "0");
+                        xmlpdd.SetValue("answering", "0");
                         chongzhiing = false;
                     }
                 }

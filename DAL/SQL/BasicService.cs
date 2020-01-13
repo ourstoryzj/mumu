@@ -125,6 +125,36 @@ namespace DAL
         #endregion
 
 
+        #region Search
+        /// <summary>
+        /// 模糊搜索
+        /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state">状态</param>
+        /// <param name="id">int字段</param>
+        /// <param name="orderby">排序</param>
+        /// <returns>IList<Basic></returns>
+        public IList<Basic> Search(int s, int e, string key, string state, int id, string orderby)
+        {
+            string sql1 = "select top " + (e - s + 1).ToString() + " * from Basic where ";
+            string sql2 = string.IsNullOrEmpty(key) ? " 1=1 " : " ( Sign1 like '%" + key + "%' or Sign2 like '%" + key + "%' or Sign3 like '%" + key + "%' or Sign4 like '%" + key + "%' or State like '%" + key + "%'  )";//删除无用字段，删除最后一个or
+            string sql3 = string.IsNullOrEmpty(state) ? "" : " and State= '" + state + "' ";//状态字段，无用删除
+            string sql4 = id == 0 ? "" : " and id字段='" + id.ToString() + "' ";//Int字段，无用删除
+            string sql7 = string.IsNullOrEmpty(orderby) ? " order by ID desc " : " order by " + orderby;
+            string sql8 = s == 1 ? "" : " and ID not in ( select top " + (s - 1).ToString() + " ID from Basic where " + sql2 + sql3 + sql4  + sql7 + " ) ";
+            DBHelper.sqlstr = sql1 + sql2 + sql3 + sql4  + sql8 + sql7;
+            List<Basic> list = new List<Basic>();
+            SqlDataReader reader = DBHelper.ExecuteReader();
+            while (reader.Read())
+            {
+                Basic Obj = GetByReader(reader);
+                list.Add(Obj);
+            }
+            reader.Close();
+            return list;
+        }
+        #endregion
+
         #region 公共方法
 
         #region GetSqlParameters
