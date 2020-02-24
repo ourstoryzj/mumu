@@ -21,11 +21,41 @@
   <!-- 获取输入回复内容的文本框 -->
   <Add name="client_replyText" value="document.getElementById('replyTextarea')" />
   <!-- 统一回复内容 -->
-  <Add name="client_answerInfo" value="您好，顾客暂时比较多，客服MM正在逐一回复，请稍等一下哦" />
+  
+  <Add name="client_answerInfo" value="您好，本店于1月14日开始休年假，2月11日上班，期间订单上班后会尽快发出发出，有需要可以直接下单，其他问题可留言，我们会不定期上线回复。给您带来不便，请见谅。" />
+<Add name="client_answerInfo2" value="您好，顾客暂时比较多，客服MM正在逐一回复，请稍等一下哦" />
   <!-- 店铺ID的元素 -->
   <Add name="client_shopid" value="document.getElementsByClassName('nickname')[0]" />
-  <!--  -->
+  <!-- pdd_user_id -->
+  <Add name="pdd_user_id" value="5472535098" />
+  <!-- PDDAccessToken -->
+  <Add name="PDDAccessToken" value="JPRN6S3D6M27SUULU5I7PD3IYJ7EVQLRSTKFQYV2V5ZWIHI42JNQ1123a4a" />
+  <!-- 发货-设置收件信息-设置收件人姓名 -->
+  <Add name="fh_SetNameFocus" value="document.getElementById('name').focus()" />
+  <!-- 发货-设置收件信息-设置手机号码 -->
+  <Add name="fh_SetMobileFocus" value="document.getElementById('mobile').focus()" />
+  <!-- 发货-设置收件信息-设置收件地址 -->
+  <Add name="fh_SetAddressFocus" value="document.getElementById('address').focus()" />
+  <!--   -->
   <Add name=" " value=" " />
-  <!--  -->
+  <!--   -->
+  <Add name=" " value=" " />
+  <!--   -->
+  <Add name=" " value=" " />
+  <!--   -->
+  <Add name=" " value=" " />
+  <!--   -->
+  <Add name=" " value=" " />
+  <!--   -->
+  <Add name=" " value=" " />
+  <!--   -->
+  <Add name=" " value=" " />
+  <!--   -->
+  <Add name=" " value=" " />
+  <!--   -->
+  <Add name=" " value=" " />
+  <!--   -->
+  <Add name=" " value=" " />
+  <!--   -->
   <Add name=" " value=" " />
 </Data>

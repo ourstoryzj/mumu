@@ -49,12 +49,17 @@
             this.btn_goodsadd = new System.Windows.Forms.Button();
             this.cb_goods = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.btn_go = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.btn_go);
+            this.panel1.Controls.Add(this.btn_back);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(451, 756);
@@ -89,6 +94,7 @@
             this.txt_address.TabIndex = 4;
             this.txt_address.Click += new System.EventHandler(this.txt_address_Click);
             this.txt_address.TextChanged += new System.EventHandler(this.txt_address_TextChanged);
+            this.txt_address.DoubleClick += new System.EventHandler(this.txt_address_DoubleClick);
             // 
             // button3
             // 
@@ -230,6 +236,26 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // btn_back
+            // 
+            this.btn_back.Location = new System.Drawing.Point(3, 3);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(40, 38);
+            this.btn_back.TabIndex = 3;
+            this.btn_back.Text = "<";
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // btn_go
+            // 
+            this.btn_go.Location = new System.Drawing.Point(408, 3);
+            this.btn_go.Name = "btn_go";
+            this.btn_go.Size = new System.Drawing.Size(40, 38);
+            this.btn_go.TabIndex = 3;
+            this.btn_go.Text = ">";
+            this.btn_go.UseVisualStyleBackColor = true;
+            this.btn_go.Click += new System.EventHandler(this.btn_go_Click);
+            // 
             // PDD_DaiFa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -258,6 +284,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "PDD_DaiFa";
             this.Text = "test_meau";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,5 +312,7 @@
         private System.Windows.Forms.Button btn_goodsadd;
         private System.Windows.Forms.ComboBox cb_goods;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_go;
+        private System.Windows.Forms.Button btn_back;
     }
 }

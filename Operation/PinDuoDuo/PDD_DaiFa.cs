@@ -21,6 +21,7 @@ namespace Operation.PinDuoDuo
     public partial class PDD_DaiFa : Form
     {
         ChromiumWebBrowser webBrowser1;
+        XMLHelpers xml = new XMLHelpers("PDD");
 
         #region PDD_DaiFa
         public PDD_DaiFa()
@@ -79,8 +80,10 @@ namespace Operation.PinDuoDuo
             //需要改变的
             //setcookies("_nano_fp", "XpdYXp9JXpmbXqdynC_wnc3izkRTuCCIwjlXTMPM");
             //setcookies("pdd_user_uin", "S2BYMXSYU3H7XKJEZP64VHHA6A_GEXDA");
-            setcookies("pdd_user_id", "5472535098");
-            setcookies("PDDAccessToken", "2MESFI6BWGU5ML7VBPXYO6VWY2U4IO5SS7QDLQKGCDUMHXWFZXAA1123a4a");
+            string pdd_user_id = xml.GetValue("pdd_user_id");
+            string PDDAccessToken = xml.GetValue("PDDAccessToken");
+            setcookies("pdd_user_id", pdd_user_id);
+            setcookies("PDDAccessToken", PDDAccessToken);
 
             //setcookies("pdd_user_id", "6217302188028");
             //setcookies("PDDAccessToken", "SW26IAYOQRYSRYUHI72VGGKCYDH7ULUCHDTGYJVUGJFEPBH3FQVQ103fcbe");
@@ -240,20 +243,20 @@ namespace Operation.PinDuoDuo
             //设置姓名
             //webBrowser1.ToMouseClick("document.getElementsByClassName('m-addr-name')[0]");
             webBrowser1.Focus();
-            webBrowser1.ToJs("document.getElementsByClassName('m-addr-name')[0].focus()");
+            webBrowser1.ToJs(xml.GetValue("fh_SetNameFocus"));
             Auto.Ctrl_A();
             Auto.Ctrl_V(name);
             Manager.Delay(500);
 
             //设置电话
             //webBrowser1.ToMouseClick("document.getElementsByClassName('m-addr-mobile')[0]");
-            webBrowser1.ToJs("document.getElementsByClassName('m-addr-mobile')[0].focus()");
+            webBrowser1.ToJs(xml.GetValue("fh_SetMobileFocus"));
             Auto.Ctrl_A();
             Auto.Ctrl_V(phonecode);
             Manager.Delay(500);
             //设置地址
             //webBrowser1.ToMouseClick("document.getElementById('address')");
-            webBrowser1.ToJs("document.getElementById('address').focus()");
+            webBrowser1.ToJs(xml.GetValue("fh_SetAddressFocus"));
             Auto.Ctrl_A();
             Auto.Ctrl_V(address);
 
@@ -316,6 +319,10 @@ namespace Operation.PinDuoDuo
         {
             //txt_address.SelectAll();
 
+        }
+        private void txt_address_DoubleClick(object sender, EventArgs e)
+        {
+            txt_address.SelectAll();
         }
         #endregion
 
@@ -494,7 +501,23 @@ namespace Operation.PinDuoDuo
                 ex.ToLog();
             }
         }
-        #endregion 
+
+        #endregion
+
+        #endregion
+
+        #region 浏览器返回前进
+
+        
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            webBrowser1.ToJs("window.history.back()");
+        }
+
+        private void btn_go_Click(object sender, EventArgs e)
+        {
+            webBrowser1.ToJs("window.history.forward()");
+        }
         #endregion
 
     }

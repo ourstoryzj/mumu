@@ -479,7 +479,8 @@ namespace Operation
                         Browser.Delay(200);
 
                         //判断需要回复的内容，如果没有则添加问题，同时屏蔽不添加问题的关键词,然后没有的话自动回复统一内容，发邮件信息
-                        string answer = ToDo_AutoContent(ask);
+                        //string answer = ToDo_AutoContent(ask);
+                        string answer = "您好，本店于1月14日开始休年假，2月11日上班，期间订单上班后会尽快发出发出，有需要可以直接下单，其他问题可留言，我们会不定期上线回复。给您带来不便，请见谅。";
                         if (string.IsNullOrEmpty(answer))
                         {
                             answer = xmlpdd.GetValue("client_answerInfo");
@@ -729,6 +730,11 @@ namespace Operation
             CS.PinDuoDuo.ClearAP(webBrowser1);
         }
         #endregion
+
+        private void btn_messageone_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

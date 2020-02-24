@@ -34,8 +34,16 @@ namespace Common
         /// <returns></returns>
         public  bool FileIsHas(string url)
         {
-            if (!System.IO.File.Exists(url))
+            try
             {
+                if (!System.IO.File.Exists(url))
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToLog();
                 return false;
             }
             return true;

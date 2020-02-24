@@ -176,7 +176,7 @@ namespace DAL
             {
                 ErrorLog.WriteEntry(e);
                 reader.Close();
-                throw e;
+                //throw e;
             }
             return reader;
         }
@@ -199,7 +199,7 @@ namespace DAL
             {
                 ErrorLog.WriteEntry(e);
                 reader.Close();
-                throw e;
+                //throw e;
             }
             return reader;
         }
@@ -223,7 +223,7 @@ namespace DAL
             {
                 ErrorLog.WriteEntry(e);
                 reader.Close();
-                throw e;
+                //throw e;
             }
             return reader;
         }
@@ -250,7 +250,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {
@@ -276,7 +276,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {
@@ -303,7 +303,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {
@@ -338,7 +338,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {
@@ -366,7 +366,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {
@@ -396,7 +396,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {
@@ -422,7 +422,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {
@@ -449,7 +449,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {
@@ -480,7 +480,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {
@@ -508,7 +508,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {
@@ -537,7 +537,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorLog.WriteEntry(e);
-                throw e;
+                //throw e;
             }
             finally
             {

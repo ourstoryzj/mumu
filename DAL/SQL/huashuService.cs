@@ -136,22 +136,30 @@ namespace DAL
         /// <returns>IList<huashu></returns>
         public IList<huashu> Search(int s, int e, string key, string state, string _type, DateTime date1, DateTime date2)
         {
-            //string sql1 = "select top " + e.ToString() + " * from shuadan_pingjia where ";
-            string sql2 = string.IsNullOrEmpty(key) ? " 1=1 " : " (  htitle like '%" + key + "%' or  hcontext like '%" + key + "%' or hremark like '%" + key + "%' ) ";
-            string sql3 = string.IsNullOrEmpty(state) ? "" : " and hstate= '" + state + "' ";
-            string sql4 = string.IsNullOrEmpty(_type) ? " and hfid!= 0 " : " and hfid= " + _type + " ";
-            string sql5 = date1 == new DateTime() ? "" : " and datediff('d','" + date1.ToString() + "',hdate)>=0 ";
-            string sql6 = date2 == new DateTime() ? "" : " and datediff('d','" + date2.ToString() + "',hdate)<=0 ";
-            string sql1 = "select top " + e.ToString() + " * from   huashu where " + sql2 + sql3 + sql4 + sql5 + sql6;
-            DBHelper.sqlstr = "select * from ( select top " + (e - s + 1).ToString() + " * from " + "( " + sql1 + " order by hsort asc,hcount desc,hid asc  ) as table1  order by hsort desc,hcount asc  ,hid desc )as table2  order by hsort asc,hcount desc,hid asc ";
             List<huashu> list = new List<huashu>();
-            SqlDataReader reader = DBHelper.ExecuteReader();
-            while (reader.Read())
+            //string sql1 = "select top " + e.ToString() + " * from shuadan_pingjia where ";
+            try
             {
-                huashu Obj = GetByReader(reader);
-                list.Add(Obj);
+                string sql2 = string.IsNullOrEmpty(key) ? " 1=1 " : " (  htitle like '%" + key + "%' or  hcontext like '%" + key + "%' or hremark like '%" + key + "%' ) ";
+                string sql3 = string.IsNullOrEmpty(state) ? "" : " and hstate= '" + state + "' ";
+                string sql4 = string.IsNullOrEmpty(_type) ? " and hfid!= 0 " : " and hfid= " + _type + " ";
+                string sql5 = date1 == new DateTime() ? "" : " and datediff('d','" + date1.ToString() + "',hdate)>=0 ";
+                string sql6 = date2 == new DateTime() ? "" : " and datediff('d','" + date2.ToString() + "',hdate)<=0 ";
+                string sql1 = "select top " + e.ToString() + " * from   huashu where " + sql2 + sql3 + sql4 + sql5 + sql6;
+                DBHelper.sqlstr = "select * from ( select top " + (e - s + 1).ToString() + " * from " + "( " + sql1 + " order by hsort asc,hcount desc,hid asc  ) as table1  order by hsort desc,hcount asc  ,hid desc )as table2  order by hsort asc,hcount desc,hid asc ";
+
+                SqlDataReader reader = DBHelper.ExecuteReader();
+                while (reader.Read())
+                {
+                    huashu Obj = GetByReader(reader);
+                    list.Add(Obj);
+                }
+                reader.Close();
             }
-            reader.Close();
+            catch (Exception)
+            {
+                //throw;
+            }
             return list;
         }
         #endregion
