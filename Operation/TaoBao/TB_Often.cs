@@ -56,7 +56,7 @@ namespace Operation.TaoBao
                 webBrowser2.FrameLoadStart += Browser.BrowserFrameLoadStart;
                 webBrowser2.FrameLoadEnd += Browser.BrowserFrameLoadEnd;
                 webBrowser2.Size = new Size(990, 400);
-                webBrowser2.Location = new Point(0, 325);
+                webBrowser2.Location = new Point(0, 250);
                 webBrowser2.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
                 webBrowser2.RequestContext = webBrowser1.RequestContext;
                 tp_shoucang.Controls.Add(webBrowser2);
@@ -870,7 +870,7 @@ namespace Operation.TaoBao
         #region 打开网页
         private void btn_searchgoods_Click(object sender, EventArgs e)
         {
-            
+
 
 
             #region 模拟真实
@@ -1129,6 +1129,10 @@ namespace Operation.TaoBao
         #region btn_fuzhi2_Click
         private void btn_fuzhi2_Click(object sender, EventArgs e)
         {
+
+            //string title1 = GetGoodsTitle("https://item.taobao.com/item.htm?spm=a1z10.3-c.w4002-3762396020.362.3c0c3c35fQz1YZ&id=613761255457");
+            //return;
+
             //保存收藏数量
             Common.XMLHelper.SetValue("TaoBao_Collect_Num", txt_collect_num.Text);
 
@@ -1143,8 +1147,10 @@ namespace Operation.TaoBao
                 return;
             }
 
+            int index = 0;
             foreach (string str in goods_zu)
             {
+                index++;
                 string title = "";
                 string url = "";
                 if (!str.ToIsEmpty())
@@ -1166,6 +1172,12 @@ namespace Operation.TaoBao
                         //    url = str;
                         //}
                         title = GetGoodsTitle(str);
+                        if (string.IsNullOrEmpty(title))
+                        {
+                            "标题为获取到".ToShow();
+                            ("正在操作第"+index.ToString()+"条数据").ToShow();
+                            return;
+                        }
                         url = str;
                     }
                     else
@@ -1312,11 +1324,12 @@ namespace Operation.TaoBao
                 {
                     using (StreamReader sr = new StreamReader(resStream, System.Text.Encoding.GetEncoding("gb2312")))
                     {
-                        title = sr.ReadToEnd().ToSubString("<title>", "</title>").Replace("-淘宝网", "");
+                        string temp = sr.ReadToEnd();
+                        title = temp.ToSubString("<title>", "</title>").Replace("-淘宝网", "");
                     }
                 }
             }
-            catch { }
+            catch (Exception ex){ ex.ToString().ToShow(); }
             return title;
         }
 
@@ -1329,17 +1342,26 @@ namespace Operation.TaoBao
         private void btn_collect_login_Click(object sender, EventArgs e)
         {
 
-            Uri uri = new Uri("http://www.nuoren365.com");
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-            WebHeaderCollection webheaders = new WebHeaderCollection();
-            webheaders.Add(HttpRequestHeader.Host, "www.nuoren365.com");
-            webheaders.Add("", "");
-            webheaders.Add("", "");
-            request.Headers = webheaders;
+            //Uri uri = new Uri("http://www.nuoren365.com");
+            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+            //WebHeaderCollection webheaders = new WebHeaderCollection();
+            //webheaders.Add(HttpRequestHeader.Host, "www.nuoren365.com");
+            //webheaders.Add("", "");
+            //webheaders.Add("", "");
+            //request.Headers = webheaders;
 
             #region 真实登录代码
+
+            setcookies("__cfduid","de9ff2b6aa275d93dfe1d5d9b698eb3531584761257");
+            setcookies("login","08d3c22dbaee4b8886353c78a9640bb8");
+            webBrowser2.Load("http://www.nuoren365.com/#/public/member-center");
+
+            return;
             //webBrowser2.Focus();
             //webBrowser2.Load("http://www.nuoren365.com/member/#/login");
+
+
+
             //if (webBrowser2.ToWait())
             //{
             //    webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[0]");
@@ -1347,8 +1369,23 @@ namespace Operation.TaoBao
             //    webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[1]");
             //    Auto.Ctrl_V("zhangjiazhe123");
             //    webBrowser2.ToJs("document.getElementsByClassName('login-submit')[0].click()");
-            //} 
+            //}
             #endregion
+
+
+        }
+
+        void setcookies(string name, string value)
+        {
+            var domain = "www.nuoren365.com";
+            var cookieManager = CefSharp.Cef.GetGlobalCookieManager();
+            cookieManager.SetCookieAsync("http://" + domain, new CefSharp.Cookie()
+            {
+                Domain = domain,
+                Name = name,
+                Value = value,
+                Expires = DateTime.MinValue
+            });
         }
         #endregion
 
@@ -1356,7 +1393,7 @@ namespace Operation.TaoBao
 
         private void btn_collect_openweb_Click(object sender, EventArgs e)
         {
-            Browser.SetCookies("http://www.nuoren365.com","login", "cc696ba2246b461298b37c12bf557abb");
+            Browser.SetCookies("http://www.nuoren365.com", "login", "cc696ba2246b461298b37c12bf557abb");
             Cef.EnableHighDPISupport();
             webBrowser2.Load("http://www.nuoren365.com/member/#/public/taobao/shou-cang-task/search-collection");
             webBrowser2.ToWait();

@@ -832,7 +832,7 @@ namespace Operation
 
 
 
-        #endregion
+        
 
         #region 生成二维码ToolStripMenuItem_Click
         private void 生成二维码ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -853,7 +853,17 @@ namespace Operation
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = FormWindowState.Maximized;
-        } 
+        }
+        #endregion
+
+        private void 编辑框测试ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_textedit  fm = new Test.test_textedit();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = FormWindowState.Maximized;
+        }
+
         #endregion
     }
 }

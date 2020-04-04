@@ -41,7 +41,7 @@ namespace Common
             shortcut.WorkingDirectory = Path.GetDirectoryName(targetPath);//设置起始位置
             shortcut.WindowStyle = 1;//设置运行方式，默认为常规窗口
             shortcut.Description = description;//设置备注
-            shortcut.IconLocation = string.IsNullOrWhiteSpace(iconLocation) ? targetPath : iconLocation;//设置图标路径
+            shortcut.IconLocation = string.IsNullOrEmpty(iconLocation) ? targetPath : iconLocation;//设置图标路径
             shortcut.Save();//保存快捷方式
         }
 

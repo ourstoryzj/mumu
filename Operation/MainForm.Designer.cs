@@ -69,6 +69,7 @@
             this.httpWebRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cEFSharp测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.生成二维码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.json测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.包牛牛代发ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.货源ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,7 +79,7 @@
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
-            this.json测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.编辑框测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -378,7 +379,8 @@
             this.httpWebRequestToolStripMenuItem,
             this.cEFSharp测试ToolStripMenuItem,
             this.生成二维码ToolStripMenuItem,
-            this.json测试ToolStripMenuItem});
+            this.json测试ToolStripMenuItem,
+            this.编辑框测试ToolStripMenuItem});
             this.测试ToolStripMenuItem.Name = "测试ToolStripMenuItem";
             this.测试ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.测试ToolStripMenuItem.Text = "测试";
@@ -411,6 +413,13 @@
             this.生成二维码ToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.生成二维码ToolStripMenuItem.Text = "生成二维码";
             this.生成二维码ToolStripMenuItem.Click += new System.EventHandler(this.生成二维码ToolStripMenuItem_Click);
+            // 
+            // json测试ToolStripMenuItem
+            // 
+            this.json测试ToolStripMenuItem.Name = "json测试ToolStripMenuItem";
+            this.json测试ToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.json测试ToolStripMenuItem.Text = "Json测试";
+            this.json测试ToolStripMenuItem.Click += new System.EventHandler(this.json测试ToolStripMenuItem_Click);
             // 
             // 包牛牛代发ToolStripMenuItem
             // 
@@ -484,12 +493,12 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
-            // json测试ToolStripMenuItem
+            // 编辑框测试ToolStripMenuItem
             // 
-            this.json测试ToolStripMenuItem.Name = "json测试ToolStripMenuItem";
-            this.json测试ToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.json测试ToolStripMenuItem.Text = "Json测试";
-            this.json测试ToolStripMenuItem.Click += new System.EventHandler(this.json测试ToolStripMenuItem_Click);
+            this.编辑框测试ToolStripMenuItem.Name = "编辑框测试ToolStripMenuItem";
+            this.编辑框测试ToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.编辑框测试ToolStripMenuItem.Text = "编辑框测试";
+            this.编辑框测试ToolStripMenuItem.Click += new System.EventHandler(this.编辑框测试ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -567,5 +576,6 @@
         private System.Windows.Forms.ToolStripMenuItem cEFSharp测试ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 生成二维码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem json测试ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 编辑框测试ToolStripMenuItem;
     }
 }

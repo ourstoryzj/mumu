@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_go = new System.Windows.Forms.Button();
+            this.btn_back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txt_address = new System.Windows.Forms.TextBox();
@@ -49,8 +51,9 @@
             this.btn_goodsadd = new System.Windows.Forms.Button();
             this.cb_goods = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.btn_back = new System.Windows.Forms.Button();
-            this.btn_go = new System.Windows.Forms.Button();
+            this.txt_token = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_token_save = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +67,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(451, 756);
             this.panel1.TabIndex = 0;
+            // 
+            // btn_go
+            // 
+            this.btn_go.Location = new System.Drawing.Point(408, 3);
+            this.btn_go.Name = "btn_go";
+            this.btn_go.Size = new System.Drawing.Size(40, 38);
+            this.btn_go.TabIndex = 3;
+            this.btn_go.Text = ">";
+            this.btn_go.UseVisualStyleBackColor = true;
+            this.btn_go.Click += new System.EventHandler(this.btn_go_Click);
+            // 
+            // btn_back
+            // 
+            this.btn_back.Location = new System.Drawing.Point(3, 3);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(40, 38);
+            this.btn_back.TabIndex = 3;
+            this.btn_back.Text = "<";
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // button1
             // 
@@ -178,7 +201,7 @@
             // 
             // txt_js
             // 
-            this.txt_js.Location = new System.Drawing.Point(469, 747);
+            this.txt_js.Location = new System.Drawing.Point(478, 647);
             this.txt_js.Multiline = true;
             this.txt_js.Name = "txt_js";
             this.txt_js.Size = new System.Drawing.Size(240, 21);
@@ -186,7 +209,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(718, 746);
+            this.button4.Location = new System.Drawing.Point(727, 646);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(78, 21);
             this.button4.TabIndex = 3;
@@ -196,21 +219,21 @@
             // 
             // txt_goodsname
             // 
-            this.txt_goodsname.Location = new System.Drawing.Point(469, 720);
+            this.txt_goodsname.Location = new System.Drawing.Point(478, 620);
             this.txt_goodsname.Name = "txt_goodsname";
             this.txt_goodsname.Size = new System.Drawing.Size(123, 21);
             this.txt_goodsname.TabIndex = 4;
             // 
             // txt_goodsurl
             // 
-            this.txt_goodsurl.Location = new System.Drawing.Point(598, 720);
+            this.txt_goodsurl.Location = new System.Drawing.Point(607, 620);
             this.txt_goodsurl.Name = "txt_goodsurl";
             this.txt_goodsurl.Size = new System.Drawing.Size(111, 21);
             this.txt_goodsurl.TabIndex = 4;
             // 
             // btn_goodsadd
             // 
-            this.btn_goodsadd.Location = new System.Drawing.Point(718, 719);
+            this.btn_goodsadd.Location = new System.Drawing.Point(727, 619);
             this.btn_goodsadd.Name = "btn_goodsadd";
             this.btn_goodsadd.Size = new System.Drawing.Size(78, 21);
             this.btn_goodsadd.TabIndex = 3;
@@ -221,14 +244,14 @@
             // cb_goods
             // 
             this.cb_goods.FormattingEnabled = true;
-            this.cb_goods.Location = new System.Drawing.Point(469, 694);
+            this.cb_goods.Location = new System.Drawing.Point(478, 594);
             this.cb_goods.Name = "cb_goods";
             this.cb_goods.Size = new System.Drawing.Size(240, 20);
             this.cb_goods.TabIndex = 6;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(718, 694);
+            this.button5.Location = new System.Drawing.Point(727, 594);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(78, 21);
             this.button5.TabIndex = 3;
@@ -236,31 +259,41 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // btn_back
+            // txt_token
             // 
-            this.btn_back.Location = new System.Drawing.Point(3, 3);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(40, 38);
-            this.btn_back.TabIndex = 3;
-            this.btn_back.Text = "<";
-            this.btn_back.UseVisualStyleBackColor = true;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            this.txt_token.Location = new System.Drawing.Point(481, 708);
+            this.txt_token.Multiline = true;
+            this.txt_token.Name = "txt_token";
+            this.txt_token.Size = new System.Drawing.Size(237, 60);
+            this.txt_token.TabIndex = 7;
             // 
-            // btn_go
+            // label1
             // 
-            this.btn_go.Location = new System.Drawing.Point(408, 3);
-            this.btn_go.Name = "btn_go";
-            this.btn_go.Size = new System.Drawing.Size(40, 38);
-            this.btn_go.TabIndex = 3;
-            this.btn_go.Text = ">";
-            this.btn_go.UseVisualStyleBackColor = true;
-            this.btn_go.Click += new System.EventHandler(this.btn_go_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(479, 693);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 12);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Token";
+            // 
+            // btn_token_save
+            // 
+            this.btn_token_save.Location = new System.Drawing.Point(727, 708);
+            this.btn_token_save.Name = "btn_token_save";
+            this.btn_token_save.Size = new System.Drawing.Size(78, 60);
+            this.btn_token_save.TabIndex = 9;
+            this.btn_token_save.Text = "保存";
+            this.btn_token_save.UseVisualStyleBackColor = true;
+            this.btn_token_save.Click += new System.EventHandler(this.btn_token_save_Click);
             // 
             // PDD_DaiFa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 780);
+            this.Controls.Add(this.btn_token_save);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txt_token);
             this.Controls.Add(this.cb_goods);
             this.Controls.Add(this.pan_tool);
             this.Controls.Add(this.txt_dizhi);
@@ -314,5 +347,8 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btn_go;
         private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.TextBox txt_token;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_token_save;
     }
 }

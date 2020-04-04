@@ -24,7 +24,7 @@
   <add name="DataSpm_CanMou" value="d108" />
   <add name="DataSpm_ShiChang" value="d1057" />
   <add name="DataSpm_SouSuoCi" value="d1078" />
-  <add name="OpenFolderDialog_SelectedPath" value="C:\Users\Administrator\Desktop\test\欣冉网单批发_6189#桃心配色五件套_125.00\详情图" />
+  <add name="OpenFolderDialog_SelectedPath" value="C:\Users\Administrator\Desktop\上新\1\ok\新建文件夹" />
   <add name="CaijiKeyTime" value="3000" />
   <!--市场行情采集关键词时每页采集时间-->
   <!--淘宝数据包文件夹-->
@@ -96,4 +96,5 @@
   <add name="TaoJiJi_ShopID1" value="taojj_23552" title="青涩年华" />
   <add name="TaoJiJi_Account1" value="boss" title="青涩年华" />
   <add name="TaoJiJi_Pwd1" value="HOE03UEB" />
+  <add name="TaoBao_Collect_Num" value="1" />
 </Data>

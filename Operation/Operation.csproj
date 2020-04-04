@@ -512,6 +512,12 @@
     <Compile Include="PinDuoDuo\PDD_DaiFa.Designer.cs">
       <DependentUpon>PDD_DaiFa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\test_textedit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_textedit.Designer.cs">
+      <DependentUpon>test_textedit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_webrequest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -778,6 +784,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDD_DaiFa.resx">
       <DependentUpon>PDD_DaiFa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_textedit.resx">
+      <DependentUpon>test_textedit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_webrequest.resx">
       <DependentUpon>test_webrequest.cs</DependentUpon>

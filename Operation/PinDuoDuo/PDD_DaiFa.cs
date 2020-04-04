@@ -80,11 +80,14 @@ namespace Operation.PinDuoDuo
             //需要改变的
             //setcookies("_nano_fp", "XpdYXp9JXpmbXqdynC_wnc3izkRTuCCIwjlXTMPM");
             //setcookies("pdd_user_uin", "S2BYMXSYU3H7XKJEZP64VHHA6A_GEXDA");
+
             string pdd_user_id = xml.GetValue("pdd_user_id");
             string PDDAccessToken = xml.GetValue("PDDAccessToken");
+            //string pdd_user_id = "4844821835342";
+            //string PDDAccessToken = "6AAB6XWY2A2SCTWGAY3OW7T5IN44SZ7KEXRHNG6F7XAGF4X7AUPQ1124e6e";
             setcookies("pdd_user_id", pdd_user_id);
             setcookies("PDDAccessToken", PDDAccessToken);
-
+            txt_token.Text = PDDAccessToken;
             //setcookies("pdd_user_id", "6217302188028");
             //setcookies("PDDAccessToken", "SW26IAYOQRYSRYUHI72VGGKCYDH7ULUCHDTGYJVUGJFEPBH3FQVQ103fcbe");
 
@@ -99,7 +102,7 @@ namespace Operation.PinDuoDuo
 
             ChromiumWebBrowser browser = (ChromiumWebBrowser)sender;
             //浏览器缩放比例
-            //browser.SetZoomLevel(3);
+            browser.SetZoomLevel(0.5);
             //Browser.SetJSFile(browser);
 
             try
@@ -520,6 +523,11 @@ namespace Operation.PinDuoDuo
         }
         #endregion
 
+        private void btn_token_save_Click(object sender, EventArgs e)
+        {
+            string token = txt_token.Text.Trim();
+            xml.SetValue("PDDAccessToken", token);
+        }
     }
 
 
