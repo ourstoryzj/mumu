@@ -13,7 +13,7 @@ namespace DAL.MySql
     //实体类名称：shuadan_accountExample
     //主键：sdaid
 
-    public class shuadan_accountService : Ishuadan_accountService
+    public class shuadan_accountService 
     {
         #region SearchAll
         /// <summary>
@@ -23,9 +23,9 @@ namespace DAL.MySql
         /*查看是否为视图*/
         public IList<shuadan_account> SearchAll()
         {
-            MySql.DBHelper.sqlstr = "select * from shuadan_account ";
+            DBHelper.sqlstr = "select * from shuadan_account ";
             List<shuadan_account> list = new List<shuadan_account>();
-            MySqlDataReader reader = MySql.DBHelper.ExecuteReader();
+            MySqlDataReader reader = DBHelper.ExecuteReader();
             while (reader.Read())
             {
                 shuadan_account Obj = GetByReader(reader);
@@ -44,11 +44,11 @@ namespace DAL.MySql
         /// <returns></returns>
         public shuadan_account SearchBysdaid(int sdaid)
         {
-            MySql.DBHelper.sqlstr = "select * from shuadan_account where sdaid = @sdaid";
+            DBHelper.sqlstr = "select * from shuadan_account where sdaid = @sdaid";
             MySqlParameter[] param = new MySqlParameter[] {
                 new MySqlParameter("@sdaid",sdaid)
 			};
-            MySqlDataReader reader = MySql.DBHelper.ExecuteReader(param);
+            MySqlDataReader reader = DBHelper.ExecuteReader(param);
             shuadan_account Obj = null;
             if (reader.Read())
             {
@@ -67,8 +67,8 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Insert(shuadan_account shuadan_accountExample)
         {
-            MySql.DBHelper.sqlstr = "insert into  shuadan_account (sdaccount,sdadate,sdapwd,sdastate)values(@sdaccount,'" + shuadan_accountExample.sdadate.ToString() + "',@sdapwd,@sdastate)";
-            return MySql.DBHelper.ExecuteNonQuery(GetMySqlParameter(shuadan_accountExample));
+            DBHelper.sqlstr = "insert into  shuadan_account (sdaccount,sdadate,sdapwd,sdastate)values(@sdaccount,'" + shuadan_accountExample.sdadate.ToString() + "',@sdapwd,@sdastate)";
+            return DBHelper.ExecuteNonQuery(GetSqlParameter(shuadan_accountExample));
         }
         #endregion
 
@@ -80,8 +80,8 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Update(shuadan_account shuadan_accountExample)
         {
-            MySql.DBHelper.sqlstr = "update shuadan_account set sdaccount=@sdaccount,sdadate='" + shuadan_accountExample.sdadate.ToString() + "',sdapwd=@sdapwd,sdastate=@sdastate where sdaid=" + shuadan_accountExample.sdaid;
-            return MySql.DBHelper.ExecuteNonQuery(GetMySqlParameter(shuadan_accountExample));
+            DBHelper.sqlstr = "update shuadan_account set sdaccount=@sdaccount,sdadate='" + shuadan_accountExample.sdadate.ToString() + "',sdapwd=@sdapwd,sdastate=@sdastate where sdaid=" + shuadan_accountExample.sdaid;
+            return DBHelper.ExecuteNonQuery(GetSqlParameter(shuadan_accountExample));
         }
         #endregion
 
@@ -93,11 +93,11 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Delete(int sdaid)
         {
-            MySql.DBHelper.sqlstr = "delete from shuadan_account where sdaid =@sdaid";
+            DBHelper.sqlstr = "delete from shuadan_account where sdaid =@sdaid";
             MySqlParameter[] param = new MySqlParameter[] {
                 new MySqlParameter("@sdaid",sdaid)
 			};
-            return MySql.DBHelper.ExecuteNonQuery(param);
+            return DBHelper.ExecuteNonQuery(param);
         }
         #endregion
 
@@ -106,12 +106,12 @@ namespace DAL.MySql
 
         #region 公共方法
 
-        #region GetMySqlParameter
+        #region GetSqlParameter
         /// <summary>
         /// 根据表,获取一个MySqlParameter数组
         /// </summary>
         /// <returns>MySqlParameter[]</returns>
-        public static MySqlParameter[] GetMySqlParameter(shuadan_account shuadan_accountExample)
+        public static MySqlParameter[] GetSqlParameter(shuadan_account shuadan_accountExample)
         {
             List<MySqlParameter> list_param = new List<MySqlParameter>();
 
@@ -125,7 +125,7 @@ namespace DAL.MySql
             }
             if (shuadan_accountExample.sdadate != new DateTime() && shuadan_accountExample.sdadate != null)
             {
-                list_param.Add(new MySqlParameter("@sdadate", shuadan_accountExample.sdadate));
+                list_param.Add(new MySqlParameter("@sdadate", shuadan_accountExample.sdadate.ToString("yyyy-MM-dd")));
             }
             else
             {

@@ -1,6 +1,6 @@
 ﻿namespace Operation.Other
 {
-    partial class Common
+    partial class CommonWeb
     {
         /// <summary>
         /// Required designer variable.

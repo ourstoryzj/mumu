@@ -8,45 +8,52 @@ using System;
 using Operation.CS;
 using System.IO;
 using System.Diagnostics;
+using Common;
 
 namespace Operation.Other
 {
     public partial class HuaShu : Form
     {
-        /// <summary>
-        /// 全选开关
-        /// </summary>
-        int allselect = 0;
-        //任务id
-        int taskid;
+
+        //话术id
+        int hid = 0;
 
         public HuaShu()
         {
-            //Login tb = new Login();
-            //tb.Show();
-            //if (Manager.WaitLogin(tb))
-            //{
-            //tb.Hide();
             InitializeComponent();
-
-
-            //绑定数据后不会自动创建列
-            dgv1.AutoGenerateColumns = false;
-            //不显示空白行
-            dgv1.AllowUserToAddRows = false;
-
-
-
-
             bind();
+            bind_typelist();
+            bind_cb();
         }
+
+
 
         #region bind
 
         void bind()
         {
-            dgv1.DataSource = BLL.huashuManager.Search(1, 1000, "", "", "", new DateTime(), new DateTime()); 
+            dgv1.DataSource = BLL.huashuManager.Search(1, 1000, "", "", "", new DateTime(), new DateTime());
+            //dgv1.RowPostPaint += Common.DataGridViewHelper.Dgv_RowPostPaint;
+            //dgv1.CellContentClick += Common.DataGridViewHelper.Dgv_CellContentClick;
+        }
 
+        void bind_cb()
+        {
+            IList<huashu> list = BLL.huashuManager.Search(1, 1000, "", "", "0", new DateTime(), new DateTime());
+            cb_huashutype.DataSource = list;
+            cb_huashutype.DisplayMember = "htitle";
+            cb_huashutype.ValueMember = "hid";
+            cb_typesearch.DataSource = list;
+            cb_typesearch.DisplayMember = "htitle";
+            cb_typesearch.ValueMember = "hid";
+            cb_typesearch.ToAddItemOne();
+        }
+
+        void bind_typelist()
+        {
+            dgv_type.DataSource = BLL.huashuManager.Search(1, 1000, "", "", "0", new DateTime(), new DateTime());
+            //dgv_type.RowPostPaint += Common.DataGridViewHelper.Dgv_RowPostPaint;
+            //dgv_type.CellContentClick += Common.DataGridViewHelper.Dgv_CellContentClick;
         }
 
 
@@ -54,135 +61,10 @@ namespace Operation.Other
 
         #endregion
 
-
+        #region 话术列表
 
 
         #region datagridview 方法
-
-        #region btn_reset_dgv_Click
-        /// <summary>
-        /// 重置时间
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_reset_dgv_Click(object sender, EventArgs e)
-        {
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "请选择";
-            //cb_fahuo.Text = "请选择";
-            cb_state1.Text = "请选择";
-        }
-        #endregion
-
-        #region btn_search_Click
-        /// <summary>
-        /// 搜索
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_search_Click(object sender, EventArgs e)
-        {
-            DateTime temp_date2 = new DateTime();
-            if (dateTimePicker1.Text != "请选择")
-            {
-                temp_date2 = dateTimePicker1.Value;
-            }
-            string key = txt_key.Text.Trim();
-
-            //string tixing = cb_tixing.Text;
-            //if (tixing == "无")
-            //    tixing = "0";
-            //else if (tixing == "每天")
-            //    tixing = "1";
-            //else if (tixing == "每月")
-            //    tixing = "2";
-            //else if (tixing == "每年")
-            //    tixing = "3";
-            //else
-            //    tixing = "";
-
-            string state = cb_state1.Text;
-            if (state == "未处理")
-                state = "1";
-            else if (state == "已完成")
-                state = "2";
-            else
-                state = "";
-
-            //string state_fahuo = cb_fahuo.Text;
-            //if (state_fahuo == "未发货")
-            //    state_fahuo = "1";
-            //else if (state_fahuo == "已发货")
-            //    state_fahuo = "2";
-            //else
-            //    state_fahuo = "";
-
-            //string state_shoucai = cb_shoucai.Text;
-            //if (state_shoucai == "未收菜")
-            //    state_shoucai = "1";
-            //else if (state_shoucai == "已收菜")
-            //    state_shoucai = "2";
-            //else if (state_shoucai == "有问题")
-            //    state_shoucai = "3";
-            //else
-            //    state_shoucai = "";
-
-            //dgv1.DataSource = BLL2.shuadan_recordsManager.Search(1, 1000, key, dptype, state_kongbao, state_fahuo, state_shoucai, temp_date2, temp_date2, "");
-            dgv1.DataSource = BLL.basic_taskManager.Search(1, 1000, key, state, new DateTime(), new DateTime(), new DateTime(), new DateTime(), "");
-
-        }
-
-
-
-        #endregion
-
-        #region dateTimePicker1_CloseUp
-
-        /// <summary>
-        /// 设置时间显示格式
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
-        private void dateTimePicker1_CloseUp(object sender, EventArgs e)
-        {
-            dateTimePicker1.Format = DateTimePickerFormat.Long;
-        }
-        #endregion
-
-        #region btn_delete_Click
-        private void btn_delete_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("是否要删除选中数据?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                try
-                {
-
-                    foreach (DataGridViewRow row in dgv1.Rows)
-                    {
-                        if (row.Index != -1)
-                        {
-                            DataGridViewCheckBoxCell cbx = (DataGridViewCheckBoxCell)row.Cells[0];
-                            if ((bool)cbx.FormattedValue)
-                            {
-                                basic_task sr = (basic_task)dgv1.CurrentRow.DataBoundItem;
-                                BLL.basic_taskManager.Delete(sr.btid);
-                            }
-                        }
-                    }
-
-                    bind();
-                    MessageBox.Show("批量删除关键词成功");
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
-        }
-        #endregion
-
 
         #region dgv1_CellContentClick
 
@@ -199,54 +81,32 @@ namespace Operation.Other
                 if (e.RowIndex > -1)
                 {
                     string colname = dgv1.Columns[e.ColumnIndex].Name;
-                    basic_task sr = (basic_task)dgv1.CurrentRow.DataBoundItem;
+                    huashu hs = (huashu)dgv1.CurrentRow.DataBoundItem;
 
-                    if (colname == "col_dingshi")
+                     if (colname == "col_state")
                     {
                         #region 修改状态
-                        //dp.dpstate = dp.dpstate == "1" ? "0" : "1";
-                        //BLL2.dianpuManager.Update(dp);
-                        //dataGridView1.CurrentCell = null;
-                        //dataGridView1.Refresh();
-                        #endregion
-                    }
-                    else if (colname == "col_state")
-                    {
-                        #region 修改状态
-                        sr.btstate = sr.btstate == "1" ? "2" : "1";
-                        BLL.basic_taskManager.Update(sr);
-                        dgv1.CurrentCell = null;
-                        dgv1.Refresh();
+                        hs.hstate = hs.hstate == "1" ? "2" : "1";
+                        BLL.huashuManager.Update(hs);
+                        dgv1.ToClearChecked();
                         #endregion
                     }
                     else if (colname == "col_edit")
                     {
                         #region 修改状态
-                        bindedit(sr);
+                        //bindedit(hs);
+                        if (MessageBox.Show("确定要删除吗?", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            BLL.huashuManager.Delete(hs.hid);
+                            dgv1.ToAfterDelete(e.RowIndex);
+                            bind_cb();
+                        }
                         #endregion
                     }
-                    
+
 
                 }
-                else if (e.RowIndex == -1)
-                {
-                    //如果是首行
-                    #region 全选
-                    //如果是全选
-                    if (e.ColumnIndex == 0)
-                    {
-                        foreach (DataGridViewRow row in dgv1.Rows)
-                        {
-                            if (row.Index != -1)
-                            {
-                                DataGridViewCheckBoxCell cbx = (DataGridViewCheckBoxCell)row.Cells[0];
-                                cbx.Value = allselect == 0 ? true : false;
-                            }
-                        }
-                        allselect = allselect == 1 ? 0 : 1;
-                    }
-                    #endregion
-                }
+
 
             }
             catch (Exception ex)
@@ -261,9 +121,7 @@ namespace Operation.Other
                 //如果不是首行
                 if (e.RowIndex > -1)
                 {
-                    string colname = dgv1.Columns[e.ColumnIndex].Name;
-                    basic_task sr = (basic_task)dgv1.CurrentRow.DataBoundItem;
-                    taskid = sr.btid;
+                    huashu sr = (huashu)dgv1.CurrentRow.DataBoundItem;
                     tabControl1.SelectedTab = tabPage3;
                     bindedit(sr);
                 }
@@ -291,45 +149,8 @@ namespace Operation.Other
                     if (dgv1.DataSource != null)
                     {
 
-                        if (dgv1.Columns[e.ColumnIndex].Name.Equals("col_dingshi"))
-                        {
-                            string name = e.Value.ToString();
-                            if (name == "0")
-                            {
-                                e.Value = "无";
-                                //e.CellStyle.ForeColor = Color.Green;
-                            }
-                            else if (name == "1")
-                            {
-                                e.Value = "每天";
-                                e.CellStyle.ForeColor = Color.Green;
-                            }
-                            else if (name == "2")
-                            {
-                                e.Value = "每月";
-                                e.CellStyle.ForeColor = Color.GreenYellow;
-                            }
-                            else if (name == "3")
-                            {
-                                e.Value = "每年";
-                                e.CellStyle.ForeColor = Color.LightGreen;
-                            }
-                        }
-                        if (dgv1.Columns[e.ColumnIndex].Name.Equals("col_state"))
-                        {
-                            string name = e.Value.ToString();
-                            if (name == "1")
-                            {
-                                e.Value = "未处理";
-                                e.CellStyle.ForeColor = Color.Red;
-                            }
-                            else if (name == "2")
-                            {
-                                e.Value = "已完成";
-                                e.CellStyle.ForeColor = Color.Green;
-                            }
-
-                        }
+                         
+                       
                     }
                 }
             }
@@ -353,175 +174,90 @@ namespace Operation.Other
         {
             try
             {
-                //int i = dgv_title.CurrentCell.ColumnIndex;
                 string colname = dgv1.Columns[dgv1.CurrentCell.ColumnIndex].Name;
-
-
-                if (colname.Equals("btname") || colname.Equals("btcontent")  )
+                if (colname.Equals("col_title") || colname.Equals("col_sort") || colname.Equals("col_context"))
                 {
-                    basic_task bt = (basic_task)dgv1.CurrentRow.DataBoundItem;
-                    if (bt != null)
+                    huashu hs = (huashu)dgv1.CurrentRow.DataBoundItem;
+                    if (hs != null)
                     {
-
-
-                        string btname = dgv1["btname", e.RowIndex].EditedFormattedValue == null ? "" : dgv1["btname", e.RowIndex].EditedFormattedValue.ToString();
-                        string btcontent = dgv1["btcontent", e.RowIndex].EditedFormattedValue == null ? "" : dgv1["btcontent", e.RowIndex].EditedFormattedValue.ToString();
-                         
-
-
-
-                        bt.btname = btname;
-                        bt.btcontent = btcontent;
-
-
-                        BLL.basic_taskManager.Update(bt);
+                        string htitle = dgv1["col_title", e.RowIndex].EditedFormattedValue == null ? "" : dgv1["col_title", e.RowIndex].EditedFormattedValue.ToString();
+                        string hcontext = dgv1["col_context", e.RowIndex].EditedFormattedValue == null ? "" : dgv1["col_context", e.RowIndex].EditedFormattedValue.ToString();
+                        string hsort = dgv1["col_sort", e.RowIndex].EditedFormattedValue == null ? "" : dgv1["col_sort", e.RowIndex].EditedFormattedValue.ToString();
+                        hs.htitle = htitle;
+                        hs.hsort = hsort.ToInt();
+                        hs.hcontext = hcontext;
+                        BLL.huashuManager.Update(hs);
+                        //dgv_type.ToClearChecked();
                     }
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("修改信息失败 " + ex.Message);
+                ex.ToLog();
             }
         }
         #endregion
 
-        #region dgv1_RowPostPaint
+
+        #endregion
+
+
+        #region 其他功能
+
+
+        #region btn_delete_Click
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            List<int> list = dgv1.GetDeleteCheckedIndex();
+            if (list.Count > 0)
+            {
+                foreach (int i in list)
+                {
+                    huashu hs = (huashu)dgv1.Rows[i].DataBoundItem;
+                    BLL.huashuManager.Delete(hs.hid);
+                    dgv1.ToAfterDelete(i);
+                }
+                "删除成功".ToShow();
+            }
+            else
+            {
+                "请选择需要删除的信息".ToShow();
+            }
+
+        }
+        #endregion
+
+        #region btn_search_Click
         /// <summary>
-        /// 添加行号-表格绘制完成之后
+        /// 搜索
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dgv1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        private void btn_search_Click(object sender, EventArgs e)
         {
-            //添加行号
-            SolidBrush b = new SolidBrush(this.dgv1.RowHeadersDefaultCellStyle.ForeColor);
-            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgv1.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + 10);
-        }
 
+            string key = txt_key.Text.Trim();
 
+            string _typetemp = cb_typesearch.Text;
+            if (_typetemp == "请选择")
+                _typetemp = "";
+            else 
+                 _typetemp = cb_typesearch.SelectedValue.ToString();
 
-
-
-
-
-        #endregion
-
-        #endregion
-
-        #region dateTimePicker1_CloseUp_1
-        private void dateTimePicker1_CloseUp_1(object sender, EventArgs e)
-        {
-            dateTimePicker1.Format = DateTimePickerFormat.Long;
-        }
-
-        #endregion
-
-
-        #region btn_save_Click
-
-
-        private void btn_save_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string name = txt_name.Text.Trim();
-                string chongfu = cb_chongfu.Text;
-                string state = cb_state.Text;
-                DateTime temp_date2 = new DateTime();
-                if (dateTimePicker1.Text != "请选择")
-                {
-                    temp_date2 = dateTimePicker1.Value;
-                }
-
-                if (chongfu == "无")
-                    chongfu = "0";
-                else if (chongfu == "每天")
-                    chongfu = "1";
-                else if (chongfu == "每月")
-                    chongfu = "2";
-                else
-                    chongfu = "3";
-
-                if (state == "未处理")
-                    state = "1";
-                else if (state == "已完成")
-                    state = "2";
-                string content = txt_context.Text.Trim();
-
-                basic_task bt = new basic_task();
-                if (taskid != 0)
-                    bt = BLL.basic_taskManager.SearchByID(taskid);
-                bt.btcontent = content;
-                bt.btdate = temp_date2;
-                bt.btname = name;
-                bt.btspare1 = chongfu;
-
-                if (taskid == 0)
-                {
-                    bt.btdate2 = DateTime.Now;
-                    BLL.basic_taskManager.Insert(bt);
-
-                }
-                else
-                {
-                    BLL.basic_taskManager.Update(bt);
-                }
-                bind();
-                MessageBox.Show("保存成功");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("保存错误" + ex.ToString());
-            }
-        }
-        #endregion
-
-        #region bindedit
-        void bindedit(basic_task sr)
-        {
-            tabControl1.SelectedTab = tabPage3;
-
-            txt_name.Text = sr.btname;
-            txt_context.Text = sr.btcontent;
-            string chongfu = sr.btspare1;
-            if (chongfu == "0")
-                chongfu = "无";
-            else if (chongfu == "1")
-                chongfu = "每天";
-            else if (chongfu == "2")
-                chongfu = "每月";
+            string state = cb_state1.Text;
+            if (state == "启用")
+                state = "1";
+            else if (state == "禁用")
+                state = "2";
             else
-                chongfu = "每年";
-            cb_chongfu.SelectedItem = chongfu;
+                state = "";
 
-            string state = sr.btstate;
-            if (state == "1")
-                state = "未处理";
-            else if (state == "2")
-                state = "已完成";
-            cb_state.SelectedItem = state;
+            string sort = cb_sort.Text;
+            if (sort == "请选择")
+                sort = "0";
 
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = sr.btdate.ToString("yyyy-MM-dd");
-        }
-        #endregion
+            dgv1.DataSource = BLL.huashuManager.Search2(1, 100000, key, state, _typetemp,sort.ToInt(), new DateTime(), new DateTime(),"  hid desc ");
 
-        #region reset
-        void reset()
-        {
-            tabControl1.SelectedTab = tabPage3;
-
-            txt_name.Text = "";
-            txt_context.Text = "";
-           
-            cb_chongfu.Text = "无";
-
-            
-            cb_state.Text = "未处理";
-
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "请选择";
-             
         }
         #endregion
 
@@ -535,11 +271,238 @@ namespace Operation.Other
         #region btn_add_Click
         private void btn_add_Click(object sender, EventArgs e)
         {
-            taskid = 0;
+            hid = 0;
             reset();
             tabControl1.SelectedTab = tabPage3;
         }
         #endregion
+
+        #endregion 
+
+
+        #endregion
+
+        #region 添加话术
+        #region btn_save_Click
+
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string fid = cb_huashutype.SelectedValue != null ? cb_huashutype.SelectedValue.ToString() : "";
+                if (string.IsNullOrEmpty(fid))
+                {
+                    "请选择类型".ToShow();
+                    return;
+                }
+                string context = txt_context.Text.Trim();
+                string title = txt_name.Text.Trim();
+                string sort = txt_sort.Text.Trim();
+                string email = cb_email.Text == "是" ? "1" : "2";
+                string state = cb_state.Text == "启用" ? "1" : "2";
+
+                huashu hs = new huashu();
+                if (hid != 0)
+                {
+                    hs = BLL.huashuManager.SearchByID(hid);
+                }
+
+                hs.hcontext = context;
+                hs.hcount = 0;
+                hs.hdate = DateTime.Now;
+                hs.hfid = fid.ToInt();
+                hs.hsendemail = email;
+                hs.hsort = sort.ToInt();
+                hs.hstate = state;
+                hs.htitle = title;
+                if (hid == 0)
+                    BLL.huashuManager.Insert(hs);
+                else
+                    BLL.huashuManager.Update(hs);
+                "保存成功".ToShow();
+                bind();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("保存错误" + ex.ToString());
+            }
+        }
+        #endregion
+
+        #region bindedit
+        void bindedit(huashu hs)
+        {
+            tabControl1.SelectedTab = tabPage3;
+            if (hs != null)
+            {
+                cb_huashutype.ToSelectComboBoxItem(BLL.huashuManager.SearchByID(hs.hfid).htitle);
+
+                txt_context.Text = hs.hcontext;
+                txt_name.Text = hs.htitle;
+                txt_sort.Text = hs.hsort.ToString();
+                cb_email.Text = hs.hsendemail == "1" ? "是" : "否";
+                cb_state.Text = hs.hstate == "1" ? "启用" : "禁用";
+                lbl_count.Text = hs.hcount.ToString();
+                lbl_date.Text = hs.hdate.ToString();
+
+                hid = hs.hid;
+            }
+        }
+        #endregion
+
+        #region reset
+        void reset()
+        {
+            tabControl1.SelectedTab = tabPage3;
+
+            cb_huashutype.Text = "请选择";
+
+            txt_context.Text = "";
+            txt_name.Text = "";
+            txt_sort.Text = "1000";
+            cb_email.Text = "请选择";
+            cb_state.Text = "请选择";
+            lbl_count.Text = "";
+            lbl_date.Text = "";
+
+            hid = 0;
+        }
+        #endregion 
+
+        #endregion
+
+        /*2020年4月14日 17:33:05新加*/
+
+        #region 添加话术类型
+
+        private void btn_typesave_Click(object sender, EventArgs e)
+        {
+            string name = txt_typename.Text.Trim();
+            string temp_sort = txt_typesort.Text.Trim();
+            int sort = temp_sort.ToInt();
+            string state = cb_typestate.Text == "启用" ? "1" : "2";
+            huashu hs = new huashu();
+            hs.hfid = 0;
+            hs.hdate = DateTime.Now;
+            hs.hsort = sort;
+            hs.hstate = state;
+            hs.htitle = name;
+            hs.hcount = 1;
+
+            BLL.huashuManager.Insert(hs);
+            "保存成功".ToShow();
+            txt_typename.Text = "";
+            txt_typesort.Text = "1000";
+            cb_typestate.Text = "启用";
+            bind_typelist();
+            bind_cb();
+        }
+        #endregion
+
+        #region 话术类型列表
+        private void btn_typeadd_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tp_typeadd;
+        }
+
+
+
+        private void dgv_type_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                //DataGridView dgv_type = (DataGridView)sender;
+                Common.DataGridViewHelper dgv_type = (Common.DataGridViewHelper)sender;
+                //如果不是首行
+                if (e.RowIndex > -1)
+                {
+                    string colname = dgv_type.Columns[e.ColumnIndex].Name;
+                    huashu hs = (huashu)dgv_type.CurrentRow.DataBoundItem;
+                    if (colname == "col_typestate")
+                    {
+                        #region 修改状态
+                        hs.hstate = hs.hstate == "1" ? "2" : "1";
+                        BLL.huashuManager.Update(hs);
+                        dgv_type.ToClearChecked();
+                        bind_cb();
+                        #endregion
+                    }
+                    else if (colname == "col_del")
+                    {
+                        #region 修改状态
+                        if (MessageBox.Show("确定要删除吗?", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            BLL.huashuManager.Delete(hs.hid);
+                            dgv_type.ToAfterDelete(e.RowIndex);
+                            bind_cb();
+                        }
+                        #endregion
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgv_type_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value != null)
+            {
+                if (dgv_type.DataSource != null)
+                {
+
+                    if (dgv_type.Columns[e.ColumnIndex].Name.Equals("col_typestate"))
+                    {
+                        string name = e.Value.ToString();
+                        if (name == "1")
+                        {
+                            e.Value = "启用";
+                            e.CellStyle.ForeColor = Color.Green;
+                        }
+                        else
+                        {
+                            e.Value = "禁用";
+                            e.CellStyle.ForeColor = Color.Red;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        private void dgv_type_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            try
+            {
+                string colname = dgv_type.Columns[dgv_type.CurrentCell.ColumnIndex].Name;
+                if (colname.Equals("col_typename") || colname.Equals("col_typesort"))
+                {
+                    huashu hs = (huashu)dgv_type.CurrentRow.DataBoundItem;
+                    if (hs != null)
+                    {
+                        string htitle = dgv_type["col_typename", e.RowIndex].EditedFormattedValue == null ? "" : dgv_type["col_typename", e.RowIndex].EditedFormattedValue.ToString();
+                        string hsort = dgv_type["col_typesort", e.RowIndex].EditedFormattedValue == null ? "" : dgv_type["col_typesort", e.RowIndex].EditedFormattedValue.ToString();
+                        hs.htitle = htitle;
+                        hs.hsort = hsort.ToInt();
+                        BLL.huashuManager.Update(hs);
+                        //dgv_type.ToClearChecked();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToLog();
+            }
+        }
+
+
+
+        #endregion
+
+
     }
 
 

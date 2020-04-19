@@ -34,7 +34,7 @@ namespace DALFactory
 
         public override Ishuadan_accountService Createshuadan_accountService()
         {
-            return new DAL.Access.shuadan_accountService();
+            return new DAL.shuadan_accountService();
         }
 
         public override IfanxianService CreatefanxianService()

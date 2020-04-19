@@ -84,6 +84,82 @@ namespace DAL.MySql
                 return -1;
             }
         }
+
+        /// <summary>
+        /// 插入多条数据
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public static void ExecuteSqlTran(List<MySqlParameter[]> list_param)
+        {
+            using (MySqlConnection conn = new MySqlConnection(mysql))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                MySqlTransaction tx = conn.BeginTransaction();
+                cmd.Transaction = tx;
+                try
+                {
+                    for (int n = 0; n < list_param.Count; n++)
+                    {
+                        cmd.Parameters.Clear();
+                        cmd.CommandText = sqlstr;
+                        cmd.Parameters.AddRange(list_param[n]);
+                        cmd.ExecuteNonQuery();
+
+                        //后来加上的  
+                        if (n > 0 && (n % 500 == 0 || n == list_param.Count - 1))
+                        {
+                            tx.Commit();
+                            tx = conn.BeginTransaction();
+                        }
+                    }
+                    //tx.Commit();//原来一次性提交  
+                }
+                catch (System.Data.SqlClient.SqlException E)
+                {
+                    tx.Rollback();
+                    throw new Exception(E.Message);
+                }
+            }
+        }
+        public static void ExecuteSqlTran(List<string> SQLStringList)
+        {
+            using (MySqlConnection conn = new MySqlConnection(mysql))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                MySqlTransaction tx = conn.BeginTransaction();
+                cmd.Transaction = tx;
+                try
+                {
+                    for (int n = 0; n < SQLStringList.Count; n++)
+                    {
+                        string strsql = SQLStringList[n].ToString();
+                        if (strsql.Trim().Length > 1)
+                        {
+                            cmd.CommandText = strsql;
+                            cmd.ExecuteNonQuery();
+                        }
+                        //后来加上的  
+                        if (n > 0 && (n % 500 == 0 || n == SQLStringList.Count - 1))
+                        {
+                            tx.Commit();
+                            tx = conn.BeginTransaction();
+                        }
+                    }
+                    //tx.Commit();//原来一次性提交  
+                }
+                catch (System.Data.SqlClient.SqlException E)
+                {
+                    tx.Rollback();
+                    throw new Exception(E.Message);
+                }
+            }
+        }
+
         #endregion
 
         #region GetDataSet

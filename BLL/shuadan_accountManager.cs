@@ -24,16 +24,16 @@ namespace BLL
         }
         #endregion
 
-        #region SearchBysdaid
+        #region SearchByID
         /// <summary>
         /// 根据sdaid,查询一条数据
         /// </summary>
-        /// <param name="sdaid">编号</param>
+        /// <param name="sdaid"></param>
         /// <returns></returns>
         /*查看是否为视图*/
-        public static shuadan_account SearchBysdaid(int sdaid)
+        public static shuadan_account SearchByID(int sdaid)
         {
-            return Service.SearchBysdaid(sdaid);
+            return Service.SearchByID(sdaid);
         }
         #endregion
 
@@ -65,7 +65,7 @@ namespace BLL
         /// <summary>
         /// 删除
         /// </summary>
-        /// <param name="sdaid">编号</param>
+        /// <param name="sdaid"></param>
         /// <returns>int</returns>
         public static int Delete(int sdaid)
         {
@@ -73,16 +73,19 @@ namespace BLL
         }
         #endregion
 
-
         #region SearchNum
         /// <summary>
-        /// 查询全部数据
+        /// 查询数据条数
         /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state">状态</param>
+        /// <param name="id">int字段</param>
+        /// <param name="startdate">起始时间</param>
+        /// <param name="enddate">结束时间</param>
         /// <returns>IList</returns>
-        /*查看是否为视图*/
-        public static int SearchNum(string key, string state, string state_phone, DateTime startdate, DateTime enddate)
+        public static int SearchNum(string key, string state, int id, DateTime startdate, DateTime enddate)
         {
-            return Service.SearchNum(key, state, state_phone, startdate, enddate);
+            return Service.SearchNum(key, state, id, startdate, enddate);
         }
         #endregion
 
@@ -92,40 +95,14 @@ namespace BLL
         /// </summary>
         /// <param name="key">关键词</param>
         /// <param name="state">状态</param>
+        /// <param name="id">int字段</param>
         /// <param name="startdate">起始时间</param>
         /// <param name="enddate">结束时间</param>
         /// <param name="orderby">排序</param>
-        /// <returns></returns>
-        public static IList<shuadan_account> Search(int s, int e, string key, string state, string state_phone, DateTime startdate, DateTime enddate, string top)
+        /// <returns>IList<shuadan_account></returns>
+        public static IList<shuadan_account> Search(int s, int e, string key, string state, int id, DateTime startdate, DateTime enddate, string orderby)
         {
-            return Service.Search(s, e, key, state, state_phone, startdate, enddate, top);
-        }
-        #endregion
-
-
-        #region SearchPhone
-        /// <summary>
-        /// 查询全部数据
-        /// </summary>
-        /// <returns>IList</returns>
-        /*查看是否为视图*/
-        public static IList<shuadan_account> SearchPhone(string top, int num)
-        {
-            DateTime date1 = DateTime.Now.AddDays(-num);
-            DateTime date2 = DateTime.Now;
-            return Service.SearchPhone(top, date1, date2);
-        }
-        #endregion
-
-        #region SearchPhone
-        /// <summary>
-        /// 查询全部数据
-        /// </summary>
-        /// <returns>IList</returns>
-        /*查看是否为视图*/
-        public static IList<shuadan_account> SearchPhone(string top, DateTime date1, DateTime date2)
-        {
-            return Service.SearchPhone(top, date1, date2);
+            return Service.Search(s, e, key, state, id, startdate, enddate, orderby);
         }
         #endregion
 

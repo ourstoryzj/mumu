@@ -164,6 +164,68 @@ namespace DAL
         }
         #endregion
 
+        #region SearchNum
+        /// <summary>
+        /// 查询数据条数
+        /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state">状态</param>
+        /// <param name="id">int字段</param>
+        /// <param name="startdate">起始时间</param>
+        /// <param name="enddate">结束时间</param>
+        /// <returns>IList</returns>
+        public int SearchNum2(string key, string state,string _type, int sort, DateTime startdate, DateTime enddate)
+        {
+            string sql1 = "select count(hid) from huashu where ";
+            string sql2 = string.IsNullOrEmpty(key) ? " 1=1 " : " ( hcontext like '%" + key + "%' or htitle like '%" + key + "%' or hstate like '%" + key + "%' or hsendemail like '%" + key + "%' or hremark like '%" + key + "%' )";//删除无用字段，删除最后一个or
+            string sql3 = string.IsNullOrEmpty(state) ? "" : " and hstate= '" + state + "' ";
+            string sql11 = string.IsNullOrEmpty(_type) ? " and hfid!= 0 " : " and hfid= " + _type + " ";
+
+            string sql4 = sort == 0 ? "" : " and hsort > '" + sort.ToString() + "' ";//Int字段，无用删除
+            string sql5 = startdate == new DateTime() ? "" : " and datediff('d','" + startdate.ToString() + "',hdate)>=0 ";
+            string sql6 = enddate == new DateTime() ? "" : " and datediff('d','" + enddate.ToString() + "',hdate)<=0 ";
+            DBHelper.sqlstr = sql1 + sql2 + sql3 + sql4 + sql5 + sql6 + sql11;
+            return Convert.ToInt32(DBHelper.ExecuteScalar());
+        }
+        #endregion
+
+        #region Search
+        /// <summary>
+        /// 模糊搜索
+        /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state">状态</param>
+        /// <param name="id">int字段</param>
+        /// <param name="startdate">起始时间</param>
+        /// <param name="enddate">结束时间</param>
+        /// <param name="orderby">排序</param>
+        /// <returns>IList<huashu></returns>
+        public IList<huashu> Search2(int s, int e, string key, string state, string _type, int sort, DateTime startdate, DateTime enddate, string orderby)
+        {
+            string sql1 = "select top " + (e - s + 1).ToString() + " * from huashu where ";
+            string sql2 = string.IsNullOrEmpty(key) ? " 1=1 " : " ( hcontext like '%" + key + "%' or htitle like '%" + key + "%' or hstate like '%" + key + "%' or hsendemail like '%" + key + "%' or hremark like '%" + key + "%' )";//删除无用字段，删除最后一个or
+            string sql3 = string.IsNullOrEmpty(state) ? "" : " and hstate= '" + state + "' ";
+            string sql11 = string.IsNullOrEmpty(_type) ? " and hfid!= 0 " : " and hfid= " + _type + " ";
+
+            string sql4 = sort == 0 ? "" : " and hcount = '" + sort.ToString() + "' and hcontext is null  ";//Int字段，无用删除
+            string sql5 = startdate == new DateTime() ? "" : " and datediff('d','" + startdate.ToString() + "',hdate)>=0 ";
+            string sql6 = enddate == new DateTime() ? "" : " and datediff('d','" + enddate.ToString() + "',hdate)<=0 ";
+
+            string sql7 = string.IsNullOrEmpty(orderby) ? " order by hid desc " : " order by " + orderby;
+            string sql8 = s == 1 ? "" : " and hid not in ( select top " + (s - 1).ToString() + " hid from huashu where " + sql2 + sql3 + sql4 + sql5 + sql6 + sql11 + sql7 + " ) ";
+            DBHelper.sqlstr = sql1 + sql2 + sql3 + sql4 + sql5 + sql6 + sql11 + sql8 + sql7;
+            List<huashu> list = new List<huashu>();
+            SqlDataReader reader = DBHelper.ExecuteReader();
+            while (reader.Read())
+            {
+                huashu Obj = GetByReader(reader);
+                list.Add(Obj);
+            }
+            reader.Close();
+            return list;
+        }
+        #endregion
+
         #region 公共方法
 
         #region GetSqlParameters
@@ -174,14 +236,14 @@ namespace DAL
         public static SqlParameter[] GetSqlParameters(huashu huashuExample)
         {
             List<SqlParameter> list_param = new List<SqlParameter>();
-            if (huashuExample.hfid != 0)
-            {
+            //if (huashuExample.hfid != 0)
+            //{
                 list_param.Add(new SqlParameter("@hfid", huashuExample.hfid));
-            }
-            else
-            {
-                list_param.Add(new SqlParameter("@hfid", DBNull.Value));
-            }
+            //}
+            //else
+            //{
+                //list_param.Add(new SqlParameter("@hfid", DBNull.Value));
+            //}
 
             if (!string.IsNullOrEmpty(huashuExample.hcontext))
             {
@@ -290,6 +352,8 @@ namespace DAL
 
 
         #endregion
+
+
     }
 
     

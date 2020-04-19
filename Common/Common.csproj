@@ -59,7 +59,9 @@
     <Compile Include="BindingCollection.cs" />
     <Compile Include="Browser.cs" />
     <Compile Include="CSVFileHelper.cs" />
-    <Compile Include="DataGridViewHelper.cs" />
+    <Compile Include="DataGridViewHelper.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataTableExtensions.cs" />
     <Compile Include="ErrorLog.cs" />
     <Compile Include="ExcelHelper.cs" />

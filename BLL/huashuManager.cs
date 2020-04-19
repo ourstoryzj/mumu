@@ -140,6 +140,40 @@ namespace BLL
         }
         #endregion
 
+        #region SearchNum
+        /// <summary>
+        /// 查询数据条数
+        /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state">状态</param>
+        /// <param name="id">int字段</param>
+        /// <param name="startdate">起始时间</param>
+        /// <param name="enddate">结束时间</param>
+        /// <returns>IList</returns>
+        public static int SearchNum2(string key, string state, string _type, int sort, DateTime startdate, DateTime enddate)
+        {
+           return Service.SearchNum2(key, state, _type, sort, startdate, enddate);
+        }
+        #endregion
+
+        #region Search
+        /// <summary>
+        /// 模糊搜索
+        /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state">状态</param>
+        /// <param name="id">int字段</param>
+        /// <param name="startdate">起始时间</param>
+        /// <param name="enddate">结束时间</param>
+        /// <param name="orderby">排序</param>
+        /// <returns>IList<huashu></returns>
+        public static IList<huashu> Search2(int s, int e, string key, string state, string _type, int sort, DateTime startdate, DateTime enddate, string orderby)
+        {
+            return Service.Search2(  s,   e,   key,   state,   _type,   sort,   startdate,   enddate,   orderby);
+        }
+        #endregion
+
+
     }
 
 

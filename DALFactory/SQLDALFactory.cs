@@ -32,8 +32,8 @@ namespace DALFactory
 
         public override Ishuadan_accountService Createshuadan_accountService()
         {
-            //return new DAL.shuadan_accountService();
-            throw new NotImplementedException();
+            return new DAL.shuadan_accountService();
+            //throw new NotImplementedException();
         }
 
         public override IfanxianService CreatefanxianService()

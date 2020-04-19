@@ -5,7 +5,6 @@ using Entity;
 using IDAL;
 using MySql.Data.MySqlClient;
 
-
 namespace DAL.MySql
 {
 
@@ -14,7 +13,7 @@ namespace DAL.MySql
     //实体类名称：shuadanExample
     //主键：sdid
 
-    public class shuadanService : IshuadanService
+    public class shuadanService 
     {
         #region SearchAll
         /// <summary>
@@ -24,9 +23,9 @@ namespace DAL.MySql
         /*查看是否为视图*/
         public IList<shuadan> SearchAll()
         {
-            MySql.DBHelper.sqlstr = "select * from shuadan ";
+            DBHelper.sqlstr = "select * from shuadan ";
             List<shuadan> list = new List<shuadan>();
-            MySqlDataReader reader = MySql.DBHelper.ExecuteReader();
+            MySqlDataReader reader = DBHelper.ExecuteReader();
             while (reader.Read())
             {
                 shuadan Obj = GetByReader(reader);
@@ -45,11 +44,11 @@ namespace DAL.MySql
         /// <returns></returns>
         public shuadan SearchBysdid(int sdid)
         {
-            MySql.DBHelper.sqlstr = "select * from shuadan where sdid = @sdid";
+            DBHelper.sqlstr = "select * from shuadan where sdid = @sdid";
             MySqlParameter[] param = new MySqlParameter[] {
                 new MySqlParameter("@sdid",sdid)
 			};
-            MySqlDataReader reader = MySql.DBHelper.ExecuteReader(param);
+            MySqlDataReader reader = DBHelper.ExecuteReader(param);
             shuadan Obj = null;
             if (reader.Read())
             {
@@ -68,8 +67,8 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Insert(shuadan shuadanExample)
         {
-            MySql.DBHelper.sqlstr = "insert into  shuadan (dpidfrom,dpidto,sdaccount,sdaddress,sdaid,sdapwd,sddate,sdkdcode,sdordercode,sdpingjiadate,sdpingjiastate,sdremark,sdsenddate,sdsendstate,sdstandby,sdstate)values('" + shuadanExample.dpidfrom.ToString() + "',@dpidto,@sdaccount,@sdaddress,@sdaid,@sdapwd,'" + shuadanExample.sddate.ToString() + "',@sdkdcode,@sdordercode,'" + shuadanExample.sdpingjiadate.ToString() + "',@sdpingjiastate,@sdremark,'" + shuadanExample.sdsenddate.ToString() + "',@sdsendstate,@sdstandby,@sdstate)";
-            return MySql.DBHelper.ExecuteNonQuery(GetMySqlParameter(shuadanExample));
+            DBHelper.sqlstr = "insert into  shuadan (dpidfrom,dpidto,sdaccount,sdaddress,sdaid,sdapwd,sddate,sdkdcode,sdordercode,sdpingjiadate,sdpingjiastate,sdremark,sdsenddate,sdsendstate,sdstandby,sdstate)values('" + shuadanExample.dpidfrom.ToString() + "',@dpidto,@sdaccount,@sdaddress,@sdaid,@sdapwd,'" + shuadanExample.sddate.ToString() + "',@sdkdcode,@sdordercode,'" + shuadanExample.sdpingjiadate.ToString() + "',@sdpingjiastate,@sdremark,'" + shuadanExample.sdsenddate.ToString() + "',@sdsendstate,@sdstandby,@sdstate)";
+            return DBHelper.ExecuteNonQuery(GetSqlParameter(shuadanExample));
         }
         #endregion
 
@@ -81,8 +80,8 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Update(shuadan shuadanExample)
         {
-            MySql.DBHelper.sqlstr = "update shuadan set dpidfrom='" + shuadanExample.dpidfrom.ToString() + "',dpidto=@dpidto,sdaccount=@sdaccount,sdaddress=@sdaddress,sdaid=@sdaid,sdapwd=@sdapwd,sddate='" + shuadanExample.sddate.ToString() + "',sdkdcode=@sdkdcode,sdordercode=@sdordercode,sdpingjiadate='" + shuadanExample.sdpingjiadate.ToString() + "',sdpingjiastate=@sdpingjiastate,sdremark=@sdremark,sdsenddate='" + shuadanExample.sdsenddate.ToString() + "',sdsendstate=@sdsendstate,sdstandby=@sdstandby,sdstate=@sdstate where sdid=" + shuadanExample.sdid;
-            return MySql.DBHelper.ExecuteNonQuery(GetMySqlParameter(shuadanExample));
+            DBHelper.sqlstr = "update shuadan set dpidfrom='" + shuadanExample.dpidfrom.ToString() + "',dpidto=@dpidto,sdaccount=@sdaccount,sdaddress=@sdaddress,sdaid=@sdaid,sdapwd=@sdapwd,sddate='" + shuadanExample.sddate.ToString() + "',sdkdcode=@sdkdcode,sdordercode=@sdordercode,sdpingjiadate='" + shuadanExample.sdpingjiadate.ToString() + "',sdpingjiastate=@sdpingjiastate,sdremark=@sdremark,sdsenddate='" + shuadanExample.sdsenddate.ToString() + "',sdsendstate=@sdsendstate,sdstandby=@sdstandby,sdstate=@sdstate where sdid=" + shuadanExample.sdid;
+            return DBHelper.ExecuteNonQuery(GetSqlParameter(shuadanExample));
         }
         #endregion
 
@@ -94,11 +93,11 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Delete(int sdid)
         {
-            MySql.DBHelper.sqlstr = "delete from shuadan where sdid =@sdid";
+            DBHelper.sqlstr = "delete from shuadan where sdid =@sdid";
             MySqlParameter[] param = new MySqlParameter[] {
                 new MySqlParameter("@sdid",sdid)
 			};
-            return MySql.DBHelper.ExecuteNonQuery(param);
+            return DBHelper.ExecuteNonQuery(param);
         }
         #endregion
 
@@ -107,15 +106,15 @@ namespace DAL.MySql
 
         #region 公共方法
 
-        #region GetMySqlParameter
+        #region GetSqlParameter
         /// <summary>
         /// 根据表,获取一个MySqlParameter数组
         /// </summary>
         /// <returns>MySqlParameter[]</returns>
-        public static MySqlParameter[] GetMySqlParameter(shuadan shuadanExample)
+        public static MySqlParameter[] GetSqlParameter(shuadan shuadanExample)
         {
             List<MySqlParameter> list_param = new List<MySqlParameter>();
-            if (shuadanExample.dpidfrom != new DateTime() && shuadanExample.dpidfrom != null)
+            if (!string.IsNullOrEmpty(shuadanExample.dpidfrom))
             {
                 list_param.Add(new MySqlParameter("@dpidfrom", shuadanExample.dpidfrom));
             }
@@ -170,7 +169,7 @@ namespace DAL.MySql
             }
             if (shuadanExample.sddate != new DateTime() && shuadanExample.sddate != null)
             {
-                list_param.Add(new MySqlParameter("@sddate", shuadanExample.sddate));
+                list_param.Add(new MySqlParameter("@sddate", shuadanExample.sddate.ToString("yyyy-MM-dd")));
             }
             else
             {
@@ -196,7 +195,7 @@ namespace DAL.MySql
             }
             if (shuadanExample.sdpingjiadate != new DateTime() && shuadanExample.sdpingjiadate != null)
             {
-                list_param.Add(new MySqlParameter("@sdpingjiadate", shuadanExample.sdpingjiadate));
+                list_param.Add(new MySqlParameter("@sdpingjiadate", shuadanExample.sdpingjiadate.ToString("yyyy-MM-dd")));
             }
             else
             {
@@ -222,7 +221,7 @@ namespace DAL.MySql
             }
             if (shuadanExample.sdsenddate != new DateTime() && shuadanExample.sdsenddate != null)
             {
-                list_param.Add(new MySqlParameter("@sdsenddate", shuadanExample.sdsenddate));
+                list_param.Add(new MySqlParameter("@sdsenddate", shuadanExample.sdsenddate.ToString("yyyy-MM-dd")));
             }
             else
             {
@@ -275,7 +274,7 @@ namespace DAL.MySql
         public static shuadan GetByReader(MySqlDataReader Reader)
         {
             shuadan shuadanExample = new shuadan();
-            shuadanExample.dpidfrom = Reader["dpidfrom"] == DBNull.Value ? new DateTime() : Convert.ToDateTime(Reader["dpidfrom"]);
+            shuadanExample.dpidfrom = Reader["dpidfrom"] == DBNull.Value ? null : Reader["dpidfrom"].ToString();
             shuadanExample.dpidto = Reader["dpidto"] == DBNull.Value ? null : Reader["dpidto"].ToString();
             shuadanExample.sdaccount = Reader["sdaccount"] == DBNull.Value ? null : Reader["sdaccount"].ToString();
             shuadanExample.sdaddress = Reader["sdaddress"] == DBNull.Value ? null : Reader["sdaddress"].ToString();

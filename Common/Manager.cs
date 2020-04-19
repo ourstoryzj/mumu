@@ -1377,30 +1377,7 @@ namespace Common
 
         #endregion
 
-        #region StrToList
-        /// <summary>
-        /// 每行一个转换成list
-        /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
-        public static List<string> StrToList(string str)
-        {
-            //List<string> list = new List<string>();
-
-            str = str.Replace("\r", "");
-            //string[] lines = str.Split('\n');
-            //foreach (string s in lines)
-            //{
-            //    if (!string.IsNullOrEmpty(s))
-            //    {
-            //        list.Add(s);
-            //    }
-            //}
-            //return list;
-            return StrToList(str, '\n');
-        }
-
-        #endregion
+        
 
         #region StrToList
         /// <summary>
@@ -2132,6 +2109,22 @@ namespace Common
             DateTime.TryParse(str, out dt);
             return dt;
         }
+
+        #region ToListByLine
+        /// <summary>
+        /// 每行一个转换成list
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static List<string> ToListByLine(this string str)
+        {
+
+            str = str.Replace("\r", "");
+
+            return StrToList(str, '\n');
+        }
+
+        #endregion
 
         #endregion
 
@@ -3312,7 +3305,39 @@ namespace Common
 
         #endregion
 
+        #region ToSelectComboBoxItem
+        /// <summary>
+        /// 选择显示内容相同的下拉菜单
+        /// </summary>
+        /// <param name="cb"></param>
+        /// <param name="txt">显示的内容</param>
+        public static void ToSelectComboBoxItem(this ComboBox cb, string txt)
+        {
+            for (int i = 0; i < cb.Items.Count; i++)
+            {
+                if (cb.GetItemText(cb.Items[i]) == txt)
+                {
+                    cb.SelectedIndex = i;
+                    return;
+                }
+            }
+        }
+        #endregion
 
+        #region ToAddItemOne
+        /// <summary>
+        /// 添加默认下拉菜单
+        /// </summary>
+        /// <param name="cb"></param>
+        public static void ToAddItemOne(this ComboBox cb)
+        {
+            //IList<Type> list =(IList<Type>) cb.DataSource;
+            //list.Insert();
+            //cb.Items.Insert(0, "请选择");
+            cb.SelectedIndex = -1;
+            cb.Text = "请选择";
+        }
+        #endregion
 
     }
 }

@@ -64,6 +64,11 @@ namespace Common
             sw.Close();
         }
 
+        public static void ToShow(this Exception error)
+        {
+            (error.Message + error.Source).ToShow();
+        }
+
         #region WriteEntry
         public static void WriteEntry(string str)
         {

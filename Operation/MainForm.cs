@@ -485,11 +485,18 @@ namespace Operation
             zt.Show();
             zt.WindowState = FormWindowState.Maximized;
         }
+        private void 包牛牛代发ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Other.BaoNiuNiu zt = new Other.BaoNiuNiu();
+            zt.MdiParent = this;
+            zt.Show();
+            zt.WindowState = FormWindowState.Maximized;
+        }
 
         private void 话术列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/huashu_list.aspx");
@@ -499,7 +506,7 @@ namespace Operation
         private void 添加话术ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/huashu_add.aspx");
@@ -509,7 +516,7 @@ namespace Operation
         private void 话术类型列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/huashu_type_list.aspx");
@@ -519,7 +526,7 @@ namespace Operation
         private void 添加话术类型ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/huashu_type_add.aspx");
@@ -530,7 +537,7 @@ namespace Operation
         private void 资料列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/pages_list.aspx");
@@ -541,7 +548,7 @@ namespace Operation
         private void 添加资料ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/pages_add.aspx");
@@ -552,7 +559,7 @@ namespace Operation
         private void 资料类型列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/pages_type_list.aspx");
@@ -563,7 +570,7 @@ namespace Operation
         private void 添加资料类型ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/pages_type_add.aspx");
@@ -574,7 +581,7 @@ namespace Operation
         private void 待处理售后ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/sh_problem_list.aspx?state=1");
@@ -584,7 +591,7 @@ namespace Operation
         private void 全部售后列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/sh_problem_list.aspx");
@@ -594,7 +601,7 @@ namespace Operation
         private void 添加售后ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/sh_problem_add.aspx");
@@ -604,7 +611,7 @@ namespace Operation
         private void 任务列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/basic_task_list.aspx");
@@ -614,7 +621,7 @@ namespace Operation
         private void 添加任务ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/basic_task_add.aspx");
@@ -625,7 +632,7 @@ namespace Operation
         private void 退货列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/return_goods_list.aspx");
@@ -635,7 +642,7 @@ namespace Operation
         private void 添加退货ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            Other.Common fm = new Other.Common();
+            Other.CommonWeb fm = new Other.CommonWeb();
             fm.MdiParent = this;
             fm.Show();
             fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/return_goods_add.aspx");
@@ -650,7 +657,21 @@ namespace Operation
             fm.MdiParent = this;
             fm.Show();
             #endregion
+           
         }
+        #region 美图秀秀ToolStripMenuItem_Click
+        private void 美图秀秀ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            #region 打开网页
+            //Other.Common fm = new Other.Common();
+            Other.MeiTuXiuXiu fm = new Other.MeiTuXiuXiu();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            //fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/huashu_list.aspx");
+            #endregion
+        }
+        #endregion
 
         private void 图片空间清理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -661,6 +682,13 @@ namespace Operation
             #endregion
         }
 
+        private void 商品图片下载ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Other.ImageDownload fm = new Other.ImageDownload();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = FormWindowState.Maximized;
+        }
         private void 拼多多ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
@@ -864,6 +892,37 @@ namespace Operation
             fm.WindowState = FormWindowState.Maximized;
         }
 
+        private void mySQL数据库测试ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.MySqlTest fm = new Test.MySqlTest();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = FormWindowState.Maximized;
+        }
+
+
+
+
+        #endregion
+
+        #region 话术管理ToolStripMenuItem_Click
+        private void 话术管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Other.HuaShu fm = new Other.HuaShu();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
+        #endregion
+
+        #region 刷单账号管理ToolStripMenuItem_Click
+        private void 刷单账号管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Other.ShuaDanPDDFrom fm = new Other.ShuaDanPDDFrom();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        } 
         #endregion
     }
 }

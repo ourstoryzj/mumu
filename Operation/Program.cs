@@ -18,7 +18,7 @@ namespace Operation
             //Application.Run(new Operation.DataAnalysis.DA_Opponent());
             //Application.Run(new PDD());
             Application.Run(new MainForm());
-            //Application.Run(new Test.test_async());
+            //Application.Run(new Test.MySqlTest());
             //Application.Run(new Login_TaoBao());
             //Application.Run(new Operation.DataAnalysis.CanMou_KeysHelper());
 

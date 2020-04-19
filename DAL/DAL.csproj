@@ -52,6 +52,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\DLL\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -85,6 +88,48 @@
     <Compile Include="ACCESS\pages_typeService.cs" />
     <Compile Include="ACCESS\courierService.cs" />
     <Compile Include="ACCESS\return_goodsService.cs" />
+    <Compile Include="MySql\AdminsService.cs" />
+    <Compile Include="MySql\aotunew_titleService.cs" />
+    <Compile Include="MySql\autonew_modelService.cs" />
+    <Compile Include="MySql\BasicService.cs" />
+    <Compile Include="MySql\basic_goodsService.cs" />
+    <Compile Include="MySql\basic_goods_wordService.cs" />
+    <Compile Include="MySql\basic_huodongService.cs" />
+    <Compile Include="MySql\basic_order_planService.cs" />
+    <Compile Include="MySql\basic_order_recordService.cs" />
+    <Compile Include="MySql\basic_taskService.cs" />
+    <Compile Include="MySql\data_hotkeysService.cs" />
+    <Compile Include="MySql\DBHelper.cs" />
+    <Compile Include="MySql\dianpuService.cs" />
+    <Compile Include="MySql\fanxianService.cs" />
+    <Compile Include="MySql\goodsService.cs" />
+    <Compile Include="MySql\huashuService.cs" />
+    <Compile Include="MySql\keysService.cs" />
+    <Compile Include="MySql\keys_lexiconService.cs" />
+    <Compile Include="MySql\keys_tiaojianService.cs" />
+    <Compile Include="MySql\lh_hangyeService.cs" />
+    <Compile Include="MySql\lh_keydataService.cs" />
+    <Compile Include="MySql\lh_rankinglistService.cs" />
+    <Compile Include="MySql\opponent_dianpuService.cs" />
+    <Compile Include="MySql\opponent_dianpu_infoService.cs" />
+    <Compile Include="MySql\opponent_goodsService.cs" />
+    <Compile Include="MySql\shouhouService.cs" />
+    <Compile Include="MySql\shuadanService.cs" />
+    <Compile Include="MySql\shuadan_accountService.cs" />
+    <Compile Include="MySql\shuadan_phoneService.cs" />
+    <Compile Include="MySql\shuadan_recordsService.cs" />
+    <Compile Include="MySql\SignsService.cs" />
+    <Compile Include="MySql\subway_goodsService.cs" />
+    <Compile Include="MySql\subway_keyService.cs" />
+    <Compile Include="MySql\UsersService.cs" />
+    <Compile Include="MySql\wanggong_dianpuService.cs" />
+    <Compile Include="MySql\wanggong_goodsService.cs" />
+    <Compile Include="MySql\yh_corekeysService.cs" />
+    <Compile Include="MySql\yh_goodstypeService.cs" />
+    <Compile Include="MySql\yh_goods_corekeysService.cs" />
+    <Compile Include="MySql\yh_goods_keysService.cs" />
+    <Compile Include="MySql\yh_keysService.cs" />
+    <Compile Include="MySql\yh_zaociService.cs" />
     <Compile Include="SQL\lh_hangyeService.cs" />
     <Compile Include="SQL\lh_keydataService.cs" />
     <Compile Include="SQL\lh_rankinglistService.cs" />

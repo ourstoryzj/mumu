@@ -433,6 +433,7 @@ namespace Operation
                     Common.Manager.EmailSend("ourstoryzj@163.com", "拼多多客服断开提示", "拼多多客服断开提示");
                     //登陆客服
                     webBrowser1.Load("https://mms.pinduoduo.com/assets/chat-merchant/dist/index.html?r=0.5309851365977418");
+                    //Browser.Delay(20000);
                     if (Browser.WaitWebPageLoad(webBrowser1))
                     {
 

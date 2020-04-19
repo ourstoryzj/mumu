@@ -17,14 +17,14 @@ namespace IDAL
         IList<shuadan_account> SearchAll();
         #endregion
 
-        #region SearchBysdaid
+        #region SearchByID
         /// <summary>
         /// 根据sdaid,查询一条数据
         /// </summary>
-        /// <param name="sdaid">编号</param>
+        /// <param name="sdaid"></param>
         /// <returns></returns>
         /*查看是否为视图*/
-        shuadan_account SearchBysdaid(int sdaid);
+        shuadan_account SearchByID(int sdaid);
         #endregion
 
         #region Insert
@@ -49,7 +49,7 @@ namespace IDAL
         /// <summary>
         /// 删除
         /// </summary>
-        /// <param name="sdaid">编号</param>
+        /// <param name="sdaid"></param>
         /// <returns>int</returns>
         int Delete(int sdaid);
         #endregion
@@ -57,11 +57,15 @@ namespace IDAL
 
         #region SearchNum
         /// <summary>
-        /// 查询全部数据
+        /// 查询数据条数
         /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state">状态</param>
+        /// <param name="id">int字段</param>
+        /// <param name="startdate">起始时间</param>
+        /// <param name="enddate">结束时间</param>
         /// <returns>IList</returns>
-        /*查看是否为视图*/
-        int SearchNum(string key, string state, string state_phone, DateTime startdate, DateTime enddate);
+        int SearchNum(string key, string state, int id, DateTime startdate, DateTime enddate);
 
         #endregion
 
@@ -71,22 +75,18 @@ namespace IDAL
         /// </summary>
         /// <param name="key">关键词</param>
         /// <param name="state">状态</param>
+        /// <param name="id">int字段</param>
         /// <param name="startdate">起始时间</param>
         /// <param name="enddate">结束时间</param>
         /// <param name="orderby">排序</param>
-        /// <returns></returns>
-        IList<shuadan_account> Search(int s, int e, string key, string state, string state_phone, DateTime startdate, DateTime enddate, string top);
+        /// <returns>IList<shuadan_account></returns>
+        IList<shuadan_account> Search(int s, int e, string key, string state, int id, DateTime startdate, DateTime enddate, string orderby);
 
         #endregion
 
-        #region SearchPhone
-        /// <summary>
-        /// 查询全部数据
-        /// </summary>
-        /// <returns>IList</returns>
-        /*查看是否为视图*/
-        IList<shuadan_account> SearchPhone(string top, DateTime date1, DateTime date2);
 
-        #endregion
+
+
+
     }
 }

@@ -106,7 +106,7 @@
       <Name>DALFactory</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{B42A2FE3-F934-4E87-8494-0FCA54527CA6}</Project>
+      <Project>{b42a2fe3-f934-4e87-8494-0fca54527ca6}</Project>
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\IDAL\IDAL.csproj">

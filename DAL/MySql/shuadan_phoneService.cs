@@ -23,9 +23,9 @@ namespace DAL.MySql
         /*查看是否为视图*/
         public IList<shuadan_phone> SearchAll()
         {
-            MySql.DBHelper.sqlstr = "select * from shuadan_phone ";
+            DBHelper.sqlstr = "select * from shuadan_phone ";
             List<shuadan_phone> list = new List<shuadan_phone>();
-            MySqlDataReader reader = MySql.DBHelper.ExecuteReader();
+            MySqlDataReader reader = DBHelper.ExecuteReader();
             while (reader.Read())
             {
                 shuadan_phone Obj = GetByReader(reader);
@@ -44,11 +44,11 @@ namespace DAL.MySql
         /// <returns></returns>
         public shuadan_phone SearchBysdpid(int sdpid)
         {
-            MySql.DBHelper.sqlstr = "select * from shuadan_phone where sdpid = @sdpid";
+            DBHelper.sqlstr = "select * from shuadan_phone where sdpid = @sdpid";
             MySqlParameter[] param = new MySqlParameter[] {
                 new MySqlParameter("@sdpid",sdpid)
 			};
-            MySqlDataReader reader = MySql.DBHelper.ExecuteReader(param);
+            MySqlDataReader reader = DBHelper.ExecuteReader(param);
             shuadan_phone Obj = null;
             if (reader.Read())
             {
@@ -67,8 +67,8 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Insert(shuadan_phone shuadan_phoneExample)
         {
-            MySql.DBHelper.sqlstr = "insert into  shuadan_phone (sdpcode,sdpdate,sdpstate)values(@sdpcode,'" + shuadan_phoneExample.sdpdate.ToString() + "',@sdpstate)";
-            return MySql.DBHelper.ExecuteNonQuery(GetMySqlParameter(shuadan_phoneExample));
+            DBHelper.sqlstr = "insert into  shuadan_phone (sdpcode,sdpdate,sdpstate)values(@sdpcode,'" + shuadan_phoneExample.sdpdate.ToString() + "',@sdpstate)";
+            return DBHelper.ExecuteNonQuery(GetSqlParameter(shuadan_phoneExample));
         }
         #endregion
 
@@ -80,8 +80,8 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Update(shuadan_phone shuadan_phoneExample)
         {
-            MySql.DBHelper.sqlstr = "update shuadan_phone set sdpcode=@sdpcode,sdpdate='" + shuadan_phoneExample.sdpdate.ToString() + "',sdpstate=@sdpstate where sdpid=" + shuadan_phoneExample.sdpid;
-            return MySql.DBHelper.ExecuteNonQuery(GetMySqlParameter(shuadan_phoneExample));
+            DBHelper.sqlstr = "update shuadan_phone set sdpcode=@sdpcode,sdpdate='" + shuadan_phoneExample.sdpdate.ToString() + "',sdpstate=@sdpstate where sdpid=" + shuadan_phoneExample.sdpid;
+            return DBHelper.ExecuteNonQuery(GetSqlParameter(shuadan_phoneExample));
         }
         #endregion
 
@@ -93,11 +93,11 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Delete(int sdpid)
         {
-            MySql.DBHelper.sqlstr = "delete from shuadan_phone where sdpid =@sdpid";
+            DBHelper.sqlstr = "delete from shuadan_phone where sdpid =@sdpid";
             MySqlParameter[] param = new MySqlParameter[] {
                 new MySqlParameter("@sdpid",sdpid)
 			};
-            return MySql.DBHelper.ExecuteNonQuery(param);
+            return DBHelper.ExecuteNonQuery(param);
         }
         #endregion
 
@@ -106,12 +106,12 @@ namespace DAL.MySql
 
         #region 公共方法
 
-        #region GetMySqlParameter
+        #region GetSqlParameter
         /// <summary>
         /// 根据表,获取一个MySqlParameter数组
         /// </summary>
         /// <returns>MySqlParameter[]</returns>
-        public static MySqlParameter[] GetMySqlParameter(shuadan_phone shuadan_phoneExample)
+        public static MySqlParameter[] GetSqlParameter(shuadan_phone shuadan_phoneExample)
         {
             List<MySqlParameter> list_param = new List<MySqlParameter>();
 
@@ -125,7 +125,7 @@ namespace DAL.MySql
             }
             if (shuadan_phoneExample.sdpdate != new DateTime() && shuadan_phoneExample.sdpdate != null)
             {
-                list_param.Add(new MySqlParameter("@sdpdate", shuadan_phoneExample.sdpdate));
+                list_param.Add(new MySqlParameter("@sdpdate", shuadan_phoneExample.sdpdate.ToString("yyyy-MM-dd")));
             }
             else
             {

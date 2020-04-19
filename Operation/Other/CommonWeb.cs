@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace Operation.Other
 {
-    public partial class Common : Form
+    public partial class CommonWeb : Form
     {
         public CefSharp.WinForms.ChromiumWebBrowser webBrowser1;
 
-        public Common()
+        public CommonWeb()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;

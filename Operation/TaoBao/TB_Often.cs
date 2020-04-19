@@ -1352,24 +1352,24 @@ namespace Operation.TaoBao
 
             #region 真实登录代码
 
-            setcookies("__cfduid","de9ff2b6aa275d93dfe1d5d9b698eb3531584761257");
-            setcookies("login","08d3c22dbaee4b8886353c78a9640bb8");
-            webBrowser2.Load("http://www.nuoren365.com/#/public/member-center");
+            //setcookies("__cfduid","de9ff2b6aa275d93dfe1d5d9b698eb3531584761257");
+            //setcookies("login","08d3c22dbaee4b8886353c78a9640bb8");
+            //webBrowser2.Load("http://www.nuoren365.com/#/public/member-center");
 
-            return;
-            //webBrowser2.Focus();
-            //webBrowser2.Load("http://www.nuoren365.com/member/#/login");
+            //return;
+            webBrowser2.Focus();
+            webBrowser2.Load("http://www.nuoren365.com/member/#/login");
 
 
 
-            //if (webBrowser2.ToWait())
-            //{
-            //    webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[0]");
-            //    Auto.Ctrl_V("15128266903");
-            //    webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[1]");
-            //    Auto.Ctrl_V("zhangjiazhe123");
-            //    webBrowser2.ToJs("document.getElementsByClassName('login-submit')[0].click()");
-            //}
+            if (webBrowser2.ToWait())
+            {
+                webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[0]");
+                Auto.Ctrl_V("15128266903");
+                webBrowser2.ToMouseClick("document.getElementsByClassName('user-input')[1]");
+                Auto.Ctrl_V("zhangjiazhe123");
+                webBrowser2.ToJs("document.getElementsByClassName('login-submit')[0].click()");
+            }
             #endregion
 
 

@@ -195,6 +195,15 @@
     </Compile>
     <Compile Include="CefsharpHelpers\Win32Api.cs" />
     <Compile Include="CS\AlipayHelper.cs" />
+    <Compile Include="CS\DataGridViewTest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PinDuoDuo\ShuaDanPDDFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PinDuoDuo\ShuaDanPDDFrom.Designer.cs">
+      <DependentUpon>ShuaDanPDDFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="TaoBao\Taobao_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,11 +231,11 @@
     <Compile Include="Other\MeiTuXiuXiu.Designer.cs">
       <DependentUpon>MeiTuXiuXiu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Other\Common.cs">
+    <Compile Include="Other\CommonWeb.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Other\Common.Designer.cs">
-      <DependentUpon>Common.cs</DependentUpon>
+    <Compile Include="Other\CommonWeb.Designer.cs">
+      <DependentUpon>CommonWeb.cs</DependentUpon>
     </Compile>
     <Compile Include="Other\FaHuoFrom.cs">
       <SubType>Form</SubType>
@@ -481,6 +490,12 @@
     <Compile Include="Test\FilterManager.cs" />
     <Compile Include="Test\MyRequestHandler.cs" />
     <Compile Include="Test\CefKeyboardHandler.cs" />
+    <Compile Include="Test\MySqlTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\MySqlTest.Designer.cs">
+      <DependentUpon>MySqlTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\RequestHandler_new.cs" />
     <Compile Include="Test\test_chrome.cs">
       <SubType>Form</SubType>
@@ -644,6 +659,9 @@
       <DependentUpon>test.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PinDuoDuo\ShuaDanPDDFrom.resx">
+      <DependentUpon>ShuaDanPDDFrom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Other\ImgDiscern.resx">
       <DependentUpon>ImgDiscern.cs</DependentUpon>
     </EmbeddedResource>
@@ -655,8 +673,8 @@
       <DependentUpon>MeiTuXiuXiu.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Other\Common.resx">
-      <DependentUpon>Common.cs</DependentUpon>
+    <EmbeddedResource Include="Other\CommonWeb.resx">
+      <DependentUpon>CommonWeb.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Other\FaHuoFrom.resx">
@@ -769,6 +787,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TaoBao\TB_ZhiTongChe.resx">
       <DependentUpon>TB_ZhiTongChe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\MySqlTest.resx">
+      <DependentUpon>MySqlTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_chrome.resx">
       <DependentUpon>test_chrome.cs</DependentUpon>

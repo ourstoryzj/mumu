@@ -26,9 +26,9 @@ namespace DAL.MySql
         /*查看是否为视图*/
         public IList<shouhou> SearchAll()
         {
-            MySql.DBHelper.sqlstr = "select * from shouhou where shstate='0' order by shdate desc ";
+            DBHelper.sqlstr = "select * from shouhou  order by shdate desc ";
             List<shouhou> list = new List<shouhou>();
-            MySqlDataReader reader = MySql.DBHelper.ExecuteReader();
+            MySqlDataReader reader = DBHelper.ExecuteReader();
             while (reader.Read())
             {
                 shouhou Obj = GetByReader(reader);
@@ -47,11 +47,11 @@ namespace DAL.MySql
         /// <returns></returns>
         public shouhou SearchByshid(int shid)
         {
-            MySql.DBHelper.sqlstr = "select * from shouhou where shid = @shid";
+            DBHelper.sqlstr = "select * from shouhou where shid = @shid";
             MySqlParameter[] param = new MySqlParameter[] {
                 new MySqlParameter("@shid",shid)
 			};
-            MySqlDataReader reader = MySql.DBHelper.ExecuteReader(param);
+            MySqlDataReader reader = DBHelper.ExecuteReader(param);
             shouhou Obj = null;
             if (reader.Read())
             {
@@ -71,8 +71,8 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Insert(shouhou shouhouExample)
         {
-            MySql.DBHelper.sqlstr = "insert into  shouhou (dpid,shaccount,shdate,shkdcode,shname,shordercode,shphone,shremark,shstate,shytphone,shyuanyin)values(@dpid,@shaccount,'" + shouhouExample.shdate.ToString() + "',@shkdcode,@shname,@shordercode,@shphone,@shremark,@shstate,@shytphone,@shyuanyin)";
-            return MySql.DBHelper.ExecuteNonQuery(GetMySqlParameter(shouhouExample));
+            DBHelper.sqlstr = "insert into  shouhou (dpid,shaccount,shdate,shkdcode,shname,shordercode,shphone,shremark,shstate,shytphone,shyuanyin)values(@dpid,@shaccount,'" + shouhouExample.shdate.ToString() + "',@shkdcode,@shname,@shordercode,@shphone,@shremark,@shstate,@shytphone,@shyuanyin)";
+            return DBHelper.ExecuteNonQuery(GetSqlParameter(shouhouExample));
         }
         #endregion
 
@@ -84,8 +84,8 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Update(shouhou shouhouExample)
         {
-            MySql.DBHelper.sqlstr = "update shouhou set dpid=@dpid,shaccount=@shaccount,shdate='" + shouhouExample.shdate.ToString() + "',shkdcode=@shkdcode,shname=@shname,shordercode=@shordercode,shphone=@shphone,shremark=@shremark,shstate=@shstate,shytphone=@shytphone,shyuanyin=@shyuanyin where shid=" + shouhouExample.shid;
-            return MySql.DBHelper.ExecuteNonQuery(GetMySqlParameter(shouhouExample));
+            DBHelper.sqlstr = "update shouhou set dpid=@dpid,shaccount=@shaccount,shdate='" + shouhouExample.shdate.ToString() + "',shkdcode=@shkdcode,shname=@shname,shordercode=@shordercode,shphone=@shphone,shremark=@shremark,shstate=@shstate,shytphone=@shytphone,shyuanyin=@shyuanyin where shid=" + shouhouExample.shid;
+            return DBHelper.ExecuteNonQuery(GetSqlParameter(shouhouExample));
         }
         #endregion
 
@@ -97,15 +97,16 @@ namespace DAL.MySql
         /// <returns>int</returns>
         public int Delete(int shid)
         {
-            MySql.DBHelper.sqlstr = "delete from shouhou where shid =@shid";
+            DBHelper.sqlstr = "delete from shouhou where shid =@shid";
             MySqlParameter[] param = new MySqlParameter[] {
                 new MySqlParameter("@shid",shid)
 			};
-            return MySql.DBHelper.ExecuteNonQuery(param);
+            return DBHelper.ExecuteNonQuery(param);
         }
         #endregion
 
-        #region  Search
+        #region  注释
+
         ///// <summary>
         ///// 高级查询
         ///// </summary>
@@ -133,7 +134,7 @@ namespace DAL.MySql
         //    string sql8 = string.IsNullOrEmpty(orderby) ? " order by ndate desc " : " order by  " + orderby;
         //    DBHelper.sqlstr = sql + sql1 + sql2 + sql3 + sql4 + sql5 + sql6 + sql7 + " and id not in ( select top " + (start - 1).ToString() + " id from Project where " + sql1 + sql2 + sql3 + sql4 + sql5 + sql6 + sql7 + sql8 + " )" + sql8;
         //    List<Project> list = new List<Project>();
-        //    SqlDataReader reader = DBHelper.ExecuteReader();
+        //    MySqlDataReader reader = DBHelper.ExecuteReader();
         //    while (reader.Read())
         //    {
         //        Project Obj = GetByReader(reader);
@@ -142,6 +143,25 @@ namespace DAL.MySql
         //    reader.Close();
         //    return list;
         //}
+        #endregion
+
+        #region SearchNum
+        /// <summary>
+        /// 查询全部数据
+        /// </summary>
+        /// <returns>IList</returns>
+        /*查看是否为视图*/
+        public int SearchNum(string key, int dpid, DateTime start, DateTime end, string state)
+        {
+            string sql = "select count(shid) from shouhou where ";
+            string sql1 = string.IsNullOrEmpty(key) ? " 1=1 " : " ( shaccount like '%" + key + "%' or  shname like '%" + key + "%'  or  shordercode like '%" + key + "%'  or  shphone like '%" + key + "%'  or  shremark like '%" + key + "%'  or  shyuanyin like '%" + key + "%'  or  shytphone like '%" + key + "%'  or  shkdcode like '%" + key + "%' ) ";
+            string sql2 = dpid == 0 ? "" : " and dpid=" + dpid.ToString() + " ";
+            string sql3 = string.IsNullOrEmpty(state) ? "" : " and shstate= '" + state + "' ";
+            string sql4 = start == (new DateTime()) ? "" : " and datediff(d,'" + start.ToString() + "',shdate)>=0 ";
+            string sql5 = end == (new DateTime()) ? "" : " and datediff(d,'" + end.ToString() + "',shdate)<=0 ";
+            DBHelper.sqlstr = sql + sql1 + sql2 + sql3 + sql4 + sql5;
+            return Convert.ToInt32(DBHelper.ExecuteScalar());
+        }
         #endregion
 
         #region Search
@@ -155,16 +175,18 @@ namespace DAL.MySql
         /// <param name="state">状态</param>
         /// <param name="orderby">排序</param>
         /// <returns></returns>
-        public IList<shouhou> Search(string key, int dpid, DateTime start, DateTime end, string state,string orderby)
+        public IList<shouhou> Search(int s, int e, string key, int dpid, DateTime start, DateTime end, string state, string orderby)
         {
-            string sql = "select * from shouhou where ";
+            string sql = "select   * from shouhou where ";
             string sql1 = string.IsNullOrEmpty(key) ? " 1=1 " : " ( shaccount like '%" + key + "%' or  shname like '%" + key + "%'  or  shordercode like '%" + key + "%'  or  shphone like '%" + key + "%'  or  shremark like '%" + key + "%'  or  shyuanyin like '%" + key + "%'  or  shytphone like '%" + key + "%'  or  shkdcode like '%" + key + "%' ) ";
-            string sql2 = dpid == 0 ? "" : " and dpid=" + dpid.ToString()+" ";
-            string sql3 = string.IsNullOrEmpty(state) ? "" : " and shstate= '" + state+"' ";
-            string sql4 = start == (new DateTime()) ? "" : " and datediff('" + start.ToString() + "',shdate)<=0 ";
-            string sql5 = end == (new DateTime()) ? "" : " and datediff('" + end.ToString() + "',shdate)>=0 ";
-            string sql6 = string.IsNullOrEmpty(orderby) ? " order by shdate desc " : " order by  " + orderby;
-            DBHelper.sqlstr = sql + sql1 + sql2 + sql3 + sql4 + sql5 + sql6;
+            string sql2 = dpid == 0 ? "" : " and dpid=" + dpid.ToString() + " ";
+            string sql3 = string.IsNullOrEmpty(state) ? "" : " and shstate= '" + state + "' ";
+            string sql4 = start == (new DateTime()) ? "" : " and datediff(d,'" + start.ToString() + "',shdate)>=0 ";
+            string sql5 = end == (new DateTime()) ? "" : " and datediff(d,'" + end.ToString() + "',shdate)<=0 ";
+            string sql7 = string.IsNullOrEmpty(orderby) ? " order by shdate desc " : " order by  " + orderby;
+             
+            string sql10 = e == 0 ? " " : " limit " + s + "," + e;
+            DBHelper.sqlstr = sql + sql1 + sql2 + sql3 + sql4 + sql5 + sql7 + sql10;
             List<shouhou> list = new List<shouhou>();
             MySqlDataReader reader = DBHelper.ExecuteReader();
             while (reader.Read())
@@ -180,12 +202,12 @@ namespace DAL.MySql
 
         #region 公共方法
 
-        #region GetMySqlParameter
+        #region GetSqlParameter
         /// <summary>
         /// 根据表,获取一个MySqlParameter数组
         /// </summary>
         /// <returns>MySqlParameter[]</returns>
-        public static MySqlParameter[] GetMySqlParameter(shouhou shouhouExample)
+        public static MySqlParameter[] GetSqlParameter(shouhou shouhouExample)
         {
             List<MySqlParameter> list_param = new List<MySqlParameter>();
             if (shouhouExample.dpid != 0)
@@ -205,14 +227,14 @@ namespace DAL.MySql
             {
                 list_param.Add(new MySqlParameter("@shaccount", DBNull.Value));
             }
-            //if (shouhouExample.shdate != new DateTime() && shouhouExample.shdate != null)
-            //{
-            //    list_param.Add(new MySqlParameter("@shdate", shouhouExample.shdate));
-            //}
-            //else
-            //{
-            //    list_param.Add(new MySqlParameter("@shdate", DBNull.Value));
-            //}
+            if (shouhouExample.shdate != new DateTime() && shouhouExample.shdate != null)
+            {
+                list_param.Add(new MySqlParameter("@shdate", shouhouExample.shdate.ToString("yyyy-MM-dd")));
+            }
+            else
+            {
+                list_param.Add(new MySqlParameter("@shdate", DBNull.Value));
+            }
 
             if (!string.IsNullOrEmpty(shouhouExample.shkdcode))
             {
@@ -327,9 +349,9 @@ namespace DAL.MySql
 
         #endregion
     }
- 
 
- 
+
+
 
 
 
