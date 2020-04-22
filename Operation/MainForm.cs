@@ -901,7 +901,13 @@ namespace Operation
         }
 
 
-
+        private void 委托DelegateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_delegate fm = new Test.test_delegate();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = FormWindowState.Maximized;
+        }
 
         #endregion
 
@@ -922,7 +928,9 @@ namespace Operation
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-        } 
+        }
         #endregion
+
+        
     }
 }

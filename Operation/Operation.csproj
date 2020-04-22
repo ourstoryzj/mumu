@@ -503,6 +503,12 @@
     <Compile Include="Test\test_chrome.Designer.cs">
       <DependentUpon>test_chrome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\test_delegate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_delegate.Designer.cs">
+      <DependentUpon>test_delegate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_erweima.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -793,6 +799,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_chrome.resx">
       <DependentUpon>test_chrome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_delegate.resx">
+      <DependentUpon>test_delegate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_erweima.resx">
       <DependentUpon>test_erweima.cs</DependentUpon>
