@@ -924,7 +924,7 @@ namespace Operation
         #region 刷单账号管理ToolStripMenuItem_Click
         private void 刷单账号管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Other.ShuaDanPDDFrom fm = new Other.ShuaDanPDDFrom();
+            Other.PDD_SuaDan fm = new Other.PDD_SuaDan();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
