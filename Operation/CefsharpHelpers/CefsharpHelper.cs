@@ -23,17 +23,20 @@ namespace Operation.CefsharpHelpers
 
         public void Init()
         {
-            var setting = new CefSharp.CefSettings();
-            setting.RegisterScheme(new CefCustomScheme
+            if (!Cef.IsInitialized)
             {
-                SchemeName = CefSharpSchemeHandlerFactory.SchemeName,
-                SchemeHandlerFactory = new CefSharpSchemeHandlerFactory()
-            });
+                var setting = new CefSharp.CefSettings();
+                setting.RegisterScheme(new CefCustomScheme
+                {
+                    SchemeName = CefSharpSchemeHandlerFactory.SchemeName,
+                    SchemeHandlerFactory = new CefSharpSchemeHandlerFactory()
+                });
 
-            // 设置语言
-            setting.Locale = "zh-CN"; // en-US
-            Cef.Initialize(setting);
-           // CefSharp.Cef.Initialize(setting, true, false);
+                // 设置语言
+                setting.Locale = "zh-CN"; // en-US
+                Cef.Initialize(setting);
+                // CefSharp.Cef.Initialize(setting, true, false);
+            }
         }
 
         /// <summary>
@@ -177,10 +180,18 @@ namespace Operation.CefsharpHelpers
 
         public void Dispose()
         {
-            if (browser != null)
+            try
             {
-                browser.GetBrowser().CloseBrowser(true);
-                browser.Dispose();
+                if (browser != null)
+                {
+                    browser.GetBrowser().CloseBrowser(true);
+                    browser.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -191,7 +202,7 @@ namespace Operation.CefsharpHelpers
         /// <param name="domain">主机，例如：mobile.yangkeduo.com</param>
         /// <param name="name">cookie名称</param>
         /// <param name="value">值</param>
-        public void SetCookies(string domain,string name, string value)
+        public void SetCookies(string domain, string name, string value)
         {
             var cookieManager = CefSharp.Cef.GetGlobalCookieManager();
             cookieManager.SetCookieAsync("http://" + domain, new CefSharp.Cookie()
@@ -201,6 +212,15 @@ namespace Operation.CefsharpHelpers
                 Value = value,
                 Expires = DateTime.MinValue
             });
+        }
+
+        /// <summary>
+        /// 调用F12 审查元素功能
+        /// </summary>
+        public void ShowTools()
+        {
+            browser.ShowDevTools();
+            
         }
 
     }

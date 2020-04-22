@@ -23,7 +23,7 @@ namespace Operation.Test
         public test_chrome()
         {
             InitializeComponent();
-            Control.CheckForIllegalCrossThreadCalls = false;//不明作用，先注释
+            //Control.CheckForIllegalCrossThreadCalls = false;//不明作用，先注释
 
 
             
@@ -37,17 +37,22 @@ namespace Operation.Test
                 chrome = new CefsharpHelper("th://empty");
                 chrome.Init();
                 var browser = chrome.CreateBrowser();
-                this.Invoke(new Action<Panel>(p => 
-                {
-                    p.Controls.Add(browser);
-                    p.Update();
-                }),this.panel1);
+                //this.Invoke(new Action<Panel>(p =>
+                //{
+                //    p.Controls.Add(browser);
+                //    p.Update();
+                //}), this.panel1);
+
+                panel1.Controls.Add(browser);
+                panel1.Update();
+             
             }
         }
 
         void ApplicationExit_CefSharp(object sender, EventArgs e)
         {
             Cef.Shutdown();
+            chrome.Dispose();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -78,8 +83,20 @@ namespace Operation.Test
 
         private void test_chrome_Load(object sender, EventArgs e)
         {
-            Application.ApplicationExit += ApplicationExit_CefSharp;
+            //Application.ApplicationExit += ApplicationExit_CefSharp;
             bind();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            chrome.ClearCookie();
+            chrome.Dispose();
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            chrome.ShowTools();
         }
     }
 }
