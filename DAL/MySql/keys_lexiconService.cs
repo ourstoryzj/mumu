@@ -4,7 +4,7 @@ using IDAL;
 using Entity;
 using MySql.Data.MySqlClient;
 
-namespace DAL.MySql.MySql
+namespace DAL.Mysql.MySql
 {
 
 

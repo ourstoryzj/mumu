@@ -95,8 +95,8 @@ namespace Operation.Test
 
         private void button4_Click(object sender, EventArgs e)
         {
-            DAL.MySql.fanxianService fx = new DAL.MySql.fanxianService();
-            dataGridView1.DataSource = fx.Search(5, 20, "", "", 0, new DateTime(), new DateTime(), new DateTime(), new DateTime(), "");
+            //DAL.MySql.fanxianService fx = new DAL.MySql.fanxianService();
+            //dataGridView1.DataSource = fx.Search(5, 20, "", "", 0, new DateTime(), new DateTime(), new DateTime(), new DateTime(), "");
            
         }
     }

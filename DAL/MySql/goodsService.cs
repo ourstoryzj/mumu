@@ -5,7 +5,7 @@ using IDAL;
 using Entity;
 using MySql.Data.MySqlClient;
 
-namespace DAL.MySql
+namespace DAL.Mysql
 {
 
     //表名称：goods

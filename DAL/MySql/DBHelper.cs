@@ -4,7 +4,7 @@ using System.Text;
 using MySql.Data.MySqlClient;
 using System.Data;
 
-namespace DAL.MySql
+namespace DAL.Mysql
 {
     public class DBHelper
     {

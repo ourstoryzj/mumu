@@ -128,6 +128,9 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>C:\DLL\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\dll\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>C:\DLL\Newtonsoft.Json.dll</HintPath>
     </Reference>
