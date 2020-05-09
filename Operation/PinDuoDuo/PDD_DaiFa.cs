@@ -88,8 +88,8 @@ namespace Operation.PinDuoDuo
             setcookies("pdd_user_id", pdd_user_id);
             setcookies("PDDAccessToken", PDDAccessToken);
             txt_token.Text = PDDAccessToken;
-            //setcookies("pdd_user_id", "6217302188028");
-            //setcookies("PDDAccessToken", "SW26IAYOQRYSRYUHI72VGGKCYDH7ULUCHDTGYJVUGJFEPBH3FQVQ103fcbe");
+            //setcookies("pdd_user_id", "4897104401726");
+            //setcookies("PDDAccessToken", "PTTIVUXHCETYNBRBRDUXMU4ZBKS27DL5KIHUOS5CCWHVBGVC2NNQ1113e9e");
 
 
 
@@ -109,7 +109,10 @@ namespace Operation.PinDuoDuo
             {
                 //如果是支付宝页面自动生成二维码，如果不是则清空
                 if (browser.Address.IndexOf("mclient.alipay.com/home/exterfaceAssign.htm?") != -1)
+                { 
                     pan_tool.BackgroundImage = CS.AlipayHelper.CreateQRCode(browser.Address, 200);
+                    //CS.PinDuoDuo.GetOrderIDByURL(browser.Address).ToShow();
+                }
                 else
                     pan_tool.BackgroundImage = null;
                 //showurl();

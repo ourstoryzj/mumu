@@ -65,6 +65,22 @@ namespace Entity
         private string m_sdremark6;
 
 
+        //付款状态 1:付款成功 2 未付款
+        private string m_sdstatepay;
+
+        //Name:sdremark7 Type:varchar
+        private string m_sdremark7;
+
+        //Name:sdremark8 Type:varchar
+        private string m_sdremark8;
+
+        //Name:sdremark9 Type:varchar
+        private string m_sdremark9;
+
+        //Name:sdremark10 Type:varchar
+        private string m_sdremark10;
+
+
 
         /// <summary>
         /// Name:sdid Type:int
@@ -194,6 +210,47 @@ namespace Entity
             get { return m_sdremark6; }
             set { m_sdremark6 = value; }
         }
+        ///<summary>
+		///付款状态 1:付款成功 2 未付款
+        ///</summary>
+		public string sdstatepay
+        {
+            get { return m_sdstatepay; }
+            set { m_sdstatepay = value; }
+        }
+        ///<summary>
+        ///Name:sdremark7 Type:varchar
+        ///</summary>
+        public string sdremark7
+        {
+            get { return m_sdremark7; }
+            set { m_sdremark7 = value; }
+        }
+        ///<summary>
+        ///Name:sdremark8 Type:varchar
+        ///</summary>
+        public string sdremark8
+        {
+            get { return m_sdremark8; }
+            set { m_sdremark8 = value; }
+        }
+        ///<summary>
+        ///Name:sdremark9 Type:varchar
+        ///</summary>
+        public string sdremark9
+        {
+            get { return m_sdremark9; }
+            set { m_sdremark9 = value; }
+        }
+        ///<summary>
+        ///Name:sdremark10 Type:varchar
+        ///</summary>
+        public string sdremark10
+        {
+            get { return m_sdremark10; }
+            set { m_sdremark10 = value; }
+        }
+
 
     }
 }

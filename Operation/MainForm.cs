@@ -909,6 +909,25 @@ namespace Operation
             fm.WindowState = FormWindowState.Maximized;
         }
 
+        private void 打开外部浏览器ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = Manager.PathAppliction() + "\\Browser.exe";
+
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName=path;
+            p.StartInfo.UseShellExecute = true;
+            //序列化参数json
+            Entity.shuadan_records sr = new Entity.shuadan_records();
+            sr.sdvpn = "192.168.1.1:8888";
+            sr.sdgoodsurl = "https://mobile.yangkeduo.com/goods.html?goods_id=2586741146&is_spike=0&page_from=39&refer_page_name=mall&refer_page_id=10039_1544165527559_g1vZ5JhLjC&refer_page_sn=10039";
+            sr.sdphone = "5472535098";
+            sr.sdaddress = "OTGXAXDS5ICX4SEZBBTK5GPG7B3GW6K7KBVRYF5RXSVEIOSMLBJQ1123a4a";
+            string agrs = Newtonsoft.Json.JsonConvert.SerializeObject(sr);
+            p.StartInfo.Arguments = agrs;
+            p.Start();
+            //System.Diagnostics.Process.Start(path);
+        }
+
         #endregion
 
         #region 话术管理ToolStripMenuItem_Click
@@ -929,8 +948,9 @@ namespace Operation
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
+
         #endregion
 
-        
+      
     }
 }

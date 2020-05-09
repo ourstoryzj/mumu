@@ -178,6 +178,12 @@
     <Compile Include="AutoNew\test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
+    <Compile Include="CefBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CefBrowser.Designer.cs">
+      <DependentUpon>CefBrowser.cs</DependentUpon>
+    </Compile>
     <Compile Include="CefsharpHelpers\CefSharpSchemeHandler.cs" />
     <Compile Include="CefsharpHelpers\CefSharpSchemeHandlerFactory.cs" />
     <Compile Include="CefsharpHelpers\CefsharpHelper.cs" />
@@ -673,6 +679,9 @@
     <EmbeddedResource Include="AutoNew\test.resx">
       <DependentUpon>test.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CefBrowser.resx">
+      <DependentUpon>CefBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDD_SuaDan.resx">
       <DependentUpon>PDD_SuaDan.cs</DependentUpon>

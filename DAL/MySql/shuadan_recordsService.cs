@@ -454,6 +454,11 @@ namespace DAL.Mysql
             shuadan_recordsExample.sdremark6 = Reader["sdremark6"] == DBNull.Value ? null : Reader["sdremark6"].ToString();
             return shuadan_recordsExample;
         }
+
+        public IList<shuadan_records> Search(string key, string state_pay, string state_fahuo)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
 

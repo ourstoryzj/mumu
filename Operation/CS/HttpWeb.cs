@@ -12,6 +12,8 @@ namespace Operation.CS
     /// </summary> 
     public static class HttpWeb
     {
+        #region GetHtml
+
         /// <summary> 
         ///  获取网址HTML 
         /// </summary> 
@@ -181,6 +183,7 @@ namespace Operation.CS
             return getString;
         }
 
+        #endregion
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -72,6 +72,7 @@
             this.json测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.编辑框测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mySQL数据库测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.委托DelegateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.话术管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷单账号管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,7 +83,7 @@
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
-            this.委托DelegateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打开外部浏览器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -386,7 +387,8 @@
             this.json测试ToolStripMenuItem,
             this.编辑框测试ToolStripMenuItem,
             this.mySQL数据库测试ToolStripMenuItem,
-            this.委托DelegateToolStripMenuItem});
+            this.委托DelegateToolStripMenuItem,
+            this.打开外部浏览器ToolStripMenuItem});
             this.测试ToolStripMenuItem.Name = "测试ToolStripMenuItem";
             this.测试ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.测试ToolStripMenuItem.Text = "测试";
@@ -440,6 +442,13 @@
             this.mySQL数据库测试ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.mySQL数据库测试ToolStripMenuItem.Text = "MySQL数据库测试";
             this.mySQL数据库测试ToolStripMenuItem.Click += new System.EventHandler(this.mySQL数据库测试ToolStripMenuItem_Click);
+            // 
+            // 委托DelegateToolStripMenuItem
+            // 
+            this.委托DelegateToolStripMenuItem.Name = "委托DelegateToolStripMenuItem";
+            this.委托DelegateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.委托DelegateToolStripMenuItem.Text = "委托delegate测试";
+            this.委托DelegateToolStripMenuItem.Click += new System.EventHandler(this.委托DelegateToolStripMenuItem_Click);
             // 
             // 任务管理ToolStripMenuItem
             // 
@@ -520,12 +529,12 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
-            // 委托DelegateToolStripMenuItem
+            // 打开外部浏览器ToolStripMenuItem
             // 
-            this.委托DelegateToolStripMenuItem.Name = "委托DelegateToolStripMenuItem";
-            this.委托DelegateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.委托DelegateToolStripMenuItem.Text = "委托delegate测试";
-            this.委托DelegateToolStripMenuItem.Click += new System.EventHandler(this.委托DelegateToolStripMenuItem_Click);
+            this.打开外部浏览器ToolStripMenuItem.Name = "打开外部浏览器ToolStripMenuItem";
+            this.打开外部浏览器ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.打开外部浏览器ToolStripMenuItem.Text = "打开外部浏览器";
+            this.打开外部浏览器ToolStripMenuItem.Click += new System.EventHandler(this.打开外部浏览器ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -607,5 +616,6 @@
         private System.Windows.Forms.ToolStripMenuItem 话术管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 刷单账号管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 委托DelegateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打开外部浏览器ToolStripMenuItem;
     }
 }

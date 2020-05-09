@@ -66,22 +66,9 @@ namespace DAL
         /// <returns>int</returns>
         public int Insert(shuadan_records shuadan_recordsExample)
         {
-            DBHelper.sqlstr = "insert into  shuadan_records (sdgoodsname,sdgoodsurl,sddptype,sddate,sdorderid,sdphone,sdvpn,sdaddress,sdwuliu,sdremark1,sdremark3,sdremark2,sdremark4,sdremark5,sdremark6)values(@sdgoodsname,@sdgoodsurl,@sddptype,@sddate,@sdorderid,@sdphone,@sdvpn,@sdaddress,@sdwuliu,@sdremark1,@sdremark3,@sdremark2,@sdremark4,@sdremark5,@sdremark6)";
+            DBHelper.sqlstr = "insert into  shuadan_records (sdgoodsname,sdgoodsurl,sddptype,sddate,sdorderid,sdphone,sdvpn,sdaddress,sdwuliu,sdremark1,sdremark3,sdremark2,sdremark4,sdremark5,sdremark6,sdstatepay,sdremark7,sdremark8,sdremark9,sdremark10)values(@sdgoodsname,@sdgoodsurl,@sddptype,@sddate,@sdorderid,@sdphone,@sdvpn,@sdaddress,@sdwuliu,@sdremark1,@sdremark3,@sdremark2,@sdremark4,@sdremark5,@sdremark6,@sdstatepay,@sdremark7,@sdremark8,@sdremark9,@sdremark10)";
             return DBHelper.ExecuteNonQuery(GetSqlParameters(shuadan_recordsExample));
         }
-        #endregion
-
-        #region Insert
-        /// <summary>
-        /// 插入方法
-        /// </summary>
-        /// <param name="shuadan_records">shuadan_records表实例</param>
-        /// <returns>int</returns>
-        //public int Insert(shuadan_records shuadan_recordsExample)
-        //{
-        //    DBHelper.sqlstr = "insert into  shuadan_records (sdgoodsname,sdgoodsurl,sddptype,sddate,sdorderid,sdphone,sdvpn,sdaddress,sdwuliu,sdremark1,sdremark3,sdremark2,sdremark4,sdremark5,sdremark6)values(@sdgoodsname,@sdgoodsurl,@sddptype,'" + shuadan_recordsExample.sddate.ToString("yyyy-MM-dd") + "',@sdorderid,@sdphone,@sdvpn,@sdaddress,@sdwuliu,@sdremark1,@sdremark3,@sdremark2,@sdremark4,@sdremark5,@sdremark6)";
-        //    return DBHelper.ExecuteNonQuery(GetSqlParameters(shuadan_recordsExample));
-        //}
         #endregion
 
         #region Update
@@ -92,7 +79,7 @@ namespace DAL
         /// <returns>int</returns>
         public int Update(shuadan_records shuadan_recordsExample)
         {
-            DBHelper.sqlstr = "update shuadan_records set sdgoodsname=@sdgoodsname,sdgoodsurl=@sdgoodsurl,sddptype=@sddptype,sddate='" + shuadan_recordsExample.sddate.ToString("yyyy-MM-dd") + "',sdorderid=@sdorderid,sdphone=@sdphone,sdvpn=@sdvpn,sdaddress=@sdaddress,sdwuliu=@sdwuliu,sdremark1=@sdremark1,sdremark3=@sdremark3,sdremark2=@sdremark2,sdremark4=@sdremark4,sdremark5=@sdremark5,sdremark6=@sdremark6 where sdid=" + shuadan_recordsExample.sdid;
+            DBHelper.sqlstr = "update shuadan_records set sdgoodsname=@sdgoodsname,sdgoodsurl=@sdgoodsurl,sddptype=@sddptype,sddate=@sddate,sdorderid=@sdorderid,sdphone=@sdphone,sdvpn=@sdvpn,sdaddress=@sdaddress,sdwuliu=@sdwuliu,sdremark1=@sdremark1,sdremark3=@sdremark3,sdremark2=@sdremark2,sdremark4=@sdremark4,sdremark5=@sdremark5,sdremark6=@sdremark6,sdstatepay=@sdstatepay,sdremark7=@sdremark7,sdremark8=@sdremark8,sdremark9=@sdremark9,sdremark10=@sdremark10 where sdid=" + shuadan_recordsExample.sdid;
             return DBHelper.ExecuteNonQuery(GetSqlParameters(shuadan_recordsExample));
         }
         #endregion
@@ -244,7 +231,35 @@ namespace DAL
         }
         #endregion
 
-
+        #region Search
+        /// <summary>
+        /// 模糊搜索
+        /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state_pay">店铺类型</param>
+        /// <param name="state_fahuo">发货状态</param>
+        /// <returns></returns>
+        public IList<shuadan_records> Search(string key, string state_pay, string state_fahuo)
+        {
+            string sql1 = "select   * from shuadan_records where ";
+            string sql2 = string.IsNullOrEmpty(key) ? " 1=1 " : " ( sdgoodsname like '%" + key + "%' or sdgoodsurl like '%" + key + "%' or sdorderid like '%" + key + "%' or sdphone like '%" + key + "%' or sdvpn like '%" + key + "%' or sdaddress like '%" + key + "%' or sdwuliu like '%" + key + "%' or sdremark1 like '%" + key + "%' or sdremark3 like '%" + key + "%' or sdremark2 like '%" + key + "%' or sdremark4 like '%" + key + "%' or sdremark5 like '%" + key + "%' or sdremark6 like '%" + key + "%' )";//删除无用字段，删除最后一个or
+            string sql3 = string.IsNullOrEmpty(state_pay) ? "" : " and sdstatepay= '" + state_pay + "'  and sddptype='3' ";//状态字段，无用删除
+ 
+            string sql4 = string.IsNullOrEmpty(state_fahuo) ? "" : " and sdremark4= '" + state_fahuo + "'  "; 
+            string sql7 = " order by sddate asc ";
+           
+            DBHelper.sqlstr = sql1 + sql2 + sql3 +   sql4   + sql7;
+            List<shuadan_records> list = new List<shuadan_records>();
+            SqlDataReader reader = DBHelper.ExecuteReader();
+            while (reader.Read())
+            {
+                shuadan_records Obj = GetByReader(reader);
+                list.Add(Obj);
+            }
+            reader.Close();
+            return list;
+        }
+        #endregion
         //
 
         #region SearchWeiFaHuo
@@ -280,7 +295,6 @@ namespace DAL
         public static SqlParameter[] GetSqlParameters(shuadan_records shuadan_recordsExample)
         {
             List<SqlParameter> list_param = new List<SqlParameter>();
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdgoodsname))
             {
                 list_param.Add(new SqlParameter("@sdgoodsname", shuadan_recordsExample.sdgoodsname));
@@ -289,7 +303,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdgoodsname", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdgoodsurl))
             {
                 list_param.Add(new SqlParameter("@sdgoodsurl", shuadan_recordsExample.sdgoodsurl));
@@ -298,7 +311,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdgoodsurl", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sddptype))
             {
                 list_param.Add(new SqlParameter("@sddptype", shuadan_recordsExample.sddptype));
@@ -309,15 +321,12 @@ namespace DAL
             }
             if (shuadan_recordsExample.sddate != new DateTime() && shuadan_recordsExample.sddate != null)
             {
-                //DateTime dt = new DateTime();
-                //DateTime.TryParse(shuadan_recordsExample.sddate.ToString("yyyy-MM-dd HH:mm:ss"), out dt);
-                list_param.Add(new SqlParameter("@sddate", shuadan_recordsExample.sddate.ToString("yyyy-MM-dd HH:mm:ss")));
+                list_param.Add(new SqlParameter("@sddate", shuadan_recordsExample.sddate.ToString("yyyy-MM-dd")));
             }
             else
             {
                 list_param.Add(new SqlParameter("@sddate", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdorderid))
             {
                 list_param.Add(new SqlParameter("@sdorderid", shuadan_recordsExample.sdorderid));
@@ -326,7 +335,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdorderid", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdphone))
             {
                 list_param.Add(new SqlParameter("@sdphone", shuadan_recordsExample.sdphone));
@@ -335,7 +343,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdphone", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdvpn))
             {
                 list_param.Add(new SqlParameter("@sdvpn", shuadan_recordsExample.sdvpn));
@@ -344,7 +351,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdvpn", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdaddress))
             {
                 list_param.Add(new SqlParameter("@sdaddress", shuadan_recordsExample.sdaddress));
@@ -353,7 +359,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdaddress", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdwuliu))
             {
                 list_param.Add(new SqlParameter("@sdwuliu", shuadan_recordsExample.sdwuliu));
@@ -362,7 +367,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdwuliu", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdremark1))
             {
                 list_param.Add(new SqlParameter("@sdremark1", shuadan_recordsExample.sdremark1));
@@ -371,7 +375,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdremark1", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdremark3))
             {
                 list_param.Add(new SqlParameter("@sdremark3", shuadan_recordsExample.sdremark3));
@@ -380,7 +383,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdremark3", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdremark2))
             {
                 list_param.Add(new SqlParameter("@sdremark2", shuadan_recordsExample.sdremark2));
@@ -389,7 +391,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdremark2", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdremark4))
             {
                 list_param.Add(new SqlParameter("@sdremark4", shuadan_recordsExample.sdremark4));
@@ -398,7 +399,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdremark4", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdremark5))
             {
                 list_param.Add(new SqlParameter("@sdremark5", shuadan_recordsExample.sdremark5));
@@ -407,7 +407,6 @@ namespace DAL
             {
                 list_param.Add(new SqlParameter("@sdremark5", DBNull.Value));
             }
-
             if (!string.IsNullOrEmpty(shuadan_recordsExample.sdremark6))
             {
                 list_param.Add(new SqlParameter("@sdremark6", shuadan_recordsExample.sdremark6));
@@ -415,6 +414,46 @@ namespace DAL
             else
             {
                 list_param.Add(new SqlParameter("@sdremark6", DBNull.Value));
+            }
+            if (!string.IsNullOrEmpty(shuadan_recordsExample.sdstatepay))
+            {
+                list_param.Add(new SqlParameter("@sdstatepay", shuadan_recordsExample.sdstatepay));
+            }
+            else
+            {
+                list_param.Add(new SqlParameter("@sdstatepay", DBNull.Value));
+            }
+            if (!string.IsNullOrEmpty(shuadan_recordsExample.sdremark7))
+            {
+                list_param.Add(new SqlParameter("@sdremark7", shuadan_recordsExample.sdremark7));
+            }
+            else
+            {
+                list_param.Add(new SqlParameter("@sdremark7", DBNull.Value));
+            }
+            if (!string.IsNullOrEmpty(shuadan_recordsExample.sdremark8))
+            {
+                list_param.Add(new SqlParameter("@sdremark8", shuadan_recordsExample.sdremark8));
+            }
+            else
+            {
+                list_param.Add(new SqlParameter("@sdremark8", DBNull.Value));
+            }
+            if (!string.IsNullOrEmpty(shuadan_recordsExample.sdremark9))
+            {
+                list_param.Add(new SqlParameter("@sdremark9", shuadan_recordsExample.sdremark9));
+            }
+            else
+            {
+                list_param.Add(new SqlParameter("@sdremark9", DBNull.Value));
+            }
+            if (!string.IsNullOrEmpty(shuadan_recordsExample.sdremark10))
+            {
+                list_param.Add(new SqlParameter("@sdremark10", shuadan_recordsExample.sdremark10));
+            }
+            else
+            {
+                list_param.Add(new SqlParameter("@sdremark10", DBNull.Value));
             }
             SqlParameter[] param = new SqlParameter[list_param.Count];
             int index = 0;
@@ -452,6 +491,11 @@ namespace DAL
             shuadan_recordsExample.sdremark4 = Reader["sdremark4"] == DBNull.Value ? null : Reader["sdremark4"].ToString();
             shuadan_recordsExample.sdremark5 = Reader["sdremark5"] == DBNull.Value ? null : Reader["sdremark5"].ToString();
             shuadan_recordsExample.sdremark6 = Reader["sdremark6"] == DBNull.Value ? null : Reader["sdremark6"].ToString();
+            shuadan_recordsExample.sdstatepay = Reader["sdstatepay"] == DBNull.Value ? null : Reader["sdstatepay"].ToString();
+            shuadan_recordsExample.sdremark7 = Reader["sdremark7"] == DBNull.Value ? null : Reader["sdremark7"].ToString();
+            shuadan_recordsExample.sdremark8 = Reader["sdremark8"] == DBNull.Value ? null : Reader["sdremark8"].ToString();
+            shuadan_recordsExample.sdremark9 = Reader["sdremark9"] == DBNull.Value ? null : Reader["sdremark9"].ToString();
+            shuadan_recordsExample.sdremark10 = Reader["sdremark10"] == DBNull.Value ? null : Reader["sdremark10"].ToString();
             return shuadan_recordsExample;
         }
         #endregion
@@ -464,10 +508,6 @@ namespace DAL
     }
 
 
-
-
-
-
-
+ 
 
 }

@@ -164,6 +164,20 @@ namespace BLL2
         }
         #endregion
 
+        #region Search
+        /// <summary>
+        /// 模糊搜索
+        /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state_pay">店铺类型</param>
+        /// <param name="state_fahuo">发货状态</param>
+        /// <returns></returns>
+        public static IList<shuadan_records> Search(string key, string state_pay, string state_fahuo)
+        {
+            return Service.Search(key,state_pay,state_fahuo);
+        }
+        #endregion
+
     }
 
 }

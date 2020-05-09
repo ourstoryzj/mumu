@@ -100,6 +100,7 @@ namespace Entity
         }
         ///<summary>
         ///Name:sdaremark1 Type:varchar
+        ///使用次数
         ///</summary>
         public string sdaremark1
         {

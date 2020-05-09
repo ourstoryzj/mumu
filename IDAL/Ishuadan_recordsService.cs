@@ -123,6 +123,18 @@ namespace IDAL
         /// <param name="indexx">从这里开始</param>
         /// <returns></returns>
         IList<shuadan_records> SearchToBuDan_GetAddress(int num, int indexx);
+
+        #endregion
+
+        #region Search
+        /// <summary>
+        /// 模糊搜索
+        /// </summary>
+        /// <param name="key">关键词</param>
+        /// <param name="state_pay">店铺类型</param>
+        /// <param name="state_fahuo">发货状态</param>
+        /// <returns></returns>
+        IList<shuadan_records> Search(string key, string state_pay, string state_fahuo);
         
         #endregion
 

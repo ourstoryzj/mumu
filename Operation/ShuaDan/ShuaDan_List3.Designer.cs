@@ -1146,6 +1146,7 @@
             this.Controls.Add(this.cb_js);
             this.Name = "ShuaDan_List3";
             this.Text = "补单记录&发货";
+            this.Load += new System.EventHandler(this.ShuaDan_List3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_title)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);

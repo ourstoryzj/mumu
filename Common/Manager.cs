@@ -1901,16 +1901,64 @@ namespace Common
         //----------------------------------------------------------------------
 
 
+        #region 结束进程
+        ///<summary>
+        /// 结束进程  
+        ///</summary>
+        ///<param name="processName"/>
+        ///<returns></returns>
+        public static void ProcessKillByName(string processName)
+        {
+            try
+            {
+                System.Diagnostics.Process[] process = System.Diagnostics.Process.GetProcessesByName(processName);
+
+                foreach (System.Diagnostics.Process p in process)
+                {
+                    p.Kill();
+                }
+            }
+            catch
+            {
+                //isSuccess = false;
+            }
+            //return isSuccess;
+        }
+
+        ///<summary>
+        /// 结束进程  
+        ///</summary>
+        ///<param name="processName"/>
+        ///<returns></returns>
+        public static void ProcessKillByID(string processId)
+        {
+            try
+            {
+                System.Diagnostics.Process process = System.Diagnostics.Process.GetProcessById(processId.ToInt());
+                process.Kill();
+
+            }
+            catch
+            {
+                //isSuccess = false;
+            }
+            //return isSuccess;
+        }
+
+
+        #endregion
+
+        //------------------------------------------------------------------
 
 
         #region String
 
 
-            /// <summary>
-            /// 判断字符串是否为空
-            /// </summary>
-            /// <param name="str"></param>
-            /// <returns></returns>
+        /// <summary>
+        /// 判断字符串是否为空
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static bool ToIsEmpty(this string str)
         {
             if (string.IsNullOrEmpty(str))
@@ -3338,6 +3386,10 @@ namespace Common
             cb.Text = "请选择";
         }
         #endregion
+
+
+
+
 
     }
 }

@@ -1978,9 +1978,13 @@ namespace Operation.ShuaDan
             }
 
         }
+
         #endregion
 
+        private void ShuaDan_List3_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 
 

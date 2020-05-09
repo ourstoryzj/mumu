@@ -759,5 +759,17 @@ namespace Operation.CS
         }
         #endregion
 
+        #region GetOrderIDByURL
+        /// <summary>
+        /// 根据订单支付宝支付网址获取订单编号
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public static string GetOrderIDByURL(string url)
+        {
+            return Manager.GetValueByURL(url, "subject").Replace("%E8%AE%A2%E5%8D%95%E7%BC%96%E5%8F%B7", ""); ;
+        }
+
+        #endregion
     }
 }

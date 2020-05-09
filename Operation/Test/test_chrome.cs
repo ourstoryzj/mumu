@@ -35,7 +35,24 @@ namespace Operation.Test
             if (chrome == null)
             {
                 chrome = new CefsharpHelper("th://empty");
-                chrome.Init();
+                if (!Cef.IsInitialized)
+                {
+                    var setting = new CefSharp.CefSettings();
+                    setting.RegisterScheme(new CefCustomScheme
+                    {
+                        SchemeName = CefSharpSchemeHandlerFactory.SchemeName,
+                        SchemeHandlerFactory = new CefSharpSchemeHandlerFactory()
+                    });
+
+                    //var ProxyAddress = "58.54.50.134:22213";
+                    //setting.CachePath = "cache";
+                    //setting.CefCommandLineArgs.Add("proxy-server", ProxyAddress);
+                    // 设置语言
+                    setting.Locale = "zh-CN"; // en-US
+                    Cef.Initialize(setting);
+                    // CefSharp.Cef.Initialize(setting, true, false);
+                }
+
                 var browser = chrome.CreateBrowser();
                 //this.Invoke(new Action<Panel>(p =>
                 //{
