@@ -21,25 +21,32 @@ namespace Operation.CefsharpHelpers
         public ChromiumWebBrowser browser = null;
         public Image codeImage = null;
         private bool isCapture = false;
+        /// <summary>
+        /// 用于设置header
+        /// </summary>
+        public CefSettings setting = new CefSettings();
 
         #region 初始功能
 
         public void Init()
         {
-            if (!Cef.IsInitialized)
-            {
-                var setting = new CefSharp.CefSettings();
-                setting.RegisterScheme(new CefCustomScheme
-                {
-                    SchemeName = CefSharpSchemeHandlerFactory.SchemeName,
-                    SchemeHandlerFactory = new CefSharpSchemeHandlerFactory()
-                });
+            Init("");
 
-                // 设置语言
-                setting.Locale = "zh-CN"; // en-US
-                Cef.Initialize(setting);
-                // CefSharp.Cef.Initialize(setting, true, false);
-            }
+            //if (!Cef.IsInitialized)
+            //{
+            //    //var setting = new CefSharp.CefSettings();
+            //    setting.RegisterScheme(new CefCustomScheme
+            //    {
+            //        SchemeName = CefSharpSchemeHandlerFactory.SchemeName,
+            //        SchemeHandlerFactory = new CefSharpSchemeHandlerFactory()
+            //    });
+
+            //    // 设置语言
+            //    setting.Locale = "zh-CN"; // en-US
+            //    setting.AcceptLanguageList = "zh-CN";
+            //    Cef.Initialize(setting);
+            //    // CefSharp.Cef.Initialize(setting, true, false);
+            //}
         }
 
 
@@ -47,7 +54,32 @@ namespace Operation.CefsharpHelpers
         /// 设置代理
         /// </summary>
         /// <param name="ProxyAddress"></param>
-        public void Init(string ProxyAddress)
+        //public void Init(string ProxyAddress)
+        //{
+        //    Init(ProxyAddress, false);
+        //    //if (!Cef.IsInitialized)
+        //    //{
+        //    //    var setting = new CefSharp.CefSettings();
+        //    //    setting.RegisterScheme(new CefCustomScheme
+        //    //    {
+        //    //        SchemeName = CefSharpSchemeHandlerFactory.SchemeName,
+        //    //        SchemeHandlerFactory = new CefSharpSchemeHandlerFactory()
+        //    //    });
+        //    //    setting.CachePath = "cache";//设置代理
+        //    //    setting.CefCommandLineArgs.Add("proxy-server", ProxyAddress);//设置代理
+        //    //    // 设置语言
+        //    //    setting.Locale = "zh-CN"; // en-US
+        //    //    Cef.Initialize(setting);
+        //    //    // CefSharp.Cef.Initialize(setting, true, false);
+        //    //}
+        //}
+
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="ProxyAddress">代理地址</param>
+        /// <param name="phone">User-Agent设置为iphone手机浏览器</param>
+        public void Init(string ProxyAddress,bool phone = false)
         {
             if (!Cef.IsInitialized)
             {
@@ -57,14 +89,25 @@ namespace Operation.CefsharpHelpers
                     SchemeName = CefSharpSchemeHandlerFactory.SchemeName,
                     SchemeHandlerFactory = new CefSharpSchemeHandlerFactory()
                 });
-                setting.CachePath = "cache";//设置代理
-                setting.CefCommandLineArgs.Add("proxy-server", ProxyAddress);//设置代理
+                //设置代理
+                if(!string.IsNullOrEmpty(ProxyAddress))
+                {
+                    setting.CachePath = "cache";//设置代理
+                    setting.CefCommandLineArgs.Add("proxy-server", ProxyAddress);//设置代理
+                }
+                //设置手机
+                if (phone)
+                {
+                    setting.UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53";
+                }
                 // 设置语言
                 setting.Locale = "zh-CN"; // en-US
+                setting.AcceptLanguageList = "zh-CN";
                 Cef.Initialize(setting);
                 // CefSharp.Cef.Initialize(setting, true, false);
             }
         }
+
 
         /// <summary>
         /// 操作构造函数
@@ -266,19 +309,24 @@ namespace Operation.CefsharpHelpers
             browser.RequestContext = new RequestContext(requestContextSettings);
         }
 
-
-        public void SetHeader()
-        {
-            Dictionary<string, string> header = new Dictionary<string, string>();
-            //header.Add("Referer", "http://www.nuoren365.com/");
-            //header.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
-            //header.Add("User-Agent", "Apple Iphone 5");
-            header.Add("User-Agent", "Android");
-            header.Add("Accept-Language", "zh-CN,zh;q=0.9,en;q=0.8");
-            header.Add("ourstoryzj", "ok");
-            //header.Add("Referer", "http://www.nuoren365.com/");
-            CefsharpHelpers.RequestHandler.headerDic = header;
-        }
+        /// <summary>
+        /// 设置header用于拼多多刷单
+        /// </summary>
+        //public void SetHeader()
+        //{
+        //    setting.UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53";
+        //    #region bak
+        //    //Dictionary<string, string> header = new Dictionary<string, string>();
+        //    ////header.Add("Referer", "http://www.nuoren365.com/");
+        //    ////header.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
+        //    ////header.Add("User-Agent", "Apple Iphone 5");
+        //    //header.Add("User-Agent", "Android");
+        //    //header.Add("Accept-Language", "zh-CN,zh;q=0.9,en;q=0.8");
+        //    //header.Add("ourstoryzj", "ok");
+        //    //header.Add("Referer", "http://mobile.yangkeduo.com/psnl_mall_collection.html?refer_page_name=personal&refer_page_id=10001_1589102288078_nq1kb7179s&refer_page_sn=10001&page_id=41857_1589102291290_kcs2xnm9i1&list_id=0&use_old=0&force_refresh=0&is_back=1");
+        //    //CefsharpHelpers.RequestHandler.headerDic = header; 
+        //    #endregion
+        //}
         #endregion
 
 

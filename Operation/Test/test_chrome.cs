@@ -48,7 +48,9 @@ namespace Operation.Test
                     //setting.CachePath = "cache";
                     //setting.CefCommandLineArgs.Add("proxy-server", ProxyAddress);
                     // 设置语言
+                    setting.UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53";
                     setting.Locale = "zh-CN"; // en-US
+                    setting.AcceptLanguageList = "zh-CN";
                     Cef.Initialize(setting);
                     // CefSharp.Cef.Initialize(setting, true, false);
                 }

@@ -92,17 +92,19 @@ namespace Operation.Other
 
         void bind_chrome()
         {
+            //settings.UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53";
+
             if (chrome == null)
             {
                 chrome = new CefsharpHelper("th://empty");
                 string proxyip = GetProxyAddress();
                 if (string.IsNullOrEmpty(proxyip))
                 {
-                    chrome.Init();
+                    chrome.Init("",true);
                 }
                 else
                 {
-                    chrome.Init(proxyip);
+                    chrome.Init(proxyip,true);
                 }
                 chrome.CreateBrowser();
                 //this.Invoke(new Action<Panel>(p =>
@@ -113,7 +115,7 @@ namespace Operation.Other
 
                 panel1.Controls.Add(chrome.browser);
                 panel1.Update();
-                chrome.SetHeader();
+                //chrome.SetHeader();
                 chrome.browser.FrameLoadEnd += webbrowser_FrameLoadEnd;
             }
             else
@@ -139,7 +141,7 @@ namespace Operation.Other
 
                 pan_kongbao.Controls.Add(chrome.browser);
                 pan_kongbao.Update();
-                chrome.SetHeader();
+                //chrome.SetHeader();
                 chrome.browser.FrameLoadEnd += webbrowser_FrameLoadEnd;
             }
             else
@@ -181,9 +183,31 @@ namespace Operation.Other
         {
             //setcookies("pdd_user_id", id);
             //setcookies("PDDAccessToken", token);
+            bind_chrome();
             var domain = "mobile.yangkeduo.com";
             chrome.SetCookies(domain, "pdd_user_id", id);
             chrome.SetCookies(domain, "PDDAccessToken", token);
+            //chrome.SetHeader();
+
+            //Dictionary<string, string> header = new Dictionary<string, string>();
+            //header.Add("Host", "mobile.yangkeduo.com");
+
+            //header.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+            //header.Add("Accept-Encoding", "deflate, gzip");
+            //header.Add("Connection", "keep-alive");
+            //header.Add("Accept-Language", "zh-cn");
+            //header.Add("Upgrade-Insecure-Requests", "1");
+            //header.Add("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53");
+            //header.Add("ourstoryzj", "zj");
+
+
+            ////header.Add("User-Agent", "Android");
+            ////header.Add("Accept-Language", "zh-CN,zh;q=0.9,en;q=0.8");
+            ////header.Add("ourstoryzj", "ok");
+            ////header.Add("Referer", "http://mobile.yangkeduo.com/psnl_mall_collection.html?refer_page_name=personal&refer_page_id=10001_1589102288078_nq1kb7179s&refer_page_sn=10001&page_id=41857_1589102291290_kcs2xnm9i1&list_id=0&use_old=0&force_refresh=0&is_back=1");
+
+
+            //CefsharpHelpers.RequestHandler.headerDic = header;
         }
 
 
@@ -212,9 +236,17 @@ namespace Operation.Other
                     }
                 }
                 else
-                { 
-                    pan_tool.BackgroundImage = null;
-                    pan_tool.Refresh();
+                {
+                    try
+                    {
+                        pan_tool.BackgroundImage = null;
+                        pan_tool.Refresh();
+                    }
+                    catch 
+                    {
+                       // throw;
+                    }
+                   
                 }
 
                 //showurl();
@@ -533,6 +565,19 @@ namespace Operation.Other
 
         private void btn_shuadan_geren_Click(object sender, EventArgs e)
         {
+            Dictionary<string, string> header = new Dictionary<string, string>();
+            header.Add("Host", "mobile.yangkeduo.com");
+
+            header.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+            header.Add("Accept-Encoding", "deflate, gzip");
+            header.Add("Connection", "keep-alive");
+            header.Add("Accept-Language", "zh-cn");
+            header.Add("Upgrade-Insecure-Requests", "1");
+            //header.Add("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53");
+            header.Add("User-Agent", "Android");
+            header.Add("ourstoryzj", "zj");
+
+            CefsharpHelpers.RequestHandler.headerDic = header;
 
             chrome.JumpUrl("https://mobile.yangkeduo.com/personal.html?refer_page_name=index&refer_page_id=10002_1574496288865_ZKZKA8HgWJ&refer_page_sn=10002&page_id=10001_1577246196934_4h0wdL6yBD&is_back=1");
         }

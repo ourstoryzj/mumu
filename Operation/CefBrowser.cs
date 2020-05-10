@@ -91,11 +91,11 @@ namespace Operation
             //return; 
             #endregion
 
-
+            //CmdArgs.Length.ToString().ToShow();
             if (CmdArgs.Length > 1)
             {
                 // txt_url.Text = CmdArgs[1];
-
+                //CmdArgs[1].ToShow();
                 try
                 {
                     sr = new Entity.shuadan_records();
@@ -149,13 +149,14 @@ namespace Operation
                     sr = null;
                 }
             }
-            else if (CmdArgs.Length > 2)
+            if (CmdArgs.Length > 2)
             {
+                //CmdArgs[2].ToShow();
                 string temp = CmdArgs[2];
                 bool.TryParse(temp, out isauto);
 
             }
-
+            //MessageBox.Show(isauto.ToString());
             if (sr != null)
             {
                 bind(sr.sdgoodsurl);
@@ -184,11 +185,11 @@ namespace Operation
                     //chrome.Init(sr.sdvpn);
                     if (string.IsNullOrEmpty(sr.sdvpn))
                     {
-                        chrome.Init();
+                        chrome.Init("",true);
                     }
                     else
                     {
-                        chrome.Init(sr.sdvpn);
+                        chrome.Init(sr.sdvpn,true);
                         //sr.sdvpn.ToShow();
                     }
                 }
@@ -201,6 +202,7 @@ namespace Operation
                     var domain = "mobile.yangkeduo.com";
                     chrome.SetCookies(domain, "pdd_user_id", sr.sdphone);
                     chrome.SetCookies(domain, "PDDAccessToken", sr.sdaddress);
+                    //chrome.SetHeader();
                     //chrome.JumpUrl("www.baidu.com/s?wd=ip");
                     //chrome.JumpUrl(sr.sdgoodsurl);
                 }
@@ -247,10 +249,11 @@ namespace Operation
                                 }
                                 else
                                 {
-                                    sr.sdstatepay = "1";
+                                    //sr.sdstatepay = "1";
                                     btn_save.PerformClick();
                                     //自动保存
                                     pan_pay.BackgroundImage = CS.AlipayHelper.CreateQRCode(browser.Address, 200);
+                                    pan_pay.Visible = true;
                                 }
                             }
                         }
@@ -314,7 +317,7 @@ namespace Operation
                 sr.sdremark3 = "1";
                 sr.sdremark4 = "1";
                 sr.sdremark6 = "2";
-                sr.sdstatepay = "2";
+                sr.sdstatepay = isauto?"1": "2";
                 try
                 {
                     string sqlcom = "server=sqloledb;data source=qds16257965.my3w.com;User ID=qds16257965;pwd=QW013368zj@;Initial Catalog=qds16257965_db";

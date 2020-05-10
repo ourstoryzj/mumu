@@ -512,6 +512,12 @@
       <DependentUpon>MySqlTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Test\RequestHandler_new.cs" />
+    <Compile Include="Test\test_chrome_header.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_chrome_header.Designer.cs">
+      <DependentUpon>test_chrome_header.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_chrome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -829,6 +835,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Test\MySqlTest.resx">
       <DependentUpon>MySqlTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_chrome_header.resx">
+      <DependentUpon>test_chrome_header.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_chrome.resx">
       <DependentUpon>test_chrome.cs</DependentUpon>

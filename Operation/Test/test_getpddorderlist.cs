@@ -71,7 +71,7 @@ namespace Operation.Test
                 
                 //数据
                 //string postData = "{ 'orderOnlineType':0,'groupEndTime':"+dt1.ToString()+",'groupStartTime':"+dt2.ToString()+",'pageNumber':1,'pageSize':50,'afterSaleType':1}";
-                string postData = "{\"orderOnlineType\":0,\"groupEndTime\":1589071403,\"groupStartTime\":1586565803,\"pageNumber\":1,\"pageSize\":50,\"afterSaleType\":1}";
+                string postData = "{\"orderOnlineType\":0,\"groupEndTime\":" + dt1.ToString() + ",\"groupStartTime\":" + dt2.ToString() + ",\"pageNumber\":1,\"pageSize\":50,\"afterSaleType\":1}";
                 ASCIIEncoding encoding = new ASCIIEncoding();
                 byte[] bytepostDate = encoding.GetBytes(postData);
                 request.ContentLength = bytepostDate.Length;
@@ -116,6 +116,9 @@ namespace Operation.Test
             return "";
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

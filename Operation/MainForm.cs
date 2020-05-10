@@ -968,5 +968,13 @@ namespace Operation
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
+
+        private void cefsharp模拟headerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_chrome_header fm = new Test.test_chrome_header();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
     }
 }
