@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -196,6 +197,27 @@ namespace Common
             {
                 ex.ToString().ToLog();
                 return false;
+            }
+        }
+
+
+        /// <summary>
+        /// 解决Keep-Alive 和 Close 不能使用此属性设置
+        /// 这样要设置相应的http头就简单很多了，上面所说的两个http头可以直接如下代码一样进行设置：
+        /// SetHeaderValue(request.Headers, "Host", "hejingzong.cn");
+        /// SetHeaderValue(request.Headers, "Connection", "keep-alive");
+        /// </summary>
+        /// <param name="header"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public static void SetHeaderValue(WebHeaderCollection header, string name, string value)
+        {
+            var property = typeof(WebHeaderCollection).GetProperty("InnerCollection",
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            if (property != null)
+            {
+                var collection = property.GetValue(header, null) as NameValueCollection;
+                collection[name] = value;
             }
         }
 

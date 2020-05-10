@@ -530,11 +530,23 @@
     <Compile Include="Test\test_erweima.Designer.cs">
       <DependentUpon>test_erweima.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\test_getpddorderlist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_getpddorderlist.Designer.cs">
+      <DependentUpon>test_getpddorderlist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_json.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Test\test_json.Designer.cs">
       <DependentUpon>test_json.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test\test_login_elong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_login_elong.Designer.cs">
+      <DependentUpon>test_login_elong.cs</DependentUpon>
     </Compile>
     <Compile Include="Test\test_nuoren.cs">
       <SubType>Form</SubType>
@@ -827,8 +839,14 @@
     <EmbeddedResource Include="Test\test_erweima.resx">
       <DependentUpon>test_erweima.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_getpddorderlist.resx">
+      <DependentUpon>test_getpddorderlist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test\test_json.resx">
       <DependentUpon>test_json.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_login_elong.resx">
+      <DependentUpon>test_login_elong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_nuoren.resx">
       <DependentUpon>test_nuoren.cs</DependentUpon>

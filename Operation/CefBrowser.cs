@@ -225,25 +225,44 @@ namespace Operation
             {
                 //如果是支付宝页面自动生成二维码，如果不是则清空
                 if (browser.Address.IndexOf("mclient.alipay.com/home/exterfaceAssign.htm?") != -1)
+                {
                     if (sr != null)
                     {
                         sr.sdgoodsname = browser.Address;
                         string orderid = CS.PinDuoDuo.GetOrderIDByURL(browser.Address);
                         //只保存一次订单
-                        if(sr.sdstatepay!="2")
-                        { 
+                        if (sr.sdstatepay != "2")
+                        {
                             if (!string.IsNullOrEmpty(orderid))
                             {
                                 sr.sdorderid = orderid;
                                 this.Text = "已经获取orderid";
-                                if (MessageBox.Show("是否要保存订单?", "确定", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                //如果不是自动保存
+                                if (!isauto)
                                 {
+                                    if (MessageBox.Show("是否要保存订单?", "确定", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                    {
+                                        btn_save.PerformClick();
+                                    }
+                                }
+                                else
+                                {
+                                    sr.sdstatepay = "1";
                                     btn_save.PerformClick();
+                                    //自动保存
+                                    pan_pay.BackgroundImage = CS.AlipayHelper.CreateQRCode(browser.Address, 200);
                                 }
                             }
                         }
                     }
-
+                }
+                else
+                {
+                    //隐藏二维码
+                    pan_pay.BackgroundImage = null;
+                    pan_pay.Refresh();
+                    pan_pay.Visible = false;
+                }
                 //else
                 //sr.sdgoodsname = "";
             }
@@ -314,13 +333,18 @@ namespace Operation
                     ex.ToShow();
                 }
 
-                "添加记录成功".ToShow();
+                if (isauto)
+                {
+                    this.Text = "保存成功,付款成功";
+                }
+                else
+                    "添加记录成功".ToShow();
             }
 
         }
         #endregion
 
-        
+
 
         #region GetSqlParameters
         /// <summary>
@@ -519,6 +543,11 @@ namespace Operation
         private void 查询IPToolStripMenuItem_Click(object sender, EventArgs e)
         {
             chrome.JumpUrl("www.baidu.com/s?wd=ip");
+        }
+
+        private void pan_pay_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

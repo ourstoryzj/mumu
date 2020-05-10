@@ -949,8 +949,24 @@ namespace Operation
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
 
+
         #endregion
 
-      
+        private void 模拟登陆艺龙网站ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             
+            Test.test_login_elong fm = new Test.test_login_elong();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
+
+        private void 获取拼多多订单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_getpddorderlist fm = new Test.test_getpddorderlist();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
     }
 }

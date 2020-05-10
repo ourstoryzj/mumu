@@ -39,6 +39,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.个人中心ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询IPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pan_pay = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +49,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.pan_pay);
             this.panel1.Location = new System.Drawing.Point(12, 48);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(441, 678);
@@ -120,21 +123,30 @@
             this.个人中心ToolStripMenuItem,
             this.查询IPToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
             // 
             // 个人中心ToolStripMenuItem
             // 
             this.个人中心ToolStripMenuItem.Name = "个人中心ToolStripMenuItem";
-            this.个人中心ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.个人中心ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.个人中心ToolStripMenuItem.Text = "个人中心";
             this.个人中心ToolStripMenuItem.Click += new System.EventHandler(this.个人中心ToolStripMenuItem_Click);
             // 
             // 查询IPToolStripMenuItem
             // 
             this.查询IPToolStripMenuItem.Name = "查询IPToolStripMenuItem";
-            this.查询IPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查询IPToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.查询IPToolStripMenuItem.Text = "查询IP";
             this.查询IPToolStripMenuItem.Click += new System.EventHandler(this.查询IPToolStripMenuItem_Click);
+            // 
+            // pan_pay
+            // 
+            this.pan_pay.Location = new System.Drawing.Point(218, 455);
+            this.pan_pay.Name = "pan_pay";
+            this.pan_pay.Size = new System.Drawing.Size(220, 220);
+            this.pan_pay.TabIndex = 0;
+            this.pan_pay.Visible = false;
+            this.pan_pay.Paint += new System.Windows.Forms.PaintEventHandler(this.pan_pay_Paint);
             // 
             // CefBrowser
             // 
@@ -155,6 +167,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chrome浏览器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CefBrowser_FormClosing);
+            this.panel1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -173,5 +186,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 个人中心ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查询IPToolStripMenuItem;
+        private System.Windows.Forms.Panel pan_pay;
     }
 }

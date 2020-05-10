@@ -81,7 +81,7 @@ namespace Operation.Other
             string str = "";
             if (!string.IsNullOrEmpty(txt_proxyaip.Text))
             {
-                 str = Common.WebService.GetHtmlByWebRequest(txt_proxyaip.Text);
+                str = Common.WebService.GetHtmlByWebRequest(txt_proxyaip.Text);
                 str = str.Replace("\r\n", "");
                 txt_proxyaddress.Text = str;
                 return str;
@@ -129,8 +129,8 @@ namespace Operation.Other
             {
                 chrome = new CefsharpHelper("http://uu453.com.uu249.com:8888/login.aspx");
                 string proxyip = GetProxyAddress();
-                 chrome.Init();
-                 chrome.CreateBrowser();
+                chrome.Init();
+                chrome.CreateBrowser();
                 //this.Invoke(new Action<Panel>(p =>
                 //{
                 //    p.Controls.Add(browser);
@@ -153,7 +153,7 @@ namespace Operation.Other
 
         void bind()
         {
-            dgv_type.DataSource = BLL.shuadan_accountManager.Search(1,10000,"","1",0,new DateTime(),new DateTime(),"");
+            dgv_type.DataSource = BLL.shuadan_accountManager.Search(1, 10000, "", "1", 0, new DateTime(), new DateTime(), "");
         }
 
         #endregion
@@ -187,7 +187,7 @@ namespace Operation.Other
         }
 
 
-        
+
         #endregion
 
         #region webbrowser_FrameLoadEnd
@@ -212,7 +212,10 @@ namespace Operation.Other
                     }
                 }
                 else
+                { 
                     pan_tool.BackgroundImage = null;
+                    pan_tool.Refresh();
+                }
 
                 //showurl();
                 //txt_goodsurl.Text = webBrowser1.Address;
@@ -224,7 +227,7 @@ namespace Operation.Other
 
 
         }
- 
+
 
 
         //void showurl()
@@ -349,7 +352,7 @@ namespace Operation.Other
                         sr.sdaddress = sa.sdapwd;
                         sr.sdremark6 = "2";
                         sr.sddptype = "3";
-                        
+
 
                         string agrs = Newtonsoft.Json.JsonConvert.SerializeObject(sr);
                         p.StartInfo.Arguments = agrs + agrs2;
@@ -384,7 +387,7 @@ namespace Operation.Other
             str = (i + 1).ToString();
             return str;
         }
-        
+
 
 
         private void dgv_type_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -468,7 +471,7 @@ namespace Operation.Other
                 "请选择需要删除的信息".ToShow();
             }
 
-        } 
+        }
         #endregion
 
         #region btn_search_Click_1
@@ -517,7 +520,7 @@ namespace Operation.Other
                 {
                     ex.ToShow();
                 }
-               
+
             }
 
             ("保存成功,共" + list.Count.ToString() + "条信息").ToShow();
@@ -596,8 +599,8 @@ namespace Operation.Other
 
         private void btn_pay_Click(object sender, EventArgs e)
         {
-           IList<shuadan_records> list =  BLL2.shuadan_recordsManager.Search("", "2", "");
-            lbl_pay_message.Text = "共 "+list.Count.ToString()+" 条未付款订单";
+            IList<shuadan_records> list = BLL2.shuadan_recordsManager.Search("", "2", "");
+            lbl_pay_message.Text = "共 " + list.Count.ToString() + " 条未付款订单";
             if (list.Count > 0)
             {
                 shuadan_records sr = list[0];
@@ -610,7 +613,7 @@ namespace Operation.Other
                         pan_pay.BackgroundImage = AlipayHelper.CreateQRCode(payurl, 300);
                     }
                 }
-                
+
             }
         }
         #endregion
@@ -890,7 +893,7 @@ namespace Operation.Other
                         #endregion
                         //fahuo(sr);
                     }
-                    else if (colname == "col_del")
+                    else if (colname == "col_del_list")
                     {
                         #region 删除
 
@@ -906,6 +909,8 @@ namespace Operation.Other
                                 list.Remove(sr);
                                 dgv_title.DataSource = null;
                                 dgv_title.DataSource = list;
+                                //删除行 e.del();
+
                                 //dgv_title.Refresh();
                             }
                             else
@@ -997,6 +1002,15 @@ namespace Operation.Other
                         #endregion
                         //fakongbao_pinduoduo(sr);
 
+                    }
+                    else if (colname == "col_goodsname")
+                    {
+                        //二维码
+                        pan_pay.BackgroundImage = null;
+                        pan_pay.Refresh();
+                        pan_pay.BackgroundImage = CS.AlipayHelper.CreateQRCode(sr.sdgoodsname, 300);
+                        tabControl1.SelectedTab = tp_records;
+                        pay_sr = sr;
                     }
 
                 }
@@ -1224,8 +1238,29 @@ namespace Operation.Other
         private void btn_login_kongbao_Click(object sender, EventArgs e)
         {
             bind_chrome_kongbao();
-            chrome.JumpUrl("uu453.com.uu249.com:8888/login.aspx");
+            var domain = "uu453.com.uu249.com:8888";
+            chrome.SetCookies(domain, "safedog-flow-item","");
+            //chrome.SetCookies(domain, "Cooperatives.User=userID", "369647");
+            //chrome.SetCookies(domain, "adminid", "0");
+            //chrome.SetCookies(domain, "userName", "ourstoryzj");
+            //chrome.SetCookies(domain, "Lb", "1");
+            //chrome.SetCookies(domain, "MemberTypes", "2");
+            //chrome.SetCookies(domain, "Token", "47F58E0510FD651574448F137DF97A2F24F91C91");
+            chrome.SetCookies(domain, "Cooperatives.User", "userID=369647&adminid=0&userName=ourstoryzj&Lb=1&MemberTypes=2&Token=47F58E0510FD651574448F137DF97A2F24F91C91");
+
+
+            chrome.JumpUrl("uu453.com.uu249.com:8888/Member/DanHaoSearch.aspx");
+            //if (chrome.WaitWebPageLoad())
+            //{
+            //    if (chrome.ElementIsNull("document.getElementById('MainC_tbuserName')"))
+            //    {
+            //        chrome.JS_CEFBrowser("document.getElementById('MainC_tbuserName').value='ourstoryzj';");
+            //        chrome.JS_CEFBrowser("document.getElementById('MainC_Tbpwd').value='zhangjian';");
+            //        chrome.JS_CEFBrowser("document.getElementById('MainC_btnLogin').click()");
+            //    }
+            //}
             
+
         }
     }
 

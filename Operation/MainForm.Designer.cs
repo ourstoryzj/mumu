@@ -73,6 +73,7 @@
             this.编辑框测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mySQL数据库测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.委托DelegateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打开外部浏览器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.话术管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷单账号管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +84,8 @@
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
-            this.打开外部浏览器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.模拟登陆艺龙网站ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.获取拼多多订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -388,7 +390,9 @@
             this.编辑框测试ToolStripMenuItem,
             this.mySQL数据库测试ToolStripMenuItem,
             this.委托DelegateToolStripMenuItem,
-            this.打开外部浏览器ToolStripMenuItem});
+            this.打开外部浏览器ToolStripMenuItem,
+            this.模拟登陆艺龙网站ToolStripMenuItem,
+            this.获取拼多多订单ToolStripMenuItem});
             this.测试ToolStripMenuItem.Name = "测试ToolStripMenuItem";
             this.测试ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.测试ToolStripMenuItem.Text = "测试";
@@ -449,6 +453,13 @@
             this.委托DelegateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.委托DelegateToolStripMenuItem.Text = "委托delegate测试";
             this.委托DelegateToolStripMenuItem.Click += new System.EventHandler(this.委托DelegateToolStripMenuItem_Click);
+            // 
+            // 打开外部浏览器ToolStripMenuItem
+            // 
+            this.打开外部浏览器ToolStripMenuItem.Name = "打开外部浏览器ToolStripMenuItem";
+            this.打开外部浏览器ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.打开外部浏览器ToolStripMenuItem.Text = "打开外部浏览器";
+            this.打开外部浏览器ToolStripMenuItem.Click += new System.EventHandler(this.打开外部浏览器ToolStripMenuItem_Click);
             // 
             // 任务管理ToolStripMenuItem
             // 
@@ -529,12 +540,19 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
-            // 打开外部浏览器ToolStripMenuItem
+            // 模拟登陆艺龙网站ToolStripMenuItem
             // 
-            this.打开外部浏览器ToolStripMenuItem.Name = "打开外部浏览器ToolStripMenuItem";
-            this.打开外部浏览器ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.打开外部浏览器ToolStripMenuItem.Text = "打开外部浏览器";
-            this.打开外部浏览器ToolStripMenuItem.Click += new System.EventHandler(this.打开外部浏览器ToolStripMenuItem_Click);
+            this.模拟登陆艺龙网站ToolStripMenuItem.Name = "模拟登陆艺龙网站ToolStripMenuItem";
+            this.模拟登陆艺龙网站ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.模拟登陆艺龙网站ToolStripMenuItem.Text = "模拟登陆艺龙网站";
+            this.模拟登陆艺龙网站ToolStripMenuItem.Click += new System.EventHandler(this.模拟登陆艺龙网站ToolStripMenuItem_Click);
+            // 
+            // 获取拼多多订单ToolStripMenuItem
+            // 
+            this.获取拼多多订单ToolStripMenuItem.Name = "获取拼多多订单ToolStripMenuItem";
+            this.获取拼多多订单ToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.获取拼多多订单ToolStripMenuItem.Text = "获取拼多多订单";
+            this.获取拼多多订单ToolStripMenuItem.Click += new System.EventHandler(this.获取拼多多订单ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -617,5 +635,7 @@
         private System.Windows.Forms.ToolStripMenuItem 刷单账号管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 委托DelegateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 打开外部浏览器ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 模拟登陆艺龙网站ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 获取拼多多订单ToolStripMenuItem;
     }
 }

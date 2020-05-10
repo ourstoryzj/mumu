@@ -176,6 +176,8 @@ namespace Operation.CefsharpHelpers
         /// <param name="url"></param>
         public void JumpUrl(string url)
         {
+            url = url.Replace("http://","");
+            url = url.Replace("https://", "");
             browser.Load(url);
         }
 
@@ -824,9 +826,9 @@ namespace Operation.CefsharpHelpers
             string temp = JS_CEFBrowser(element + "!=null");
             if (!string.IsNullOrEmpty(temp) && temp.ToLower() == "true")
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         #endregion
 
