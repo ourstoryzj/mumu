@@ -27,10 +27,10 @@ namespace Operation.CefsharpHelpers
         public static readonly string VersionNumberString = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}",
             Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion);
 
-        bool IRequestHandler.OnBeforeBrowse(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, bool isRedirect)
-        {
-            return false;
-        }
+        //bool IRequestHandler.OnBeforeBrowse(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, bool isRedirect)
+        //{
+        //    return false;
+        //}
 
         bool IRequestHandler.OnOpenUrlFromTab(IWebBrowser browserControl, IBrowser browser, IFrame frame, string targetUrl, WindowOpenDisposition targetDisposition, bool userGesture)
         {
@@ -68,75 +68,75 @@ namespace Operation.CefsharpHelpers
             // TODO: Add your own code here for handling scenarios where a plugin crashed, for one reason or another.
         }
 
-        CefReturnValue IRequestHandler.OnBeforeResourceLoad(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IRequestCallback callback)
-        {
-            //Example of how to set Referer
-            // Same should work when setting any header
+        //CefReturnValue IRequestHandler.OnBeforeResourceLoad(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IRequestCallback callback)
+        //{
+        //    //Example of how to set Referer
+        //    // Same should work when setting any header
 
-            // For this example only set Referer when using our custom scheme
-            var url = new Uri(request.Url);
+        //    // For this example only set Referer when using our custom scheme
+        //    var url = new Uri(request.Url);
 
-            //NOTE: When executing the callback in an async fashion need to check to see if it's disposed
-            if (!callback.IsDisposed)
-            {
-                using (callback)
-                {
-                    if (request.Method == "POST")
-                    {
-                        using (var postData = request.PostData)
-                        {
-                            if (postData != null)
-                            {
-                                var elements = postData.Elements;
+        //    //NOTE: When executing the callback in an async fashion need to check to see if it's disposed
+        //    if (!callback.IsDisposed)
+        //    {
+        //        using (callback)
+        //        {
+        //            if (request.Method == "POST")
+        //            {
+        //                using (var postData = request.PostData)
+        //                {
+        //                    if (postData != null)
+        //                    {
+        //                        var elements = postData.Elements;
 
-                                var charSet = request.GetCharSet();
+        //                        var charSet = request.GetCharSet();
 
-                                foreach (var element in elements)
-                                {
-                                    if (element.Type == PostDataElementType.Bytes)
-                                    {
-                                        var body = element.GetBody(charSet);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    try
-                    {
-                        //如果request没有被释放则处理添加信息
-                        if (!request.IsDisposed)
-                        {
-                            if (headerDic.Count > 0)
-                            {
-                                var headers = request.Headers;
-                                foreach (KeyValuePair<string, string> dic in headerDic)
-                                {
-                                    headers[dic.Key] = dic.Value;
-                                }
-                                request.Headers = headers;
-                            }
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        e.ToString().ToShow();
-                    }
-                }
-            }
+        //                        foreach (var element in elements)
+        //                        {
+        //                            if (element.Type == PostDataElementType.Bytes)
+        //                            {
+        //                                var body = element.GetBody(charSet);
+        //                            }
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //            try
+        //            {
+        //                //如果request没有被释放则处理添加信息
+        //                if (!request.IsDisposed)
+        //                {
+        //                    if (headerDic.Count > 0)
+        //                    {
+        //                        var headers = request.Headers;
+        //                        foreach (KeyValuePair<string, string> dic in headerDic)
+        //                        {
+        //                            headers[dic.Key] = dic.Value;
+        //                        }
+        //                        request.Headers = headers;
+        //                    }
+        //                }
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                e.ToString().ToShow();
+        //            }
+        //        }
+        //    }
 
 
 
-            return CefReturnValue.Continue;
-        }
+        //    return CefReturnValue.Continue;
+        //}
 
-        bool IRequestHandler.GetAuthCredentials(IWebBrowser browserControl, IBrowser browser, IFrame frame, bool isProxy, string host, int port, string realm, string scheme, IAuthCallback callback)
-        {
-            //NOTE: If you do not wish to implement this method returning false is the default behaviour
-            // We also suggest you explicitly Dispose of the callback as it wraps an unmanaged resource.
+        //bool IRequestHandler.GetAuthCredentials(IWebBrowser browserControl, IBrowser browser, IFrame frame, bool isProxy, string host, int port, string realm, string scheme, IAuthCallback callback)
+        //{
+        //    //NOTE: If you do not wish to implement this method returning false is the default behaviour
+        //    // We also suggest you explicitly Dispose of the callback as it wraps an unmanaged resource.
 
-            callback.Dispose();
-            return false;
-        }
+        //    callback.Dispose();
+        //    return false;
+        //}
 
         void IRequestHandler.OnRenderProcessTerminated(IWebBrowser browserControl, IBrowser browser, CefTerminationStatus status)
         {
@@ -174,44 +174,44 @@ namespace Operation.CefsharpHelpers
         //    //}
         //}
 
-        bool IRequestHandler.OnProtocolExecution(IWebBrowser browserControl, IBrowser browser, string url)
-        {
-            return url.StartsWith("mailto");
-        }
+        //bool IRequestHandler.OnProtocolExecution(IWebBrowser browserControl, IBrowser browser, string url)
+        //{
+        //    return url.StartsWith("mailto");
+        //}
 
         void IRequestHandler.OnRenderViewReady(IWebBrowser browserControl, IBrowser browser)
         {
 
         }
 
-        bool IRequestHandler.OnResourceResponse(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IResponse response)
-        {
-            //NOTE: You cannot modify the response, only the request
-            // You can now access the headers
-            //var headers = response.ResponseHeaders;
+        //bool IRequestHandler.OnResourceResponse(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IResponse response)
+        //{
+        //    //NOTE: You cannot modify the response, only the request
+        //    // You can now access the headers
+        //    //var headers = response.ResponseHeaders;
 
-            //NOTE: You cannot modify the response, only the request
-            // You can now access the headers
-            //var headers = response.ResponseHeaders;
+        //    //NOTE: You cannot modify the response, only the request
+        //    // You can now access the headers
+        //    //var headers = response.ResponseHeaders;
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        IResponseFilter IRequestHandler.GetResourceResponseFilter(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IResponse response)
-        {
-            var url = new Uri(request.Url);
-            if (url.AbsoluteUri == "th://empty")
-            {
-                return new EmptyPageFilter();
-            }
-            else
-            {
-                var pageFilter = FilterManager.CreateFilter(request.Identifier.ToString(), url.AbsoluteUri);
-                pageFilter.NotifyResult += pageFilter_NotifyResult;
+        //IResponseFilter IRequestHandler.GetResourceResponseFilter(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IResponse response)
+        //{
+        //    var url = new Uri(request.Url);
+        //    if (url.AbsoluteUri == "th://empty")
+        //    {
+        //        return new EmptyPageFilter();
+        //    }
+        //    else
+        //    {
+        //        var pageFilter = FilterManager.CreateFilter(request.Identifier.ToString(), url.AbsoluteUri);
+        //        pageFilter.NotifyResult += pageFilter_NotifyResult;
 
-                return pageFilter;
-            }
-        }
+        //        return pageFilter;
+        //    }
+        //}
 
         private void pageFilter_NotifyResult(string guid, string url, NameValueCollection req, NameValueCollection resp, byte[] data)
         {
@@ -221,19 +221,19 @@ namespace Operation.CefsharpHelpers
             }
         }
 
-        void IRequestHandler.OnResourceLoadComplete(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IResponse response, UrlRequestStatus status, long receivedContentLength)
-        {
-            try
-            {
-                var pageFilter = FilterManager.GetFileter(request.Identifier.ToString());
-                if (pageFilter != null)
-                {
-                    pageFilter.SetHeader(request.Headers, response.ResponseHeaders);
-                    pageFilter.SendNotify();
-                }
-            }
-            catch { }
-        }
+        //void IRequestHandler.OnResourceLoadComplete(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IResponse response, UrlRequestStatus status, long receivedContentLength)
+        //{
+        //    try
+        //    {
+        //        var pageFilter = FilterManager.GetFileter(request.Identifier.ToString());
+        //        if (pageFilter != null)
+        //        {
+        //            pageFilter.SetHeader(request.Headers, response.Headers);
+        //            pageFilter.SendNotify();
+        //        }
+        //    }
+        //    catch { }
+        //}
 
         public bool OnSelectClientCertificate(IWebBrowser browserControl, IBrowser browser, bool isProxy, string host, int port, X509Certificate2Collection certificates, ISelectClientCertificateCallback callback)
         {
@@ -243,6 +243,21 @@ namespace Operation.CefsharpHelpers
         public void OnResourceRedirect(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IResponse response, ref string newUrl)
         {
 
+        }
+
+        public bool OnBeforeBrowse(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IRequest request, bool userGesture, bool isRedirect)
+        {
+            return true;
+        }
+
+        public IResourceRequestHandler GetResourceRequestHandler(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IRequest request, bool isNavigation, bool isDownload, string requestInitiator, ref bool disableDefaultHandling)
+        {
+            return null;
+        }
+
+        public bool GetAuthCredentials(IWebBrowser chromiumWebBrowser, IBrowser browser, string originUrl, bool isProxy, string host, int port, string realm, string scheme, IAuthCallback callback)
+        {
+            return true;
         }
         #endregion
     }
@@ -327,7 +342,7 @@ namespace Operation.CefsharpHelpers
                     return FilterStatus.Error;
                 }
             }
-            catch (Exception ex)
+            catch 
             {
                 dataInRead = dataIn.Length;
                 dataOutWritten = dataIn.Length;
@@ -401,7 +416,7 @@ namespace Operation.CefsharpHelpers
 
                 return FilterStatus.NeedMoreData;
             }
-            catch (Exception ex)
+            catch
             {
                 dataInRead = dataIn.Length;
                 dataOutWritten = dataIn.Length;

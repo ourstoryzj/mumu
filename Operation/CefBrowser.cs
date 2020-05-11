@@ -160,6 +160,7 @@ namespace Operation
             if (sr != null)
             {
                 bind(sr.sdgoodsurl);
+                txt_url.Text = sr.sdgoodsurl;
             }
             else
             {
@@ -185,11 +186,11 @@ namespace Operation
                     //chrome.Init(sr.sdvpn);
                     if (string.IsNullOrEmpty(sr.sdvpn))
                     {
-                        chrome.Init("",true);
+                        chrome.Init("", true);
                     }
                     else
                     {
-                        chrome.Init(sr.sdvpn,true);
+                        chrome.Init(sr.sdvpn, true);
                         //sr.sdvpn.ToShow();
                     }
                 }
@@ -266,8 +267,11 @@ namespace Operation
                     pan_pay.Refresh();
                     pan_pay.Visible = false;
                 }
-                //else
-                //sr.sdgoodsname = "";
+
+                 
+
+
+
             }
             catch (Exception ex)
             {
@@ -281,6 +285,56 @@ namespace Operation
         #endregion
 
         #region 私有方法
+
+        void AutoBuy()
+        {
+            try
+            {
+                #region 自动下单
+                //bool isauto = true;
+                var browser = chrome.browser;
+                if (isauto)
+                {
+                    int delay = 500;
+                    if (browser.Address.IndexOf("mobile.yangkeduo.com/goods.html?") != -1)
+                    {
+                        timer1.Stop();
+                        Common.Browser.Delay(delay);
+                        browser.ToJs("getElementsByInnerText('收藏')[0].click()");
+                        Common.Browser.Delay(delay);
+                        browser.ToJs("getElementsByInnerText('发起拼单')[0].click()");
+                        Common.Browser.Delay(2000);
+
+                        //点击sku
+                        //Auto.Mouse_Left(new Point(80, 480));
+                        //chrome.click(80, 480);
+                        //模拟点击sku
+                        browser.ToJs("document.getElementsByClassName('sku-spec-value')[0].click()");
+
+                        Common.Browser.Delay(delay);
+                        //chrome.click(panel1.Width / 2, panel1.Height - 30);
+                        //模拟点击确定
+                        browser.ToJs("getElementsByInnerText('确定')[0].click()");
+                        //点击确定
+                        timer1.Start();
+                    }
+                    else if (browser.Address.IndexOf("mobile.yangkeduo.com/order_checkout.html?") != -1)
+                    {
+                        timer1.Stop();
+                        Common.Browser.Delay(delay);
+                        browser.ToJs("getElementsByInnerText_Vague_NoChildren('支付宝')[0].click()");
+                        Common.Browser.Delay(delay);
+                        browser.ToJs("getElementsByInnerText('立即支付')[0].click()");
+                        timer1.Start();
+                    }
+                }
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                ex.ToShow();
+            }
+        }
 
 
         private void btn_back_Click(object sender, EventArgs e)
@@ -301,7 +355,8 @@ namespace Operation
 
         private void btn_f12_Click(object sender, EventArgs e)
         {
-            chrome.ShowTools();
+            //chrome.ShowTools();
+            chrome.JumpUrl("mobile.yangkeduo.com/personal.html?refer_page_name=index&refer_page_id=10002_1574496288865_ZKZKA8HgWJ&refer_page_sn=10002&page_id=10001_1577246196934_4h0wdL6yBD&is_back=1");
         }
 
         #endregion
@@ -317,7 +372,7 @@ namespace Operation
                 sr.sdremark3 = "1";
                 sr.sdremark4 = "1";
                 sr.sdremark6 = "2";
-                sr.sdstatepay = isauto?"1": "2";
+                sr.sdstatepay = isauto ? "1" : "2";
                 try
                 {
                     string sqlcom = "server=sqloledb;data source=qds16257965.my3w.com;User ID=qds16257965;pwd=QW013368zj@;Initial Catalog=qds16257965_db";
@@ -346,7 +401,6 @@ namespace Operation
 
         }
         #endregion
-
 
 
         #region GetSqlParameters
@@ -533,14 +587,24 @@ namespace Operation
         private void CefBrowser_FormClosing(object sender, FormClosingEventArgs e)
         {
             //关闭浏览器CefSharp.BrowserSubprocess
-            Common.Manager.ProcessKillByName("CefSharp.BrowserSubprocess");
+            try
+            {
+                //Common.Manager.ProcessKillByName("CefSharp.BrowserSubprocess");
+                Cef.Shutdown();
+            }
+            catch (Exception ex)
+            {
+                this.Text = ex.Message;
+            }
         }
         #endregion
 
+        #region 私有方法
 
         private void 个人中心ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            chrome.JumpUrl("mobile.yangkeduo.com/personal.html?refer_page_name=index&refer_page_id=10002_1574496288865_ZKZKA8HgWJ&refer_page_sn=10002&page_id=10001_1577246196934_4h0wdL6yBD&is_back=1");
+            chrome.ShowTools();
+            //chrome.JumpUrl("mobile.yangkeduo.com/personal.html?refer_page_name=index&refer_page_id=10002_1574496288865_ZKZKA8HgWJ&refer_page_sn=10002&page_id=10001_1577246196934_4h0wdL6yBD&is_back=1");
         }
 
         private void 查询IPToolStripMenuItem_Click(object sender, EventArgs e)
@@ -551,6 +615,15 @@ namespace Operation
         private void pan_pay_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+
+        #endregion
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            AutoBuy();
         }
     }
 }

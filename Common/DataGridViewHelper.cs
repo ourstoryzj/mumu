@@ -320,6 +320,7 @@ namespace Common
             }
             catch (Exception ex)
             {
+                ex.ToShow();
                 //Debug.WriteLine("修改信息失败 " + ex.Message);
             }
         }

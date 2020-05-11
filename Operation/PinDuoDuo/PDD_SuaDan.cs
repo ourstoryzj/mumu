@@ -100,11 +100,11 @@ namespace Operation.Other
                 string proxyip = GetProxyAddress();
                 if (string.IsNullOrEmpty(proxyip))
                 {
-                    chrome.Init("",true);
+                    chrome.Init("", true);
                 }
                 else
                 {
-                    chrome.Init(proxyip,true);
+                    chrome.Init(proxyip, true);
                 }
                 chrome.CreateBrowser();
                 //this.Invoke(new Action<Panel>(p =>
@@ -242,15 +242,15 @@ namespace Operation.Other
                         pan_tool.BackgroundImage = null;
                         pan_tool.Refresh();
                     }
-                    catch 
+                    catch
                     {
-                       // throw;
+                        // throw;
                     }
-                   
+
                 }
 
-                //showurl();
-                //txt_goodsurl.Text = webBrowser1.Address;
+
+
             }
             catch (Exception ex)
             {
@@ -360,6 +360,7 @@ namespace Operation.Other
                         //添加使用次数
                         sa.sdaremark1 = addcount(sa.sdaremark1);
                         BLL.shuadan_accountManager.Update(sa);
+                        dgv_type.ToClearChecked();
                         #endregion
                     }
                     else if (colname == "col_shuadan")
@@ -393,9 +394,63 @@ namespace Operation.Other
                         //添加使用次数
                         sa.sdaremark1 = addcount(sa.sdaremark1);
                         BLL.shuadan_accountManager.Update(sa);
-
+                        dgv_type.ToClearChecked();
                         #endregion
                     }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgv_type_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                //DataGridView dgv_type = (DataGridView)sender;
+                Common.DataGridViewHelper dgv_type = (Common.DataGridViewHelper)sender;
+                //如果不是首行
+                if (e.RowIndex > -1)
+                {
+
+                    shuadan_account sa = (shuadan_account)dgv_type.CurrentRow.DataBoundItem;
+
+                    #region 外部浏览器刷单
+                    string path = Manager.PathAppliction() + "\\Operation2.exe";
+
+                    //自动下单
+                    string agrs2 = cb_autoorder.Checked ? " true" : "";
+
+                    System.Diagnostics.Process p = new System.Diagnostics.Process();
+                    p.StartInfo.FileName = path;
+                    p.StartInfo.UseShellExecute = true;
+                    //序列化参数json
+                    Entity.shuadan_records sr = new Entity.shuadan_records();
+                    //sr.sdremark7 = addcount(sr.sdremark7);
+                    //BLL2.shuadan_recordsManager.Update(sr);
+                    sr.sdvpn = GetProxyAddress();
+                    //.Replace("https://","").Replace("http://", "")
+                    sr.sdgoodsurl = txt_openurl.Text.Replace("https://", "").Replace("http://", "");
+                    sr.sdphone = sa.sdaccount;
+                    sr.sdaddress = sa.sdapwd;
+                    sr.sdremark6 = "2";
+                    sr.sddptype = "3";
+
+
+                    string agrs = Newtonsoft.Json.JsonConvert.SerializeObject(sr);
+                    p.StartInfo.Arguments = agrs + agrs2;
+                    p.Start();
+
+                    //添加使用次数
+                    sa.sdaremark1 = addcount(sa.sdaremark1);
+                    BLL.shuadan_accountManager.Update(sa);
+                    dgv_type.ToClearChecked();
+                    #endregion
+
 
 
                 }
@@ -529,6 +584,7 @@ namespace Operation.Other
         private void btn_piliangsave_Click(object sender, EventArgs e)
         {
             string fenge = txt_fenge.Text.Trim();
+            string remark = txt_remark_piliang.Text.Trim();
             List<string> list = txt_piliang.Text.ToListByLine();
             foreach (string str in list)
             {
@@ -545,6 +601,7 @@ namespace Operation.Other
                     sa.sdaphone = phone;
                     sa.sdapwd = pwd;
                     sa.sdastate = "1";
+                    sa.sdaremark = remark;
 
                     BLL.shuadan_accountManager.Insert(sa);
                 }
@@ -1284,7 +1341,7 @@ namespace Operation.Other
         {
             bind_chrome_kongbao();
             var domain = "uu453.com.uu249.com:8888";
-            chrome.SetCookies(domain, "safedog-flow-item","");
+            chrome.SetCookies(domain, "safedog-flow-item", "");
             //chrome.SetCookies(domain, "Cooperatives.User=userID", "369647");
             //chrome.SetCookies(domain, "adminid", "0");
             //chrome.SetCookies(domain, "userName", "ourstoryzj");
@@ -1304,9 +1361,75 @@ namespace Operation.Other
             //        chrome.JS_CEFBrowser("document.getElementById('MainC_btnLogin').click()");
             //    }
             //}
-            
+
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AutoBuy();
+        }
+
+        void AutoBuy()
+        {
+            try
+            {
+                #region 自动下单
+                //bool isauto = true;
+
+                if (cb_autoorder.Checked)
+                {
+                    if (chrome != null)
+                    {
+                        var browser = chrome.browser;
+                        int delay = 500;
+                        if (browser.Address.IndexOf("mobile.yangkeduo.com/goods.html?") != -1)
+                        {
+                            timer1.Stop();
+                            Common.Browser.Delay(delay);
+                            browser.ToJs("getElementsByInnerText('收藏')[0].click()");
+                            Common.Browser.Delay(delay);
+                            browser.ToJs("getElementsByInnerText('发起拼单')[0].click()");
+                            Common.Browser.Delay(2000);
+
+                            //点击sku
+                            //Auto.Mouse_Left(new Point(80, 480));
+                            //chrome.click(80, 480);
+                            //模拟点击sku
+                            browser.ToJs("document.getElementsByClassName('sku-spec-value')[0].click()");
+
+                            Common.Browser.Delay(delay);
+                            //chrome.click(panel1.Width / 2, panel1.Height - 30);
+                            //模拟点击确定
+                            browser.ToJs("getElementsByInnerText('确定')[0].click()");
+                            //点击确定
+                            timer1.Start();
+                        }
+                        else if (browser.Address.IndexOf("mobile.yangkeduo.com/order_checkout.html?") != -1)
+                        {
+                            timer1.Stop();
+                            Common.Browser.Delay(delay);
+                            browser.ToJs("getElementsByInnerText('支付宝')[0].click()");
+                            Common.Browser.Delay(delay);
+                            browser.ToJs("getElementsByInnerText('立即支付')[0].click()");
+                            timer1.Start();
+                        }
+                    }
+                }
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                ex.ToShow();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            AutoBuy();
+        }
+
+
     }
 
 

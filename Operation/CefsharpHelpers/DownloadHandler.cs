@@ -19,6 +19,11 @@ namespace Operation.CefsharpHelpers
             }
         }
 
+        public void OnBeforeDownload(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IBeforeDownloadCallback callback)
+        {
+            return;
+        }
+
         public void OnDownloadUpdated(IBrowser browser, DownloadItem downloadItem, IDownloadItemCallback callback)
         {
             DownLoadManager.AddDownLoadInfo(new DownLoadInfo()
@@ -32,6 +37,11 @@ namespace Operation.CefsharpHelpers
                 Percent = downloadItem.PercentComplete,
                 SaveFileName = downloadItem.SuggestedFileName
             });
+        }
+
+        public void OnDownloadUpdated(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IDownloadItemCallback callback)
+        {
+            return;
         }
     }
 }

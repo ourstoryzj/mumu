@@ -64,24 +64,24 @@ namespace Operation.PinDuoDuo
 
         public static void SetCefCookies(string url, CookieCollection cookies)
         {
-            Cef.GetGlobalCookieManager().SetStoragePath(Environment.CurrentDirectory, true);
-            foreach (System.Net.Cookie c in cookies)
-            {
-                var cookie = new CefSharp.Cookie
-                {
-                    Creation = DateTime.Now,
-                    Domain = c.Domain,
-                    Name = c.Name,
-                    Value = c.Value,
-                    Expires = c.Expires
-                };
-                Task<bool> task = Cef.GetGlobalCookieManager().SetCookieAsync(url, cookie);
-                while (!task.IsCompleted)
-                {
-                    continue;
-                }
-                bool b = task.Result;
-            }
+            //Cef.GetGlobalCookieManager().SetStoragePath(Environment.CurrentDirectory, true);
+            //foreach (System.Net.Cookie c in cookies)
+            //{
+            //    var cookie = new CefSharp.Cookie
+            //    {
+            //        Creation = DateTime.Now,
+            //        Domain = c.Domain,
+            //        Name = c.Name,
+            //        Value = c.Value,
+            //        Expires = c.Expires
+            //    };
+            //    Task<bool> task = Cef.GetGlobalCookieManager().SetCookieAsync(url, cookie);
+            //    while (!task.IsCompleted)
+            //    {
+            //        continue;
+            //    }
+            //    bool b = task.Result;
+            //}
         }
 
 

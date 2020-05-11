@@ -83,7 +83,7 @@ namespace Operation.CefsharpHelpers
         {
             if (!Cef.IsInitialized)
             {
-                var setting = new CefSharp.CefSettings();
+                var setting = new CefSettings();
                 setting.RegisterScheme(new CefCustomScheme
                 {
                     SchemeName = CefSharpSchemeHandlerFactory.SchemeName,
@@ -104,6 +104,7 @@ namespace Operation.CefsharpHelpers
                 setting.Locale = "zh-CN"; // en-US
                 setting.AcceptLanguageList = "zh-CN";
                 Cef.Initialize(setting);
+                //Cef.Initialize()
                 // CefSharp.Cef.Initialize(setting, true, false);
             }
         }
@@ -309,28 +310,63 @@ namespace Operation.CefsharpHelpers
             browser.RequestContext = new RequestContext(requestContextSettings);
         }
 
+     
         /// <summary>
-        /// 设置header用于拼多多刷单
+        /// 模拟鼠标点击,非Win32,非js
         /// </summary>
-        //public void SetHeader()
-        //{
-        //    setting.UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53";
-        //    #region bak
-        //    //Dictionary<string, string> header = new Dictionary<string, string>();
-        //    ////header.Add("Referer", "http://www.nuoren365.com/");
-        //    ////header.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
-        //    ////header.Add("User-Agent", "Apple Iphone 5");
-        //    //header.Add("User-Agent", "Android");
-        //    //header.Add("Accept-Language", "zh-CN,zh;q=0.9,en;q=0.8");
-        //    //header.Add("ourstoryzj", "ok");
-        //    //header.Add("Referer", "http://mobile.yangkeduo.com/psnl_mall_collection.html?refer_page_name=personal&refer_page_id=10001_1589102288078_nq1kb7179s&refer_page_sn=10001&page_id=41857_1589102291290_kcs2xnm9i1&list_id=0&use_old=0&force_refresh=0&is_back=1");
-        //    //CefsharpHelpers.RequestHandler.headerDic = header; 
-        //    #endregion
-        //}
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public void click(int x,int y)
+        {
+            var host = browser.GetBrowser().GetHost();
+            host.SendMouseClickEvent(x, y, MouseButtonType.Left, false, 1, CefEventFlags.None);//按下鼠标左键
+            host.SendMouseClickEvent(x, x, MouseButtonType.Left, true, 1, CefEventFlags.None);//抬起鼠标左键
+        }
+
+
+
+
         #endregion
 
 
         #region 添加功能
+
+        //画线。鼠标左键按下，移动，移动...左键抬起。
+        public void CefMouseDrawLine(int x1, int y1, int x2, int y2)
+        {
+            //Task.Run(() =>
+            //{
+            //ShowLabel("------------start");
+            var host = browser.GetBrowser().GetHost();
+
+            host.SendMouseClickEvent(x1, y1, MouseButtonType.Left, false, 1, CefEventFlags.None);//按下鼠标左键
+            Thread.Sleep(3);
+            double x = x1;
+            double y = y1;
+            int xlen = x2 - x1;
+            int ylen = y2 - y1;
+            double xs = 1;
+            double ys = 1;
+
+            int z = (int)Math.Sqrt(xlen * xlen + ylen * ylen);
+            xs = (double)xlen / (double)z;
+            ys = (double)ylen / (double)z;
+
+            for (int i = 1; i < z; i++)
+            {
+                x = (x + xs);
+                y = (y + ys);
+                //ShowLabel("x=" + x + ",y=" + y);
+                Thread.Sleep(3);
+                host.SendMouseMoveEvent((int)x, (int)y, false, CefEventFlags.LeftMouseButton);//移动鼠标
+            }
+            Thread.Sleep(3);
+            host.SendMouseClickEvent(x2, y2, MouseButtonType.Left, true, 1, CefEventFlags.None);//抬起鼠标左键
+            //ShowLabel("------------end");
+            //});
+        }
+
+
 
         #region Delay
         /// <summary>
@@ -406,7 +442,6 @@ namespace Operation.CefsharpHelpers
             return res;
         }
         #endregion
-
 
         #region JS_CEFBrowser
         public string JS_CEFBrowser(string js)
@@ -1231,7 +1266,6 @@ namespace Operation.CefsharpHelpers
         }
         #endregion
 
-
         #region GetWebBrowser
         /// <summary>
         /// 将webBrowser1中的Session、Cookie等信息赋予webBrowser2中
@@ -1257,7 +1291,6 @@ namespace Operation.CefsharpHelpers
             return isok;
         }
         #endregion
-
 
         #region SetJSFile
         /// <summary>

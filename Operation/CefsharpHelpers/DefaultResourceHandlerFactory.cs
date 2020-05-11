@@ -7,7 +7,8 @@ using System.Text;
 
 namespace Operation.CefsharpHelpers
 {
-    public class DefaultResourceHandlerFactory : IResourceHandlerFactory
+    public class DefaultResourceHandlerFactory 
+    //public class DefaultResourceHandlerFactory : IResourceHandlerFactory
     {
         public ConcurrentDictionary<string, IResourceHandler> Handlers { get; private set; }
 

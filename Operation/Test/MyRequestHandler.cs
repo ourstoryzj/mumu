@@ -127,7 +127,8 @@ namespace Operation.Test
         {
             try
             {
-                var content_length = int.Parse(response.ResponseHeaders["Content-Length"]);
+                //response.Headers[]
+                var content_length = int.Parse(response.Headers["Content-Length"]);
                 if (this.filter != null)
                 {
                     this.filter.SetContentLength(content_length);
@@ -139,6 +140,21 @@ namespace Operation.Test
         }
 
         public bool OnSelectClientCertificate(IWebBrowser browserControl, IBrowser browser, bool isProxy, string host, int port, X509Certificate2Collection certificates, ISelectClientCertificateCallback callback)
+        {
+            return true;
+        }
+
+        public bool OnBeforeBrowse(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IRequest request, bool userGesture, bool isRedirect)
+        {
+            return true;
+        }
+
+        public IResourceRequestHandler GetResourceRequestHandler(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IRequest request, bool isNavigation, bool isDownload, string requestInitiator, ref bool disableDefaultHandling)
+        {
+            return null;
+        }
+
+        public bool GetAuthCredentials(IWebBrowser chromiumWebBrowser, IBrowser browser, string originUrl, bool isProxy, string host, int port, string realm, string scheme, IAuthCallback callback)
         {
             return true;
         }

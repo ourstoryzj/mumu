@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tp_typelist = new System.Windows.Forms.TabPage();
             this.btn_delete = new System.Windows.Forms.Button();
@@ -43,17 +44,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.btn_typeadd = new System.Windows.Forms.Button();
             this.dgv_type = new Common.DataGridViewHelper();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.col_del = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.col_login = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.col_shuadan = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.col_account = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_pwd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_dateaccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tp_typeadd = new System.Windows.Forms.TabPage();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -108,16 +98,6 @@
             this.cb_shoucai = new System.Windows.Forms.ComboBox();
             this.btn_reset_dgv = new System.Windows.Forms.Button();
             this.dgv_title = new System.Windows.Forms.DataGridView();
-            this.cb_fahuo = new System.Windows.Forms.ComboBox();
-            this.txt_key_sdr = new System.Windows.Forms.TextBox();
-            this.cb_type = new System.Windows.Forms.ComboBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.col_all = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.col_del_list = new System.Windows.Forms.DataGridViewButtonColumn();
             this.col_shoucaiphone = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -135,6 +115,31 @@
             this.col_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_goodsname = new System.Windows.Forms.DataGridViewLinkColumn();
             this.col_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cb_fahuo = new System.Windows.Forms.ComboBox();
+            this.txt_key_sdr = new System.Windows.Forms.TextBox();
+            this.cb_type = new System.Windows.Forms.ComboBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txt_remark_piliang = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.col_del = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.col_login = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.col_shuadan = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.col_count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_account = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_pwd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_dateaccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tp_typelist.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_type)).BeginInit();
@@ -165,7 +170,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1294, 805);
+            this.tabControl1.Size = new System.Drawing.Size(1241, 805);
             this.tabControl1.TabIndex = 9;
             // 
             // tp_typelist
@@ -181,7 +186,7 @@
             this.tp_typelist.Location = new System.Drawing.Point(4, 22);
             this.tp_typelist.Name = "tp_typelist";
             this.tp_typelist.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_typelist.Size = new System.Drawing.Size(1286, 779);
+            this.tp_typelist.Size = new System.Drawing.Size(1233, 779);
             this.tp_typelist.TabIndex = 3;
             this.tp_typelist.Text = "账号列表";
             // 
@@ -199,7 +204,7 @@
             // btn_search
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_search.Location = new System.Drawing.Point(1053, 6);
+            this.btn_search.Location = new System.Drawing.Point(1142, 7);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(85, 23);
             this.btn_search.TabIndex = 44;
@@ -215,7 +220,7 @@
             "请选择",
             "启用",
             "禁用"});
-            this.cb_state.Location = new System.Drawing.Point(826, 7);
+            this.cb_state.Location = new System.Drawing.Point(915, 8);
             this.cb_state.Name = "cb_state";
             this.cb_state.Size = new System.Drawing.Size(60, 20);
             this.cb_state.TabIndex = 47;
@@ -224,7 +229,7 @@
             // txt_key
             // 
             this.txt_key.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_key.Location = new System.Drawing.Point(939, 7);
+            this.txt_key.Location = new System.Drawing.Point(1028, 8);
             this.txt_key.Name = "txt_key";
             this.txt_key.Size = new System.Drawing.Size(108, 21);
             this.txt_key.TabIndex = 43;
@@ -233,7 +238,7 @@
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(892, 11);
+            this.label15.Location = new System.Drawing.Point(981, 12);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(41, 12);
             this.label15.TabIndex = 45;
@@ -243,7 +248,7 @@
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(793, 11);
+            this.label16.Location = new System.Drawing.Point(882, 12);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(29, 12);
             this.label16.TabIndex = 46;
@@ -263,134 +268,50 @@
             // 
             this.dgv_type.AllowUserToAddRows = false;
             this.dgv_type.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            this.dgv_type.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgv_type.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_type.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_type.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_type.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_type.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_type.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn1,
             this.col_del,
             this.col_login,
             this.col_shuadan,
+            this.col_count,
             this.col_account,
             this.col_pwd,
             this.col_phone,
-            this.col_count,
             this.col_state,
             this.col_dateaccount,
             this.col_remark});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_type.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_type.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_type.Location = new System.Drawing.Point(6, 35);
             this.dgv_type.Name = "dgv_type";
             this.dgv_type.RowTemplate.Height = 23;
-            this.dgv_type.Size = new System.Drawing.Size(1133, 738);
+            this.dgv_type.Size = new System.Drawing.Size(1221, 738);
             this.dgv_type.TabIndex = 28;
             this.dgv_type.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_type_CellContentClick);
+            this.dgv_type.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_type_CellDoubleClick);
             this.dgv_type.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_type_CellFormatting);
             this.dgv_type.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgv_type_CellParsing);
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.HeaderText = "全选";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewCheckBoxColumn1.Width = 40;
-            // 
-            // col_del
-            // 
-            this.col_del.HeaderText = "操作";
-            this.col_del.Name = "col_del";
-            this.col_del.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_del.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.col_del.Text = "删除";
-            this.col_del.UseColumnTextForButtonValue = true;
-            this.col_del.Width = 80;
-            // 
-            // col_login
-            // 
-            this.col_login.HeaderText = "登录";
-            this.col_login.Name = "col_login";
-            this.col_login.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_login.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.col_login.Text = "登录";
-            this.col_login.UseColumnTextForButtonValue = true;
-            // 
-            // col_shuadan
-            // 
-            this.col_shuadan.HeaderText = "刷单";
-            this.col_shuadan.Name = "col_shuadan";
-            this.col_shuadan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_shuadan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.col_shuadan.Text = "刷单";
-            this.col_shuadan.UseColumnTextForButtonValue = true;
-            // 
-            // col_account
-            // 
-            this.col_account.DataPropertyName = "sdaccount";
-            this.col_account.HeaderText = "账号";
-            this.col_account.Name = "col_account";
-            this.col_account.Width = 200;
-            // 
-            // col_pwd
-            // 
-            this.col_pwd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.col_pwd.DataPropertyName = "sdapwd";
-            this.col_pwd.HeaderText = "token密码";
-            this.col_pwd.Name = "col_pwd";
-            // 
-            // col_phone
-            // 
-            this.col_phone.DataPropertyName = "sdaphone";
-            this.col_phone.HeaderText = "手机";
-            this.col_phone.Name = "col_phone";
-            this.col_phone.Width = 150;
-            // 
-            // col_count
-            // 
-            this.col_count.DataPropertyName = "sdaremark1";
-            this.col_count.HeaderText = "次数";
-            this.col_count.Name = "col_count";
-            this.col_count.Width = 40;
-            // 
-            // col_state
-            // 
-            this.col_state.DataPropertyName = "sdastate";
-            this.col_state.HeaderText = "状态";
-            this.col_state.Name = "col_state";
-            this.col_state.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_state.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // col_dateaccount
-            // 
-            this.col_dateaccount.DataPropertyName = "sdadate";
-            this.col_dateaccount.HeaderText = "操作时间";
-            this.col_dateaccount.Name = "col_dateaccount";
-            this.col_dateaccount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_dateaccount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // col_remark
-            // 
-            this.col_remark.DataPropertyName = "sdaremark";
-            this.col_remark.HeaderText = "备注";
-            this.col_remark.Name = "col_remark";
             // 
             // tp_typeadd
             // 
@@ -408,7 +329,7 @@
             this.tp_typeadd.Location = new System.Drawing.Point(4, 22);
             this.tp_typeadd.Name = "tp_typeadd";
             this.tp_typeadd.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_typeadd.Size = new System.Drawing.Size(1286, 779);
+            this.tp_typeadd.Size = new System.Drawing.Size(1233, 779);
             this.tp_typeadd.TabIndex = 4;
             this.tp_typeadd.Text = "添加账号";
             // 
@@ -509,6 +430,8 @@
             // 
             // tp_piliang
             // 
+            this.tp_piliang.Controls.Add(this.label10);
+            this.tp_piliang.Controls.Add(this.txt_remark_piliang);
             this.tp_piliang.Controls.Add(this.label3);
             this.tp_piliang.Controls.Add(this.txt_fenge);
             this.tp_piliang.Controls.Add(this.btn_piliangsave);
@@ -517,7 +440,7 @@
             this.tp_piliang.Location = new System.Drawing.Point(4, 22);
             this.tp_piliang.Name = "tp_piliang";
             this.tp_piliang.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_piliang.Size = new System.Drawing.Size(1286, 779);
+            this.tp_piliang.Size = new System.Drawing.Size(1233, 779);
             this.tp_piliang.TabIndex = 5;
             this.tp_piliang.Text = "批量添加";
             // 
@@ -536,11 +459,11 @@
             this.txt_fenge.Name = "txt_fenge";
             this.txt_fenge.Size = new System.Drawing.Size(946, 21);
             this.txt_fenge.TabIndex = 56;
-            this.txt_fenge.Text = "---";
+            this.txt_fenge.Text = "----";
             // 
             // btn_piliangsave
             // 
-            this.btn_piliangsave.Location = new System.Drawing.Point(48, 591);
+            this.btn_piliangsave.Location = new System.Drawing.Point(48, 643);
             this.btn_piliangsave.Name = "btn_piliangsave";
             this.btn_piliangsave.Size = new System.Drawing.Size(217, 90);
             this.btn_piliangsave.TabIndex = 55;
@@ -567,7 +490,7 @@
             // 
             // tp_shuadan
             // 
-            this.tp_shuadan.Controls.Add(this.cb_autoorder);
+            this.tp_shuadan.Controls.Add(this.button1);
             this.tp_shuadan.Controls.Add(this.btn_save_shuadan);
             this.tp_shuadan.Controls.Add(this.btn_auto);
             this.tp_shuadan.Controls.Add(this.groupBox3);
@@ -579,7 +502,7 @@
             this.tp_shuadan.Location = new System.Drawing.Point(4, 22);
             this.tp_shuadan.Name = "tp_shuadan";
             this.tp_shuadan.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_shuadan.Size = new System.Drawing.Size(1286, 779);
+            this.tp_shuadan.Size = new System.Drawing.Size(1233, 779);
             this.tp_shuadan.TabIndex = 6;
             this.tp_shuadan.Text = "开始刷单";
             this.tp_shuadan.Click += new System.EventHandler(this.tp_shuadan_Click);
@@ -587,7 +510,7 @@
             // cb_autoorder
             // 
             this.cb_autoorder.AutoSize = true;
-            this.cb_autoorder.Location = new System.Drawing.Point(463, 609);
+            this.cb_autoorder.Location = new System.Drawing.Point(128, 102);
             this.cb_autoorder.Name = "cb_autoorder";
             this.cb_autoorder.Size = new System.Drawing.Size(132, 16);
             this.cb_autoorder.TabIndex = 13;
@@ -681,6 +604,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txt_openurl);
+            this.groupBox2.Controls.Add(this.cb_autoorder);
             this.groupBox2.Controls.Add(this.btn_openurl);
             this.groupBox2.Location = new System.Drawing.Point(463, 54);
             this.groupBox2.Name = "groupBox2";
@@ -785,7 +709,7 @@
             this.tp_records.Location = new System.Drawing.Point(4, 22);
             this.tp_records.Name = "tp_records";
             this.tp_records.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_records.Size = new System.Drawing.Size(1286, 779);
+            this.tp_records.Size = new System.Drawing.Size(1233, 779);
             this.tp_records.TabIndex = 7;
             this.tp_records.Text = "付款";
             // 
@@ -859,7 +783,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1286, 779);
+            this.tabPage1.Size = new System.Drawing.Size(1233, 779);
             this.tabPage1.TabIndex = 8;
             this.tabPage1.Text = "刷单列表";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
@@ -869,9 +793,9 @@
             this.pan_kongbao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pan_kongbao.Location = new System.Drawing.Point(6, 338);
+            this.pan_kongbao.Location = new System.Drawing.Point(6, 587);
             this.pan_kongbao.Name = "pan_kongbao";
-            this.pan_kongbao.Size = new System.Drawing.Size(1274, 435);
+            this.pan_kongbao.Size = new System.Drawing.Size(1274, 186);
             this.pan_kongbao.TabIndex = 45;
             // 
             // btn_search_sdr
@@ -910,7 +834,7 @@
             // 
             // btn_login_kongbao
             // 
-            this.btn_login_kongbao.Location = new System.Drawing.Point(6, 309);
+            this.btn_login_kongbao.Location = new System.Drawing.Point(6, 558);
             this.btn_login_kongbao.Name = "btn_login_kongbao";
             this.btn_login_kongbao.Size = new System.Drawing.Size(75, 23);
             this.btn_login_kongbao.TabIndex = 29;
@@ -957,9 +881,9 @@
             // 
             this.dgv_title.AllowUserToAddRows = false;
             this.dgv_title.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            this.dgv_title.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgv_title.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_title.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -984,12 +908,142 @@
             this.dgv_title.Location = new System.Drawing.Point(6, 37);
             this.dgv_title.Name = "dgv_title";
             this.dgv_title.RowTemplate.Height = 23;
-            this.dgv_title.Size = new System.Drawing.Size(1274, 266);
+            this.dgv_title.Size = new System.Drawing.Size(1274, 515);
             this.dgv_title.TabIndex = 27;
             this.dgv_title.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_title_CellContentClick);
             this.dgv_title.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_title_CellFormatting);
             this.dgv_title.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgv_title_CellParsing);
             this.dgv_title.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgv_title_RowPostPaint);
+            // 
+            // col_all
+            // 
+            this.col_all.HeaderText = "全选";
+            this.col_all.Name = "col_all";
+            this.col_all.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.col_all.Width = 40;
+            // 
+            // col_del_list
+            // 
+            this.col_del_list.HeaderText = "操作";
+            this.col_del_list.Name = "col_del_list";
+            this.col_del_list.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_del_list.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.col_del_list.Text = "删除";
+            this.col_del_list.UseColumnTextForButtonValue = true;
+            this.col_del_list.Width = 80;
+            // 
+            // col_shoucaiphone
+            // 
+            this.col_shoucaiphone.HeaderText = "收菜";
+            this.col_shoucaiphone.Name = "col_shoucaiphone";
+            this.col_shoucaiphone.Text = "拼多多发货";
+            this.col_shoucaiphone.UseColumnTextForButtonValue = true;
+            // 
+            // col_shoptype
+            // 
+            this.col_shoptype.DataPropertyName = "sddptype";
+            this.col_shoptype.HeaderText = "店铺类型";
+            this.col_shoptype.Name = "col_shoptype";
+            this.col_shoptype.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "sdphone";
+            this.dataGridViewTextBoxColumn1.HeaderText = "手机号码(登录)";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 120;
+            // 
+            // col_orderid
+            // 
+            this.col_orderid.DataPropertyName = "sdorderid";
+            this.col_orderid.HeaderText = "订单编号";
+            this.col_orderid.Name = "col_orderid";
+            this.col_orderid.Width = 150;
+            // 
+            // col_wuliu
+            // 
+            this.col_wuliu.DataPropertyName = "sdwuliu";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
+            this.col_wuliu.DefaultCellStyle = dataGridViewCellStyle5;
+            this.col_wuliu.HeaderText = "快递单号";
+            this.col_wuliu.Name = "col_wuliu";
+            this.col_wuliu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_wuliu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // col_kongbao
+            // 
+            this.col_kongbao.DataPropertyName = "sdremark3";
+            this.col_kongbao.HeaderText = "是否获取空包";
+            this.col_kongbao.Name = "col_kongbao";
+            this.col_kongbao.Text = "";
+            this.col_kongbao.Visible = false;
+            // 
+            // col_fahuo
+            // 
+            this.col_fahuo.DataPropertyName = "sdremark4";
+            this.col_fahuo.HeaderText = "是否发货";
+            this.col_fahuo.Name = "col_fahuo";
+            this.col_fahuo.Text = "发货";
+            this.col_fahuo.Visible = false;
+            // 
+            // col_kongbao2
+            // 
+            this.col_kongbao2.DataPropertyName = "sdremark3";
+            this.col_kongbao2.HeaderText = "修改空包状态";
+            this.col_kongbao2.Name = "col_kongbao2";
+            this.col_kongbao2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_kongbao2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // col_fahuo2
+            // 
+            this.col_fahuo2.DataPropertyName = "sdremark4";
+            this.col_fahuo2.HeaderText = "修改发货状态";
+            this.col_fahuo2.Name = "col_fahuo2";
+            this.col_fahuo2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_fahuo2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // col_shoucai
+            // 
+            this.col_shoucai.DataPropertyName = "sdremark2";
+            this.col_shoucai.HeaderText = "修改收菜状态";
+            this.col_shoucai.Name = "col_shoucai";
+            this.col_shoucai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_shoucai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "sdremark5";
+            this.dataGridViewTextBoxColumn2.HeaderText = "备注";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // col_vpn
+            // 
+            this.col_vpn.DataPropertyName = "sdvpn";
+            this.col_vpn.HeaderText = "VPN地址";
+            this.col_vpn.Name = "col_vpn";
+            // 
+            // col_date
+            // 
+            this.col_date.DataPropertyName = "sddate";
+            this.col_date.HeaderText = "刷单时间";
+            this.col_date.Name = "col_date";
+            // 
+            // col_goodsname
+            // 
+            this.col_goodsname.DataPropertyName = "sdgoodsname";
+            this.col_goodsname.HeaderText = "商品名称";
+            this.col_goodsname.Name = "col_goodsname";
+            this.col_goodsname.Text = "sdgoodsname";
+            this.col_goodsname.Width = 200;
+            // 
+            // col_address
+            // 
+            this.col_address.DataPropertyName = "sdaddress";
+            this.col_address.HeaderText = "收货信息";
+            this.col_address.Name = "col_address";
+            this.col_address.Width = 300;
             // 
             // cb_fahuo
             // 
@@ -1098,141 +1152,128 @@
             this.label9.TabIndex = 39;
             this.label9.Text = "空包状态";
             // 
-            // col_all
+            // button1
             // 
-            this.col_all.HeaderText = "全选";
-            this.col_all.Name = "col_all";
-            this.col_all.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.col_all.Width = 40;
+            this.button1.Location = new System.Drawing.Point(463, 676);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 38);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "保存记录";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // col_del_list
+            // timer1
             // 
-            this.col_del_list.HeaderText = "操作";
-            this.col_del_list.Name = "col_del_list";
-            this.col_del_list.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_del_list.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.col_del_list.Text = "删除";
-            this.col_del_list.UseColumnTextForButtonValue = true;
-            this.col_del_list.Width = 80;
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // col_shoucaiphone
+            // txt_remark_piliang
             // 
-            this.col_shoucaiphone.HeaderText = "收菜";
-            this.col_shoucaiphone.Name = "col_shoucaiphone";
-            this.col_shoucaiphone.Text = "拼多多发货";
-            this.col_shoucaiphone.UseColumnTextForButtonValue = true;
+            this.txt_remark_piliang.Location = new System.Drawing.Point(48, 586);
+            this.txt_remark_piliang.Name = "txt_remark_piliang";
+            this.txt_remark_piliang.Size = new System.Drawing.Size(946, 21);
+            this.txt_remark_piliang.TabIndex = 58;
             // 
-            // col_shoptype
+            // label10
             // 
-            this.col_shoptype.DataPropertyName = "sddptype";
-            this.col_shoptype.HeaderText = "店铺类型";
-            this.col_shoptype.Name = "col_shoptype";
-            this.col_shoptype.Width = 80;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 589);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 12);
+            this.label10.TabIndex = 59;
+            this.label10.Text = "备注";
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewCheckBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "sdphone";
-            this.dataGridViewTextBoxColumn1.HeaderText = "手机号码(登录)";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 120;
+            this.dataGridViewCheckBoxColumn1.HeaderText = "全选";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewCheckBoxColumn1.Width = 40;
             // 
-            // col_orderid
+            // col_del
             // 
-            this.col_orderid.DataPropertyName = "sdorderid";
-            this.col_orderid.HeaderText = "订单编号";
-            this.col_orderid.Name = "col_orderid";
-            this.col_orderid.Width = 150;
+            this.col_del.HeaderText = "操作";
+            this.col_del.Name = "col_del";
+            this.col_del.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_del.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.col_del.Text = "删除";
+            this.col_del.UseColumnTextForButtonValue = true;
+            this.col_del.Width = 80;
             // 
-            // col_wuliu
+            // col_login
             // 
-            this.col_wuliu.DataPropertyName = "sdwuliu";
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Blue;
-            this.col_wuliu.DefaultCellStyle = dataGridViewCellStyle20;
-            this.col_wuliu.HeaderText = "快递单号";
-            this.col_wuliu.Name = "col_wuliu";
-            this.col_wuliu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_wuliu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.col_login.HeaderText = "登录";
+            this.col_login.Name = "col_login";
+            this.col_login.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_login.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.col_login.Text = "登录";
+            this.col_login.UseColumnTextForButtonValue = true;
             // 
-            // col_kongbao
+            // col_shuadan
             // 
-            this.col_kongbao.DataPropertyName = "sdremark3";
-            this.col_kongbao.HeaderText = "是否获取空包";
-            this.col_kongbao.Name = "col_kongbao";
-            this.col_kongbao.Text = "";
-            this.col_kongbao.Visible = false;
+            this.col_shuadan.HeaderText = "刷单";
+            this.col_shuadan.Name = "col_shuadan";
+            this.col_shuadan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_shuadan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.col_shuadan.Text = "刷单";
+            this.col_shuadan.UseColumnTextForButtonValue = true;
             // 
-            // col_fahuo
+            // col_count
             // 
-            this.col_fahuo.DataPropertyName = "sdremark4";
-            this.col_fahuo.HeaderText = "是否发货";
-            this.col_fahuo.Name = "col_fahuo";
-            this.col_fahuo.Text = "发货";
-            this.col_fahuo.Visible = false;
+            this.col_count.DataPropertyName = "sdaremark1";
+            this.col_count.HeaderText = "次数";
+            this.col_count.Name = "col_count";
+            this.col_count.Width = 40;
             // 
-            // col_kongbao2
+            // col_account
             // 
-            this.col_kongbao2.DataPropertyName = "sdremark3";
-            this.col_kongbao2.HeaderText = "修改空包状态";
-            this.col_kongbao2.Name = "col_kongbao2";
-            this.col_kongbao2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_kongbao2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.col_account.DataPropertyName = "sdaccount";
+            this.col_account.HeaderText = "账号";
+            this.col_account.Name = "col_account";
+            this.col_account.Width = 200;
             // 
-            // col_fahuo2
+            // col_pwd
             // 
-            this.col_fahuo2.DataPropertyName = "sdremark4";
-            this.col_fahuo2.HeaderText = "修改发货状态";
-            this.col_fahuo2.Name = "col_fahuo2";
-            this.col_fahuo2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_fahuo2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.col_pwd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col_pwd.DataPropertyName = "sdapwd";
+            this.col_pwd.HeaderText = "token密码";
+            this.col_pwd.Name = "col_pwd";
             // 
-            // col_shoucai
+            // col_phone
             // 
-            this.col_shoucai.DataPropertyName = "sdremark2";
-            this.col_shoucai.HeaderText = "修改收菜状态";
-            this.col_shoucai.Name = "col_shoucai";
-            this.col_shoucai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_shoucai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.col_phone.DataPropertyName = "sdaphone";
+            this.col_phone.HeaderText = "手机";
+            this.col_phone.Name = "col_phone";
+            this.col_phone.Width = 150;
             // 
-            // dataGridViewTextBoxColumn2
+            // col_state
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "sdremark5";
-            this.dataGridViewTextBoxColumn2.HeaderText = "备注";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 150;
+            this.col_state.DataPropertyName = "sdastate";
+            this.col_state.HeaderText = "状态";
+            this.col_state.Name = "col_state";
+            this.col_state.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_state.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // col_vpn
+            // col_dateaccount
             // 
-            this.col_vpn.DataPropertyName = "sdvpn";
-            this.col_vpn.HeaderText = "VPN地址";
-            this.col_vpn.Name = "col_vpn";
+            this.col_dateaccount.DataPropertyName = "sdadate";
+            this.col_dateaccount.HeaderText = "操作时间";
+            this.col_dateaccount.Name = "col_dateaccount";
+            this.col_dateaccount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_dateaccount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // col_date
+            // col_remark
             // 
-            this.col_date.DataPropertyName = "sddate";
-            this.col_date.HeaderText = "刷单时间";
-            this.col_date.Name = "col_date";
-            // 
-            // col_goodsname
-            // 
-            this.col_goodsname.DataPropertyName = "sdgoodsname";
-            this.col_goodsname.HeaderText = "商品名称";
-            this.col_goodsname.Name = "col_goodsname";
-            this.col_goodsname.Text = "sdgoodsname";
-            this.col_goodsname.Width = 200;
-            // 
-            // col_address
-            // 
-            this.col_address.DataPropertyName = "sdaddress";
-            this.col_address.HeaderText = "收货信息";
-            this.col_address.Name = "col_address";
-            this.col_address.Width = 300;
+            this.col_remark.DataPropertyName = "sdaremark";
+            this.col_remark.HeaderText = "备注";
+            this.col_remark.Name = "col_remark";
             // 
             // PDD_SuaDan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1318, 827);
+            this.ClientSize = new System.Drawing.Size(1265, 827);
             this.Controls.Add(this.tabControl1);
             this.Name = "PDD_SuaDan";
             this.Text = "刷单账号管理";
@@ -1246,7 +1287,6 @@
             this.tp_piliang.ResumeLayout(false);
             this.tp_piliang.PerformLayout();
             this.tp_shuadan.ResumeLayout(false);
-            this.tp_shuadan.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1319,17 +1359,6 @@
         private System.Windows.Forms.Label lbl_pay_message;
         private System.Windows.Forms.Button btn_pay;
         private System.Windows.Forms.Button btn_pay_ok;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewButtonColumn col_del;
-        private System.Windows.Forms.DataGridViewButtonColumn col_login;
-        private System.Windows.Forms.DataGridViewButtonColumn col_shuadan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_account;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_pwd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_count;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_state;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_dateaccount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_remark;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btn_search_sdr;
         private System.Windows.Forms.ComboBox cb_kongbao;
@@ -1367,5 +1396,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_date;
         private System.Windows.Forms.DataGridViewLinkColumn col_goodsname;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_address;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txt_remark_piliang;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewButtonColumn col_del;
+        private System.Windows.Forms.DataGridViewButtonColumn col_login;
+        private System.Windows.Forms.DataGridViewButtonColumn col_shuadan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_account;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_pwd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_state;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_dateaccount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_remark;
     }
 }

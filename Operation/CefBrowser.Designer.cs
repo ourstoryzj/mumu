@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pan_pay = new System.Windows.Forms.Panel();
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_go = new System.Windows.Forms.Button();
             this.txt_url = new System.Windows.Forms.TextBox();
@@ -39,7 +40,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.个人中心ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询IPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pan_pay = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +55,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(441, 678);
             this.panel1.TabIndex = 0;
+            // 
+            // pan_pay
+            // 
+            this.pan_pay.Location = new System.Drawing.Point(218, 455);
+            this.pan_pay.Name = "pan_pay";
+            this.pan_pay.Size = new System.Drawing.Size(220, 220);
+            this.pan_pay.TabIndex = 0;
+            this.pan_pay.Visible = false;
+            this.pan_pay.Paint += new System.Windows.Forms.PaintEventHandler(this.pan_pay_Paint);
             // 
             // btn_back
             // 
@@ -101,7 +111,7 @@
             this.btn_f12.Name = "btn_f12";
             this.btn_f12.Size = new System.Drawing.Size(39, 30);
             this.btn_f12.TabIndex = 4;
-            this.btn_f12.Text = "F12";
+            this.btn_f12.Text = "个中";
             this.btn_f12.UseMnemonic = false;
             this.btn_f12.UseVisualStyleBackColor = true;
             this.btn_f12.Click += new System.EventHandler(this.btn_f12_Click);
@@ -123,13 +133,13 @@
             this.个人中心ToolStripMenuItem,
             this.查询IPToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
             // 个人中心ToolStripMenuItem
             // 
             this.个人中心ToolStripMenuItem.Name = "个人中心ToolStripMenuItem";
-            this.个人中心ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.个人中心ToolStripMenuItem.Text = "个人中心";
+            this.个人中心ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.个人中心ToolStripMenuItem.Text = "F12审查元素";
             this.个人中心ToolStripMenuItem.Click += new System.EventHandler(this.个人中心ToolStripMenuItem_Click);
             // 
             // 查询IPToolStripMenuItem
@@ -139,14 +149,11 @@
             this.查询IPToolStripMenuItem.Text = "查询IP";
             this.查询IPToolStripMenuItem.Click += new System.EventHandler(this.查询IPToolStripMenuItem_Click);
             // 
-            // pan_pay
+            // timer1
             // 
-            this.pan_pay.Location = new System.Drawing.Point(218, 455);
-            this.pan_pay.Name = "pan_pay";
-            this.pan_pay.Size = new System.Drawing.Size(220, 220);
-            this.pan_pay.TabIndex = 0;
-            this.pan_pay.Visible = false;
-            this.pan_pay.Paint += new System.Windows.Forms.PaintEventHandler(this.pan_pay_Paint);
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // CefBrowser
             // 
@@ -187,5 +194,6 @@
         private System.Windows.Forms.ToolStripMenuItem 个人中心ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查询IPToolStripMenuItem;
         private System.Windows.Forms.Panel pan_pay;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using CefSharp.Callback;
 
 namespace Operation.CefsharpHelpers
 {
@@ -98,15 +99,15 @@ namespace Operation.CefsharpHelpers
             return bytesRead > 0;
         }
 
-        bool IResourceHandler.CanGetCookie(CefSharp.Cookie cookie)
-        {
-            return true;
-        }
+        //bool IResourceHandler.CanGetCookie(CefSharp.Cookie cookie)
+        //{
+        //    return true;
+        //}
 
-        bool IResourceHandler.CanSetCookie(CefSharp.Cookie cookie)
-        {
-            return true;
-        }
+        //bool IResourceHandler.CanSetCookie(CefSharp.Cookie cookie)
+        //{
+        //    return true;
+        //}
 
         void IResourceHandler.Cancel()
         {
@@ -118,9 +119,22 @@ namespace Operation.CefsharpHelpers
             
         }
 
-        
+        public bool Open(IRequest request, out bool handleRequest, ICallback callback)
+        {
+            handleRequest = true;
+            return handleRequest;
+        }
 
+        public bool Skip(long bytesToSkip, out long bytesSkipped, IResourceSkipCallback callback)
+        {
+            bytesSkipped = 0;
+            return true;
+        }
 
-
+        public bool Read(Stream dataOut, out int bytesRead, IResourceReadCallback callback)
+        {
+            bytesRead = 0;
+            return true;
+        }
     }
 }
