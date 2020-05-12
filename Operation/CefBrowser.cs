@@ -168,8 +168,7 @@ namespace Operation
             }
         }
 
-
-        #region bind Browser_FrameLoadEnd
+        #region bind
         void bind()
         {
             bind("th://empty");
@@ -216,6 +215,10 @@ namespace Operation
 
             }
         }
+        #endregion
+
+
+        #region bind Browser_FrameLoadEnd
 
         private void Browser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
@@ -624,6 +627,15 @@ namespace Operation
         private void timer1_Tick(object sender, EventArgs e)
         {
             AutoBuy();
+        }
+
+        private void 查看参数ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] CmdArgs = System.Environment.GetCommandLineArgs();
+            foreach (var str in CmdArgs)
+            {
+                str.ToShow();
+            }
         }
     }
 }

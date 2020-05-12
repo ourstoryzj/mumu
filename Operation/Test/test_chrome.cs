@@ -46,21 +46,21 @@ namespace Operation.Test
                         //CachePath = Directory.GetCurrentDirectory() + @"\Cache\" + temp.ToString(),
 
                     };
-                    setting.RegisterScheme(new CefCustomScheme
-                    {
-                        SchemeName = CefSharpSchemeHandlerFactory.SchemeName,
-                        SchemeHandlerFactory = new CefSharpSchemeHandlerFactory()
-                    });
+                    //setting.RegisterScheme(new CefCustomScheme
+                    //{
+                    //    SchemeName = CefSharpSchemeHandlerFactory.SchemeName,
+                    //    SchemeHandlerFactory = new CefSharpSchemeHandlerFactory()
+                    //});
 
-                    //var ProxyAddress = "58.54.50.134:22213";
-                    //setting.CachePath = "cache";
-                    //setting.CefCommandLineArgs.Add("proxy-server", ProxyAddress);
+                    var ProxyAddress = "58.218.92.65:4442";
+                    setting.CachePath = "cache";
+                    setting.CefCommandLineArgs.Add("proxy-server", ProxyAddress);
                     // 设置语言
-                    setting.UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53";
+                    //setting.UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53";
                     setting.Locale = "zh-CN"; // en-US
                     setting.AcceptLanguageList = "zh-CN";
-                    //Cef.Initialize(setting);
-                    CefSharp.Cef.Initialize(setting, false, new CefsharpHelpers.BrowserProcessHandler());
+                    Cef.Initialize(setting);
+                    //CefSharp.Cef.Initialize(setting, false, new CefsharpHelpers.BrowserProcessHandler());
                 }
 
                 var browser = chrome.CreateBrowser();

@@ -41,6 +41,7 @@
             this.个人中心ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询IPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.查看参数ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -131,9 +132,10 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.个人中心ToolStripMenuItem,
-            this.查询IPToolStripMenuItem});
+            this.查询IPToolStripMenuItem,
+            this.查看参数ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
             // 
             // 个人中心ToolStripMenuItem
             // 
@@ -145,7 +147,7 @@
             // 查询IPToolStripMenuItem
             // 
             this.查询IPToolStripMenuItem.Name = "查询IPToolStripMenuItem";
-            this.查询IPToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.查询IPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.查询IPToolStripMenuItem.Text = "查询IP";
             this.查询IPToolStripMenuItem.Click += new System.EventHandler(this.查询IPToolStripMenuItem_Click);
             // 
@@ -154,6 +156,13 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // 查看参数ToolStripMenuItem
+            // 
+            this.查看参数ToolStripMenuItem.Name = "查看参数ToolStripMenuItem";
+            this.查看参数ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查看参数ToolStripMenuItem.Text = "查看参数";
+            this.查看参数ToolStripMenuItem.Click += new System.EventHandler(this.查看参数ToolStripMenuItem_Click);
             // 
             // CefBrowser
             // 
@@ -195,5 +204,6 @@
         private System.Windows.Forms.ToolStripMenuItem 查询IPToolStripMenuItem;
         private System.Windows.Forms.Panel pan_pay;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem 查看参数ToolStripMenuItem;
     }
 }
