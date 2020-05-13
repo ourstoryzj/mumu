@@ -76,14 +76,29 @@ namespace Operation.Other
 
             return "";
         }
+
+        string temp_ip = "";
+        DateTime temp_ip_time = new DateTime();
         string GetProxyAddressByAPI()
         {
             string str = "";
+            //判断是否已经获取ip
+            if (!string.IsNullOrEmpty(temp_ip))
+            {
+                //判断ip是否过期
+                if (temp_ip_time.AddMinutes(20) > DateTime.Now)
+                {
+                    return temp_ip;
+                }
+            }
+            //如果过期或者第一次调用时 获取新的代理ip
             if (!string.IsNullOrEmpty(txt_proxyaip.Text))
             {
                 str = Common.WebService.GetHtmlByWebRequest(txt_proxyaip.Text);
                 str = str.Replace("\r\n", "");
                 txt_proxyaddress.Text = str;
+                temp_ip = str;//赋值
+                temp_ip_time = DateTime.Now;
                 return str;
             }
             return str;

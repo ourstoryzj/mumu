@@ -28,7 +28,8 @@ namespace Operation
         public CefBrowser()
         {
             InitializeComponent();
-
+            Cef.EnableHighDPISupport();
+            System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;//用于多线程访问控件
             //获取启动参数
             string[] CmdArgs = System.Environment.GetCommandLineArgs();
 
@@ -193,6 +194,11 @@ namespace Operation
                         //sr.sdvpn.ToShow();
                     }
                 }
+                else
+                {
+                    chrome.Init("", true);
+                }
+                //IBrowserHost.NotifyScreenInfoChanged();
                 var browser = chrome.CreateBrowser();
                 panel1.Controls.Add(browser);
                 panel1.Update();
@@ -224,7 +230,7 @@ namespace Operation
         {
             ChromiumWebBrowser browser = (ChromiumWebBrowser)sender;
             //浏览器缩放比例
-            //browser.SetZoomLevel(0.5);
+            browser.SetZoomLevel(0.1);
             //Browser.SetJSFile(browser);
 
             try

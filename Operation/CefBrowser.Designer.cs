@@ -40,8 +40,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.个人中心ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询IPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.查看参数ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,23 +52,28 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.pan_pay);
+            this.panel1.Controls.Add(this.btn_back);
+            this.panel1.Controls.Add(this.btn_go);
             this.panel1.Location = new System.Drawing.Point(12, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(441, 678);
+            this.panel1.Size = new System.Drawing.Size(318, 489);
             this.panel1.TabIndex = 0;
             // 
             // pan_pay
             // 
-            this.pan_pay.Location = new System.Drawing.Point(218, 455);
+            this.pan_pay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pan_pay.Location = new System.Drawing.Point(54, 110);
             this.pan_pay.Name = "pan_pay";
-            this.pan_pay.Size = new System.Drawing.Size(220, 220);
+            this.pan_pay.Size = new System.Drawing.Size(210, 220);
             this.pan_pay.TabIndex = 0;
             this.pan_pay.Visible = false;
             this.pan_pay.Paint += new System.Windows.Forms.PaintEventHandler(this.pan_pay_Paint);
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(12, 12);
+            this.btn_back.Location = new System.Drawing.Point(3, 3);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(30, 30);
             this.btn_back.TabIndex = 1;
@@ -78,7 +83,8 @@
             // 
             // btn_go
             // 
-            this.btn_go.Location = new System.Drawing.Point(48, 12);
+            this.btn_go.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_go.Location = new System.Drawing.Point(285, 3);
             this.btn_go.Name = "btn_go";
             this.btn_go.Size = new System.Drawing.Size(30, 30);
             this.btn_go.TabIndex = 2;
@@ -89,15 +95,16 @@
             // txt_url
             // 
             this.txt_url.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_url.Location = new System.Drawing.Point(84, 12);
+            this.txt_url.Location = new System.Drawing.Point(12, 10);
             this.txt_url.Multiline = true;
             this.txt_url.Name = "txt_url";
-            this.txt_url.Size = new System.Drawing.Size(237, 30);
+            this.txt_url.Size = new System.Drawing.Size(184, 30);
             this.txt_url.TabIndex = 0;
+            this.txt_url.Text = "mobile.yangkeduo.com";
             // 
             // btn_open
             // 
-            this.btn_open.Location = new System.Drawing.Point(327, 12);
+            this.btn_open.Location = new System.Drawing.Point(202, 10);
             this.btn_open.Name = "btn_open";
             this.btn_open.Size = new System.Drawing.Size(39, 30);
             this.btn_open.TabIndex = 3;
@@ -108,7 +115,7 @@
             // 
             // btn_f12
             // 
-            this.btn_f12.Location = new System.Drawing.Point(372, 12);
+            this.btn_f12.Location = new System.Drawing.Point(247, 10);
             this.btn_f12.Name = "btn_f12";
             this.btn_f12.Size = new System.Drawing.Size(39, 30);
             this.btn_f12.TabIndex = 4;
@@ -119,7 +126,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(417, 12);
+            this.btn_save.Location = new System.Drawing.Point(292, 10);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(39, 30);
             this.btn_save.TabIndex = 5;
@@ -135,21 +142,28 @@
             this.查询IPToolStripMenuItem,
             this.查看参数ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 70);
             // 
             // 个人中心ToolStripMenuItem
             // 
             this.个人中心ToolStripMenuItem.Name = "个人中心ToolStripMenuItem";
-            this.个人中心ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.个人中心ToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.个人中心ToolStripMenuItem.Text = "F12审查元素";
             this.个人中心ToolStripMenuItem.Click += new System.EventHandler(this.个人中心ToolStripMenuItem_Click);
             // 
             // 查询IPToolStripMenuItem
             // 
             this.查询IPToolStripMenuItem.Name = "查询IPToolStripMenuItem";
-            this.查询IPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查询IPToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.查询IPToolStripMenuItem.Text = "查询IP";
             this.查询IPToolStripMenuItem.Click += new System.EventHandler(this.查询IPToolStripMenuItem_Click);
+            // 
+            // 查看参数ToolStripMenuItem
+            // 
+            this.查看参数ToolStripMenuItem.Name = "查看参数ToolStripMenuItem";
+            this.查看参数ToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.查看参数ToolStripMenuItem.Text = "查看参数";
+            this.查看参数ToolStripMenuItem.Click += new System.EventHandler(this.查看参数ToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -157,26 +171,17 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // 查看参数ToolStripMenuItem
-            // 
-            this.查看参数ToolStripMenuItem.Name = "查看参数ToolStripMenuItem";
-            this.查看参数ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.查看参数ToolStripMenuItem.Text = "查看参数";
-            this.查看参数ToolStripMenuItem.Click += new System.EventHandler(this.查看参数ToolStripMenuItem_Click);
-            // 
             // CefBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(465, 738);
+            this.ClientSize = new System.Drawing.Size(339, 549);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.btn_f12);
             this.Controls.Add(this.btn_open);
             this.Controls.Add(this.txt_url);
-            this.Controls.Add(this.btn_go);
-            this.Controls.Add(this.btn_back);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "CefBrowser";
