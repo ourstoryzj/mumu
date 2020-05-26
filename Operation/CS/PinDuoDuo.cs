@@ -3,6 +3,8 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Web;
+using Common;
 
 namespace Operation.CS
 {
@@ -211,7 +213,7 @@ namespace Operation.CS
 
         #region 空包网
 
-        
+
 
         #region Login_kongbao
         /// <summary>
@@ -372,7 +374,7 @@ namespace Operation.CS
             Browser.Delay(500);
             webBrowser1.Load(" http://mms.pinduoduo.com/order.html#/orders/order_detail/index?type=0&sn=" + code);
             //Browser.Delay(500);
-            if (Browser.WaitWebPageLoad(XMLHelper_FaHuo.GetValue("PDDElementPhone"),5000, webBrowser1))
+            if (Browser.WaitWebPageLoad(XMLHelper_FaHuo.GetValue("PDDElementPhone"), 5000, webBrowser1))
             {
 
             }
@@ -648,7 +650,7 @@ namespace Operation.CS
                     int xiangqinglength = Browser.JS_CEFBrowserToInt("document.getElementsByClassName('goods-details-attr')[0].parentElement.getElementsByTagName('img').length", webBrowser1);
                     for (int i = 0; i < xiangqinglength; i++)
                     {
-                        imgurl = Browser.JS_CEFBrowser("document.getElementsByClassName('goods-details-attr')[0].parentElement.getElementsByTagName('img')["+i.ToString()+"].src", webBrowser1);
+                        imgurl = Browser.JS_CEFBrowser("document.getElementsByClassName('goods-details-attr')[0].parentElement.getElementsByTagName('img')[" + i.ToString() + "].src", webBrowser1);
                         imgurl = CS.Taobao.PicUrlZuan(imgurl, "");
                         imgname = i.ToString() + filename + ".jpg";
                         path = saveurl + "\\" + filename + "\\详情图";
@@ -767,9 +769,36 @@ namespace Operation.CS
         /// <returns></returns>
         public static string GetOrderIDByURL(string url)
         {
-            return Manager.GetValueByURL(url, "subject").Replace("%E8%AE%A2%E5%8D%95%E7%BC%96%E5%8F%B7", ""); ;
+            string temp = Manager.GetValueByURL(url, "return_url");
+            temp = HttpUtility.UrlDecode(temp, System.Text.Encoding.ASCII);
+            //return Manager.GetValueByURL(url, "subject").Replace("%E8%AE%A2%E5%8D%95%E7%BC%96%E5%8F%B7", ""); ;
+            temp = Manager.GetValueByURL(temp, "order_sn");
+            return temp;
         }
 
         #endregion
+
+
+        /// <summary>
+        /// 解析地址并补全信息
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string GetALLAddressByStr(string str)
+        {
+            if (str.IndexOf(",") == -1)
+            {
+                string phone = str.ToGetPhone();
+                str = str.Replace(phone, "," + phone + ",");
+                str += ",000000";
+            }
+            else
+            {
+                str = str.ToSplit(",").Length == 3 ? (str + ",000000") : str;
+            }
+
+            return str;
+        }
+
     }
 }

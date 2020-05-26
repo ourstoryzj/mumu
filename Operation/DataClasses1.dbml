@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="qds16257965_db" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=qds16257965.my3w.com;Initial Catalog=qds16257965_db;Persist Security Info=True;User ID=qds16257965" SettingsObjectName="Operation.Properties.Settings" SettingsPropertyName="qds16257965_dbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.shuadan_records" Member="shuadan_records">
+    <Type Name="shuadan_records">
+      <Column Name="sdid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sdgoodsname" Type="System.String" DbType="VarChar(5000)" CanBeNull="true" />
+      <Column Name="sdgoodsurl" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sddptype" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sddate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sdorderid" Type="System.String" DbType="VarChar(5000)" CanBeNull="true" />
+      <Column Name="sdphone" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sdvpn" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sdaddress" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sdwuliu" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sdremark1" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sdremark3" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sdremark2" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sdremark4" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sdremark5" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sdremark6" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="sdstatepay" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="sdremark7" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="sdremark8" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="sdremark9" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="sdremark10" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

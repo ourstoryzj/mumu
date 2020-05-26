@@ -4,7 +4,6 @@ using Entity;
 using CefSharp.WinForms;
 using System.Drawing;
 using System;
-
 using Operation.CS;
 using System.IO;
 using System.Diagnostics;
@@ -52,57 +51,6 @@ namespace Operation.Other
 
         #region bind
 
-        /// <summary>
-        /// 获取代理ip
-        /// </summary>
-        /// <returns></returns>
-        string GetProxyAddress()
-        {
-            if (cb_proxyip.Checked)
-            {
-                return txt_proxyaddress.Text;
-            }
-            else if (cb_proxyapi.Checked)
-            {
-                //if (!string.IsNullOrEmpty(txt_proxyaip.Text))
-                //{
-                //    string str = Common.WebService.GetHtmlByWebRequest(txt_proxyaip.Text);
-                //    str = str.Replace("\r\n","");
-                //    txt_proxyaddress.Text = str;
-                //    return str;
-                //}
-                return GetProxyAddressByAPI();
-            }
-
-            return "";
-        }
-
-        string temp_ip = "";
-        DateTime temp_ip_time = new DateTime();
-        string GetProxyAddressByAPI()
-        {
-            string str = "";
-            //判断是否已经获取ip
-            if (!string.IsNullOrEmpty(temp_ip))
-            {
-                //判断ip是否过期
-                if (temp_ip_time.AddMinutes(20) > DateTime.Now)
-                {
-                    return temp_ip;
-                }
-            }
-            //如果过期或者第一次调用时 获取新的代理ip
-            if (!string.IsNullOrEmpty(txt_proxyaip.Text))
-            {
-                str = Common.WebService.GetHtmlByWebRequest(txt_proxyaip.Text);
-                str = str.Replace("\r\n", "");
-                txt_proxyaddress.Text = str;
-                temp_ip = str;//赋值
-                temp_ip_time = DateTime.Now;
-                return str;
-            }
-            return str;
-        }
 
 
         void bind_chrome()
@@ -381,30 +329,35 @@ namespace Operation.Other
                     else if (colname == "col_shuadan")
                     {
                         #region 外部浏览器刷单
-                        string path = Manager.PathAppliction() + "\\Operation2.exe";
+                        //string path = Manager.PathAppliction() + "\\Operation2.exe";
 
-                        //自动下单
-                        string agrs2 = cb_autoorder.Checked ? " true" : "";
+                        ////自动下单
+                        //string agrs2 = cb_autoorder.Checked ? " true" : " false";
 
-                        System.Diagnostics.Process p = new System.Diagnostics.Process();
-                        p.StartInfo.FileName = path;
-                        p.StartInfo.UseShellExecute = true;
-                        //序列化参数json
-                        Entity.shuadan_records sr = new Entity.shuadan_records();
-                        //sr.sdremark7 = addcount(sr.sdremark7);
-                        //BLL2.shuadan_recordsManager.Update(sr);
-                        sr.sdvpn = GetProxyAddress();
-                        //.Replace("https://","").Replace("http://", "")
-                        sr.sdgoodsurl = txt_openurl.Text.Replace("https://", "").Replace("http://", "");
-                        sr.sdphone = sa.sdaccount;
-                        sr.sdaddress = sa.sdapwd;
-                        sr.sdremark6 = "2";
-                        sr.sddptype = "3";
+                        ////设置付款成功
+                        //string agrs3 = cb_payed.Checked ? " true" : " false";
+
+                        //System.Diagnostics.Process p = new System.Diagnostics.Process();
+                        //p.StartInfo.FileName = path;
+                        //p.StartInfo.UseShellExecute = true;
+                        ////序列化参数json
+                        //Entity.shuadan_records sr = new Entity.shuadan_records();
+                        ////sr.sdremark7 = addcount(sr.sdremark7);
+                        ////BLL2.shuadan_recordsManager.Update(sr);
+                        //sr.sdvpn = GetProxyAddress();
+                        ////.Replace("https://","").Replace("http://", "")
+                        //sr.sdgoodsurl = txt_openurl.Text.Replace("https://", "").Replace("http://", "");
+                        //sr.sdphone = sa.sdaccount;
+                        //sr.sdaddress = sa.sdapwd;
+                        //sr.sdremark6 = "2";
+                        //sr.sddptype = "3";
 
 
-                        string agrs = Newtonsoft.Json.JsonConvert.SerializeObject(sr);
-                        p.StartInfo.Arguments = agrs + agrs2;
-                        p.Start();
+                        //string agrs = Newtonsoft.Json.JsonConvert.SerializeObject(sr);
+                        //p.StartInfo.Arguments = agrs + agrs2 + agrs3;
+                        //p.Start();
+
+                        OpenAccount(sa.sdaccount, sa.sdapwd);
 
                         //添加使用次数
                         sa.sdaremark1 = addcount(sa.sdaremark1);
@@ -554,6 +507,106 @@ namespace Operation.Other
 
         #endregion
 
+
+        #region 私有方法
+
+        /// <summary>
+        /// 打开拼多多小号
+        /// </summary>
+        void OpenAccount(string account, string pwd)
+        {
+            #region 外部浏览器刷单
+            string path = Manager.PathAppliction() + "\\Operation2.exe";
+
+            //自动下单
+            string agrs2 = cb_autoorder.Checked ? " true" : " false";
+
+            //设置付款成功
+            string agrs3 = cb_payed.Checked ? " true" : " false";
+
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = path;
+            p.StartInfo.UseShellExecute = true;
+            //序列化参数json
+            Entity.shuadan_records sr = new Entity.shuadan_records();
+            //sr.sdremark7 = addcount(sr.sdremark7);
+            //BLL2.shuadan_recordsManager.Update(sr);
+            sr.sdvpn = GetProxyAddress();
+            //.Replace("https://","").Replace("http://", "")
+            sr.sdgoodsurl = txt_openurl.Text.Replace("https://", "").Replace("http://", "");
+            sr.sdphone = account;
+            sr.sdaddress = pwd;
+            sr.sdremark6 = "2";
+            sr.sddptype = "3";
+
+
+            string agrs = Newtonsoft.Json.JsonConvert.SerializeObject(sr);
+            p.StartInfo.Arguments = agrs + agrs2 + agrs3;
+            p.Start();
+
+
+            #endregion
+        }
+
+
+
+        /// <summary>
+        /// 获取代理ip
+        /// </summary>
+        /// <returns></returns>
+        string GetProxyAddress()
+        {
+            if (cb_proxyip.Checked)
+            {
+                return txt_proxyaddress.Text;
+            }
+            else if (cb_proxyapi.Checked)
+            {
+                //if (!string.IsNullOrEmpty(txt_proxyaip.Text))
+                //{
+                //    string str = Common.WebService.GetHtmlByWebRequest(txt_proxyaip.Text);
+                //    str = str.Replace("\r\n","");
+                //    txt_proxyaddress.Text = str;
+                //    return str;
+                //}
+                return GetProxyAddressByAPI();
+            }
+
+            return "";
+        }
+
+        string temp_ip = "";
+        DateTime temp_ip_time = new DateTime();
+        string GetProxyAddressByAPI()
+        {
+            string str = "";
+            //判断是否已经获取ip
+            if (!string.IsNullOrEmpty(temp_ip))
+            {
+                //判断ip是否过期
+                if (temp_ip_time.AddMinutes(20) > DateTime.Now)
+                {
+                    return temp_ip;
+                }
+            }
+            //如果过期或者第一次调用时 获取新的代理ip
+            if (!string.IsNullOrEmpty(txt_proxyaip.Text))
+            {
+                str = Common.WebService.GetHtmlByWebRequest(txt_proxyaip.Text);
+                str = str.Replace("\r\n", "");
+                txt_proxyaddress.Text = str;
+                temp_ip = str;//赋值
+                temp_ip_time = DateTime.Now;
+                return str;
+            }
+            return str;
+        }
+
+
+
+        #endregion
+
+
         #region btn_delete_Click_1
         private void btn_delete_Click_1(object sender, EventArgs e)
         {
@@ -606,15 +659,16 @@ namespace Operation.Other
                 try
                 {
                     string[] temp = str.ToSplit(fenge);
-                    string phone = temp[0];
-                    string account = temp[1];
-                    string pwd = temp[2];
+                    //string phone = temp[0];
+                    //string account = temp[1];
+                    //if(temp.Length>2)
+                    //string pwd = temp[2];
 
                     shuadan_account sa = new shuadan_account();
-                    sa.sdaccount = account;
+                    sa.sdaccount = temp.Length > 2 ? temp[1] : temp[0];
                     sa.sdadate = DateTime.Now;
-                    sa.sdaphone = phone;
-                    sa.sdapwd = pwd;
+                    sa.sdaphone = temp.Length > 2 ? temp[0] : "";
+                    sa.sdapwd = temp.Length > 2 ? temp[2] : temp[1];
                     sa.sdastate = "1";
                     sa.sdaremark = remark;
 
@@ -1129,7 +1183,10 @@ namespace Operation.Other
                         tabControl1.SelectedTab = tp_records;
                         pay_sr = sr;
                     }
-
+                    else if (colname == "col_login2")
+                    {
+                        OpenAccount(sr.sdphone, sr.sdaddress);
+                    }
                 }
                 else if (e.RowIndex == -1)
                 {
@@ -1352,6 +1409,12 @@ namespace Operation.Other
 
         #endregion
 
+
+
+        #region 私有方法
+
+
+
         private void btn_login_kongbao_Click(object sender, EventArgs e)
         {
             bind_chrome_kongbao();
@@ -1443,6 +1506,102 @@ namespace Operation.Other
         {
             AutoBuy();
         }
+
+        private void btn_piliangfahuo_Click(object sender, EventArgs e)
+        {
+            List<int> list = dgv_title.GetCheckedIndex("确认要批量设置发货状态吗?");
+            if (list.Count > 0)
+            {
+                foreach (int i in list)
+                {
+                    shuadan_records hs = (shuadan_records)dgv_title.Rows[i].DataBoundItem;
+                    BLL2.shuadan_recordsManager.Delete(hs.sdid);
+                    dgv_title.ToAfterDelete(i);
+                }
+                "操作成功".ToShow();
+            }
+            else
+            {
+                "请选择需要操作的信息".ToShow();
+            }
+        }
+
+
+
+
+
+        private void btn_del_account_Click(object sender, EventArgs e)
+        {
+            List<int> list = dgv_type.GetCheckedIndex("确认要批量设置账号禁用吗?");
+            if (list.Count > 0)
+            {
+                foreach (int i in list)
+                {
+                    shuadan_account hs = (shuadan_account)dgv_type.Rows[i].DataBoundItem;
+                    hs.sdastate = "2";
+                    BLL.shuadan_accountManager.Update(hs);
+                    dgv_type.ToAfterDelete(i);
+                }
+                "操作成功".ToShow();
+            }
+            else
+            {
+                "请选择需要操作的信息".ToShow();
+            }
+        }
+
+        #endregion
+
+
+        #region ***发空包
+
+        /// <summary>
+        /// 解析地址
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_kbjiexi_Click(object sender, EventArgs e)
+        {
+            txt_kbkdno.Text = "";
+
+            string str = txt_kbaddress.Text;
+
+            str = CS.PinDuoDuo.GetALLAddressByStr(str);
+
+            txt_kbaddress.Text = str;
+
+
+
+        }
+
+
+        /// <summary>
+        /// 发送空包
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_kbsend_Click(object sender, EventArgs e)
+        {
+            txt_kbkdno.Text = "";
+
+            string str = txt_kbaddress.Text;
+
+            str = CS.PinDuoDuo.GetALLAddressByStr(str);
+
+            txt_kbaddress.Text = str;
+
+            string kdno = KongBaoHelper.SendOrder(str);
+
+            txt_kbkdno.Text = kdno + "\r\n";
+
+            txt_kbkdno.Text += "已复制";
+
+            Auto.Ctrl_V(kdno);
+        }
+
+
+
+        #endregion
 
 
     }

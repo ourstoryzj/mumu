@@ -23,7 +23,15 @@ namespace Operation
 
         Entity.shuadan_records sr = null;
 
+        /// <summary>
+        /// 是否自动下单(根据链接)
+        /// </summary>
         bool isauto = false;
+
+        /// <summary>
+        /// 是否设置付款状态为已付款
+        /// </summary>
+        bool ispayed = false;
 
         public CefBrowser()
         {
@@ -152,11 +160,27 @@ namespace Operation
             }
             if (CmdArgs.Length > 2)
             {
-                //CmdArgs[2].ToShow();
-                string temp = CmdArgs[2];
-                bool.TryParse(temp, out isauto);
-
+                try
+                {
+                    string temp = CmdArgs[2];
+                    bool.TryParse(temp, out isauto);
+                }
+                catch 
+                {
+                }
             }
+            if (CmdArgs.Length > 3)
+            {
+                try
+                {
+                    string temp = CmdArgs[3];
+                    bool.TryParse(temp, out ispayed);
+                }
+                catch
+                {
+                }
+            }
+
             //MessageBox.Show(isauto.ToString());
             if (sr != null)
             {
@@ -233,13 +257,107 @@ namespace Operation
             browser.SetZoomLevel(0.1);
             //Browser.SetJSFile(browser);
 
+        }
+
+
+
+        #endregion
+
+        #region 私有方法
+
+
+        /// <summary>
+        /// 是否执行第三个方法
+        /// </summary>
+        bool autobuy_3 = true;
+
+        void AutoBuy()
+        {
+            timer1.Stop();
             try
             {
+                #region 自动下单
+                //bool isauto = true;
+                var browser = chrome.browser;
+                int delay = 500;
+                if (isauto)
+                {
+
+                    if (browser.Address.IndexOf("mobile.yangkeduo.com/goods.html?") != -1)
+                    {
+                        //timer1.Stop();
+                        Common.Browser.Delay(delay);
+                        browser.ToJs("getElementsByInnerText('收藏')[0].click()");
+                        Common.Browser.Delay(delay);
+                        if (browser.ToJsInt("getElementsByInnerText('去拼单').length") > 6)
+                        {
+                            browser.ToJs("getElementsByInnerText('去拼单')[0].click()");
+                            Common.Browser.Delay(delay);
+                            browser.ToJs("getElementsByInnerText('参与拼单')[1].click()");
+                        }
+                        else
+                        {
+                            //如果拼单数量不到6则发起拼单
+                            browser.ToJs("getElementsByInnerText('发起拼单')[0].click()");
+                        }
+
+                        Common.Browser.Delay(2000);
+
+                        //点击sku
+                        //Auto.Mouse_Left(new Point(80, 480));
+                        //chrome.click(80, 480);
+                        //模拟点击sku
+                        //browser.ToJs("document.getElementsByClassName('sku-spec-value')[0].click()");
+                        browser.ToJs("document.getElementsByClassName('sku-spec-value')[document.getElementsByClassName('sku-spec-value').length-1].click()");
+
+                        Common.Browser.Delay(delay);
+                        //chrome.click(panel1.Width / 2, panel1.Height - 30);
+                        //模拟点击确定
+                        browser.ToJs("getElementsByInnerText('确定')[0].click()");
+                        //点击确定
+                        //timer1.Start();
+                    }
+
+                }
+                if (browser.Address.IndexOf("mobile.yangkeduo.com/order_checkout.html?") != -1)
+                {
+                    //timer1.Stop();
+                    Common.Browser.Delay(delay);
+                    browser.ToJs("getElementsByInnerText_Vague_NoChildren('支付宝')[0].click()");
+                    Common.Browser.Delay(delay);
+                    browser.ToJs("getElementsByInnerText('立即支付')[0].click()");
+                    //timer1.Start();
+                }
+
+                if (browser.Address.IndexOf("psnl_verification.html") != -1)
+                {
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('所有','')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('请点击','')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText.replace('侧',' 侧 ')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('全部',' ')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('对着你的',' ')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('字母',' 字母 ')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('位于','')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('上面的','')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('数字',' 数字 ')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('正下方',' 下方 ')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('的','')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('物体','')");
+                    browser.ToJs("document.getElementsByClassName('picture-text')[0].innerText=document.getElementsByClassName('picture-text')[0].innerText.replace('小型',' 小型 ')");
+
+                }
+
+                #region 自动保存订单
                 //如果是支付宝页面自动生成二维码，如果不是则清空
                 if (browser.Address.IndexOf("mclient.alipay.com/home/exterfaceAssign.htm?") != -1)
                 {
+
                     if (sr != null)
                     {
+                        pan_pay.BackgroundImage = CS.AlipayHelper.CreateQRCode(browser.Address, 200);
+                        pan_pay.Visible = true;
+
+                        autobuy_3 = false;
                         sr.sdgoodsname = browser.Address;
                         string orderid = CS.PinDuoDuo.GetOrderIDByURL(browser.Address);
                         //只保存一次订单
@@ -259,11 +377,13 @@ namespace Operation
                                 }
                                 else
                                 {
-                                    //sr.sdstatepay = "1";
-                                    btn_save.PerformClick();
+                                    if (autobuy_3)
+                                    {
+                                        //sr.sdstatepay = "1";
+                                        btn_save.PerformClick();
+                                    }
                                     //自动保存
-                                    pan_pay.BackgroundImage = CS.AlipayHelper.CreateQRCode(browser.Address, 200);
-                                    pan_pay.Visible = true;
+                                    
                                 }
                             }
                         }
@@ -277,72 +397,15 @@ namespace Operation
                     pan_pay.Visible = false;
                 }
 
-                 
+                #endregion
 
-
-
-            }
-            catch (Exception ex)
-            {
-                ex.ToString().ToShow();
-            }
-
-        }
-
-
-
-        #endregion
-
-        #region 私有方法
-
-        void AutoBuy()
-        {
-            try
-            {
-                #region 自动下单
-                //bool isauto = true;
-                var browser = chrome.browser;
-                if (isauto)
-                {
-                    int delay = 500;
-                    if (browser.Address.IndexOf("mobile.yangkeduo.com/goods.html?") != -1)
-                    {
-                        timer1.Stop();
-                        Common.Browser.Delay(delay);
-                        browser.ToJs("getElementsByInnerText('收藏')[0].click()");
-                        Common.Browser.Delay(delay);
-                        browser.ToJs("getElementsByInnerText('发起拼单')[0].click()");
-                        Common.Browser.Delay(2000);
-
-                        //点击sku
-                        //Auto.Mouse_Left(new Point(80, 480));
-                        //chrome.click(80, 480);
-                        //模拟点击sku
-                        browser.ToJs("document.getElementsByClassName('sku-spec-value')[0].click()");
-
-                        Common.Browser.Delay(delay);
-                        //chrome.click(panel1.Width / 2, panel1.Height - 30);
-                        //模拟点击确定
-                        browser.ToJs("getElementsByInnerText('确定')[0].click()");
-                        //点击确定
-                        timer1.Start();
-                    }
-                    else if (browser.Address.IndexOf("mobile.yangkeduo.com/order_checkout.html?") != -1)
-                    {
-                        timer1.Stop();
-                        Common.Browser.Delay(delay);
-                        browser.ToJs("getElementsByInnerText_Vague_NoChildren('支付宝')[0].click()");
-                        Common.Browser.Delay(delay);
-                        browser.ToJs("getElementsByInnerText('立即支付')[0].click()");
-                        timer1.Start();
-                    }
-                }
                 #endregion
             }
             catch (Exception ex)
             {
                 ex.ToShow();
             }
+            timer1.Start();
         }
 
 
@@ -382,6 +445,8 @@ namespace Operation
                 sr.sdremark4 = "1";
                 sr.sdremark6 = "2";
                 sr.sdstatepay = isauto ? "1" : "2";
+                if (ispayed)
+                    sr.sdstatepay = "1";
                 try
                 {
                     string sqlcom = "server=sqloledb;data source=qds16257965.my3w.com;User ID=qds16257965;pwd=QW013368zj@;Initial Catalog=qds16257965_db";
@@ -389,10 +454,27 @@ namespace Operation
                     com.Open();
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = com;
+                    if (!string.IsNullOrEmpty(sr.sdorderid))
+                    {
+                        cmd.CommandText = "select count(*) from shuadan_records where sdorderid = '" + sr.sdorderid + "'";
+                        int res = (int)cmd.ExecuteScalar();
+                        if (res != 0)
+                        {
+                            res.ToString().ToShow();
+                        }
+                        if (res > 0)
+                        {
+
+                            this.Text = "订单" + sr.sdorderid + "已经存储";
+                            return;
+                        }
+                    }
+
                     cmd.CommandText = "insert into  shuadan_records (sdgoodsname,sdgoodsurl,sddptype,sddate,sdorderid,sdphone,sdvpn,sdaddress,sdwuliu,sdremark1,sdremark3,sdremark2,sdremark4,sdremark5,sdremark6,sdstatepay,sdremark7,sdremark8,sdremark9,sdremark10)values(@sdgoodsname,@sdgoodsurl,@sddptype,@sddate,@sdorderid,@sdphone,@sdvpn,@sdaddress,@sdwuliu,@sdremark1,@sdremark3,@sdremark2,@sdremark4,@sdremark5,@sdremark6,@sdstatepay,@sdremark7,@sdremark8,@sdremark9,@sdremark10)";
                     SqlParameter[] sp = GetSqlParameters(sr);
                     cmd.Parameters.AddRange(sp);
                     int result = cmd.ExecuteNonQuery();
+                    com.Close();
 
                 }
                 catch (Exception ex)
@@ -406,6 +488,8 @@ namespace Operation
                 }
                 else
                     "添加记录成功".ToShow();
+
+                sr = null;
             }
 
         }
@@ -446,7 +530,7 @@ namespace Operation
             }
             if (shuadan_recordsExample.sddate != new DateTime() && shuadan_recordsExample.sddate != null)
             {
-                list_param.Add(new SqlParameter("@sddate", shuadan_recordsExample.sddate.ToString("yyyy-MM-dd HH:ss:mm")));
+                list_param.Add(new SqlParameter("@sddate", shuadan_recordsExample.sddate.ToString("yyyy-MM-dd HH:mm:ss")));
             }
             else
             {
@@ -618,7 +702,7 @@ namespace Operation
 
         private void 查询IPToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            chrome.JumpUrl("www.baidu.com/s?wd=ip");
+            chrome.JumpUrl("m.ip138.com/");
         }
 
         private void pan_pay_Paint(object sender, PaintEventArgs e)
@@ -627,7 +711,7 @@ namespace Operation
         }
 
 
-        #endregion
+        
 
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -643,5 +727,10 @@ namespace Operation
                 str.ToShow();
             }
         }
+
+        #endregion
+
+
+
     }
 }

@@ -352,8 +352,42 @@ namespace Common
         /// <returns></returns>
         public List<int> GetDeleteCheckedIndex()
         {
+            //List<int> list = new List<int>();
+            //if (MessageBox.Show("是否要删除选中数据?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            //{
+            //    try
+            //    {
+            //        foreach (DataGridViewRow row in base.Rows)
+            //        {
+            //            if (row.Index != -1)
+            //            {
+            //                DataGridViewCheckBoxCell cbx = (DataGridViewCheckBoxCell)row.Cells[0];
+            //                if ((bool)cbx.FormattedValue)
+            //                {
+            //                    //basic_task sr = (basic_task)dgv1.CurrentRow.DataBoundItem;
+            //                    //BLL.basic_taskManager.Delete(sr.btid);
+            //                    list.Add(row.Index);
+            //                }
+            //            }
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.ToString());
+            //    }
+            //}
+            //return list;
+            return GetCheckedIndex("是否要删除选中数据?");
+        }
+ 
+        /// <summary>
+        /// 获取需要删除行列表
+        /// </summary>
+        /// <returns></returns>
+        public List<int> GetCheckedIndex(string mess)
+        {
             List<int> list = new List<int>();
-            if (MessageBox.Show("是否要删除选中数据?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show(mess, "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
@@ -364,8 +398,6 @@ namespace Common
                             DataGridViewCheckBoxCell cbx = (DataGridViewCheckBoxCell)row.Cells[0];
                             if ((bool)cbx.FormattedValue)
                             {
-                                //basic_task sr = (basic_task)dgv1.CurrentRow.DataBoundItem;
-                                //BLL.basic_taskManager.Delete(sr.btid);
                                 list.Add(row.Index);
                             }
                         }

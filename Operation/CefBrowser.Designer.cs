@@ -56,17 +56,15 @@
             this.panel1.Controls.Add(this.btn_go);
             this.panel1.Location = new System.Drawing.Point(12, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(318, 489);
+            this.panel1.Size = new System.Drawing.Size(377, 596);
             this.panel1.TabIndex = 0;
             // 
             // pan_pay
             // 
-            this.pan_pay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pan_pay.Location = new System.Drawing.Point(54, 110);
+            this.pan_pay.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pan_pay.Location = new System.Drawing.Point(80, 119);
             this.pan_pay.Name = "pan_pay";
-            this.pan_pay.Size = new System.Drawing.Size(210, 220);
+            this.pan_pay.Size = new System.Drawing.Size(220, 220);
             this.pan_pay.TabIndex = 0;
             this.pan_pay.Visible = false;
             this.pan_pay.Paint += new System.Windows.Forms.PaintEventHandler(this.pan_pay_Paint);
@@ -84,7 +82,7 @@
             // btn_go
             // 
             this.btn_go.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_go.Location = new System.Drawing.Point(285, 3);
+            this.btn_go.Location = new System.Drawing.Point(344, 3);
             this.btn_go.Name = "btn_go";
             this.btn_go.Size = new System.Drawing.Size(30, 30);
             this.btn_go.TabIndex = 2;
@@ -94,17 +92,20 @@
             // 
             // txt_url
             // 
-            this.txt_url.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_url.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_url.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txt_url.Location = new System.Drawing.Point(12, 10);
             this.txt_url.Multiline = true;
             this.txt_url.Name = "txt_url";
-            this.txt_url.Size = new System.Drawing.Size(184, 30);
+            this.txt_url.Size = new System.Drawing.Size(242, 30);
             this.txt_url.TabIndex = 0;
             this.txt_url.Text = "mobile.yangkeduo.com";
             // 
             // btn_open
             // 
-            this.btn_open.Location = new System.Drawing.Point(202, 10);
+            this.btn_open.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_open.Location = new System.Drawing.Point(260, 10);
             this.btn_open.Name = "btn_open";
             this.btn_open.Size = new System.Drawing.Size(39, 30);
             this.btn_open.TabIndex = 3;
@@ -115,7 +116,8 @@
             // 
             // btn_f12
             // 
-            this.btn_f12.Location = new System.Drawing.Point(247, 10);
+            this.btn_f12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_f12.Location = new System.Drawing.Point(305, 10);
             this.btn_f12.Name = "btn_f12";
             this.btn_f12.Size = new System.Drawing.Size(39, 30);
             this.btn_f12.TabIndex = 4;
@@ -126,7 +128,8 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(292, 10);
+            this.btn_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_save.Location = new System.Drawing.Point(350, 10);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(39, 30);
             this.btn_save.TabIndex = 5;
@@ -176,14 +179,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(339, 549);
+            this.ClientSize = new System.Drawing.Size(398, 656);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.btn_f12);
             this.Controls.Add(this.btn_open);
             this.Controls.Add(this.txt_url);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "CefBrowser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chrome浏览器";

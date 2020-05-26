@@ -138,10 +138,43 @@ namespace Operation.Test
             //cc.SetCookies(new System.Uri(url), cookie);
 
             string content = CS.HttpWeb.SendDataByGET(url, "", ref cc);
-            content = CS.HttpWeb.SendDataByGET("http://www.nuoren365.com/member/#/public/extension-center/extension-link", "",ref cc);
+            content = CS.HttpWeb.SendDataByGET("http://www.nuoren365.com/member/#/public/extension-center/extension-link", "", ref cc);
             textBox1.Text = content;
             Console.WriteLine(content);
             Console.ReadLine();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string url = "https://mclient.alipay.com/home/exterfaceAssign.htm?subject=%E5%95%86%E6%88%B7%E5%8D%95%E5%8F%B7XP0020052214201477981757007547&_input_charset=utf-8&sign=IyfNgNL0KDYJyTDwWsRdBwyYqFEsMN4RZTFPOvMIjK0FqTFT0mifG%2BpLm0GO41foMJO7RoBHOr%2BTk1e%2FrAiVLC2BbOPr35GbUOt3n54hBXUwVNQWF6ZUs41KUnPDQ9Anc0%2FnHzzgnF19I%2BdlF6pUD705DLwr0pWkXCFkhBNJak8%3D&notify_url=https%3A%2F%2Fpaynotify.pinduoduo.com%2Fnotify%2F9&alipay_exterface_invoke_assign_model=cashier&alipay_exterface_invoke_assign_target=mapi_direct_trade.htm&payment_type=1&out_trade_no=XP0020052214201477981757007547&partner=2088911201740274&alipay_exterface_invoke_assign_sign=_slf56p_rqmo_km_t_h_b0_w_m_wlhatp_q_k_b_q_erjij_t_ccjj_m_fgk_y_stf_bmtng_e_i_q%3D%3D&service=alipay.wap.create.direct.pay.by.user&total_fee=21.5&return_url=http%3A%2F%2Fmobile.yangkeduo.com%2Ftransac_wappay_callback.html%3Forder_sn%3D200522-398237041863854%26order_amount%3D2150%26goods_id%3D7316238989&goods_type=1&sign_type=RSA&seller_id=pddzhifubao%40yiran.com&alipay_exterface_invoke_assign_client_ip=117.155.248.230";
+
+            string temp = Manager.GetValueByURL(url, "return_url");
+
+            temp = HttpUtility.UrlDecode(temp, Encoding.ASCII);
+
+            //http%3A%2F%2Fmobile.yangkeduo.com%2Ftransac_wappay_callback.html%3Forder_sn%3D200522-398237041863854%26order_amount%3D2150%26goods_id%3D7316238989
+
+            //temp = temp.Replace("%3A", ":");
+            //temp = temp.Replace("%2F", "/");
+            //temp = temp.Replace("%3D", "=");
+            //temp = temp.Replace("%3F", "?");
+
+            //http://mobile.yangkeduo.com/transac_wappay_callback.html?order_sn=200522-398237041863854%26order_amount=2150%26goods_id=7316238989
+
+
+
+            //Uri myUri = new Uri(Uri.EscapeUriString(temp));
+            //Uri u = new Uri(temp);
+            //var temp2 = Uri(temp);
+            //var temp2 = Uri.EscapeUriString(temp);
+
+
+            textBox1.Text =  CS.PinDuoDuo.GetOrderIDByURL(url);
         }
     }
 }

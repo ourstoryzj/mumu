@@ -213,6 +213,7 @@
     <Compile Include="CS\DataGridViewTest.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CS\KongBaoHelper.cs" />
     <Compile Include="PinDuoDuo\PDD_SuaDan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -572,6 +573,12 @@
     <Compile Include="PinDuoDuo\PDD_DaiFa.Designer.cs">
       <DependentUpon>PDD_DaiFa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\test_pddkb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_pddkb.Designer.cs">
+      <DependentUpon>test_pddkb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_textedit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -868,6 +875,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDD_DaiFa.resx">
       <DependentUpon>PDD_DaiFa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_pddkb.resx">
+      <DependentUpon>test_pddkb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_textedit.resx">
       <DependentUpon>test_textedit.cs</DependentUpon>

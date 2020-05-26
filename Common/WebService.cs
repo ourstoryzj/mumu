@@ -201,31 +201,40 @@ namespace Common
         /// <returns></returns>
         public static string SendDataByPost(string Url, string postDataStr, ref CookieContainer cookie)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
-            if (cookie.Count == 0)
-            {
-                request.CookieContainer = new CookieContainer();
-                cookie = request.CookieContainer;
-            }
-            else
-            {
-                request.CookieContainer = cookie;
-            }
+            string retString = "";
 
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = postDataStr.Length;
-            Stream myRequestStream = request.GetRequestStream();
-            StreamWriter myStreamWriter = new StreamWriter(myRequestStream, Encoding.GetEncoding("gb2312"));
-            myStreamWriter.Write(postDataStr);
-            myStreamWriter.Close();
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
+                if (cookie.Count == 0)
+                {
+                    request.CookieContainer = new CookieContainer();
+                    cookie = request.CookieContainer;
+                }
+                else
+                {
+                    request.CookieContainer = cookie;
+                }
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream myResponseStream = response.GetResponseStream();
-            StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
-            string retString = myStreamReader.ReadToEnd();
-            myStreamReader.Close();
-            myResponseStream.Close();
+                request.Method = "POST";
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = postDataStr.Length;
+                Stream myRequestStream = request.GetRequestStream();
+                StreamWriter myStreamWriter = new StreamWriter(myRequestStream, Encoding.GetEncoding("gb2312"));
+                myStreamWriter.Write(postDataStr);
+                myStreamWriter.Close();
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream myResponseStream = response.GetResponseStream();
+                StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
+                retString = myStreamReader.ReadToEnd();
+                myStreamReader.Close();
+                myResponseStream.Close();
+            }
+            catch (Exception ex)
+            {
+                ex.ToShow();
+            }
 
             return retString;
         }
@@ -404,6 +413,9 @@ namespace Common
             return ipAddress;
         }
         #endregion
+
+
+
 
 
     }

@@ -271,7 +271,7 @@ namespace DAL
         public IList<shuadan_records> SearchWeiFaHuo(string t)
         {
             //DBHelper.sqlstr = "SELECT * FROM shuadan_records where 1=1 and ( sdwuliu ='' or sdwuliu is null ) " + (string.IsNullOrEmpty(t) ? "" : " and sddptype ='" + t + "' ");
-            DBHelper.sqlstr = "SELECT * FROM shuadan_records where 1=1 and   sdremark4 ='1'   and sddptype ='" + t + "'"  ;
+            DBHelper.sqlstr = "SELECT * FROM shuadan_records where 1=1 and   sdremark4 ='1'   and sddptype ='" + t + "' order by sdid desc "  ;
             List<shuadan_records> list = new List<shuadan_records>();
             SqlDataReader reader = DBHelper.ExecuteReader();
             while (reader.Read())

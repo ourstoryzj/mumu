@@ -78,7 +78,7 @@ namespace Common
             get { return _mousePoint; }
             set { _mousePoint = value; }
         }
- 
+
 
 
 
@@ -389,7 +389,7 @@ namespace Common
         #endregion
 
 
-      
+
         /// <summary>
         /// 将字符串分割成字符串数组
         /// </summary>
@@ -1334,20 +1334,20 @@ namespace Common
         }
 
 
-       
+
 
 
 
         #endregion
 
-         
-
-         
-
-         
 
 
-        
+
+
+
+
+
+
 
         #region GetZheKou
         /// <summary>
@@ -1377,7 +1377,7 @@ namespace Common
 
         #endregion
 
-        
+
 
         #region StrToList
         /// <summary>
@@ -1868,7 +1868,7 @@ namespace Common
         /// </summary>
         /// <param name="SelectedPath">获取其开始浏览的根目录，空则默认原来的文件夹</param>
         /// <returns></returns>
-        public static string OpenFolderDialog(string SelectedPath,string SeleteDirectory)
+        public static string OpenFolderDialog(string SelectedPath, string SeleteDirectory)
         {
             string path = "";
             FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
@@ -1879,7 +1879,7 @@ namespace Common
             {
                 folderBrowserDialog1.SelectedPath = SelectedPath;
             }
-            else if(!string.IsNullOrEmpty(SeleteDirectory))
+            else if (!string.IsNullOrEmpty(SeleteDirectory))
             {
                 folderBrowserDialog1.SelectedPath = SeleteDirectory;
             }
@@ -2000,7 +2000,7 @@ namespace Common
         /// 根据两个字符串截取
         /// </summary>
         /// <param name="str"></param>
-        public static string ToSubString(this string str,string bin_str, string end_str)
+        public static string ToSubString(this string str, string bin_str, string end_str)
         {
             try
             {
@@ -2105,7 +2105,7 @@ namespace Common
             string clearHtml = html;
             return clearHtml;
 
-            
+
         }
         /// <summary> 
         /// 清除文本中的Html标签 
@@ -2132,7 +2132,7 @@ namespace Common
         /// <param name="str"></param>
         /// <param name="fenge"></param>
         /// <returns></returns>
-        public static string[] ToSplit(this string str,string fenge)
+        public static string[] ToSplit(this string str, string fenge)
         {
             string[] strs = null;
             try
@@ -2173,6 +2173,181 @@ namespace Common
         }
 
         #endregion
+
+
+        /// <summary>
+        /// 用MD5加密字符串
+        /// </summary>
+        /// <param name="str">待加密的字符串</param>
+        /// <returns></returns>
+        public static string ToMD5(this string str)
+        {
+            System.Security.Cryptography.MD5CryptoServiceProvider md5Hasher = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] hashedDataBytes;
+            hashedDataBytes = md5Hasher.ComputeHash(Encoding.GetEncoding("gb2312").GetBytes(str));
+            StringBuilder tmp = new StringBuilder();
+            foreach (byte i in hashedDataBytes)
+            {
+                tmp.Append(i.ToString("x2"));
+            }
+            return tmp.ToString();
+        }
+
+        //public static string ToMd5(this string s) => string.Join("", System.Security.Cryptography.MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(s)).Select(v => v.ToString("x2")));
+
+        public static string ToMd5(this string s)
+        {
+
+            System.Security.Cryptography.MD5CryptoServiceProvider md5Hasher = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] hashedDataBytes;
+            hashedDataBytes = md5Hasher.ComputeHash(Encoding.UTF8.GetBytes(s));
+            StringBuilder tmp = new StringBuilder();
+            foreach (byte i in hashedDataBytes)
+            {
+                tmp.Append(i.ToString("x2"));
+            }
+            return tmp.ToString();
+
+        }
+
+
+
+        /// <summary>
+        /// 过滤相同内容
+        /// </summary>
+        /// <param name="values">要过滤数组</param>
+        /// <returns>过滤后的数组</returns>
+        public static string[] ToRemoveLike(this string[] values)
+        {
+            List<string> list = new List<string>();
+            for (int i = 0; i < values.Length; i++)//遍历数组成员
+            {
+                if (values[i] != "")
+                {
+                    if (list.IndexOf(values[i].ToLower()) == -1)//对每个成员做一次新数组查询如果没有相等的则加到新数组
+                        list.Add(values[i]);
+                }
+
+            }
+
+            return list.ToArray();
+        }
+        /// <summary>
+        /// 取文本中间内容
+        /// </summary>
+        /// <param name="str">原文本</param>
+        /// <param name="leftstr">左边文本</param>
+        /// <param name="rightstr">右边文本</param>
+        /// <returns>返回中间文本内容</returns>
+        public static string ToBetween(this string str, string leftstr, string rightstr)
+        {
+            int i = str.IndexOf(leftstr) + leftstr.Length;
+            string temp = str.Substring(i, str.IndexOf(rightstr, i) - i);
+            return temp;
+        }
+        /// <summary>
+        /// 取文本中间到List集合
+        /// </summary>
+        /// <param name="str">文本字符串</param>
+        /// <param name="leftstr">左边文本</param>
+        /// <param name="rightstr">右边文本</param>
+        /// <returns>List集合</returns>
+        public static List<string> ToBetweenArr(this string str, string leftstr, string rightstr)
+        {
+            List<string> list = new List<string>();
+            int leftIndex = str.IndexOf(leftstr);//左文本起始位置
+            int leftlength = leftstr.Length;//左文本长度
+            int rightIndex = 0;
+            string temp = "";
+            while (leftIndex != -1)
+            {
+                rightIndex = str.IndexOf(rightstr, leftIndex + leftlength);
+                if (rightIndex == -1)
+                {
+                    break;
+                }
+                temp = str.Substring(leftIndex + leftlength, rightIndex - leftIndex - leftlength);
+                list.Add(temp);
+                leftIndex = str.IndexOf(leftstr, rightIndex + 1);
+            }
+            return list;
+        }
+
+
+        /// <summary>
+        /// 把HTML传递过来的数据解码
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static string ToHTMLDataDecoding(this string str,Encoding encoding)
+        {
+            string res = System.Web.HttpUtility.UrlDecode(str, encoding);
+            return res;
+        }
+
+        /// <summary>
+        /// 把HTML传递过来的数据加密
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
+        public static string ToHTMLDataEncoding(this string str, Encoding encoding)
+        {
+            //byte[] byteRequest = Encoding.GetEncoding("gb2312").GetBytes(postData);
+            string res = System.Web.HttpUtility.UrlEncode(str, encoding);
+            return res;
+        }
+
+
+        /// <summary>
+        /// 判断是否为Int
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsInt(this string str)
+        {
+            int res = 0;
+            if (int.TryParse(str, out res))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 把字符串转换成char类型的泛型
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static List<char> ToListByOne(this string str)
+        {
+            List<char> list = new List<char>();
+            foreach (char c in str)
+            {
+                list.Add(c);
+            }
+            return list;
+        }
+
+
+        /// <summary>
+        /// 从字符串中提取手机号码
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string ToGetPhone(this string str)
+        {
+            string phone = "";
+            string regexStr = "([1][0-9]{10})"; //手机和电话号码
+            System.Text.RegularExpressions.MatchCollection mc = System.Text.RegularExpressions.Regex.Matches(str, regexStr);
+            foreach (System.Text.RegularExpressions.Match m in mc)
+            {
+                phone = m.Groups[0].Value;
+            }
+            return phone;
+        }
+
 
         #endregion
 
@@ -2691,7 +2866,7 @@ namespace Common
         /// </summary>
         /// <param name="url"></param>
         /// <param name="allname"></param>
-        public static void ToImageSave(this string url,string allname)
+        public static void ToImageSave(this string url, string allname)
         {
             Image img = url.ToImageByWebBrowser();
             if (img != null)
@@ -2782,7 +2957,7 @@ namespace Common
         /// <param name="email"></param>
         /// <param name="title"></param>
         /// <param name="content"></param>
-        public static void EmailSend(string email, string title, string content,string account="ourstoryzj@163.com",string pwd="zj013368qw")
+        public static void EmailSend(string email, string title, string content, string account = "ourstoryzj@163.com", string pwd = "zj013368qw")
         {
             try
             {

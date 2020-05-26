@@ -76,6 +76,7 @@
             this.打开外部浏览器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.模拟登陆艺龙网站ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.获取拼多多订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cefsharp模拟headerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.话术管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷单账号管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +87,7 @@
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
-            this.cefsharp模拟headerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.拼多多发空包ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -394,7 +395,8 @@
             this.打开外部浏览器ToolStripMenuItem,
             this.模拟登陆艺龙网站ToolStripMenuItem,
             this.获取拼多多订单ToolStripMenuItem,
-            this.cefsharp模拟headerToolStripMenuItem});
+            this.cefsharp模拟headerToolStripMenuItem,
+            this.拼多多发空包ToolStripMenuItem});
             this.测试ToolStripMenuItem.Name = "测试ToolStripMenuItem";
             this.测试ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.测试ToolStripMenuItem.Text = "测试";
@@ -477,6 +479,13 @@
             this.获取拼多多订单ToolStripMenuItem.Text = "获取拼多多订单";
             this.获取拼多多订单ToolStripMenuItem.Click += new System.EventHandler(this.获取拼多多订单ToolStripMenuItem_Click);
             // 
+            // cefsharp模拟headerToolStripMenuItem
+            // 
+            this.cefsharp模拟headerToolStripMenuItem.Name = "cefsharp模拟headerToolStripMenuItem";
+            this.cefsharp模拟headerToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.cefsharp模拟headerToolStripMenuItem.Text = "cefsharp模拟header";
+            this.cefsharp模拟headerToolStripMenuItem.Click += new System.EventHandler(this.cefsharp模拟headerToolStripMenuItem_Click);
+            // 
             // 任务管理ToolStripMenuItem
             // 
             this.任务管理ToolStripMenuItem.Name = "任务管理ToolStripMenuItem";
@@ -556,12 +565,12 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
-            // cefsharp模拟headerToolStripMenuItem
+            // 拼多多发空包ToolStripMenuItem
             // 
-            this.cefsharp模拟headerToolStripMenuItem.Name = "cefsharp模拟headerToolStripMenuItem";
-            this.cefsharp模拟headerToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.cefsharp模拟headerToolStripMenuItem.Text = "cefsharp模拟header";
-            this.cefsharp模拟headerToolStripMenuItem.Click += new System.EventHandler(this.cefsharp模拟headerToolStripMenuItem_Click);
+            this.拼多多发空包ToolStripMenuItem.Name = "拼多多发空包ToolStripMenuItem";
+            this.拼多多发空包ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.拼多多发空包ToolStripMenuItem.Text = "拼多多发空包";
+            this.拼多多发空包ToolStripMenuItem.Click += new System.EventHandler(this.拼多多发空包ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -647,5 +656,6 @@
         private System.Windows.Forms.ToolStripMenuItem 模拟登陆艺龙网站ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 获取拼多多订单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cefsharp模拟headerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 拼多多发空包ToolStripMenuItem;
     }
 }

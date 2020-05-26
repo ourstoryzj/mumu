@@ -976,5 +976,13 @@ namespace Operation
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
+
+        private void 拼多多发空包ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_pddkb fm = new Test.test_pddkb();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
     }
 }

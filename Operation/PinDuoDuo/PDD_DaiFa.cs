@@ -275,7 +275,8 @@ namespace Operation.PinDuoDuo
         private void btn_jiexi_Click(object sender, EventArgs e)
         {
             string address_temp = txt_address.Text.Trim().Replace("，", ",").Replace("86-", "");
-
+            address_temp = CS.PinDuoDuo.GetALLAddressByStr(address_temp);
+            txt_address.Text = address_temp;
             //解析地址 孙凌美,13756089797,吉林省长春市其它区吉林省长春市汽车厂47街区31栋102室彩票站
             string[] address_temps = address_temp.Split(new char[] { ',' });
             foreach (string temp in address_temps)

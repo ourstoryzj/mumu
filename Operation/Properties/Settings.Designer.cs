@@ -22,5 +22,16 @@ namespace Operation.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=qds16257965.my3w.com;Initial Catalog=qds16257965_db;Persist Security " +
+            "Info=True;User ID=qds16257965;Password=QW013368zj@")]
+        public string qds16257965_dbConnectionString {
+            get {
+                return ((string)(this["qds16257965_dbConnectionString"]));
+            }
+        }
     }
 }

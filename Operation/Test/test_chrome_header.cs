@@ -64,7 +64,9 @@ namespace Operation.Test
                 //settings.CefCommandLineArgs.Add("no-proxy-server", "1");
                 settings.CefCommandLineArgs.Add("name", "zhangjian");
 
-
+                var ProxyAddress = "58.218.92.65:3261";
+                settings.CachePath = "cache";
+                settings.CefCommandLineArgs.Add("proxy-server", ProxyAddress);
                 //settings.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36";
                 settings.UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53";
 
