@@ -77,6 +77,7 @@
             this.模拟登陆艺龙网站ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.获取拼多多订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cefsharp模拟headerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.拼多多发空包ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.话术管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷单账号管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,7 +88,7 @@
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
-            this.拼多多发空包ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.百度网盘搜索ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -108,7 +109,8 @@
             this.任务管理ToolStripMenuItem,
             this.话术管理ToolStripMenuItem,
             this.刷单账号管理ToolStripMenuItem,
-            this.货源ToolStripMenuItem});
+            this.货源ToolStripMenuItem,
+            this.百度网盘搜索ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1284, 25);
@@ -486,6 +488,13 @@
             this.cefsharp模拟headerToolStripMenuItem.Text = "cefsharp模拟header";
             this.cefsharp模拟headerToolStripMenuItem.Click += new System.EventHandler(this.cefsharp模拟headerToolStripMenuItem_Click);
             // 
+            // 拼多多发空包ToolStripMenuItem
+            // 
+            this.拼多多发空包ToolStripMenuItem.Name = "拼多多发空包ToolStripMenuItem";
+            this.拼多多发空包ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.拼多多发空包ToolStripMenuItem.Text = "拼多多发空包";
+            this.拼多多发空包ToolStripMenuItem.Click += new System.EventHandler(this.拼多多发空包ToolStripMenuItem_Click);
+            // 
             // 任务管理ToolStripMenuItem
             // 
             this.任务管理ToolStripMenuItem.Name = "任务管理ToolStripMenuItem";
@@ -519,7 +528,7 @@
             // 网供商品ToolStripMenuItem
             // 
             this.网供商品ToolStripMenuItem.Name = "网供商品ToolStripMenuItem";
-            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.网供商品ToolStripMenuItem.Text = "网供商品";
             this.网供商品ToolStripMenuItem.Click += new System.EventHandler(this.网供商品ToolStripMenuItem_Click);
             // 
@@ -565,12 +574,12 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
-            // 拼多多发空包ToolStripMenuItem
+            // 百度网盘搜索ToolStripMenuItem
             // 
-            this.拼多多发空包ToolStripMenuItem.Name = "拼多多发空包ToolStripMenuItem";
-            this.拼多多发空包ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.拼多多发空包ToolStripMenuItem.Text = "拼多多发空包";
-            this.拼多多发空包ToolStripMenuItem.Click += new System.EventHandler(this.拼多多发空包ToolStripMenuItem_Click);
+            this.百度网盘搜索ToolStripMenuItem.Name = "百度网盘搜索ToolStripMenuItem";
+            this.百度网盘搜索ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.百度网盘搜索ToolStripMenuItem.Text = "百度网盘搜索";
+            this.百度网盘搜索ToolStripMenuItem.Click += new System.EventHandler(this.百度网盘搜索ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -657,5 +666,6 @@
         private System.Windows.Forms.ToolStripMenuItem 获取拼多多订单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cefsharp模拟headerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 拼多多发空包ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 百度网盘搜索ToolStripMenuItem;
     }
 }

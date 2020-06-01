@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Operation</RootNamespace>
     <AssemblyName>Operation</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
@@ -134,8 +134,9 @@
     <Reference Include="MySql.Data">
       <HintPath>..\..\dll\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>C:\DLL\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NPOI">
       <HintPath>C:\DLL\NPOI.dll</HintPath>
@@ -214,6 +215,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CS\KongBaoHelper.cs" />
+    <Compile Include="Other\BaiduPanFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\BaiduPanFrom.Designer.cs">
+      <DependentUpon>BaiduPanFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="PinDuoDuo\PDD_SuaDan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -713,6 +720,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CefBrowser.resx">
       <DependentUpon>CefBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\BaiduPanFrom.resx">
+      <DependentUpon>BaiduPanFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDD_SuaDan.resx">
       <DependentUpon>PDD_SuaDan.cs</DependentUpon>

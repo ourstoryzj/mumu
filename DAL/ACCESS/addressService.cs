@@ -15,7 +15,7 @@ namespace DAL.Access
     //实体类名称：shuadan_phoneExample
     //主键：sdpid
 
-    public class addressService : IaddressService
+    public class AddressService : IaddressService
     {
 
 

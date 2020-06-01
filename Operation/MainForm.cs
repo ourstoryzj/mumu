@@ -984,5 +984,13 @@ namespace Operation
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
+
+        private void 百度网盘搜索ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Other.BaiduPanFrom fm = new Other.BaiduPanFrom();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
     }
 }

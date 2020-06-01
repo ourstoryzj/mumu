@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DALFactory</RootNamespace>
     <AssemblyName>DALFactory</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
@@ -53,7 +53,7 @@
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\IDAL\IDAL.csproj">
-      <Project>{A67A81C9-91EC-4355-A982-B4D897015D46}</Project>
+      <Project>{a67a81c9-91ec-4355-a982-b4d897015d46}</Project>
       <Name>IDAL</Name>
     </ProjectReference>
   </ItemGroup>
