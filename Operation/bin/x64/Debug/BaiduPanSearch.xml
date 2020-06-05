@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Data>
+  <!--生意参谋采集-->
+  <add name="WebNameList" value="史莱姆|如风搜|51网盘搜索手机版|Fastsoso|大圣盘|罗马盘|小白盘|小可搜搜|小昭来啦|搜白度盘" />
+  <!--网站采集网址 SearchKey替换 PageIndex 替换 -->
+  <add name="史莱姆WebUrl" value="http://www.slimego.cn/search.html?q=SearchKey&amp;page=PageIndex&amp;rows=20" />
+  <add name="史莱姆Nodes" value="//div[@class='searchRow']" />
+  <add name="史莱姆Url" value=".//a[@rel]" />
+  <add name="史莱姆Name" value=".//a[@rel]" />
+  <add name="史莱姆Size" value=".//span[@class='size']" />
+  <add name="史莱姆Upload" value=".//span[@class='upload']" />
+  
+  <add name="如风搜WebUrl" value="http://www.rufengso.net/s/comb/n-SearchKey&amp;s-feedtime1/PageIndex" />
+  <add name="如风搜Nodes" value="//div[@class='row']" />
+  <add name="如风搜Url" value=".//a" />
+  <add name="如风搜Name" value=".//a" />
+  <add name="如风搜Size" value=".//span[@class='size']" />
+  <add name="如风搜Upload" value=".//span[@class='small']" />
+
+  <add name="51网盘搜索手机版WebUrl" value="https://m.51caichang.com/so?order=feed_time&amp;feed_time=0&amp;keyword=SearchKey&amp;page=PageIndex"  />
+  <add name="51网盘搜索手机版Nodes" value="//li[@class='tl_shadow']" />
+  <add name="51网盘搜索手机版Url" value=".//a" />
+  <add name="51网盘搜索手机版Name" value=".//h3" />
+  <add name="51网盘搜索手机版Size" value=".//span[@class='ti_time']" />
+  <add name="51网盘搜索手机版Upload" value=".//span[@class='ti_time']" />
+
+  <add name="FastsosoWebUrl" value="https://www.fastsoso.cn/search?page=PageIndex&amp;k=SearchKey&amp;t=-1&amp;s=1" />
+  <add name="FastsosoNodes" value="//div[@name='content-title']" />
+  <add name="FastsosoUrl" value="..//a" />
+  <add name="FastsosoName" value="." />
+  <add name="FastsosoSize" value="..//div[3]" />
+  <add name="FastsosoUpload" value="..//div[3]" />
+
+  <add name="大圣盘WebUrl" value="https://www.dashengpan.com/search?keyword=SearchKey&amp;page=PageIndex" />
+  <add name="大圣盘Nodes" value="//div[@class='resource-item-wrap valid']" />
+  <add name="大圣盘Url" value=".//a" />
+  <add name="大圣盘Name" value=".//a" />
+  <add name="大圣盘Size" value=".//span[@class='em']" />
+  <add name="大圣盘Upload" value=".//span[@class='em']" />
+
+  <add name="罗马盘WebUrl" value="https://luomapan.com/search?keyword=SearchKey&amp;page=PageIndex" />
+  <add name="罗马盘Nodes" value="//div[@class='roma-item-wrapper valid']" />
+  <add name="罗马盘Url" value=".//a" />
+  <add name="罗马盘Name" value=".//a" />
+  <add name="罗马盘Size" value=".//div[@class='roma-meta']//span[1]" />
+  <add name="罗马盘Upload" value=".//div[@class='roma-meta']//span[2]" />
+
+  <add name="小白盘WebUrl" value="https://www.xiaobaipan.com/list-SearchKey-pPageIndex.html"/>
+  <add name="小白盘Nodes" value="//div[@class='item-list job-item']" />
+  <add name="小白盘Url" value=".//h4[@class='job-title']//a" />
+  <add name="小白盘Name" value=".//h4[@class='job-title']" />
+  <add name="小白盘Size" value=".//span[@class='date']" />
+  <add name="小白盘Upload" value=".//span[@class=' salary']" />
+
+  <add name="小可搜搜WebUrl" value="https://www.xiaokesoso.com/s/search?q=SearchKey&amp;currentPage=PageIndex"  />
+  <add name="小可搜搜Nodes" value="//div[@class='document-piece']" />
+  <add name="小可搜搜Url" value=".//a" />
+  <add name="小可搜搜Name" value=".//a" />
+  <add name="小可搜搜Size" value=".//button[@class='btn btn-primary btn-xs']" />
+  <add name="小可搜搜Upload" value=".//button[@class='btn btn-primary btn-xs']" />
+
+  <add name="小昭来啦WebUrl" value="https://www.xiaozhaolaila.com/s/search?q=SearchKey&amp;currentPage=PageIndex"/>
+  <add name="小昭来啦Nodes" value="//div[@class='document-piece']" />
+  <add name="小昭来啦Url" value=".//a" />
+  <add name="小昭来啦Name" value=".//a" />
+  <add name="小昭来啦Size" value=".//button[@class='btn btn-primary btn-xs']" />
+  <add name="小昭来啦Upload" value=".//button[@class='btn btn-primary btn-xs']" />
+
+  <add name="搜白度盘WebUrl" value="https://www.sobaidupan.com/search.asp?wd=SearchKey&amp;so_md5key=80d04a9b1fd24c38aef765d8644bc030&amp;page=PageIndex"  />
+  <add name="搜白度盘Nodes" value="//div[@class='search_box_list_bt']" />
+  <add name="搜白度盘Url" value=".//a" />
+  <add name="搜白度盘Name" value=".//a" />
+  <add name="搜白度盘Size" value="..//div[@style='padding-top:2px;']" />
+  <add name="搜白度盘Upload" value="..//div[@style='padding-top:8px;']" />
+
+  <add name="风搜WebUrl" value=""  />
+  <add name="风搜Nodes" value="" />
+  <add name="风搜Url" value="" />
+  <add name="风搜Name" value="" />
+  <add name="风搜Size" value="" />
+  <add name="风搜Upload" value="" />
+
+  <add name="风搜WebUrl" value=""  />
+  <add name="风搜Nodes" value="" />
+  <add name="风搜Url" value="" />
+  <add name="风搜Name" value="" />
+  <add name="风搜Size" value="" />
+  <add name="风搜Upload" value="" />
+
+
+  <add name="" value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  <add name=" " value="" />
+  
+   
+</Data>
