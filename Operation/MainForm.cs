@@ -427,7 +427,7 @@ namespace Operation
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //System.Environment.Exit(0);
+            System.Environment.Exit(0);
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)

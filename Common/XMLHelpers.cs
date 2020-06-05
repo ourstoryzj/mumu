@@ -21,6 +21,7 @@ namespace Common
 
         public XMLHelpers(string xmlfile)
         {
+            xmlfile = xmlfile.Replace(".xml","");
             xmlurl = Application.StartupPath + "\\" + xmlfile + ".xml";
         }
 

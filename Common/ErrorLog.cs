@@ -66,7 +66,8 @@ namespace Common
 
         public static void ToShow(this Exception error)
         {
-            (error.Message + error.Source).ToShow();
+            //(error.Message + error.Source).ToShow();
+            (error.Source + "\r\n" + error.StackTrace).ToShow();
         }
 
         #region WriteEntry

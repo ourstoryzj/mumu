@@ -994,6 +994,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\x64\Debug\BaiduPanSearch.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="bin\x64\Debug\TaoBaoDataPackage.xml">
       <SubType>Designer</SubType>
     </Content>

@@ -112,6 +112,8 @@ namespace Common
             DateTime current = DateTime.Now;
             while (current.AddMilliseconds(Millisecond) > DateTime.Now)
             {
+                //休眠线程，用于清理CPU占用
+                System.Threading.Thread.Sleep(10);
                 Application.DoEvents();//转让控制权              
             }
             return;
@@ -2137,7 +2139,11 @@ namespace Common
             string[] strs = null;
             try
             {
-                strs = Regex.Split(str, fenge, RegexOptions.IgnoreCase);
+                char temp;
+                if (char.TryParse(fenge, out temp))
+                    strs = str.Split(new char[] { temp });
+                else
+                    strs = Regex.Split(str, fenge, RegexOptions.IgnoreCase);
             }
             catch
             {
