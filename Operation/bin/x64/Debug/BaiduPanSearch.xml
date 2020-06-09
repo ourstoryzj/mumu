@@ -2,7 +2,7 @@
 
 <Data>
   <!--生意参谋采集-->
-  <add name="WebNameList" value="史莱姆|如风搜|51网盘搜索手机版|Fastsoso|大圣盘|罗马盘|小白盘|小可搜搜|小昭来啦|搜白度盘" />
+  <add name="WebNameList" value="史莱姆|如风搜|51网盘搜索手机版|Fastsoso|大圣盘|罗马盘|小白盘|小可搜搜|小昭来啦|搜白度盘|大力盘|盘58" />
   <!--网站采集网址 SearchKey替换 PageIndex 替换 -->
   <add name="史莱姆WebUrl" value="http://www.slimego.cn/search.html?q=SearchKey&amp;page=PageIndex&amp;rows=20" />
   <add name="史莱姆Nodes" value="//div[@class='searchRow']" />
@@ -73,6 +73,27 @@
   <add name="搜白度盘Name" value=".//a" />
   <add name="搜白度盘Size" value="..//div[@style='padding-top:2px;']" />
   <add name="搜白度盘Upload" value="..//div[@style='padding-top:8px;']" />
+
+  <add name="大力盘WebUrl" value="https://www.dalipan.com/search?keyword=SearchKey&amp;page=PageIndex"  />
+  <add name="大力盘Nodes" value="//div[@class='resource-item-wrap valid']" />
+  <add name="大力盘Url" value=".//a" />
+  <add name="大力盘Name" value=".//a" />
+  <add name="大力盘Size" value=".//span[@class='em']" />
+  <add name="大力盘Upload" value=".//p[@class='time']" />
+
+  <add name="盘58WebUrl" value="https://www.pan58.com/s?wd=SearchKey&amp;s=0&amp;t=0&amp;p=PageIndex"  />
+  <add name="盘58Nodes" value="//a[@target='_blank']" />
+  <add name="盘58Url" value="." />
+  <add name="盘58Name" value=".//p[@class='fname']" />
+  <add name="盘58Size" value=".//div[@class='filesize']" />
+  <add name="盘58Upload" value=".//div[@class='filetime']" />
+
+  <add name="茶杯狐视频搜索WebUrl" value="https://www.cupfox.com/search?key=SearchKey"  />
+  <add name="茶杯狐视频搜索Nodes" value="" />
+  <add name="茶杯狐视频搜索Url" value="" />
+  <add name="茶杯狐视频搜索Name" value="" />
+  <add name="茶杯狐视频搜索Size" value="" />
+  <add name="茶杯狐视频搜索Upload" value="" />
 
   <add name="风搜WebUrl" value=""  />
   <add name="风搜Nodes" value="" />
