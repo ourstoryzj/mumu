@@ -341,8 +341,8 @@
             this.拼多多ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.拼多多ToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.拼多多ToolStripMenuItem.Name = "拼多多ToolStripMenuItem";
-            this.拼多多ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
-            this.拼多多ToolStripMenuItem.Text = "拼多多客服";
+            this.拼多多ToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
+            this.拼多多ToolStripMenuItem.Text = "包牛牛";
             this.拼多多ToolStripMenuItem.Visible = false;
             this.拼多多ToolStripMenuItem.Click += new System.EventHandler(this.拼多多ToolStripMenuItem_Click);
             // 
@@ -361,28 +361,28 @@
             // 刷单列表ToolStripMenuItem
             // 
             this.刷单列表ToolStripMenuItem.Name = "刷单列表ToolStripMenuItem";
-            this.刷单列表ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.刷单列表ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.刷单列表ToolStripMenuItem.Text = "补单记录";
             this.刷单列表ToolStripMenuItem.Click += new System.EventHandler(this.刷单列表ToolStripMenuItem_Click);
             // 
             // 添加刷单记录ToolStripMenuItem
             // 
             this.添加刷单记录ToolStripMenuItem.Name = "添加刷单记录ToolStripMenuItem";
-            this.添加刷单记录ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.添加刷单记录ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.添加刷单记录ToolStripMenuItem.Text = "添加刷单记录";
             this.添加刷单记录ToolStripMenuItem.Click += new System.EventHandler(this.添加刷单记录ToolStripMenuItem_Click);
             // 
             // 短信平台ToolStripMenuItem
             // 
             this.短信平台ToolStripMenuItem.Name = "短信平台ToolStripMenuItem";
-            this.短信平台ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.短信平台ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.短信平台ToolStripMenuItem.Text = "短信平台";
             this.短信平台ToolStripMenuItem.Click += new System.EventHandler(this.短信平台ToolStripMenuItem_Click);
             // 
             // 蘑菇街模拟刷单ToolStripMenuItem1
             // 
             this.蘑菇街模拟刷单ToolStripMenuItem1.Name = "蘑菇街模拟刷单ToolStripMenuItem1";
-            this.蘑菇街模拟刷单ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.蘑菇街模拟刷单ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.蘑菇街模拟刷单ToolStripMenuItem1.Text = "蘑菇街模拟刷单";
             this.蘑菇街模拟刷单ToolStripMenuItem1.Click += new System.EventHandler(this.蘑菇街模拟刷单ToolStripMenuItem1_Click);
             // 
@@ -527,11 +527,12 @@
             this.货源ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.货源ToolStripMenuItem.Text = "货源";
             this.货源ToolStripMenuItem.Visible = false;
+            this.货源ToolStripMenuItem.Click += new System.EventHandler(this.货源ToolStripMenuItem_Click);
             // 
             // 网供商品ToolStripMenuItem
             // 
             this.网供商品ToolStripMenuItem.Name = "网供商品ToolStripMenuItem";
-            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.网供商品ToolStripMenuItem.Text = "网供商品";
             this.网供商品ToolStripMenuItem.Click += new System.EventHandler(this.网供商品ToolStripMenuItem_Click);
             // 

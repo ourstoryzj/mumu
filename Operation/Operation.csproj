@@ -221,6 +221,12 @@
     <Compile Include="Other\BaiduPanFrom.Designer.cs">
       <DependentUpon>BaiduPanFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Other\BaoNiuNiu2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\BaoNiuNiu2.Designer.cs">
+      <DependentUpon>BaoNiuNiu2.cs</DependentUpon>
+    </Compile>
     <Compile Include="PinDuoDuo\PDD_SuaDan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -723,6 +729,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Other\BaiduPanFrom.resx">
       <DependentUpon>BaiduPanFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\BaoNiuNiu2.resx">
+      <DependentUpon>BaoNiuNiu2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDD_SuaDan.resx">
       <DependentUpon>PDD_SuaDan.cs</DependentUpon>

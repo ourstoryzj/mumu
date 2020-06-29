@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Common;
 
+
 namespace Operation
 {
     public partial class MainForm : Form
@@ -692,7 +693,8 @@ namespace Operation
         private void 拼多多ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            PDD fm = new PDD();
+            //PDD fm = new PDD();
+            Other.BaoNiuNiu2 fm = new Other.BaoNiuNiu2();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -991,6 +993,11 @@ namespace Operation
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
+
+        private void 货源ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
