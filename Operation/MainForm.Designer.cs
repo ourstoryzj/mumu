@@ -89,6 +89,7 @@
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
+            this.搞定设计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -361,28 +362,28 @@
             // 刷单列表ToolStripMenuItem
             // 
             this.刷单列表ToolStripMenuItem.Name = "刷单列表ToolStripMenuItem";
-            this.刷单列表ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.刷单列表ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.刷单列表ToolStripMenuItem.Text = "补单记录";
             this.刷单列表ToolStripMenuItem.Click += new System.EventHandler(this.刷单列表ToolStripMenuItem_Click);
             // 
             // 添加刷单记录ToolStripMenuItem
             // 
             this.添加刷单记录ToolStripMenuItem.Name = "添加刷单记录ToolStripMenuItem";
-            this.添加刷单记录ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.添加刷单记录ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.添加刷单记录ToolStripMenuItem.Text = "添加刷单记录";
             this.添加刷单记录ToolStripMenuItem.Click += new System.EventHandler(this.添加刷单记录ToolStripMenuItem_Click);
             // 
             // 短信平台ToolStripMenuItem
             // 
             this.短信平台ToolStripMenuItem.Name = "短信平台ToolStripMenuItem";
-            this.短信平台ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.短信平台ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.短信平台ToolStripMenuItem.Text = "短信平台";
             this.短信平台ToolStripMenuItem.Click += new System.EventHandler(this.短信平台ToolStripMenuItem_Click);
             // 
             // 蘑菇街模拟刷单ToolStripMenuItem1
             // 
             this.蘑菇街模拟刷单ToolStripMenuItem1.Name = "蘑菇街模拟刷单ToolStripMenuItem1";
-            this.蘑菇街模拟刷单ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.蘑菇街模拟刷单ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.蘑菇街模拟刷单ToolStripMenuItem1.Text = "蘑菇街模拟刷单";
             this.蘑菇街模拟刷单ToolStripMenuItem1.Click += new System.EventHandler(this.蘑菇街模拟刷单ToolStripMenuItem1_Click);
             // 
@@ -401,7 +402,8 @@
             this.模拟登陆艺龙网站ToolStripMenuItem,
             this.获取拼多多订单ToolStripMenuItem,
             this.cefsharp模拟headerToolStripMenuItem,
-            this.拼多多发空包ToolStripMenuItem});
+            this.拼多多发空包ToolStripMenuItem,
+            this.搞定设计ToolStripMenuItem});
             this.测试ToolStripMenuItem.Name = "测试ToolStripMenuItem";
             this.测试ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.测试ToolStripMenuItem.Text = "测试";
@@ -532,7 +534,7 @@
             // 网供商品ToolStripMenuItem
             // 
             this.网供商品ToolStripMenuItem.Name = "网供商品ToolStripMenuItem";
-            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.网供商品ToolStripMenuItem.Text = "网供商品";
             this.网供商品ToolStripMenuItem.Click += new System.EventHandler(this.网供商品ToolStripMenuItem_Click);
             // 
@@ -584,6 +586,13 @@
             this.skinEngine1.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
+            // 
+            // 搞定设计ToolStripMenuItem
+            // 
+            this.搞定设计ToolStripMenuItem.Name = "搞定设计ToolStripMenuItem";
+            this.搞定设计ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.搞定设计ToolStripMenuItem.Text = "搞定设计";
+            this.搞定设计ToolStripMenuItem.Click += new System.EventHandler(this.搞定设计ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -671,5 +680,6 @@
         private System.Windows.Forms.ToolStripMenuItem cefsharp模拟headerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 拼多多发空包ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 百度网盘搜索ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 搞定设计ToolStripMenuItem;
     }
 }

@@ -244,3 +244,6 @@ ModelManifest.xml
 /CompanyWeb/Web.config
 /Operation/app.config
 /words/app.config
+/Operation/PinDuoDuo/PDD.resx
+/Operation/PinDuoDuo/PDD.Designer.cs
+/Operation/PinDuoDuo/PDD.cs

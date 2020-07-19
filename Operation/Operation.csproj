@@ -227,6 +227,12 @@
     <Compile Include="Other\BaoNiuNiu2.Designer.cs">
       <DependentUpon>BaoNiuNiu2.cs</DependentUpon>
     </Compile>
+    <Compile Include="PinDuoDuo\PDDKeyData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PinDuoDuo\PDDKeyData.Designer.cs">
+      <DependentUpon>PDDKeyData.cs</DependentUpon>
+    </Compile>
     <Compile Include="PinDuoDuo\PDD_SuaDan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,10 +341,10 @@
     <Compile Include="CS\XMLHelper.cs" />
     <Compile Include="CS\XMLHelper_TaoBaodDataPackage.cs" />
     <Compile Include="CS\XMLHelper_TaoBao.cs" />
-    <Compile Include="PDD.cs">
+    <Compile Include="PinDuoDuo\PDD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PDD.Designer.cs">
+    <Compile Include="PinDuoDuo\PDD.Designer.cs">
       <DependentUpon>PDD.cs</DependentUpon>
     </Compile>
     <Compile Include="PinDuoDuo\PDD_KeFu.cs">
@@ -556,6 +562,12 @@
     <Compile Include="Test\test_erweima.Designer.cs">
       <DependentUpon>test_erweima.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\test_gaodingcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_gaodingcs.Designer.cs">
+      <DependentUpon>test_gaodingcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_getpddorderlist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -733,6 +745,9 @@
     <EmbeddedResource Include="Other\BaoNiuNiu2.resx">
       <DependentUpon>BaoNiuNiu2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PinDuoDuo\PDDKeyData.resx">
+      <DependentUpon>PDDKeyData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDD_SuaDan.resx">
       <DependentUpon>PDD_SuaDan.cs</DependentUpon>
     </EmbeddedResource>
@@ -773,7 +788,7 @@
     <EmbeddedResource Include="Other\TaskWork.resx">
       <DependentUpon>TaskWork.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PDD.resx">
+    <EmbeddedResource Include="PinDuoDuo\PDD.resx">
       <DependentUpon>PDD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDD_KeFu.resx">
@@ -879,6 +894,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_erweima.resx">
       <DependentUpon>test_erweima.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_gaodingcs.resx">
+      <DependentUpon>test_gaodingcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_getpddorderlist.resx">
       <DependentUpon>test_getpddorderlist.cs</DependentUpon>

@@ -68,7 +68,7 @@ namespace Operation.Test
 
                 long dt1 = DateTime.Now.ToTimeStamp();//当前时间时间戳
                 long dt2 = DateTime.Now.AddDays(-30).ToTimeStamp();//30天前时间戳
-                
+
                 //数据
                 //string postData = "{ 'orderOnlineType':0,'groupEndTime':"+dt1.ToString()+",'groupStartTime':"+dt2.ToString()+",'pageNumber':1,'pageSize':50,'afterSaleType':1}";
                 string postData = "{\"orderOnlineType\":0,\"groupEndTime\":" + dt1.ToString() + ",\"groupStartTime\":" + dt2.ToString() + ",\"pageNumber\":1,\"pageSize\":50,\"afterSaleType\":1}";

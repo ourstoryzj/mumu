@@ -796,7 +796,7 @@ namespace Operation.TaoBao
                 #region 全选
 
 
-                
+
                 else if (e.RowIndex == -1)
                 {
                     //如果是全选
@@ -1123,7 +1123,7 @@ namespace Operation.TaoBao
 
 
                     #region 采集数据日期 备份
-                    
+
                     //Browser.JS_CEFBrowser_NoReturn("document.getElementsByClassName('time-sel')[0].click()", webBrowser1);
                     //Browser.Delay(500);
 
@@ -1382,7 +1382,7 @@ namespace Operation.TaoBao
 
 
 
-           
+
 
 
             //数据日期1
@@ -1410,7 +1410,7 @@ namespace Operation.TaoBao
                 return datatate1;
             }
 
-         
+
 
             return datatate1;
         }

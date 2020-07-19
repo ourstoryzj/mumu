@@ -1816,7 +1816,7 @@ namespace Operation.ShuaDan
                 MessageBox.Show("请输入要添加的订单编号");
                 return;
             }
-            
+
 
             MessageBox.Show("共 " + Manager.StrToList(temp).Count.ToString() + " 条记录");
         }

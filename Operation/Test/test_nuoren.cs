@@ -174,7 +174,7 @@ namespace Operation.Test
             //var temp2 = Uri.EscapeUriString(temp);
 
 
-            textBox1.Text =  CS.PinDuoDuo.GetOrderIDByURL(url);
+            textBox1.Text = CS.PinDuoDuo.GetOrderIDByURL(url);
         }
     }
 }

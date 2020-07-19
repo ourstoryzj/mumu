@@ -1679,7 +1679,7 @@ namespace Operation
 
                 }
             }
-            catch  
+            catch
             {
                 //Debug.WriteLine(e.ToString());
             }
@@ -1907,7 +1907,7 @@ namespace Operation
                     }
                 }
             }
-            catch 
+            catch
             {
                 //Debug.WriteLine(e.ToString());
             }

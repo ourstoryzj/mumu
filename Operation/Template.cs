@@ -15,7 +15,7 @@ namespace Operation
     {
         CefSharp.WinForms.ChromiumWebBrowser webBrowser1;
         //CefSharp.WinForms.ChromiumWebBrowser webBrowser2;
- 
+
 
         /// <summary>
         /// 全选开关
@@ -485,7 +485,7 @@ namespace Operation
                     shuadan_records og = (shuadan_records)dgv1.CurrentRow.DataBoundItem;
                     if (og != null)
                     {
-                        
+
 
                         string phone = dgv1["col_phone", e.RowIndex].EditedFormattedValue == null ? "" : dgv1["col_phone", e.RowIndex].EditedFormattedValue.ToString();
                         string wuliu = dgv1["col_wuliu", e.RowIndex].EditedFormattedValue == null ? "" : dgv1["col_wuliu", e.RowIndex].EditedFormattedValue.ToString();
@@ -531,7 +531,7 @@ namespace Operation
 
         #endregion
 
-        
+
     }
 
 

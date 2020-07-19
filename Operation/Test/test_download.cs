@@ -101,7 +101,7 @@ namespace Operation
         }
 
 
-        
+
 
         private static bool SaveBinaryFile(WebResponse response, string savePath)
         {
@@ -129,9 +129,9 @@ namespace Operation
             }
             return value;
         }
-      
 
-       
+
+
         private void button2_Click(object sender, EventArgs e)
         {
             string url = txt_url.Text.Trim();
@@ -150,7 +150,7 @@ namespace Operation
 
         #region 测试浏览器直接保存图片到内存中
 
-        
+
         private void button3_Click(object sender, EventArgs e)
         {
             Browser.JS_CEFBrowser("setSelectRange(document.getElementsByTagName('img')[10])", webBrowser1);
@@ -160,7 +160,7 @@ namespace Operation
 
             //获取代码中图片的数据
             //Image img =Image.FromFile("c:\\1.jpg");
-            
+
             //string str =  ImageClass.ImgToBase64String("c:\\1.jpg");
             //string res = str;
 
@@ -199,7 +199,7 @@ namespace Operation
                 string ss = res[0];
                 Image img = ImageClass.Base64StringToImage(ss);
                 if(img!=null)
-                 img.Save("c:\\2.jpg");
+                    img.Save("c:\\2.jpg");
 
 
 
@@ -257,7 +257,7 @@ namespace Operation
         void WordOperate()
         {
             //Browser.Delay(3000);
-           bool res =   Clipboard.GetDataObject().GetDataPresent(DataFormats.Html);
+            bool res =   Clipboard.GetDataObject().GetDataPresent(DataFormats.Html);
             Clipboard.GetDataObject().GetData(DataFormats.Html);
             //System.Windows.Forms.IDataObject data = Clipboard.GetDataObject();
             //if (data.GetDataPresent(DataFormats.MetafilePict))
@@ -324,7 +324,7 @@ namespace Operation
 
         private Bitmap GetCaptureBitmap()
         {
-            
+
             IDataObject iData = Clipboard.GetDataObject();
             Bitmap bmp = null;
             if (iData != null)
@@ -373,7 +373,7 @@ namespace Operation
                 WebBrowser browser = webBrowser2;
                 //Point cpoint = browser.PointToClient(cms.Bounds.Location);
                 HtmlDocument doc = webBrowser2.Document;
-                
+
                 HtmlElementCollection hec = doc.GetElementsByTagName("img");
                 HtmlElement current = hec[10];
                 Image img = GetImage(browser, current);
@@ -426,9 +426,9 @@ namespace Operation
                 HtmlElement current = hec[0];
                 image = GetImage(wb, current);
             }
-            catch 
+            catch
             {
-                
+
             }
             return image;
         }

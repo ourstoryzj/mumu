@@ -2,12 +2,8 @@
 using Entity;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Operation
@@ -109,10 +105,22 @@ namespace Operation
         {
             if (!string.IsNullOrEmpty(account) && !string.IsNullOrEmpty(pwd))
             {
+
+                if (Browser.WaitWebPageLoad(" document.getElementsByTagName('form')[0].getElementsByTagName('input')[0] ", 2000, webBrowser1))
+                {
+                    webBrowser1.ToJs(" document.getElementsByTagName('form')[0].getElementsByTagName('input')[0].value = '" + account + "';");
+                    webBrowser1.ToJs(" document.getElementsByTagName('form')[0].getElementsByTagName('input')[1].value = '" + pwd + "';");
+                    webBrowser1.ToJs(" document.getElementsByTagName('form')[0].getElementsByTagName('button')[0].click(); ");
+                    
+                }
+
+
+                #region bak
+                /*
                 if (Browser.WaitWebPageLoad(" document.getElementById('TPL_username_1') ", 2000, webBrowser1))
                 {
-                    webBrowser1.ToJs("var username = document.getElementById('TPL_username_1'); username.focus();username.value = '"+account+"';");
-                    webBrowser1.ToJs("var password = document.getElementById('TPL_password_1');password.focus();password.value = '"+pwd+"';");
+                    webBrowser1.ToJs("var username = document.getElementById('TPL_username_1'); username.focus();username.value = '" + account + "';");
+                    webBrowser1.ToJs("var password = document.getElementById('TPL_password_1');password.focus();password.value = '" + pwd + "';");
                     webBrowser1.ToJs("document.getElementById('J_SubmitStatic').focus();");
                     Browser.Delay(2000);
                     string temp_classname = webBrowser1.ToJs("document.getElementById('nocaptcha').className");
@@ -121,7 +129,8 @@ namespace Operation
                     {
                         webBrowser1.ToJs("document.getElementById('J_SubmitStatic').click();");
                     }
-                }
+                } */
+                #endregion
             }
 
         }
@@ -129,7 +138,7 @@ namespace Operation
 
         #endregion
 
-         
+
 
     }
 }

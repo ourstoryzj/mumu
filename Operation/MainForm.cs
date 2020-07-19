@@ -999,5 +999,13 @@ namespace Operation
         {
 
         }
+
+        private void 搞定设计ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Test.test_gaodingcs fm = new Test.test_gaodingcs();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
     }
 }
