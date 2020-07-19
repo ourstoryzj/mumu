@@ -951,7 +951,8 @@ namespace Common
                 {
                     string temp_x = JS_WebBrowser(" getAbsoluteOffsetLeft(" + element + "); ", webBrowser1);
                     //string temp_x2 = JS_WebBrowser(" document.documentElement.scrollTop; ", webBrowser1);
-                    string temp_y = JS_WebBrowser(" getAbsoluteOffsetTop(" + element + ")-document.documentElement.scrollTop;", webBrowser1);
+                    //string temp_y = JS_WebBrowser(" getAbsoluteOffsetTop(" + element + ")-document.documentElement.scrollTop;", webBrowser1);
+                    string temp_y = JS_WebBrowser(" getAbsoluteOffsetTop(" + element + ")-getScrollTop()", webBrowser1);
                     if (int.TryParse(temp_x, out x) && int.TryParse(temp_y, out y))
                     {
                         res = new Point(x, y);

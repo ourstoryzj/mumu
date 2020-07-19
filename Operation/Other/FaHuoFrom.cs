@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Common;
 
 namespace Operation.Other
 {
@@ -33,8 +34,8 @@ namespace Operation.Other
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            string access = CS.XMLHelper.GetValue("BaoNiuNiu_Access");
-            string pwd = CS.XMLHelper.GetValue("BaoNiuNiu_Pwd");
+            string access = XMLHelper.GetValue("BaoNiuNiu_Access");
+            string pwd = XMLHelper.GetValue("BaoNiuNiu_Pwd");
 
             webBrowser1.Load("http://www.bao66.cn/user/login");
             if (Browser.WaitWebPageLoad2("document.getElementById('username')", webBrowser1))

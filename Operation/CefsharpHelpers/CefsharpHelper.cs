@@ -1,5 +1,6 @@
 ﻿using CefSharp;
 using CefSharp.WinForms;
+using Common;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -1026,52 +1027,17 @@ namespace Operation.CefsharpHelpers
                 p = GetPointScreenByHtmlElement(element);
                 if (!p.IsEmpty)
                 {
-                    /*
-                    //在浏览器中的位置
-                    Point temp_p = GetPointBrowserByHtmlElement(element);
-                    //获取浏览器高度
-                    int webheight = webBrowser1.Height;
-                    //获取滚动条被卷去的高度
-                    int temp_scroll_height = Convert.ToInt32(JS_CEFBrowser("document.body.scrollTop"));
-                    //获取元素高度
-                    //JS_CEFBrowser_NoReturn("alert(" + element + ".clientHeight" + ")");
-                    string height = JS_CEFBrowser(element + ".clientHeight;");
-                    int h = 0;
-                    if (int.TryParse(height, out h))
-                    {
-                        h = h / 2;
-                    }
-
-                    /*新增宽度居中
-                    //获取浏览器宽度
-                    int webwidth = webBrowser1.Width;
-                    //获取滚动条被卷去的高度
-                    int temp_scroll_width = Convert.ToInt32(JS_CEFBrowser("document.body.scrollLeft"));
-                    //获取元素高度
-                    //JS_CEFBrowser_NoReturn("alert(" + element + ".clientHeight" + ")");
-                    string width = JS_CEFBrowser(element + ".clientWidth;");
-                    int w = 0;
-                    if (int.TryParse(width, out w))
-                    {
-                        w = w / 2;
-                    }
-
-                    //设置浏览器滑动条的高度：位置居中
-                    //webBrowser1.Document.Window.ScrollTo(0, temp_scroll_height + temp_p.Y - webheight / 2);
-                    //JS_CEFBrowser_NoReturn("window.scrollTo(0, " + (temp_scroll_height + temp_p.Y - webheight / 2 + h).ToString() + ")");
-                    JS_CEFBrowser_NoReturn("window.scrollTo(" + (temp_scroll_width + temp_p.X - webwidth / 2 + w).ToString() + ", " + (temp_scroll_height + temp_p.Y - webheight / 2 + h).ToString() + ")");*/
+                    
                     SetScrollByHtmlElement(element);
                     Delay(100);
                     //获取元素在屏幕中的坐标
                     p = GetPointScreenByHtmlElement(element);
                     //获取元素面积内的随机坐标，模仿真实点击
                     p.Offset(Point_FuYu(element));
-                    //p.Offset(Manager.point_fuyu);
+ 
                     //移动鼠标
                     Cursor.Position = p;
-                    //Delay(3000);
-                    //点击左键
-                    //Auto.Mouse_Left();
+ 
                 }
             }
             catch (Exception ex)
@@ -1216,7 +1182,7 @@ namespace Operation.CefsharpHelpers
                 //获取浏览器高度
                 int webheight = browser.Height;
                 //获取滚动条被卷去的高度
-                int temp_scroll_height = Convert.ToInt32(JS_CEFBrowser("document.body.scrollTop"));
+                int temp_scroll_height = Convert.ToInt32(JS_CEFBrowser("getScrollTop()"));
                 //获取元素高度
                 //JS_CEFBrowser_NoReturn("alert(" + element + ".clientHeight" + ")");
                 string height = JS_CEFBrowser(element + ".clientHeight;");
@@ -1230,7 +1196,7 @@ namespace Operation.CefsharpHelpers
                 //获取浏览器宽度
                 int webwidth = browser.Width;
                 //获取滚动条被卷去的高度
-                int temp_scroll_width = Convert.ToInt32(JS_CEFBrowser("document.body.scrollLeft"));
+                int temp_scroll_width = Convert.ToInt32(JS_CEFBrowser("getScrollLeft()"));
                 //获取元素高度
                 //JS_CEFBrowser_NoReturn("alert(" + element + ".clientHeight" + ")");
                 string width = JS_CEFBrowser(element + ".clientWidth;");
@@ -1417,7 +1383,7 @@ namespace Operation.CefsharpHelpers
             //sw.WriteLine("bob hu"); // 写入Hello World
             //sw.Close(); //关闭文件
             string path = "d:\\html" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".txt";
-            CS.FileHelper.Write(path, html);
+            FileHelper.Write(path, html);
             System.Diagnostics.Process.Start(path);
         }
         #endregion

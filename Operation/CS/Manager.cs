@@ -2090,7 +2090,7 @@ namespace Operation
             }
             else
             {
-                folderBrowserDialog1.SelectedPath = CS.XMLHelper.GetValue("OpenFolderDialog_SelectedPath");
+                folderBrowserDialog1.SelectedPath = XMLHelper.GetValue("OpenFolderDialog_SelectedPath");
             }
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -2098,7 +2098,7 @@ namespace Operation
                 if (folderBrowserDialog1.SelectedPath.Trim() != "")
                 {
                     path = folderBrowserDialog1.SelectedPath.Trim();
-                    CS.XMLHelper.SetValue("OpenFolderDialog_SelectedPath", path);
+                    XMLHelper.SetValue("OpenFolderDialog_SelectedPath", path);
                 }
             }
             return path;
@@ -2269,7 +2269,7 @@ namespace Operation
         {
             try
             {
-                //string filepath = CS.XMLHelper.GetValue("OpenFolderDialog_SelectedPath") + "//" + item.Text;
+                //string filepath = XMLHelper.GetValue("OpenFolderDialog_SelectedPath") + "//" + item.Text;
                 //DirectoryInfo TheFolder = new DirectoryInfo(fileurl);//文件路径
                 ImageList imageList1 = listView1.LargeImageList == null ? new ImageList() : listView1.LargeImageList;
                 //Image image = Image.FromFile(filepath);
@@ -2769,16 +2769,16 @@ namespace Operation
                                             //如果你的SMTP服务器不需要身份认证，则使用下面的方式，不过，目前基本没有不需要认证的了
                 smtp.UseDefaultCredentials = true;
                 //如果需要认证，则用下面的方式
-                smtp.Credentials = new NetworkCredential(CS.XMLHelper.GetValue("Email_Account"), CS.XMLHelper.GetValue("Email_Pwd"));
+                smtp.Credentials = new NetworkCredential(XMLHelper.GetValue("Email_Account"), XMLHelper.GetValue("Email_Pwd"));
                 MailMessage mm = new MailMessage(); //实例化一个邮件类
                 mm.Priority = MailPriority.High; //邮件的优先级，分为 Low, Normal, High，通常用 Normal即可
-                mm.From = new MailAddress(CS.XMLHelper.GetValue("Email_Account"), title, Encoding.GetEncoding(936));
+                mm.From = new MailAddress(XMLHelper.GetValue("Email_Account"), title, Encoding.GetEncoding(936));
                 //收件方看到的邮件来源；
                 //第一个参数是发信人邮件地址
                 //第二参数是发信人显示的名称
                 //第三个参数是 第二个参数所使用的编码，如果指定不正确，则对方收到后显示乱码
                 //936是简体中文的codepage值
-                //mm.ReplyTo = new MailAddress(CS.XMLHelper.GetValue("Email_Account"), "我的接收邮箱", Encoding.GetEncoding(936));
+                //mm.ReplyTo = new MailAddress(XMLHelper.GetValue("Email_Account"), "我的接收邮箱", Encoding.GetEncoding(936));
                 mm.To.Add(new MailAddress(email, "接收者g", Encoding.GetEncoding(936)));
                 mm.Subject = title; //邮件标题
                 mm.SubjectEncoding = Encoding.GetEncoding(936);
@@ -3272,7 +3272,7 @@ namespace Operation
                 string html = Clipboard.GetData(DataFormats.Html).ToString();
                 string[] res = CS.HTMLHelper.GetHtmlImageUrlList(html);
                 string ss = res[0];
-                img = CS.ImageClass.Base64StringToImage(ss);
+                img = ImageClass.Base64StringToImage(ss);
             }
             return img;
         }

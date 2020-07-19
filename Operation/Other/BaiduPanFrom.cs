@@ -499,10 +499,62 @@ namespace Operation.Other
         string size;
         string upload;
 
-        public string Url { get => url; set => url = value; }
-        public string Name { get => name; set => name = value; }
-        public string Size { get => size; set => size = value; }
-        public string Upload { get => upload; set => upload = value; }
+        public string Url
+        {
+            get
+            {
+                return url;
+            }
+
+            set
+            {
+                url = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+
+        public string Size
+        {
+            get
+            {
+                return size;
+            }
+
+            set
+            {
+                size = value;
+            }
+        }
+
+        public string Upload
+        {
+            get
+            {
+                return upload;
+            }
+
+            set
+            {
+                upload = value;
+            }
+        }
+
+        //public string Url { get => url; set => url = value; }
+        //public string Name { get => name; set => name = value; }
+        //public string Size { get => size; set => size = value; }
+        //public string Upload { get => upload; set => upload = value; }
     }
 
     #endregion

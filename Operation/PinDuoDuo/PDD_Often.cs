@@ -8,6 +8,7 @@ using System;
 using Operation.CS;
 using System.IO;
 using System.Diagnostics;
+using Common;
 
 namespace Operation.PinDuoDuo
 {
@@ -157,7 +158,7 @@ namespace Operation.PinDuoDuo
             if (!string.IsNullOrEmpty(path))
             {
                 string savepath = "C:\\Users\\mac\\Desktop\\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".xls";
-                ExcelHelper.CSVSaveasXLS(path, savepath);
+                CS.ExcelHelper.CSVSaveasXLS(path, savepath);
                 MessageBox.Show("转换完成");
             }
             else

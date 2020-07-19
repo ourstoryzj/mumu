@@ -6,10 +6,11 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Common;
 
 namespace Operation.CS
 {
-    public class MessageAPI
+    public class MessageAPI1
     {
 
         //static string webname = "yzm9";
@@ -23,7 +24,7 @@ namespace Operation.CS
         /// <returns></returns>
         public static string GetToken()
         {
-            string res = WebService.GetHtml(CS.XMLHelper.GetValue("API_Login"));
+            string res = WebService.GetHtml(XMLHelper.GetValue("API_Login"));
             return res;
         }
         #endregion
@@ -35,7 +36,7 @@ namespace Operation.CS
         /// <returns></returns>
         public static string GetItemID()
         {
-            return CS.XMLHelper.GetValue("API_ItemID");
+            return XMLHelper.GetValue("API_ItemID");
         }
         #endregion
 

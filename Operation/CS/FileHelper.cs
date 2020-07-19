@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Operation.CS
 {
-    public class FileHelper
+    public class FileHelper1
     {
 
         #region FindFile

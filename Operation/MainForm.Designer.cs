@@ -78,6 +78,7 @@
             this.获取拼多多订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cefsharp模拟headerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.拼多多发空包ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.搞定设计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.话术管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷单账号管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,7 +90,6 @@
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
-            this.搞定设计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -342,9 +342,8 @@
             this.拼多多ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.拼多多ToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.拼多多ToolStripMenuItem.Name = "拼多多ToolStripMenuItem";
-            this.拼多多ToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
-            this.拼多多ToolStripMenuItem.Text = "包牛牛";
-            this.拼多多ToolStripMenuItem.Visible = false;
+            this.拼多多ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
+            this.拼多多ToolStripMenuItem.Text = "拼多多数据";
             this.拼多多ToolStripMenuItem.Click += new System.EventHandler(this.拼多多ToolStripMenuItem_Click);
             // 
             // 刷单ToolStripMenuItem1
@@ -500,6 +499,13 @@
             this.拼多多发空包ToolStripMenuItem.Text = "拼多多发空包";
             this.拼多多发空包ToolStripMenuItem.Click += new System.EventHandler(this.拼多多发空包ToolStripMenuItem_Click);
             // 
+            // 搞定设计ToolStripMenuItem
+            // 
+            this.搞定设计ToolStripMenuItem.Name = "搞定设计ToolStripMenuItem";
+            this.搞定设计ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.搞定设计ToolStripMenuItem.Text = "搞定设计";
+            this.搞定设计ToolStripMenuItem.Click += new System.EventHandler(this.搞定设计ToolStripMenuItem_Click);
+            // 
             // 任务管理ToolStripMenuItem
             // 
             this.任务管理ToolStripMenuItem.Name = "任务管理ToolStripMenuItem";
@@ -586,13 +592,6 @@
             this.skinEngine1.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
-            // 
-            // 搞定设计ToolStripMenuItem
-            // 
-            this.搞定设计ToolStripMenuItem.Name = "搞定设计ToolStripMenuItem";
-            this.搞定设计ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.搞定设计ToolStripMenuItem.Text = "搞定设计";
-            this.搞定设计ToolStripMenuItem.Click += new System.EventHandler(this.搞定设计ToolStripMenuItem_Click);
             // 
             // MainForm
             // 

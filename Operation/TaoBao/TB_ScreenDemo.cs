@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -269,7 +270,7 @@ namespace Operation.TaoBao
                     g.DrawImage(pictureBox1.Image, 0, 0);
                     g.Dispose();
 
-                    Bitmap bms = CS.ImageClass.ContrastPic(bm, val);
+                    Bitmap bms = ImageClass.ContrastPic(bm, val);
                     //bm.Dispose();
                     if (bms != null)
                         pictureBox1.Image = bms;
@@ -298,7 +299,7 @@ namespace Operation.TaoBao
                     g.DrawImage(pictureBox1.Image, 0, 0);
                     g.Dispose();
 
-                    Bitmap bms = CS.ImageClass.BrightnessP(bm, val);
+                    Bitmap bms = ImageClass.BrightnessP(bm, val);
                     //bm.Dispose();
                     if (bms != null)
                         pictureBox1.Image = bms;
@@ -328,7 +329,7 @@ namespace Operation.TaoBao
                     g.DrawImage(pictureBox1.Image, 0, 0);
                     g.Dispose();
 
-                    Bitmap bms = CS.ImageClass.Sharpen(bm, val);
+                    Bitmap bms = ImageClass.Sharpen(bm, val);
                     //bm.Dispose();
                     if (bms != null)
                         pictureBox1.Image = bms;

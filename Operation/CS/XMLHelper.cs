@@ -8,9 +8,9 @@ using System.Xml;
 
 namespace Operation.CS
 {
-    public class XMLHelper
+    public class XMLHelper1
     {
-
+        /*
         public static string xmlurl = Application.StartupPath + "\\DB.xml";
 
         #region FileIsHas
@@ -341,11 +341,11 @@ namespace Operation.CS
 
                 }
             }
-            catch { }*/
+            catch { }
         }
         #endregion
 
-
+        */
 
 
     }

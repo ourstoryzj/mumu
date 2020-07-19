@@ -16,14 +16,14 @@ namespace Operation.CS
 {
 
 
-    public class ImageClass
+    public class ImageClass1
     {
         /// <summary>
         /// 备用，用于存储图片
         /// </summary>
         public static Bitmap bmp_backup = null;
 
-        public ImageClass()
+        public ImageClass1()
         { }
 
         #region 缩略图  

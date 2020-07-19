@@ -246,7 +246,7 @@ namespace Operation.TaoBao
 
                 //string[] path = Directory.GetFiles(@fileurl);
 
-                List<string> list = CS.FileHelper.FindFile2(@fileurl, "jpg|tbi");
+                List<string> list = FileHelper.FindFile2(@fileurl, "jpg|tbi");
                 //int filecount = list.Count;
                 //设置状态栏的最大值
                 toolStripProgressBar1.Maximum = list.Count;
@@ -284,7 +284,7 @@ namespace Operation.TaoBao
 
                     //开始处理图片 
                     Action<string, string, int, int, int, bool, bool, string, bool> action = PicMake_Action;
-                    //CS.ImageClass.GetPicThumbnail(fristname, lastname, 0, sizenew, zhiliang, shuiyin, biankuang, waterpath);
+                    //ImageClass.GetPicThumbnail(fristname, lastname, 0, sizenew, zhiliang, shuiyin, biankuang, waterpath);
                     action.BeginInvoke(fristname, lastname, 0, sizenew, zhiliang, shuiyin, biankuang, waterpath, fanzhuan, null, null);
 
                     //lbl_message2.Text = "文件剩余: " + (filecount - 1).ToString() + " 个";
@@ -320,8 +320,8 @@ namespace Operation.TaoBao
         {
             picindex++;
             txt_message.Text = "共" + picnum + "张图片需要处理\r\n正在处理第" + picindex + "张图片\r\n图片位置：" + sFile;
-            //CS.ImageClass.GetPicThumbnail(sFile, dFile, dHeight, dWidth, flag, isshuiyin, isbiankuang, waterpath);
-            CS.ImageClass.ImageMake(sFile, dFile, dHeight, dWidth, flag, isshuiyin, isbiankuang, waterpath, isfanzhuan);
+            //ImageClass.GetPicThumbnail(sFile, dFile, dHeight, dWidth, flag, isshuiyin, isbiankuang, waterpath);
+            ImageClass.ImageMake(sFile, dFile, dHeight, dWidth, flag, isshuiyin, isbiankuang, waterpath, isfanzhuan);
             toolStripProgressBar1.PerformStep();
             //清空缓存
             //GC.WaitForPendingFinalizers();
@@ -359,7 +359,7 @@ namespace Operation.TaoBao
                 MessageBox.Show("请输入文件路径");
                 return;
             }
-            string res = CS.ImageClass.GetMD5Hash(fileurl);
+            string res = ImageClass.GetMD5Hash(fileurl);
             txt_md5.Text = res;
         }
 
@@ -420,7 +420,7 @@ namespace Operation.TaoBao
             Bitmap bm = null;
             if (Browser.WaitWebPageLoad(webBrowser1))
             {
-                bm = CS.ImageClass.GetScreen(webBrowser1);
+                bm = CS.ImageClass1.GetScreen(webBrowser1);
             }
 
             //图片返回保存地址
@@ -1725,7 +1725,7 @@ namespace Operation.TaoBao
         /// <param name="n2"></param>
         void makeImage(Image img, string dFile, int dHeight, int dWidth, int flag, bool isshuiyin, bool isbiankuang, string waterpath, bool isfanzhuan, DBNull n1, DBNull n2)
         {
-            CS.ImageClass.ImageMake(img, dFile, dHeight, dWidth, flag, isshuiyin, isbiankuang, waterpath, isfanzhuan);
+            ImageClass.ImageMake(img, dFile, dHeight, dWidth, flag, isshuiyin, isbiankuang, waterpath, isfanzhuan);
             //清空缓存
             GC.WaitForPendingFinalizers();
             GC.Collect();
@@ -1748,7 +1748,7 @@ namespace Operation.TaoBao
         /// <param name="waterpath"></param>
         void makeDatas_Action(Image img, string dFile, int dHeight, int dWidth, int flag, bool isshuiyin, bool isbiankuang, string waterpath, bool isfanzhuan)
         {
-            CS.ImageClass.ImageMake(img, dFile, dHeight, dWidth, flag, isshuiyin, isbiankuang, waterpath, isfanzhuan);
+            ImageClass.ImageMake(img, dFile, dHeight, dWidth, flag, isshuiyin, isbiankuang, waterpath, isfanzhuan);
             //清空缓存
             GC.WaitForPendingFinalizers();
             GC.Collect();
@@ -2031,7 +2031,7 @@ namespace Operation.TaoBao
 
                 //string[] path = Directory.GetFiles(@fileurl);
 
-                List<string> list = CS.FileHelper.FindFile2(@fileurl, "jpg|tbi");
+                List<string> list = FileHelper.FindFile2(@fileurl, "jpg|tbi");
                 //int filecount = list.Count;
                 //设置状态栏的最大值
                 toolStripProgressBar1.Maximum = list.Count;
@@ -2069,7 +2069,7 @@ namespace Operation.TaoBao
 
                     //开始处理图片 
                     //Action<string, string, int, int, int, bool, bool, string, bool> action = PicMake_Action;
-                    //CS.ImageClass.GetPicThumbnail(fristname, lastname, 0, sizenew, zhiliang, shuiyin, biankuang, waterpath);
+                    //ImageClass.GetPicThumbnail(fristname, lastname, 0, sizenew, zhiliang, shuiyin, biankuang, waterpath);
                     //action.BeginInvoke(fristname, lastname, 0, sizenew, zhiliang, shuiyin, biankuang, waterpath, fanzhuan, null, null);
                     PicMake_Action(fristname, lastname, 0, sizenew, zhiliang, shuiyin, biankuang, waterpath, fanzhuan);
                     //lbl_message2.Text = "文件剩余: " + (filecount - 1).ToString() + " 个";

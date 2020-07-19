@@ -39,7 +39,7 @@ namespace Operation
             //fm.webBrowser1.Load("http://qxw1590980318.my3w.com/oa/index.aspx");
             #endregion
 
-            CS.Music.play_1();
+            Music.play_1();
 
             //TaskShowTool();
             //TaskShow();
@@ -694,7 +694,8 @@ namespace Operation
         {
             #region 打开网页
             //PDD fm = new PDD();
-            Other.BaoNiuNiu2 fm = new Other.BaoNiuNiu2();
+            //Other.BaoNiuNiu2 fm = new Other.BaoNiuNiu2();
+            PDDKeyData fm = new PDDKeyData();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;

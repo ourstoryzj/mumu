@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Operation.CS
 {
-    public class DataGridViewHelper
+    public class DataGridViewHelper1
     {
 
         /// <summary>

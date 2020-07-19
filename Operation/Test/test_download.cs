@@ -197,7 +197,7 @@ namespace Operation
 
                 string[] res = CS.HTMLHelper.GetHtmlImageUrlList(html);
                 string ss = res[0];
-                Image img = ImageClass.Base64StringToImage(ss);
+                Image img = CS.ImageClass1.Base64StringToImage(ss);
                 if(img!=null)
                     img.Save("c:\\2.jpg");
 

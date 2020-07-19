@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Operation.CS
 {
-    public class Music
+    public class Music1
     {
         public static void play_1()
         {

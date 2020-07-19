@@ -80,13 +80,13 @@ namespace Operation
 
         void bind_Account()
         {
-            string typesum = CS.XMLHelper.GetValue("PinDuoDuoAccountNum");
+            string typesum = XMLHelper.GetValue("PinDuoDuoAccountNum");
             int tempsum_temp = 0;
             if (int.TryParse(typesum, out tempsum_temp))
             {
                 for (int i = 0; i < tempsum_temp; i++)
                 {
-                    cb_account.Items.Add(CS.XMLHelper.GetValue("PinDuoDuo_Account" + (i + 1), "title"));
+                    cb_account.Items.Add(XMLHelper.GetValue("PinDuoDuo_Account" + (i + 1), "title"));
                 }
                 cb_account.SelectedIndex = 0;
             }
@@ -188,8 +188,8 @@ namespace Operation
         {
 
             int accountindex = cb_account.SelectedIndex;
-            string access = CS.XMLHelper.GetValue("PinDuoDuo_Account" + (accountindex + 1));
-            string pwd = CS.XMLHelper.GetValue("PinDuoDuo_Pwd" + (accountindex + 1));
+            string access = XMLHelper.GetValue("PinDuoDuo_Account" + (accountindex + 1));
+            string pwd = XMLHelper.GetValue("PinDuoDuo_Pwd" + (accountindex + 1));
             if (CS.PinDuoDuo.LoginKeFu(access, pwd, webBrowser1))
             {
                 btn_message.PerformClick();
@@ -459,7 +459,7 @@ namespace Operation
                         CS.PinDuoDuo.ClearAP(webBrowser1);
                         //自动回复等待时间
                         timer1.Stop();
-                        Browser.Delay(CS.XMLHelper.GetValue("PinDuoDuo_AutoAnswerTime").ToInt());
+                        Browser.Delay(XMLHelper.GetValue("PinDuoDuo_AutoAnswerTime").ToInt());
                         timer1.Start();
                         //如果没有需要回复的,代表已经人工回复,则退出
                         if (!Browser.JS_CEFBrowserHasElementToBool(xmlpdd.GetValue("client_five"), webBrowser1))
@@ -671,9 +671,9 @@ namespace Operation
         //登录淘集集客服
         private void button6_Click(object sender, EventArgs e)
         {
-            //string shopid = CS.XMLHelper.GetValue("TaoJiJi_ShopID1");
-            //string account = CS.XMLHelper.GetValue("TaoJiJi_Account1");
-            //string pwd = CS.XMLHelper.GetValue("TaoJiJi_Pwd1");
+            //string shopid = XMLHelper.GetValue("TaoJiJi_ShopID1");
+            //string account = XMLHelper.GetValue("TaoJiJi_Account1");
+            //string pwd = XMLHelper.GetValue("TaoJiJi_Pwd1");
             //TaoJiJiHelper.LoginKeFu(shopid, account, pwd, webBrowser3);
         }
         #endregion

@@ -37,8 +37,8 @@
   <Add name="fh_SetMobileFocus" value="document.getElementById('mobile').focus()" />
   <!-- 发货-设置收件信息-设置收件地址 -->
   <Add name="fh_SetAddressFocus" value="document.getElementById('address').focus()" />
-  <!--   -->
-  <Add name=" " value=" " />
+  <!-- 店铺TOKEN  -->
+  <Add name="shop_token" value="api_uid=rBQ5BVytUh5ULQKkDRw/Ag==; _nano_fp=Xpdynp9jXp9xnpdoXo_7FeUk5mb_hBTifmpYp_HK; DDJB_PASS_ID=6e51c6af4bd9fdb81a7b4f5bfa0a48ca; mms_b84d1837=120,321,401,402; PASS_ID=1-BskGYcUPiPVgsWbZ5hI60Wqs6ndIU9DaKV0qTycpKeXwi9AmhQI7jq5EoZMU7gv9q79vtyPZ0ITsR6LOBdYTIQ_240505030_28686518; JSESSIONID=C801CF2AD7EFE8FA63A5185F79A45006" />
   <!--   -->
   <Add name=" " value=" " />
   <!--   -->

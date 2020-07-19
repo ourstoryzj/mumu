@@ -227,6 +227,7 @@
     <Compile Include="Other\BaoNiuNiu2.Designer.cs">
       <DependentUpon>BaoNiuNiu2.cs</DependentUpon>
     </Compile>
+    <Compile Include="PinDuoDuo\Entity_KeyData.cs" />
     <Compile Include="PinDuoDuo\PDDKeyData.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Operation.CS
 {
-    public class XMLHelpers
+    public class XMLHelpers1
     {
 
         public static string xmlurl = Application.StartupPath + "\\DB.xml";
@@ -19,7 +19,7 @@ namespace Operation.CS
         //    name2 = 2
         //}
 
-        public XMLHelpers(string xmlfile)
+        public XMLHelpers1(string xmlfile)
         {
             xmlurl = Application.StartupPath + "\\" + xmlfile + ".xml";
         }

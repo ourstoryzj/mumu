@@ -92,6 +92,27 @@ function getAbsoluteOffsetLeft(obj) {
     return x;
 }
 
+/* 获取滚动条的高度 */
+function getScrollTop() {
+    var scrollTop = 0;
+    if (document.documentElement && document.documentElement.scrollTop) {
+        scrollTop = document.documentElement.scrollTop;
+    } else if (document.body) {
+        scrollTop = document.body.scrollTop;
+    }
+    return scrollTop;
+}
+/* 获取滚动条的宽度 */
+function getScrollLeft() {
+    var scrollLeft = 0;
+    if (document.documentElement && document.documentElement.scrollLeft) {
+        scrollLeft = document.documentElement.scrollLeft;
+    } else if (document.body) {
+        scrollLeft = document.body.scrollLeft;
+    }
+    return scrollLeft;
+}
+
 /*当页面离开时，不提示信息*/
 window.onbeforeunload = function () {
     return;
@@ -127,7 +148,7 @@ function jsSelectItemByValue(objSelect, objItemText) {
 
 
 
-//[模糊查询]InnerText,没有子元素的
+//[模糊查询]InnerText,没有子元素的,这种是查询所有输出文字中包含关键词的
 function getElementsByInnerText_Vague_NoChildren(abc) {
     var list = document.getElementsByTagName('*');
     var arr = [];
@@ -143,7 +164,23 @@ function getElementsByInnerText_Vague_NoChildren(abc) {
     return arr;
 }
 
-//获取InnerText值为abc的所有元素
+//获取InnerText值,没有子元素,只查询值为关键词的,推荐 精准
+function getElementsByInnerText_NoChildren(abc) {
+    var list = document.getElementsByTagName('*');
+    var arr = [];
+    for (var i = 0; i < list.length; i++) {
+        var intext = list[i].innerText;
+        if (intext != null) {
+            if (list[i].innerText == abc) {
+                if (list[i].children.length == 0)
+                    arr.push(list[i]);
+            }
+        }
+    }
+    return arr;
+}
+
+//获取InnerText值为abc的所有元素,这种方法有弊端,如果父元素中的众多子元素没有输出文字,则选中的是父元素
 function getElementsByInnerText(abc) {
     var list = document.getElementsByTagName('*');
     var arr = [];

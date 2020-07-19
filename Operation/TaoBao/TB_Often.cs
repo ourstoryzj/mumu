@@ -856,7 +856,7 @@ namespace Operation.TaoBao
             //sw.WriteLine("bob hu"); // 写入Hello World
             //sw.Close(); //关闭文件
             string path = "d:\\html" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".txt";
-            CS.FileHelper.Write(path, html);
+            FileHelper.Write(path, html);
             System.Diagnostics.Process.Start(path);
         }
         #endregion

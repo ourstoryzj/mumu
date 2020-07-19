@@ -116,8 +116,17 @@ namespace Common
                 System.Threading.Thread.Sleep(10);
                 Application.DoEvents();//转让控制权              
             }
-            return;
         }
+
+        //public static void Delay(int Millisecond)
+        //{
+        //    DateTime now = DateTime.Now;
+        //    while (now.AddMilliseconds((double)Millisecond) > DateTime.Now)
+        //    {
+        //        Thread.Sleep(50);
+        //        continue;
+        //    }
+        //}
         #endregion
 
 

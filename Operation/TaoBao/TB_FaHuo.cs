@@ -10,6 +10,7 @@ using System.IO;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Text;
+using Common;
 
 namespace Operation.TaoBao
 {

@@ -2597,6 +2597,8 @@ namespace Common
         }
         #endregion
 
+      
+
         #region 屏幕截图
         /// <summary>
         /// 浏览器截图

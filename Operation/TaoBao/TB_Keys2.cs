@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text;
+using Common;
 
 namespace Operation.TaoBao
 {
@@ -952,10 +953,10 @@ namespace Operation.TaoBao
         /// <param name="e"></param>
         private void btn_excel_Click(object sender, EventArgs e)
         {
-            if (DataGridViewHelper.ToExcel(dgv_key))
-            {
-                MessageBox.Show("导出成功");
-            }
+            //if (DataGridViewHelper.ToExcel())
+            //{
+            //    MessageBox.Show("导出成功");
+            //}
             //ExcelHelper.DataGridViewToExcel(dgv_key, "");
         }
         #endregion
@@ -1079,7 +1080,7 @@ namespace Operation.TaoBao
             Bitmap bm = null;
             if (Browser.WaitWebPageLoad(webBrowser1))
             {
-                bm = ImageClass.GetScreen(webBrowser1);
+                bm = CS.ImageClass1.GetScreen(webBrowser1);
             }
 
             //图片返回保存地址
@@ -1197,7 +1198,7 @@ namespace Operation.TaoBao
                 Browser.ScrollToElement("document.getElementsByClassName('m-itemlist')[0]", webBrowser1);
                 Browser.Delay(500);
                 //截图屏幕
-                Bitmap bmp = ImageClass.GetScreen(webBrowser1);
+                Bitmap bmp = CS.ImageClass1.GetScreen(webBrowser1);
                 //获取商品数量
                 int count = Browser.JS_CEFBrowserToInt("document.getElementsByClassName('title').length", webBrowser1);
                 //开始采集信息
