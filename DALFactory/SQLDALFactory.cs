@@ -237,5 +237,10 @@ namespace DALFactory
         {
             return new DAL.lh_rankinglistService();
         }
+
+        public override IPorfitService CreatePorfitService()
+        {
+            return new DAL.PorfitService();
+        }
     }
 }

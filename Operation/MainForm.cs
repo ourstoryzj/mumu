@@ -1008,5 +1008,13 @@ namespace Operation
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
+
+        private void 每日利润ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Profit fm = new Profit();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
     }
 }

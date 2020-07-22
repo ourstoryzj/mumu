@@ -64,6 +64,7 @@
     <Compile Include="autonew_modelManager.cs" />
     <Compile Include="shuadan_recordsManager.cs" />
     <Compile Include="subway_keyManager.cs" />
+    <Compile Include="PorfitManager.cs" />
     <Compile Include="yh_zaociManager.cs" />
   </ItemGroup>
   <ItemGroup>

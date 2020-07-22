@@ -25,6 +25,7 @@ namespace DALFactory
             return factory;
         }
 
+       
         public abstract Ilh_keydataService Createlh_keydataService();
         public abstract Ilh_hangyeService Createlh_hangyeService();
         public abstract Ilh_rankinglistService Createlh_rankinglistService();
@@ -86,6 +87,10 @@ namespace DALFactory
 
 
         public abstract Iautonew_modelService Createautonew_modelService();
-         
+
+        public abstract IPorfitService CreatePorfitService();
+        
+
+
     }
 }

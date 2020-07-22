@@ -94,6 +94,7 @@
     <Compile Include="keys_tiaojian.cs" />
     <Compile Include="subway_key.cs" />
     <Compile Include="taobao_DataPackageModels.cs" />
+    <Compile Include="Porfit.cs" />
     <Compile Include="yh_zaoci.cs" />
     <Compile Include="shuadan_record.cs" />
     <Compile Include="shuadan_pingjia.cs" />

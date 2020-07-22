@@ -227,6 +227,12 @@
     <Compile Include="Other\BaoNiuNiu2.Designer.cs">
       <DependentUpon>BaoNiuNiu2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Other\Profit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Other\Profit.Designer.cs">
+      <DependentUpon>Profit.cs</DependentUpon>
+    </Compile>
     <Compile Include="PinDuoDuo\Entity_KeyData.cs" />
     <Compile Include="PinDuoDuo\PDDKeyData.cs">
       <SubType>Form</SubType>
@@ -245,6 +251,12 @@
     </Compile>
     <Compile Include="PinDuoDuo\ShuaDanPDDFrom.Designer.cs">
       <DependentUpon>ShuaDanPDDFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kong.Designer.cs">
+      <DependentUpon>Kong.cs</DependentUpon>
     </Compile>
     <Compile Include="TaoBao\Taobao_Login.cs">
       <SubType>Form</SubType>
@@ -746,6 +758,9 @@
     <EmbeddedResource Include="Other\BaoNiuNiu2.resx">
       <DependentUpon>BaoNiuNiu2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Other\Profit.resx">
+      <DependentUpon>Profit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDDKeyData.resx">
       <DependentUpon>PDDKeyData.cs</DependentUpon>
     </EmbeddedResource>
@@ -776,6 +791,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Other\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kong.resx">
+      <DependentUpon>Kong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaoBao\Taobao_Login.resx">
       <DependentUpon>Taobao_Login.cs</DependentUpon>
@@ -1025,6 +1043,7 @@
     <Content Include="bin\x64\Debug\BaiduPanSearch.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="bin\x64\Debug\Profit.xml" />
     <Content Include="bin\x64\Debug\TaoBaoDataPackage.xml">
       <SubType>Designer</SubType>
     </Content>

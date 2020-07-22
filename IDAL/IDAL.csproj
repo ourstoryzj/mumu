@@ -87,6 +87,7 @@
     <Compile Include="Ikeys_lexiconService.cs" />
     <Compile Include="Ikeys_tiaojianService.cs" />
     <Compile Include="Isubway_keyService.cs" />
+    <Compile Include="IPorfitService.cs" />
     <Compile Include="Iyh_zaociService.cs" />
     <Compile Include="IaddressService.cs" />
     <Compile Include="Ishuadan_namesService.cs" />

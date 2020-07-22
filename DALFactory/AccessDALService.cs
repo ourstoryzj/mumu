@@ -223,5 +223,10 @@ namespace DALFactory
         {
             throw new NotImplementedException();
         }
+
+        public override IPorfitService CreatePorfitService()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

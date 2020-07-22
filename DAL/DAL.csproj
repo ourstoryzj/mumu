@@ -161,6 +161,7 @@
     <Compile Include="SQL\keysService.cs" />
     <Compile Include="SQL\keys_tiaojianService.cs" />
     <Compile Include="SQL\subway_keyService.cs" />
+    <Compile Include="SQL\PorfitService.cs" />
     <Compile Include="SQL\yh_zaociService.cs" />
     <Compile Include="SQL\huashuService.cs" />
     <Compile Include="SQL\basic_goodsService.cs" />

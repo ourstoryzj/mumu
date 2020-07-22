@@ -90,6 +90,7 @@
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
+            this.每日利润ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,8 +111,9 @@
             this.任务管理ToolStripMenuItem,
             this.话术管理ToolStripMenuItem,
             this.刷单账号管理ToolStripMenuItem,
-            this.货源ToolStripMenuItem,
-            this.百度网盘搜索ToolStripMenuItem});
+            this.百度网盘搜索ToolStripMenuItem,
+            this.每日利润ToolStripMenuItem,
+            this.货源ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1284, 25);
@@ -540,7 +542,7 @@
             // 网供商品ToolStripMenuItem
             // 
             this.网供商品ToolStripMenuItem.Name = "网供商品ToolStripMenuItem";
-            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.网供商品ToolStripMenuItem.Text = "网供商品";
             this.网供商品ToolStripMenuItem.Click += new System.EventHandler(this.网供商品ToolStripMenuItem_Click);
             // 
@@ -592,6 +594,13 @@
             this.skinEngine1.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
+            // 
+            // 每日利润ToolStripMenuItem
+            // 
+            this.每日利润ToolStripMenuItem.Name = "每日利润ToolStripMenuItem";
+            this.每日利润ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.每日利润ToolStripMenuItem.Text = "每日利润";
+            this.每日利润ToolStripMenuItem.Click += new System.EventHandler(this.每日利润ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -680,5 +689,6 @@
         private System.Windows.Forms.ToolStripMenuItem 拼多多发空包ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 百度网盘搜索ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 搞定设计ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 每日利润ToolStripMenuItem;
     }
 }
