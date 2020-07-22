@@ -56,10 +56,10 @@ namespace Operation
                 }
             }
 
-            dataGridView1.DataSource = list;
+            dataGridView1.DataSource = list.ToDataTable();
 
 
-            dataGridView2.DataSource = BLL2.PorfitManager.Search(1, 1000, "", new DateTime(), new DateTime(), "");
+            dataGridView2.DataSource = BLL2.PorfitManager.Search(1, 1000, "", new DateTime(), new DateTime(), " pdate desc ").ToDataTable();
 
             #region bak
             //XElement element = XElement.Load(xmlurl);
@@ -87,8 +87,8 @@ namespace Operation
                 //如果不是首行
                 if (e.RowIndex > -1)
                 {
-                    GoodsProfit gp = (GoodsProfit)dataGridView1.CurrentRow.DataBoundItem;
-                    txt_price.Text = gp.Price.ToString();
+                    //GoodsProfit gp = (GoodsProfit)dataGridView1.CurrentRow.DataBoundItem;
+                    txt_price.Text = dgv1.CurrentRow.Cells[1].Value.ToString(); 
                 }
 
 
@@ -155,6 +155,36 @@ namespace Operation
 
         #endregion
 
+
+        #region dataGridView2_CellFormatting
+        private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            
+        }
+        #endregion
+
+
+        #region dataGridView2_CellParsing
+
+        private void dataGridView2_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            DataGridView dgv1 = (DataGridView)sender;
+            if (e.Value != null)
+            {
+                if (dgv1.DataSource != null)
+                {
+                    if (dgv1.Columns[e.ColumnIndex].Name.Equals("col_num"))
+                    {
+                        string name = e.Value.ToString();
+                        //Porfit pf = (Porfit)dgv1.CurrentRow.DataBoundItem;
+                        Porfit pf = BLL2.PorfitManager.SearchByID(dgv1.CurrentRow.Cells[0].Value.ToString().ToInt());
+                        pf.pbeiyong = name;
+                        BLL2.PorfitManager.Update(pf);
+                    }
+                }
+            }
+        } 
+        #endregion
     }
 
 
