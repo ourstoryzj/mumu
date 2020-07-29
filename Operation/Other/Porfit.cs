@@ -88,7 +88,9 @@ namespace Operation
                 if (e.RowIndex > -1)
                 {
                     //GoodsProfit gp = (GoodsProfit)dataGridView1.CurrentRow.DataBoundItem;
-                    txt_price.Text = dgv1.CurrentRow.Cells[1].Value.ToString(); 
+                    txt_price.Text = dgv1.CurrentRow.Cells[1].Value.ToString();
+                    txt_num.Text = "1";
+                    txt_num.Focus();
                 }
 
 
@@ -139,18 +141,26 @@ namespace Operation
 
             pf.pdate = dt1;
             pf.pprice += price;
+            //pf.pbeiyong =
 
             if (lists.Count > 0)
             {
+                try
+                {
+                    pf.pbeiyong = (pf.pbeiyong.ToInt() + num).ToString();
+                }
+                catch{}
                 BLL2.PorfitManager.Update(pf);
             }
             else
             {
+                pf.pbeiyong = num.ToString();
                 BLL2.PorfitManager.Insert(pf);
             }
 
             bind();
-
+            dataGridView1.Focus();
+            dataGridView1.CurrentCell = dataGridView1[0, 0];
         }
 
         #endregion
@@ -173,18 +183,50 @@ namespace Operation
             {
                 if (dgv1.DataSource != null)
                 {
-                    if (dgv1.Columns[e.ColumnIndex].Name.Equals("col_num"))
+                    if (dgv1.Columns[e.ColumnIndex].Name.Equals("col_num")|| dgv1.Columns[e.ColumnIndex].Name.Equals("col_price"))
                     {
-                        string name = e.Value.ToString();
-                        //Porfit pf = (Porfit)dgv1.CurrentRow.DataBoundItem;
-                        Porfit pf = BLL2.PorfitManager.SearchByID(dgv1.CurrentRow.Cells[0].Value.ToString().ToInt());
-                        pf.pbeiyong = name;
-                        BLL2.PorfitManager.Update(pf);
+                        try
+                        {
+                            //string name = e.Value.ToString();
+                            //Porfit pf = (Porfit)dgv1.CurrentRow.DataBoundItem;
+                            Porfit pf = BLL2.PorfitManager.SearchByID(dgv1.CurrentRow.Cells[0].Value.ToString().ToInt());
+                            //dgv1[2, e.RowIndex].EditedFormattedValue.ToString();
+                            string price = dgv1["col_price", e.RowIndex].EditedFormattedValue == null ? "" : dgv1["col_price", e.RowIndex].EditedFormattedValue.ToString();
+                            string num = dgv1["col_num", e.RowIndex].EditedFormattedValue == null ? "" : dgv1["col_num", e.RowIndex].EditedFormattedValue.ToString();
+                            pf.pbeiyong = num;
+                            pf.pprice = Convert.ToDouble(price);
+                            BLL2.PorfitManager.Update(pf);
+                        }
+                        catch (Exception ex)
+                        {
+                            ex.ToShow();
+                        }
                     }
                 }
             }
-        } 
+        }
         #endregion
+
+        #region txt_num_KeyDown
+        private void txt_num_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                btn_add.PerformClick();
+            }
+        }
+        #endregion
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                DataGridView dgv1 =  (DataGridView)sender;
+                txt_price.Text = dgv1.CurrentRow.Cells[1].Value.ToString();
+                txt_num.Text = "1";
+                txt_num.Focus();
+            }
+        }
     }
 
 

@@ -60,6 +60,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(351, 752);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // Column1
             // 
@@ -116,6 +117,7 @@
             this.txt_num.Size = new System.Drawing.Size(100, 21);
             this.txt_num.TabIndex = 2;
             this.txt_num.Text = "1";
+            this.txt_num.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_num_KeyDown);
             // 
             // dataGridView2
             // 

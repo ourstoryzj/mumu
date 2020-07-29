@@ -227,11 +227,11 @@
     <Compile Include="Other\BaoNiuNiu2.Designer.cs">
       <DependentUpon>BaoNiuNiu2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Other\Profit.cs">
+    <Compile Include="Other\Porfit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Other\Profit.Designer.cs">
-      <DependentUpon>Profit.cs</DependentUpon>
+    <Compile Include="Other\Porfit.Designer.cs">
+      <DependentUpon>Porfit.cs</DependentUpon>
     </Compile>
     <Compile Include="PinDuoDuo\Entity_KeyData.cs" />
     <Compile Include="PinDuoDuo\PDDKeyData.cs">
@@ -758,8 +758,8 @@
     <EmbeddedResource Include="Other\BaoNiuNiu2.resx">
       <DependentUpon>BaoNiuNiu2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Other\Profit.resx">
-      <DependentUpon>Profit.cs</DependentUpon>
+    <EmbeddedResource Include="Other\Porfit.resx">
+      <DependentUpon>Porfit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDDKeyData.resx">
       <DependentUpon>PDDKeyData.cs</DependentUpon>
