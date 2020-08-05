@@ -136,7 +136,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\dll\百度图片识别\aip-csharp-sdk-3.6.13\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NPOI">
       <HintPath>C:\DLL\NPOI.dll</HintPath>
@@ -234,6 +234,12 @@
       <DependentUpon>Porfit.cs</DependentUpon>
     </Compile>
     <Compile Include="PinDuoDuo\Entity_KeyData.cs" />
+    <Compile Include="PinDuoDuo\PDD_PrintLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PinDuoDuo\PDD_PrintLabel.Designer.cs">
+      <DependentUpon>PDD_PrintLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="PinDuoDuo\PDDKeyData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -760,6 +766,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Other\Porfit.resx">
       <DependentUpon>Porfit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PinDuoDuo\PDD_PrintLabel.resx">
+      <DependentUpon>PDD_PrintLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDDKeyData.resx">
       <DependentUpon>PDDKeyData.cs</DependentUpon>

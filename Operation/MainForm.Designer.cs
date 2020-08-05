@@ -82,15 +82,16 @@
             this.任务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.话术管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷单账号管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.百度网盘搜索ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.每日利润ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.货源ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.网供商品ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.百度网盘搜索ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
-            this.每日利润ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.拼多多打印标签ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -404,7 +405,8 @@
             this.获取拼多多订单ToolStripMenuItem,
             this.cefsharp模拟headerToolStripMenuItem,
             this.拼多多发空包ToolStripMenuItem,
-            this.搞定设计ToolStripMenuItem});
+            this.搞定设计ToolStripMenuItem,
+            this.拼多多打印标签ToolStripMenuItem});
             this.测试ToolStripMenuItem.Name = "测试ToolStripMenuItem";
             this.测试ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.测试ToolStripMenuItem.Text = "测试";
@@ -529,6 +531,20 @@
             this.刷单账号管理ToolStripMenuItem.Text = "刷单账号管理";
             this.刷单账号管理ToolStripMenuItem.Click += new System.EventHandler(this.刷单账号管理ToolStripMenuItem_Click);
             // 
+            // 百度网盘搜索ToolStripMenuItem
+            // 
+            this.百度网盘搜索ToolStripMenuItem.Name = "百度网盘搜索ToolStripMenuItem";
+            this.百度网盘搜索ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.百度网盘搜索ToolStripMenuItem.Text = "百度网盘搜索";
+            this.百度网盘搜索ToolStripMenuItem.Click += new System.EventHandler(this.百度网盘搜索ToolStripMenuItem_Click);
+            // 
+            // 每日利润ToolStripMenuItem
+            // 
+            this.每日利润ToolStripMenuItem.Name = "每日利润ToolStripMenuItem";
+            this.每日利润ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.每日利润ToolStripMenuItem.Text = "每日利润";
+            this.每日利润ToolStripMenuItem.Click += new System.EventHandler(this.每日利润ToolStripMenuItem_Click);
+            // 
             // 货源ToolStripMenuItem
             // 
             this.货源ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -542,16 +558,9 @@
             // 网供商品ToolStripMenuItem
             // 
             this.网供商品ToolStripMenuItem.Name = "网供商品ToolStripMenuItem";
-            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.网供商品ToolStripMenuItem.Text = "网供商品";
             this.网供商品ToolStripMenuItem.Click += new System.EventHandler(this.网供商品ToolStripMenuItem_Click);
-            // 
-            // 百度网盘搜索ToolStripMenuItem
-            // 
-            this.百度网盘搜索ToolStripMenuItem.Name = "百度网盘搜索ToolStripMenuItem";
-            this.百度网盘搜索ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
-            this.百度网盘搜索ToolStripMenuItem.Text = "百度网盘搜索";
-            this.百度网盘搜索ToolStripMenuItem.Click += new System.EventHandler(this.百度网盘搜索ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -595,12 +604,12 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
-            // 每日利润ToolStripMenuItem
+            // 拼多多打印标签ToolStripMenuItem
             // 
-            this.每日利润ToolStripMenuItem.Name = "每日利润ToolStripMenuItem";
-            this.每日利润ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.每日利润ToolStripMenuItem.Text = "每日利润";
-            this.每日利润ToolStripMenuItem.Click += new System.EventHandler(this.每日利润ToolStripMenuItem_Click);
+            this.拼多多打印标签ToolStripMenuItem.Name = "拼多多打印标签ToolStripMenuItem";
+            this.拼多多打印标签ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.拼多多打印标签ToolStripMenuItem.Text = "拼多多打印标签";
+            this.拼多多打印标签ToolStripMenuItem.Click += new System.EventHandler(this.拼多多打印标签ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -690,5 +699,6 @@
         private System.Windows.Forms.ToolStripMenuItem 百度网盘搜索ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 搞定设计ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 每日利润ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 拼多多打印标签ToolStripMenuItem;
     }
 }
