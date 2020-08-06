@@ -16,13 +16,14 @@ namespace Operation
     {
 
 
-        private int printNum = 0;//多页打印
 
         public PDD_PrintLabel()
         {
           
             InitializeComponent();
             bind();
+            this.ActiveControl = textBox4;
+            
 
         }
 
@@ -37,7 +38,7 @@ namespace Operation
 
 
 
-                Image image = Image.FromFile("合格证.gif");
+                Image image = Image.FromFile("合格证.jpg");
 
 
                 Font font = new Font("微软雅黑", fontsize);
@@ -86,7 +87,11 @@ namespace Operation
 
             //打印
             System.Drawing.Printing.PrintDocument printDocument = new System.Drawing.Printing.PrintDocument();
+            //设置打印用的纸张 当设置为Custom的时候，可以自定义纸张的大小，还可以选择A4,A5等常用纸型
+            printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Custom", 40, 70);
             printDocument.PrintPage += PrintDocument_PrintPage;
+
+           
 
             PrintDialog printDialog = new PrintDialog();
             printDialog.AllowSomePages = true;
@@ -159,7 +164,11 @@ namespace Operation
                 height = e.MarginBounds.Height;
                 width = image.Width * e.MarginBounds.Height / image.Height;
             }
-
+            float temp_width = 150;
+            float temp_height = image.Height / (image.Width / temp_width);
+            e.Graphics.DrawImage(image, 120, 0, temp_width, temp_height);
+            //e.Graphics.DrawImage(image, 105, 0, 180,280);
+            /*
             //DrawImage参数根据打印机和图片大小自行调整
             //System.Drawing.Rectangle destRect = new System.Drawing.Rectangle(x, y, width, height);
             //System.Drawing.Rectangle destRect = new System.Drawing.Rectangle(0, 0, width, height);
@@ -182,6 +191,7 @@ namespace Operation
             //    e.HasMorePages = true;//HasMorePages为true则再次运行PrintPage事件
             //    return;
             //}
+            */
             e.HasMorePages = false;
 
         }
@@ -201,6 +211,20 @@ namespace Operation
         private void button3_Click(object sender, EventArgs e)
         {
             PrintPreview();
+        }
+
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                button1.PerformClick();
+            }
+        }
+
+        private void PDD_PrintLabel_Load(object sender, EventArgs e)
+        {
+            textBox4.Focus();
+            textBox4.SelectAll();
         }
     }
 
