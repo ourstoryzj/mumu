@@ -79,6 +79,7 @@
             this.cefsharp模拟headerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.拼多多发空包ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.搞定设计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.拼多多打印标签ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.话术管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷单账号管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,7 +92,7 @@
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
-            this.拼多多打印标签ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打标签ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +115,7 @@
             this.刷单账号管理ToolStripMenuItem,
             this.百度网盘搜索ToolStripMenuItem,
             this.每日利润ToolStripMenuItem,
+            this.打标签ToolStripMenuItem,
             this.货源ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -510,6 +512,13 @@
             this.搞定设计ToolStripMenuItem.Text = "搞定设计";
             this.搞定设计ToolStripMenuItem.Click += new System.EventHandler(this.搞定设计ToolStripMenuItem_Click);
             // 
+            // 拼多多打印标签ToolStripMenuItem
+            // 
+            this.拼多多打印标签ToolStripMenuItem.Name = "拼多多打印标签ToolStripMenuItem";
+            this.拼多多打印标签ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.拼多多打印标签ToolStripMenuItem.Text = "拼多多打印标签";
+            this.拼多多打印标签ToolStripMenuItem.Click += new System.EventHandler(this.拼多多打印标签ToolStripMenuItem_Click);
+            // 
             // 任务管理ToolStripMenuItem
             // 
             this.任务管理ToolStripMenuItem.Name = "任务管理ToolStripMenuItem";
@@ -558,7 +567,7 @@
             // 网供商品ToolStripMenuItem
             // 
             this.网供商品ToolStripMenuItem.Name = "网供商品ToolStripMenuItem";
-            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.网供商品ToolStripMenuItem.Text = "网供商品";
             this.网供商品ToolStripMenuItem.Click += new System.EventHandler(this.网供商品ToolStripMenuItem_Click);
             // 
@@ -604,12 +613,14 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
-            // 拼多多打印标签ToolStripMenuItem
+            // 打标签ToolStripMenuItem
             // 
-            this.拼多多打印标签ToolStripMenuItem.Name = "拼多多打印标签ToolStripMenuItem";
-            this.拼多多打印标签ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.拼多多打印标签ToolStripMenuItem.Text = "拼多多打印标签";
-            this.拼多多打印标签ToolStripMenuItem.Click += new System.EventHandler(this.拼多多打印标签ToolStripMenuItem_Click);
+            this.打标签ToolStripMenuItem.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.打标签ToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.打标签ToolStripMenuItem.Name = "打标签ToolStripMenuItem";
+            this.打标签ToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
+            this.打标签ToolStripMenuItem.Text = "打标签";
+            this.打标签ToolStripMenuItem.Click += new System.EventHandler(this.打标签ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -700,5 +711,6 @@
         private System.Windows.Forms.ToolStripMenuItem 搞定设计ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 每日利润ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 拼多多打印标签ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打标签ToolStripMenuItem;
     }
 }
