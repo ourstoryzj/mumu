@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Data>
+  <!-- 字符& 需用&amp;转义字符表示 -->
+  <!-- 利润数据 -->
+  <!-- 通用成本 邮费2.2 纸箱13#0.4 A1#0.3 趴趴熊2.93 -->
+
+  <!-- price 拿货价格 cost 发货成本 -->
+  <Add name="梓豪-小猫单肩包-无挂件" value="2.9" price="10" cost="12.6" />
+  <!--  -->
+  <Add name="梓豪-小猫单肩包-有挂件" value="3.7" price="10" cost="13.8"  />
+  <!--  -->
+  <Add name="梓豪-小草莓-小熊挂件-1303" value="5.1" price="9" cost="12.8" />
+  <!--  -->
+  <Add name="梓豪-小草莓-无挂件-1303" value="4.3" price="9" cost="11.6" />
+  <!--  -->
+  <Add name="梓豪-小草莓-腮红熊-1303" value="5.9" price="9" cost="11.6" />
+  <!--  -->
+  <Add name="梓豪-小猫单肩包-有挂件-2件" value="10" />
+  <!--  -->
+  <Add name="麦麸-0218单包-自己发" value="10.5" />
+  <!--  -->
+  <Add name="麦麸-0259单包-代发" value="6.1" />
+  <!--  -->
+  <Add name="麦麸-0260三件套-代发" value="11.1" />
+  <!--  -->
+  <Add name="麦麸-0218三件套-自己发" value="12.3" />
+  <!--  -->
+  <Add name="80后网供-1059-自己发" value="22.8" />
+  <!--  -->
+  <Add name="梓豪-272" value="3.3" price="14"/>
+  <!--  -->
+  <Add name="梓豪-小鸡-无挂件-1168" value="8.4" price="9" cost="11.5"  />
+  <!--  -->
+  <Add name="梓豪-小鸡-趴趴熊挂件-1168" value="8.47" price="9" cost="13.7"  />
+  <!--  -->
+  <Add name="活动-小猫-挂件" value="0.4" />
+  <!--  -->
+  <Add name="活动-小猫印花" value="1.6" />
+  <!--  -->
+  <Add name="活动-132" value="1.2" price="14" />
+  <!--  -->
+  <Add name="艾佳美0006-M-包牛牛" value="9.5" price="24" />
+  <!--  -->
+  <Add name="豆腐丝-1斤装-日常价" value="6.9" />
+  <!--  -->
+  <Add name="豆腐丝-2斤装-日常价" value="6.6" />
+  <!--  -->
+  <Add name="豆腐丝-4斤装-日常价" value="8.2" />
+  <!--  -->
+  <Add name="豆腐丝-1斤装-活动价" value="4.5" />
+  <!--  -->
+  <Add name="豆腐丝-2斤装-活动价" value="3.6" />
+  <!--  -->
+  <Add name="豆腐丝-4斤装-活动价" value="3.3" />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  <!--  -->
+  <Add name=" " value=" " />
+  
+  
+</Data>
