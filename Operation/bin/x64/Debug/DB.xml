@@ -89,6 +89,9 @@
   <add name="PinDuoDuo_ZhongLiang" value="0.9" />
   <add name="PinDuoDuo_Price_BuPinTuan" value="6" />
   <add name="PinDuoDuo_GoodsNum" value="1000" />
+  <add name="PinDuoDuo_PrintLabel" value="[{'Name':'高碑店豆腐丝','Fontsize':18,'X':130,'Y':320,'ImageNmae':'合格证_豆腐丝.jpg'},{'Name':'白洋淀熏鱼','Fontsize':18,'X':130,'Y':320,'ImageNmae':'合格证_熏鱼.jpg'}]" />
+  <add name="PinDuoDuo_PrintLabel_Doufusi" value="{'Fontsize':20,'X':150,'Y':364,'ImageNmae':'合格证_豆腐丝.jpg'}" />
+  <add name="PinDuoDuo_PrintLabel_Xunyu" value="{'Fontsize':20,'X':150,'Y':364,'ImageNmae':'合格证_熏鱼.jpg'}" />
   <!--自动回复时间1000 等于1秒-->
   <add name="PinDuoDuo_AutoAnswerTime" value="15000" />
   <add name="PinDuoDuo_JieShao" value="送小包 送配套小包 好的包包要看细节不只是漂亮，更重要是做工跟材质！包包采用全pu面料！不剥皮不掉皮全防水！肩带复合织带加固受力点双层车线，保证了肩带的牢固性，不会断裂。背部有暗拉链，可以放置钱包或者手机等贵重物品！包包可容纳，水杯、雨伞、女士用品、平板电脑、杂志、书籍等！包包适用于，旅行、休闲逛街、上班、上学、宝妈！" />

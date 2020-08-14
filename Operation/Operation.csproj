@@ -1069,8 +1069,11 @@
     <Content Include="bin\x64\Debug\TaoBao.xml" />
     <Content Include="bin\x64\Debug\TaoBao_SKU.xml" />
     <Content Include="bin\x64\Debug\test.htm" />
-    <Content Include="bin\x64\Debug\合格证.gif" />
+    <Content Include="bin\x64\Debug\合格证_熏鱼.gif" />
+    <Content Include="bin\x64\Debug\合格证_熏鱼.jpg" />
+    <Content Include="bin\x64\Debug\合格证_豆腐丝.gif" />
     <Content Include="bin\x64\Debug\合格证.jpg" />
+    <Content Include="bin\x64\Debug\合格证_豆腐丝.jpg" />
     <Content Include="HTMLPage1.html" />
     <Content Include="icon.ico" />
     <None Include="Resources\Icon1.ico" />

@@ -15,7 +15,7 @@ namespace Operation
     public partial class PDD_PrintLabel : Form
     {
 
-
+        XMLHelpers xml = new XMLHelpers("DB.xml");
 
         public PDD_PrintLabel()
         {
@@ -27,21 +27,68 @@ namespace Operation
 
         }
 
+        string getDoufusiConfig()
+        {
+            return xml.GetValue("PinDuoDuo_PrintLabel_Doufusi");
+        }
+        string getXunyuConfig()
+        {
+            return xml.GetValue("PinDuoDuo_PrintLabel_Xunyu");
+        }
+
+        PrintLabel getDoufusi()
+        {
+            string json = getDoufusiConfig();
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PrintLabel>(json);
+            
+        }
+
+        PrintLabel getXunyu()
+        {
+            string json = getXunyuConfig();
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PrintLabel>(json);
+        }
+
+        PrintLabel getConfig()
+        {
+            if (cb_type.Text.IndexOf("豆腐丝") > -1)
+            {
+                return getDoufusi();
+            }
+            else if (cb_type.Text.IndexOf("熏鱼") > -1)
+            {
+                return getXunyu();
+            }
+            return null;
+        }
+
         void bind()
         {
             
             try
             {
-                int fontsize = textBox1.Text.ToInt();
-                int x = textBox2.Text.ToInt();
-                int y = textBox3.Text.ToInt();
+
+                //查看选择的是那种商品
+                PrintLabel printLabel = getConfig();
+                //获取xml中的配置
+                txt_fontsize.Text = printLabel.Fontsize.ToString();
+                txt_imagename.Text = printLabel.ImageNmae;
+                txt_x.Text = printLabel.X.ToString();
+                txt_y.Text = printLabel.Y.ToString();
+                //根据配置生成图片
 
 
 
-                Image image = Image.FromFile("合格证.jpg");
+                //int fontsize = txt_fontsize.Text.ToInt();
+                //int x = txt_x.Text.ToInt();
+                //int y = txt_y.Text.ToInt();
 
 
-                Font font = new Font("微软雅黑", fontsize);
+
+                Image image = Image.FromFile(printLabel.ImageNmae);
+
+
+                Font font = new Font("微软雅黑", printLabel.Fontsize);
                 System.Drawing.Brush brush = new SolidBrush(Color.Black);
 
 
@@ -51,11 +98,12 @@ namespace Operation
 
                 graphics.DrawImage(image, 0, 0);
 
-                graphics.DrawString(DateTime.Now.ToString("yyyy年MM月dd日"), font, brush, new Point(x, y));
+                graphics.DrawString(DateTime.Now.ToString("yyyy年MM月dd日"), font, brush, new Point(printLabel.X, printLabel.Y));
 
                 panel1.BackgroundImage = bitmap;
                 panel1.Width = 373;
                 panel1.Height = 650;
+                this.ActiveControl = textBox4;
             }
             catch (Exception ex)
             {
@@ -69,7 +117,7 @@ namespace Operation
             //设置页面的预览的页码
             //设置显示页面显示的大小(也就是原页面的倍数)
             PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
-             printPreviewDialog1.PrintPreviewControl.StartPage = 0;
+            printPreviewDialog1.PrintPreviewControl.StartPage = 0;
             printPreviewDialog1.PrintPreviewControl.Zoom = 1.0;
             //设置或返回窗口状态，即该窗口是最小化、正常大小还是其他状态。
             printPreviewDialog1.WindowState = FormWindowState.Maximized;
@@ -81,6 +129,7 @@ namespace Operation
             printPreviewDialog1.ShowDialog();
         }
 
+        #region 打印功能
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -91,7 +140,7 @@ namespace Operation
             printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Custom", 40, 70);
             printDocument.PrintPage += PrintDocument_PrintPage;
 
-           
+
 
             PrintDialog printDialog = new PrintDialog();
             printDialog.AllowSomePages = true;
@@ -196,9 +245,65 @@ namespace Operation
 
         }
 
+        #endregion
+
+
+        //生成图片
         private void button2_Click(object sender, EventArgs e)
         {
+            int fontsize = txt_fontsize.Text.ToInt();
+            int x = txt_x.Text.ToInt();
+            int y = txt_y.Text.ToInt();
+            string imgname = txt_imagename.Text;
 
+            PrintLabel printLabel = new PrintLabel();
+            printLabel.Fontsize = fontsize;
+            printLabel.X = x;
+            printLabel.Y = y;
+            printLabel.ImageNmae = imgname;
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(printLabel);
+            json = json.Replace("\"", "'");
+
+            if (cb_type.Text.IndexOf("豆腐丝") > -1)
+            {
+                xml.SetValue("PinDuoDuo_PrintLabel_Doufusi", json);
+            }
+            else if (cb_type.Text.IndexOf("熏鱼") > -1)
+            {
+                xml.SetValue("PinDuoDuo_PrintLabel_Xunyu", json);
+            }
+
+
+            //List<PrintLabel> list = GetPrintLabels();
+            //List<PrintLabel> list2 = new List<PrintLabel>();
+            //foreach (var item in list)
+            //{
+            //    if (item.Name == cb_type.Text)
+            //    {
+            //        item.Fontsize = fontsize;
+            //        item.X = x;
+            //        item.Y = y;
+            //        item.ImageNmae = imgname;
+            //    }
+            //    list2.Add(item);
+            //}
+            //string json = Newtonsoft.Json.JsonConvert.SerializeObject(list2);
+            //json = json.Replace("\"", "'");
+            //xml.SetValue("PinDuoDuo_PrintLabel",json);
+
+            //PrintLabel printLabel = new PrintLabel();
+            //printLabel.Name = "豆腐丝";
+            //printLabel.Fontsize = fontsize;
+            //printLabel.X = x;
+            //printLabel.Y = y;
+
+            //List<PrintLabel> list = new List<PrintLabel>();
+            //list.Add(printLabel);
+            //list.Add(printLabel);
+            //string json = Newtonsoft.Json.JsonConvert.SerializeObject(list);
+            //textBox1.Text = json;
+            ////{"Name":"豆腐丝","Fontsize":18,"X":130,"Y":320}
+            ////[{"Name":"豆腐丝","Fontsize":18,"X":130,"Y":320},{"Name":"豆腐丝","Fontsize":18,"X":130,"Y":320}]
             bind();
 
         }
@@ -226,7 +331,27 @@ namespace Operation
             textBox4.Focus();
             textBox4.SelectAll();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bind();
+        }
     }
 
+
+    class PrintLabel
+    {
+        //string name;
+        int fontsize;
+        int x;
+        int y;
+        string imageNmae;
+
+        //public string Name { get => name; set => name = value; }
+        public int Fontsize { get => fontsize; set => fontsize = value; }
+        public int X { get => x; set => x = value; }
+        public int Y { get => y; set => y = value; }
+        public string ImageNmae { get => imageNmae; set => imageNmae = value; }
+    }
 
 }
