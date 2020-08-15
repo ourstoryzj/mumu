@@ -347,11 +347,60 @@ namespace Operation
         int y;
         string imageNmae;
 
+        public int Fontsize
+        {
+            get
+            {
+                return fontsize;
+            }
+
+            set
+            {
+                fontsize = value;
+            }
+        }
+
+        public int X
+        {
+            get
+            {
+                return x;
+            }
+
+            set
+            {
+                x = value;
+            }
+        }
+
+        public int Y
+        {
+            get
+            {
+                return y;
+            }
+
+            set
+            {
+                y = value;
+            }
+        }
+
+        public string ImageNmae
+        {
+            get
+            {
+                return imageNmae;
+            }
+
+            set
+            {
+                imageNmae = value;
+            }
+        }
+
         //public string Name { get => name; set => name = value; }
-        public int Fontsize { get => fontsize; set => fontsize = value; }
-        public int X { get => x; set => x = value; }
-        public int Y { get => y; set => y = value; }
-        public string ImageNmae { get => imageNmae; set => imageNmae = value; }
+
     }
 
 }
