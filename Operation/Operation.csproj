@@ -557,6 +557,12 @@
       <DependentUpon>MySqlTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Test\RequestHandler_new.cs" />
+    <Compile Include="Test\test_lirunxml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_lirunxml.Designer.cs">
+      <DependentUpon>test_lirunxml.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_chrome_header.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -911,6 +917,9 @@
     <EmbeddedResource Include="Test\MySqlTest.resx">
       <DependentUpon>MySqlTest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_lirunxml.resx">
+      <DependentUpon>test_lirunxml.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test\test_chrome_header.resx">
       <DependentUpon>test_chrome_header.cs</DependentUpon>
     </EmbeddedResource>
@@ -1050,6 +1059,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\x64\Debug\BaiduPanSearch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\x64\Debug\Cost.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="bin\x64\Debug\Profit.xml" />

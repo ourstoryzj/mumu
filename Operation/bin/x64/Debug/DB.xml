@@ -90,7 +90,7 @@
   <add name="PinDuoDuo_Price_BuPinTuan" value="6" />
   <add name="PinDuoDuo_GoodsNum" value="1000" />
   <add name="PinDuoDuo_PrintLabel" value="[{'Name':'高碑店豆腐丝','Fontsize':18,'X':130,'Y':320,'ImageNmae':'合格证_豆腐丝.jpg'},{'Name':'白洋淀熏鱼','Fontsize':18,'X':130,'Y':320,'ImageNmae':'合格证_熏鱼.jpg'}]" />
-  <add name="PinDuoDuo_PrintLabel_Doufusi" value="{'Fontsize':20,'X':150,'Y':364,'ImageNmae':'合格证_豆腐丝.jpg'}" />
+  <add name="PinDuoDuo_PrintLabel_Doufusi" value="{'Fontsize':18,'X':130,'Y':292,'ImageNmae':'合格证_豆腐丝.jpg'}" />
   <add name="PinDuoDuo_PrintLabel_Xunyu" value="{'Fontsize':20,'X':150,'Y':364,'ImageNmae':'合格证_熏鱼.jpg'}" />
   <!--自动回复时间1000 等于1秒-->
   <add name="PinDuoDuo_AutoAnswerTime" value="15000" />
