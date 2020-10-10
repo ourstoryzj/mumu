@@ -29,7 +29,7 @@
   <Add name="pdd_user_id" value="5472535098" />
   <Add name="pdd_user_id2" value="4844821835342" />
   <!-- PDDAccessToken -->
-  <Add name="PDDAccessToken" value="OTGXAXDS5ICX4SEZBBTK5GPG7B3GW6K7KBVRYF5RXSVEIOSMLBJQ1123a4a" />
+  <Add name="PDDAccessToken" value="7XZNLGL7MPAAC3LHBIJBLK4WMZI36VBKWUAK35YDFOZE3GCFTJHQ1123a4a" />
   <Add name="PDDAccessToken2" value="6AAB6XWY2A2SCTWGAY3OW7T5IN44SZ7KEXRHNG6F7XAGF4X7AUPQ1124e6e" />
   <!-- 发货-设置收件信息-设置收件人姓名 -->
   <Add name="fh_SetNameFocus" value="document.getElementById('name').focus()" />
