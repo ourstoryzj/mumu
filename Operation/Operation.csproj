@@ -136,7 +136,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DLL\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\dll\百度图片识别\aip-csharp-sdk-3.6.13\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NPOI">
       <HintPath>C:\DLL\NPOI.dll</HintPath>
@@ -234,6 +234,12 @@
       <DependentUpon>Porfit.cs</DependentUpon>
     </Compile>
     <Compile Include="PinDuoDuo\Entity_KeyData.cs" />
+    <Compile Include="PinDuoDuo\PDD_PrintLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PinDuoDuo\PDD_PrintLabel.Designer.cs">
+      <DependentUpon>PDD_PrintLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="PinDuoDuo\PDDKeyData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -551,6 +557,12 @@
       <DependentUpon>MySqlTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Test\RequestHandler_new.cs" />
+    <Compile Include="Test\test_lirunxml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\test_lirunxml.Designer.cs">
+      <DependentUpon>test_lirunxml.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\test_chrome_header.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -761,6 +773,9 @@
     <EmbeddedResource Include="Other\Porfit.resx">
       <DependentUpon>Porfit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PinDuoDuo\PDD_PrintLabel.resx">
+      <DependentUpon>PDD_PrintLabel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDDKeyData.resx">
       <DependentUpon>PDDKeyData.cs</DependentUpon>
     </EmbeddedResource>
@@ -901,6 +916,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Test\MySqlTest.resx">
       <DependentUpon>MySqlTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\test_lirunxml.resx">
+      <DependentUpon>test_lirunxml.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\test_chrome_header.resx">
       <DependentUpon>test_chrome_header.cs</DependentUpon>
@@ -1043,6 +1061,9 @@
     <Content Include="bin\x64\Debug\BaiduPanSearch.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="bin\x64\Debug\Cost.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="bin\x64\Debug\Profit.xml" />
     <Content Include="bin\x64\Debug\TaoBaoDataPackage.xml">
       <SubType>Designer</SubType>
@@ -1060,6 +1081,11 @@
     <Content Include="bin\x64\Debug\TaoBao.xml" />
     <Content Include="bin\x64\Debug\TaoBao_SKU.xml" />
     <Content Include="bin\x64\Debug\test.htm" />
+    <Content Include="bin\x64\Debug\合格证_熏鱼.gif" />
+    <Content Include="bin\x64\Debug\合格证_熏鱼.jpg" />
+    <Content Include="bin\x64\Debug\合格证_豆腐丝.gif" />
+    <Content Include="bin\x64\Debug\合格证.jpg" />
+    <Content Include="bin\x64\Debug\合格证_豆腐丝.jpg" />
     <Content Include="HTMLPage1.html" />
     <Content Include="icon.ico" />
     <None Include="Resources\Icon1.ico" />

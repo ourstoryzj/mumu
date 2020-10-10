@@ -1016,5 +1016,21 @@ namespace Operation
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
+
+        private void 拼多多打印标签ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PDD_PrintLabel fm = new PDD_PrintLabel();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
+
+        private void 打标签ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PDD_PrintLabel fm = new PDD_PrintLabel();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
     }
 }
