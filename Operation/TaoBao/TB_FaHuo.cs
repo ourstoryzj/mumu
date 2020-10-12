@@ -91,6 +91,7 @@ namespace Operation.TaoBao
             //webBrowser1.Location = new Point(180, 12);
             webBrowser1.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
             tabPage1.Controls.Add(webBrowser1);
+            //tp_pddprint.Controls.Add(webBrowser1);
             //webBrowser1.RequestContext = tb.webBrowser1.RequestContext;
             //tb.Close();
             //tb.Dispose();

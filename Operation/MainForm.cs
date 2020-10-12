@@ -946,7 +946,7 @@ namespace Operation
         #region 刷单账号管理ToolStripMenuItem_Click
         private void 刷单账号管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Other.PDD_SuaDan fm = new Other.PDD_SuaDan();
+            Other.PDD_ShuaDan fm = new Other.PDD_ShuaDan();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1028,6 +1028,14 @@ namespace Operation
         private void 打标签ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PDD_PrintLabel fm = new PDD_PrintLabel();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
+
+        private void 图片工具ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImgTool fm = new ImgTool();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;

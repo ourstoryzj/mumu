@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -59,7 +60,58 @@ namespace Operation.CS
             return res;
         }
 
-        
+
+        /// <summary>
+        /// 根据内存粘贴板中的图片，识别文字
+        /// 
+        /// </summary>
+        /// <param name="imagePath"></param>
+        /// <returns></returns>
+        public static string ImageToWordByClipboard()
+        {
+            string res = "";
+
+            try
+            {
+                Bitmap bitmap = Manager.GetBitmapByClipboard();
+                if (bitmap == null)
+                {
+                    "粘贴板中没有获取到图片".ToShow();
+                    return res;
+
+                }
+                   
+                // 设置APPID/AK/SK
+                //var APP_ID = "17767489";
+                var API_KEY = "uq1WqDv14GMpouhgDRKblm6L";
+                var SECRET_KEY = "xhGGclgNBKWMKVU0Uf8KZLo7N7RTwRwQ";
+
+                //var client = new Baidu.Aip.ImageClassify.ImageClassify(API_KEY, SECRET_KEY);
+                //client.Timeout = 60000;  // 修改超时时间
+
+                var image = Manager.BitmapToByte(bitmap);
+                //var image = File.ReadAllBytes();
+                var client2 = new Baidu.Aip.Ocr.Ocr(API_KEY, SECRET_KEY);
+                client2.Timeout = 60000;  // 修改超时时间
+
+                var result = client2.GeneralBasic(image);        //本地图图片
+
+                //Movie m = JsonConvert.DeserializeObject<Movie>(result);
+                //string name = m.Name;
+                Info info = JsonConvert.DeserializeObject<Info>(result.ToString());
+                int num = info.words_result_num.ToInt();
+                for (int i = 0; i < num; i++)
+                {
+                    res += info.words_result[i].words + "\r\n";
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.ToString().ToLog();
+            }
+            return res;
+        }
+
 
 
         /// <summary>

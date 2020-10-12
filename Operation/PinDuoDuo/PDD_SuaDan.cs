@@ -16,7 +16,7 @@ namespace Operation.Other
 {
 
 
-    public partial class PDD_SuaDan : Form
+    public partial class PDD_ShuaDan : Form
     {
 
 
@@ -29,7 +29,7 @@ namespace Operation.Other
         //话术id
         int hid = 0;
 
-        public PDD_SuaDan()
+        public PDD_ShuaDan()
         {
             InitializeComponent();
             bind();

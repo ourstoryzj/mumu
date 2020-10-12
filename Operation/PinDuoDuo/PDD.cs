@@ -15,7 +15,7 @@ namespace Operation
     public partial class PDD : Form
     {
         CefSharp.WinForms.ChromiumWebBrowser webBrowser1;
-        CefSharp.WinForms.ChromiumWebBrowser webBrowser2;
+        //CefSharp.WinForms.ChromiumWebBrowser webBrowser2;
         //CefSharp.WinForms.ChromiumWebBrowser webBrowser3;
         //CefSharp.WinForms.ChromiumWebBrowser webBrowser4;
         string token = "";

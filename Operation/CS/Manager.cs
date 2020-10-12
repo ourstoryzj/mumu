@@ -1,31 +1,24 @@
-﻿using System;
+﻿using CefSharp.WinForms;
+using Common;
+using Entity;
+using Microsoft.Win32;
+using mshtml;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
 using System.Collections.Specialized;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
-using System.Drawing;
-using System.Diagnostics;
-using Entity;
-using System.Runtime.InteropServices;
-using Microsoft.Win32;
-using System.Security.Principal;
-using System.Security.AccessControl;
-using CefSharp;
-using CefSharp.WinForms;
-using System.Threading.Tasks;
-
-using System.Collections;
-using System.Data;
-using System.Reflection;
 using System.Net.Mail;
-using mshtml;
-using Common;
-using Operation.Other;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Operation
 {
@@ -3407,7 +3400,62 @@ namespace Operation
 
         #endregion
 
+        #region 图片
+        public static Bitmap GetBitmapByClipboard()
+        {
+            IDataObject iData = Clipboard.GetDataObject();
+            Bitmap bmp = null;
+            try
+            {
+                //if (iData.GetDataPresent(DataFormats.Html))
+                //{
+                //    bmp = (Bitmap)iData.GetData(DataFormats.Html);
+                //}
+                //else if (iData.GetDataPresent(DataFormats.MetafilePict))
+                //{
+                //    var img = Clipboard.GetImage();
+                //    bmp = (Bitmap)img;
+                //}
+                //else
+                //{
+                //    iData.ToString().ToShow();
+                //}
+                bmp = (Bitmap)iData.GetData(DataFormats.Html);
+                if (bmp != null)
+                    return bmp;
+            }
+            catch
+            {
+            }
+            try
+            {
+                var img = Clipboard.GetImage();
+                bmp = (Bitmap)img;
+                if (bmp != null)
+                    return bmp;
+            }
+            catch
+            {
+            }
+            return bmp;
+        }
 
+
+        /// <summary>
+        /// bitmap 转换成 bytes
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
+        public static byte[] BitmapToByte(Bitmap bitmap)
+        {
+            MemoryStream ms = new MemoryStream();
+            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            byte[] bytes = ms.GetBuffer();  //byte[]   bytes=   ms.ToArray(); 这两句都可以，至于区别么，下面有解释
+            ms.Close();
+            return bytes;
+        }
+
+        #endregion
 
     }
 }

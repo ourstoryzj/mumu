@@ -186,6 +186,8 @@
             this.txt_date = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_savehtml = new System.Windows.Forms.Button();
+            this.tp_pddprint = new System.Windows.Forms.TabPage();
+            this.btn_pddprint_ = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -203,6 +205,7 @@
             this.tp_pddbd.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.tp_pddprint.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -442,6 +445,7 @@
             this.tabControl1.Controls.Add(this.tp_pdd);
             this.tabControl1.Controls.Add(this.tp_pddkb);
             this.tabControl1.Controls.Add(this.tp_pddbd);
+            this.tabControl1.Controls.Add(this.tp_pddprint);
             this.tabControl1.Location = new System.Drawing.Point(176, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1918,6 +1922,25 @@
             this.btn_savehtml.UseVisualStyleBackColor = true;
             this.btn_savehtml.Click += new System.EventHandler(this.btn_savehtml_Click);
             // 
+            // tp_pddprint
+            // 
+            this.tp_pddprint.Controls.Add(this.btn_pddprint_);
+            this.tp_pddprint.Location = new System.Drawing.Point(4, 22);
+            this.tp_pddprint.Name = "tp_pddprint";
+            this.tp_pddprint.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_pddprint.Size = new System.Drawing.Size(1136, 728);
+            this.tp_pddprint.TabIndex = 8;
+            this.tp_pddprint.Text = "拼多多打印快递单";
+            // 
+            // btn_pddprint_
+            // 
+            this.btn_pddprint_.Location = new System.Drawing.Point(6, 6);
+            this.btn_pddprint_.Name = "btn_pddprint_";
+            this.btn_pddprint_.Size = new System.Drawing.Size(146, 23);
+            this.btn_pddprint_.TabIndex = 31;
+            this.btn_pddprint_.Text = "更换店铺";
+            this.btn_pddprint_.UseVisualStyleBackColor = true;
+            // 
             // TB_FaHuo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1958,6 +1981,7 @@
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.tp_pddprint.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2118,5 +2142,7 @@
         private System.Windows.Forms.Button btn_budan_getaddress;
         private System.Windows.Forms.Button btn_kb12345_fahuo;
         private System.Windows.Forms.Button btn_kblogin12345;
+        private System.Windows.Forms.TabPage tp_pddprint;
+        private System.Windows.Forms.Button btn_pddprint_;
     }
 }
