@@ -65,6 +65,7 @@
             this.短信平台ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.蘑菇街模拟刷单ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.图片工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.诺人电商模拟ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.httpWebRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cEFSharp测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,7 +94,7 @@
             this.tssl_task = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
-            this.图片工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.拼多多打印快递单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -115,8 +116,8 @@
             this.话术管理ToolStripMenuItem,
             this.刷单账号管理ToolStripMenuItem,
             this.百度网盘搜索ToolStripMenuItem,
-            this.每日利润ToolStripMenuItem,
             this.打标签ToolStripMenuItem,
+            this.每日利润ToolStripMenuItem,
             this.货源ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -410,11 +411,19 @@
             this.cefsharp模拟headerToolStripMenuItem,
             this.拼多多发空包ToolStripMenuItem,
             this.搞定设计ToolStripMenuItem,
-            this.拼多多打印标签ToolStripMenuItem});
+            this.拼多多打印标签ToolStripMenuItem,
+            this.拼多多打印快递单ToolStripMenuItem});
             this.测试ToolStripMenuItem.Name = "测试ToolStripMenuItem";
             this.测试ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.测试ToolStripMenuItem.Text = "测试";
             this.测试ToolStripMenuItem.Click += new System.EventHandler(this.测试ToolStripMenuItem_Click);
+            // 
+            // 图片工具ToolStripMenuItem
+            // 
+            this.图片工具ToolStripMenuItem.Name = "图片工具ToolStripMenuItem";
+            this.图片工具ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.图片工具ToolStripMenuItem.Text = "图片工具";
+            this.图片工具ToolStripMenuItem.Click += new System.EventHandler(this.图片工具ToolStripMenuItem_Click);
             // 
             // 诺人电商模拟ToolStripMenuItem
             // 
@@ -554,6 +563,7 @@
             this.每日利润ToolStripMenuItem.Name = "每日利润ToolStripMenuItem";
             this.每日利润ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.每日利润ToolStripMenuItem.Text = "每日利润";
+            this.每日利润ToolStripMenuItem.Visible = false;
             this.每日利润ToolStripMenuItem.Click += new System.EventHandler(this.每日利润ToolStripMenuItem_Click);
             // 
             // 打标签ToolStripMenuItem
@@ -578,7 +588,7 @@
             // 网供商品ToolStripMenuItem
             // 
             this.网供商品ToolStripMenuItem.Name = "网供商品ToolStripMenuItem";
-            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.网供商品ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.网供商品ToolStripMenuItem.Text = "网供商品";
             this.网供商品ToolStripMenuItem.Click += new System.EventHandler(this.网供商品ToolStripMenuItem_Click);
             // 
@@ -624,12 +634,12 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
-            // 图片工具ToolStripMenuItem
+            // 拼多多打印快递单ToolStripMenuItem
             // 
-            this.图片工具ToolStripMenuItem.Name = "图片工具ToolStripMenuItem";
-            this.图片工具ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.图片工具ToolStripMenuItem.Text = "图片工具";
-            this.图片工具ToolStripMenuItem.Click += new System.EventHandler(this.图片工具ToolStripMenuItem_Click);
+            this.拼多多打印快递单ToolStripMenuItem.Name = "拼多多打印快递单ToolStripMenuItem";
+            this.拼多多打印快递单ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.拼多多打印快递单ToolStripMenuItem.Text = "拼多多打印快递单";
+            this.拼多多打印快递单ToolStripMenuItem.Click += new System.EventHandler(this.拼多多打印快递单ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -722,5 +732,6 @@
         private System.Windows.Forms.ToolStripMenuItem 拼多多打印标签ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 打标签ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 图片工具ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 拼多多打印快递单ToolStripMenuItem;
     }
 }

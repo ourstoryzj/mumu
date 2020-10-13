@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Common;
-
+using Operation.Other;
 
 namespace Operation
 {
@@ -723,7 +723,8 @@ namespace Operation
         private void 打单发货ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             #region 打开网页
-            TaoBao.TB_FaHuo fm = new TaoBao.TB_FaHuo();
+            //TaoBao.TB_FaHuo fm = new TaoBao.TB_FaHuo();
+            PDD_OrderPrint fm = new PDD_OrderPrint();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = FormWindowState.Maximized;
@@ -1036,6 +1037,14 @@ namespace Operation
         private void 图片工具ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ImgTool fm = new ImgTool();
+            fm.MdiParent = this;
+            fm.Show();
+            fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+        }
+
+        private void 拼多多打印快递单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PDD_OrderPrint fm = new PDD_OrderPrint();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = System.Windows.Forms.FormWindowState.Maximized;

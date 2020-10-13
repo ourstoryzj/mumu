@@ -21,10 +21,11 @@ namespace Operation
         {
           
             InitializeComponent();
-            bind();
-            this.ActiveControl = textBox4;
             
+            this.ActiveControl = textBox4;
 
+            txt_date.Text = DateTime.Now.ToString("yyyy年MM月dd日");
+            bind();
         }
 
         string getDoufusiConfig()
@@ -83,7 +84,7 @@ namespace Operation
                 //int x = txt_x.Text.ToInt();
                 //int y = txt_y.Text.ToInt();
 
-
+                DateTime dt = txt_date.Text.ToDateTime();
 
                 Image image = Image.FromFile(printLabel.ImageNmae);
 
@@ -98,12 +99,15 @@ namespace Operation
 
                 graphics.DrawImage(image, 0, 0);
 
-                graphics.DrawString(DateTime.Now.ToString("yyyy年MM月dd日"), font, brush, new Point(printLabel.X, printLabel.Y));
+                graphics.DrawString(dt.ToString("yyyy年MM月dd日"), font, brush, new Point(printLabel.X, printLabel.Y));
 
                 panel1.BackgroundImage = bitmap;
                 panel1.Width = 373;
                 panel1.Height = 650;
                 this.ActiveControl = textBox4;
+
+               
+
             }
             catch (Exception ex)
             {

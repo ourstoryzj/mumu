@@ -45,6 +45,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.cb_type = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_date = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +71,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(42, 131);
+            this.button2.Location = new System.Drawing.Point(42, 182);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 23);
             this.button2.TabIndex = 2;
@@ -104,18 +106,20 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_date);
             this.groupBox1.Controls.Add(this.txt_imagename);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txt_y);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txt_x);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.txt_fontsize);
-            this.groupBox1.Location = new System.Drawing.Point(698, 491);
+            this.groupBox1.Location = new System.Drawing.Point(698, 451);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(198, 171);
+            this.groupBox1.Size = new System.Drawing.Size(198, 211);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "设置";
@@ -219,6 +223,22 @@
             this.cb_type.Text = "高碑店豆腐丝";
             this.cb_type.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 135);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "日期";
+            // 
+            // txt_date
+            // 
+            this.txt_date.Location = new System.Drawing.Point(42, 131);
+            this.txt_date.Name = "txt_date";
+            this.txt_date.Size = new System.Drawing.Size(136, 21);
+            this.txt_date.TabIndex = 7;
+            // 
             // PDD_PrintLabel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -258,5 +278,7 @@
         private System.Windows.Forms.ComboBox cb_type;
         private System.Windows.Forms.TextBox txt_imagename;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_date;
+        private System.Windows.Forms.Label label6;
     }
 }
