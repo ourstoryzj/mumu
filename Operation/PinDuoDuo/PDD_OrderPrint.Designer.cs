@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tp_shuadan = new System.Windows.Forms.TabPage();
+            this.btn_auto = new System.Windows.Forms.Button();
+            this.btn_f12 = new System.Windows.Forms.Button();
+            this.btn_01 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btn_piliangfahuo = new System.Windows.Forms.Button();
             this.pan_kongbao = new System.Windows.Forms.Panel();
@@ -71,16 +76,11 @@
             this.col_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_goodsname = new System.Windows.Forms.DataGridViewLinkColumn();
             this.col_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tp_shuadan = new System.Windows.Forms.TabPage();
-            this.btn_auto = new System.Windows.Forms.Button();
-            this.btn_f12 = new System.Windows.Forms.Button();
-            this.btn_01 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
+            this.tp_shuadan.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_title)).BeginInit();
-            this.tp_shuadan.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -95,6 +95,56 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1241, 805);
             this.tabControl1.TabIndex = 9;
+            // 
+            // tp_shuadan
+            // 
+            this.tp_shuadan.Controls.Add(this.btn_auto);
+            this.tp_shuadan.Controls.Add(this.btn_f12);
+            this.tp_shuadan.Controls.Add(this.btn_01);
+            this.tp_shuadan.Controls.Add(this.panel1);
+            this.tp_shuadan.Location = new System.Drawing.Point(4, 22);
+            this.tp_shuadan.Name = "tp_shuadan";
+            this.tp_shuadan.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_shuadan.Size = new System.Drawing.Size(1233, 779);
+            this.tp_shuadan.TabIndex = 6;
+            this.tp_shuadan.Text = "打印页面";
+            // 
+            // btn_auto
+            // 
+            this.btn_auto.Location = new System.Drawing.Point(158, 6);
+            this.btn_auto.Name = "btn_auto";
+            this.btn_auto.Size = new System.Drawing.Size(146, 38);
+            this.btn_auto.TabIndex = 11;
+            this.btn_auto.Text = "自动下单";
+            this.btn_auto.UseVisualStyleBackColor = true;
+            // 
+            // btn_f12
+            // 
+            this.btn_f12.Location = new System.Drawing.Point(463, 739);
+            this.btn_f12.Name = "btn_f12";
+            this.btn_f12.Size = new System.Drawing.Size(75, 23);
+            this.btn_f12.TabIndex = 7;
+            this.btn_f12.Text = "审查元素";
+            this.btn_f12.UseVisualStyleBackColor = true;
+            // 
+            // btn_01
+            // 
+            this.btn_01.Location = new System.Drawing.Point(6, 6);
+            this.btn_01.Name = "btn_01";
+            this.btn_01.Size = new System.Drawing.Size(146, 38);
+            this.btn_01.TabIndex = 4;
+            this.btn_01.Text = "01.打印备注";
+            this.btn_01.UseVisualStyleBackColor = true;
+            this.btn_01.Click += new System.EventHandler(this.btn_01_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Location = new System.Drawing.Point(6, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1221, 712);
+            this.panel1.TabIndex = 1;
             // 
             // tabPage1
             // 
@@ -328,9 +378,9 @@
             // 
             this.dgv_title.AllowUserToAddRows = false;
             this.dgv_title.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.dgv_title.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgv_title.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_title.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -416,9 +466,9 @@
             // col_wuliu
             // 
             this.col_wuliu.DataPropertyName = "sdwuliu";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue;
-            this.col_wuliu.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.col_wuliu.DefaultCellStyle = dataGridViewCellStyle2;
             this.col_wuliu.HeaderText = "快递单号";
             this.col_wuliu.Name = "col_wuliu";
             this.col_wuliu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -498,56 +548,6 @@
             this.col_address.Name = "col_address";
             this.col_address.Width = 300;
             // 
-            // tp_shuadan
-            // 
-            this.tp_shuadan.Controls.Add(this.btn_auto);
-            this.tp_shuadan.Controls.Add(this.btn_f12);
-            this.tp_shuadan.Controls.Add(this.btn_01);
-            this.tp_shuadan.Controls.Add(this.panel1);
-            this.tp_shuadan.Location = new System.Drawing.Point(4, 22);
-            this.tp_shuadan.Name = "tp_shuadan";
-            this.tp_shuadan.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_shuadan.Size = new System.Drawing.Size(1233, 779);
-            this.tp_shuadan.TabIndex = 6;
-            this.tp_shuadan.Text = "打印页面";
-            // 
-            // btn_auto
-            // 
-            this.btn_auto.Location = new System.Drawing.Point(158, 6);
-            this.btn_auto.Name = "btn_auto";
-            this.btn_auto.Size = new System.Drawing.Size(146, 38);
-            this.btn_auto.TabIndex = 11;
-            this.btn_auto.Text = "自动下单";
-            this.btn_auto.UseVisualStyleBackColor = true;
-            // 
-            // btn_f12
-            // 
-            this.btn_f12.Location = new System.Drawing.Point(463, 739);
-            this.btn_f12.Name = "btn_f12";
-            this.btn_f12.Size = new System.Drawing.Size(75, 23);
-            this.btn_f12.TabIndex = 7;
-            this.btn_f12.Text = "审查元素";
-            this.btn_f12.UseVisualStyleBackColor = true;
-            // 
-            // btn_01
-            // 
-            this.btn_01.Location = new System.Drawing.Point(6, 6);
-            this.btn_01.Name = "btn_01";
-            this.btn_01.Size = new System.Drawing.Size(146, 38);
-            this.btn_01.TabIndex = 4;
-            this.btn_01.Text = "01.选择极兔合并";
-            this.btn_01.UseVisualStyleBackColor = true;
-            this.btn_01.Click += new System.EventHandler(this.btn_01_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.Location = new System.Drawing.Point(6, 50);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1221, 712);
-            this.panel1.TabIndex = 1;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -562,10 +562,10 @@
             this.Name = "PDD_OrderPrint";
             this.Text = "刷单账号管理";
             this.tabControl1.ResumeLayout(false);
+            this.tp_shuadan.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_title)).EndInit();
-            this.tp_shuadan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
