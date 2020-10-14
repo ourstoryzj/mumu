@@ -423,6 +423,16 @@ namespace Operation.Other
             //wait();
             DropdownCheck("2斤");
 
+            ClickInput(7);
+            wait();
+            DropdownCheck("全选");
+            ClickInput(7);
+            wait();
+            DropdownCheck("甘肃");
+            ClickInput(7);
+            wait();
+            DropdownCheck("内蒙");
+
 
             ClickButton(0);
             "操作成功".ToShow();
