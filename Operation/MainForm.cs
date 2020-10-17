@@ -724,7 +724,7 @@ namespace Operation
         {
             #region 打开网页
             //TaoBao.TB_FaHuo fm = new TaoBao.TB_FaHuo();
-            PDD_OrderPrint fm = new PDD_OrderPrint();
+            PDD_OrderPrint1 fm = new PDD_OrderPrint1();
             fm.MdiParent = this;
             fm.Show();
             fm.WindowState = FormWindowState.Maximized;

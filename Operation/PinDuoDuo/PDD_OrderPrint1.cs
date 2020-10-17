@@ -16,7 +16,7 @@ namespace Operation.Other
 {
 
 
-    public partial class PDD_OrderPrint : Form
+    public partial class PDD_OrderPrint1 : Form
     {
 
 
@@ -45,13 +45,13 @@ namespace Operation.Other
         /// 13 排序方式
         /// 14 每页条数
         /// </summary>
-        string classname_input = "IPT_input_4-62-1";
+        string classname_input = "IPT_input_";
 
         /// <summary>
         /// 下拉列表的样式名称
         /// </summary>
         //string classname_dropdown = "ST_dropdownPanel_4-62-1";
-        string classname_dropdown = "ST_dropdown_4-62-1";
+        string classname_dropdown = "ST_dropdown_";
 
         /// <summary>
         /// 列表上面的选择多选框
@@ -64,7 +64,7 @@ namespace Operation.Other
         /// CBX_input_4-62-1
         /// CBX_textWrapper_4-62-1
         /// </summary>
-        string classname_check = "CBX_input_4-62-1";
+        string classname_check = "CBX_input_";
 
         /// <summary>
         /// 按钮
@@ -75,11 +75,11 @@ namespace Operation.Other
         /// 04 发货
         /// 05 拆单
         /// </summary>
-        string classname_button = "BTN_medium_4-62-1";
+        string classname_button = "BTN_medium_";
 
 
 
-        public PDD_OrderPrint()
+        public PDD_OrderPrint1()
         {
             InitializeComponent();
             bind_chrome();
@@ -163,7 +163,7 @@ namespace Operation.Other
         /// <param name="index"></param>
         void ClickInput(int index)
         {
-            chrome.JS_CEFBrowser("document.getElementsByClassName('" + classname_input + "')[" + index + "].click()");
+            chrome.JS_CEFBrowser("getElementsByClassName_Vague_NoChildren('" + classname_input + "')[" + index + "].click()");
         }
         #endregion
 
@@ -174,7 +174,7 @@ namespace Operation.Other
         /// <param name="index"></param>
         void ClickDropdown(int index)
         {
-            chrome.JS_CEFBrowser("document.getElementsByClassName('" + classname_dropdown + "')[0].getElementsByTagName('li')[" + index + "].click()");
+            chrome.JS_CEFBrowser("getElementsByClassName_Vague('" + classname_dropdown + "')[0].getElementsByTagName('li')[" + index + "].click()");
         }
         #endregion
 
@@ -191,7 +191,7 @@ namespace Operation.Other
         /// <param name="index"></param>
         void ClickCheck(int index)
         {
-            chrome.JS_CEFBrowser("document.getElementsByClassName('" + classname_check + "')[" + index + "].click()");
+            chrome.JS_CEFBrowser("getElementsByClassName_Vague('" + classname_check + "')[" + index + "].click()");
         }
         #endregion
 
@@ -208,7 +208,7 @@ namespace Operation.Other
         /// <param name="index"></param>
         void ClickButton(int index)
         {
-            chrome.JS_CEFBrowser("document.getElementsByClassName('" + classname_button + "')[" + index + "].click()");
+            chrome.JS_CEFBrowser("getElementsByClassName_Vague('" + classname_button + "')[" + index + "].click()");
         }
         #endregion
 
@@ -220,7 +220,8 @@ namespace Operation.Other
         {
             for (int i = 1; i < 5; i++)
             {
-                string res = chrome.JS_CEFBrowser("if(document.getElementsByClassName('" + classname_check + "')[" + i + "].checked==true){document.getElementsByClassName('" + classname_check + "')[" + i + "].click();}");
+                string res = chrome.JS_CEFBrowser("if(getElementsByClassName_Vague('" + classname_check + "')[" + i + "].checked==true){getElementsByClassName_Vague('" + classname_check + "')[" + i + "].click();}");
+                Manager.Delay(300);
             }
 
         }
@@ -242,6 +243,13 @@ namespace Operation.Other
 
         #endregion
 
+        #region ClickOther
+        void ClickOther()
+        {
+            chrome.MouseLeftByHtmlElement("getElementsByClassName_Vague('Grid_row_')[0].getElementsByTagName('label')[0]", true);
+        } 
+        #endregion
+
 
         #region DropdownSetScroll
         /// <summary>
@@ -250,13 +258,13 @@ namespace Operation.Other
         /// <param name="num"></param>
         void DropdownSetScroll(int num)
         {
-            chrome.JS_CEFBrowser("document.getElementsByClassName('" + classname_dropdown + "')[0].getElementsByTagName('ul')[0].getElementsByTagName('div')[0].scrollTop =" + num);
+            chrome.JS_CEFBrowser("getElementsByClassName_Vague('" + classname_dropdown + "')[0].getElementsByTagName('ul')[0].getElementsByTagName('div')[0].scrollTop =" + num);
         }
 
 
         void DropdownSetScroll_Sheng(int num)
         {
-            chrome.JS_CEFBrowser("document.getElementsByClassName('" + classname_dropdown + "')[0].getElementsByTagName('ul')[0].scrollTop =" + num);
+            chrome.JS_CEFBrowser("getElementsByClassName_Vague('" + classname_dropdown + "')[0].getElementsByTagName('ul')[0].scrollTop =" + num);
         }
 
         #endregion
@@ -266,7 +274,11 @@ namespace Operation.Other
 
 
 
-
+        /// <summary>
+        /// 下拉菜单点击
+        /// </summary>
+        /// <param name="str">显示内容</param>
+        /// <param name="nopanduan">不判断是否选中,直接点击</param>
         void DropdownCheck(string str, bool nopanduan = true)
         {
 
@@ -277,22 +289,25 @@ namespace Operation.Other
 
                 DropdownSetScroll(i * len);
                 DropdownSetScroll_Sheng(i * len);
-                wait();
+                Manager.Delay(300);
                 //获取li的数量
-                int licount = chrome.JS_CEFBrowserToInt("document.getElementsByClassName('" + classname_dropdown + "')[0].getElementsByTagName('li').length");
+                int licount = chrome.JS_CEFBrowserToInt("getElementsByClassName_Vague('" + classname_dropdown + "')[0].getElementsByTagName('li').length");
 
                 //循环li
                 for (int j = 0; j < licount; j++)
                 {
                     //判断每个li的文字中是否有制定文字
-                    string temp = chrome.JS_CEFBrowser("document.getElementsByClassName('" + classname_dropdown + "')[0].getElementsByTagName('li')[" + j + "].innerText");
+                    string temp = chrome.JS_CEFBrowser("getElementsByClassName_Vague('" + classname_dropdown + "')[0].getElementsByTagName('li')[" + j + "].innerText");
                     //如果有
                     if (temp.IndexOf(str) > -1)
                     {
+                       
                         if (nopanduan)
                         {
-                            //则判断是否已经被选中
-                            if (!chrome.JS_CEFBrowserToBool("document.getElementsByClassName('" + classname_dropdown + "')[0].getElementsByClassName('" + classname_check + "')[" + j + "].checked==true"))
+                            //string temptemp = chrome.JS_CEFBrowser("getElementsByClassName_Vague('" + classname_check + "')[" + (jj) + "].checked==true");
+                            string temptemp = chrome.JS_CEFBrowser("getElementsByClassName_Vague('" + classname_dropdown + "')[0].getElementsByTagName('li')[" + j + "].getElementsByTagName('input')[0].checked==true");
+                            //则判断是否已经被选中 +8 是跳过下面的合并订单等选项
+                            if (temptemp.ToUpper()=="FALSE")
                             {
                                 //如果没有选中则选中
                                 ClickDropdown(j);
@@ -307,7 +322,7 @@ namespace Operation.Other
                 }
             }
 
-            chrome.MouseLeftByHtmlElement("document.getElementsByClassName('Grid_row_4-62-1')[0].getElementsByTagName('label')[0]", true);
+            ClickOther();
 
 
         }
@@ -444,8 +459,27 @@ namespace Operation.Other
             DropdownCheck("内蒙", false);
 
 
+            //选择快递
+            ClickJiTu();
+
             ClickButton(0);
             "操作成功".ToShow();
+        }
+
+        void ClickJiTu()
+        {
+            //选择快递
+            ClickInput(12);
+            wait();
+            DropdownCheck("极兔-小面单", false);
+        }
+
+        void ClickZhongTong()
+        {
+            //选择快递
+            ClickInput(12);
+            wait();
+            DropdownCheck("中通", false);
         }
 
 
@@ -457,7 +491,7 @@ namespace Operation.Other
         {
             this.Focus();
 
-            chrome.MouseLeftByHtmlElement("document.getElementsByClassName('" + classname_input + "')[" + index + "]", 100, 10);
+            chrome.MouseLeftByHtmlElement("getElementsByClassName_Vague_NoChildren('" + classname_input + "')[" + index + "]", 100, 10);
         }
 
 
@@ -518,6 +552,7 @@ namespace Operation.Other
             wait();
             DropdownCheck("北京");
 
+            ClickJiTu();
 
             ClickButton(0);
             "操作成功".ToShow();
@@ -527,6 +562,9 @@ namespace Operation.Other
         private void btn_06_Click(object sender, EventArgs e)
         {
             ResetAll();
+
+            ClickZhongTong();
+
             ClickButton(0);
             "操作成功".ToShow();
         }
@@ -539,9 +577,9 @@ namespace Operation.Other
         private void btn_zhang_Click(object sender, EventArgs e)
         {
             chrome.JumpUrl("https://mms.pinduoduo.com/home/");
-            chrome.WaitWebPageLoad("document.getElementsByClassName('BTN_outerWrapper_4-85-0')[1]");
+            chrome.WaitWebPageLoad("getElementsByClassName_Vague('BTN_outerWrapper_')[1]");
             wait();
-            chrome.JS_CEFBrowser("document.getElementsByClassName('BTN_outerWrapper_4-85-0')[1].click()");
+            chrome.JS_CEFBrowser("getElementsByClassName_Vague('BTN_outerWrapper_')[1].click()");
             wait();
             string daidaozhang = chrome.JS_CEFBrowser("document.getElementsByClassName('dotted')[0].innerText");
             daidaozhang = daidaozhang.Replace("待到账¥", "");
@@ -579,6 +617,11 @@ namespace Operation.Other
             txt_info.Text += "中通面单:\r\n";
             txt_info.Text += zhongtongcount + "\r\n";
 
+        }
+
+        private void btn_shenchayuansu_Click(object sender, EventArgs e)
+        {
+            chrome.ShowTools();
         }
     }
 

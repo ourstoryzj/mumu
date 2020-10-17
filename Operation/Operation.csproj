@@ -239,6 +239,12 @@
       <DependentUpon>Porfit.cs</DependentUpon>
     </Compile>
     <Compile Include="PinDuoDuo\Entity_KeyData.cs" />
+    <Compile Include="PinDuoDuo\PDD_OrderPrint1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PinDuoDuo\PDD_OrderPrint1.Designer.cs">
+      <DependentUpon>PDD_OrderPrint1.cs</DependentUpon>
+    </Compile>
     <Compile Include="PinDuoDuo\PDD_PrintLabel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -786,6 +792,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Other\Porfit.resx">
       <DependentUpon>Porfit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PinDuoDuo\PDD_OrderPrint1.resx">
+      <DependentUpon>PDD_OrderPrint1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PinDuoDuo\PDD_PrintLabel.resx">
       <DependentUpon>PDD_PrintLabel.cs</DependentUpon>
